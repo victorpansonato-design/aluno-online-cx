@@ -17,6 +17,14 @@ npm run dev
 
 Validação: npm run typecheck, npm run lint, npm test e npm run build. O preview de produção usa a porta 4173. Sem backend ou variáveis de ambiente; hospedagens precisam devolver index.html para rotas da SPA.
 
+## Deploy na Vercel
+
+O arquivo `vercel.json` na raiz configura Vite, o comando `npm run build` e a pasta de saída **`build`**, igual à definida em `vite.config.ts`. Também encaminha rotas como `/inicio` e `/financeiro` para `index.html`, permitindo acesso direto e atualização da página.
+
+Importe a raiz deste repositório e use a branch `main`. Não é necessário configurar variáveis de ambiente. Ao atualizar um projeto existente, publique o commit que contém `vercel.json`; refazer o deploy de um commit anterior não inclui a correção. O erro “No Output Directory named dist” ocorre quando a hospedagem procura `dist`, embora este projeto gere `build`.
+
+Referência: [Vite e rotas SPA na Vercel](https://vercel.com/docs/frameworks/frontend/vite#using-vite-to-make-spas).
+
 ## O que foi reconstruído
 
 - 109 destinos de página capturados, incluindo os 89 avisos e as áreas internas acessíveis à conta de teste.
