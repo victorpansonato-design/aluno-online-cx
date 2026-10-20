@@ -7,3 +7,5 @@ Na revisão 2, public/replica contém logo, fontes, SVGs de ilustração e raste
 As 30 capturas em screenshots/v2 mostram somente o frontend local com dados fictícios. A proveniência foi incorporada aos PNG/JPEG e, quando o formato exige, registrada em sidecar JSON para WebP. A comparação dos payloads de imagem confirmou que a incorporação de metadados não alterou os pixels dos 35 rasters da revisão.
 
 CSS, classes e SVGs de referência foram mantidos para a cópia autorizada. Nenhum JavaScript executável do portal ou conteúdo de imagem privada de aluno/docente foi incluído. Capturas autenticadas, HTML bruto e ferramentas de coleta ficam em work/clone-reference e work/, fora do repositório, e não devem ser publicados.
+
+Na revisão 3, screenshots/v3 contém 31 capturas locais com dados fictícios. Origens registradas em asset-provenance-v3.json, com payloads de pixels preservados. Nenhum novo bitmap foi gerado para a simplificação; as ilustrações continuam sendo os ativos do portal. O esboço de calendário do usuário orienta o componente HTML/CSS e não foi incorporado como imagem de página.

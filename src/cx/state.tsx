@@ -24,6 +24,9 @@ export type DemoState = {
    ratings: Record<string, number>;
    savedRating: number;
    notifications: boolean;
+   chargesPaid: string[];
+   favoriteDates: string[];
+   notificationTopics: string[];
 };
 const key = "anchieta-cx-demo-v1";
 export const initialState: DemoState = {
@@ -60,11 +63,21 @@ export const initialState: DemoState = {
    ratings: {},
    savedRating: 0,
    notifications: true,
+   chargesPaid: [],
+   favoriteDates: [],
+   notificationTopics: ["Acadêmico", "Serviços"],
 };
 function load(): DemoState {
    try {
       const v = JSON.parse(localStorage.getItem(key) || "null");
-      if (v?.version === 1 && Array.isArray(v.requests) && v.profile && typeof v.docs === "object") return { ...initialState, ...v };
+      if (v?.version === 1 && Array.isArray(v.requests) && v.profile && typeof v.docs === "object")
+         return {
+            ...initialState,
+            ...v,
+            chargesPaid: Array.isArray(v.chargesPaid) ? v.chargesPaid : [],
+            favoriteDates: Array.isArray(v.favoriteDates) ? v.favoriteDates : [],
+            notificationTopics: Array.isArray(v.notificationTopics) ? v.notificationTopics : initialState.notificationTopics,
+         };
    } catch {
       /* storage unavailable or obsolete */
    }

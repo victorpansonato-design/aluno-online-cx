@@ -1,6 +1,7 @@
 import raw from "./reference.json";
 import type { DemoState } from "../cx/state";
 import { curriculum, external } from "../cx/data";
+import { primaryDestinations, studentLabels } from "./student/model";
 
 export type ReferenceDialog = { title: string; className: string; slot: string | null; html: string };
 export type ServiceField = { name: string; label: string; type: string; required: boolean; options?: string[] };
@@ -44,7 +45,7 @@ export const aliases: Record<string, string> = {
    "/": "/inicio",
    "/perfil": "/perfil/visao-geral",
    "/meus-dados": "/perfil/visao-geral",
-   "/academico": "/jornada-academica",
+   "/academico": "/meus-estudos",
    "/academico/disciplinas": "/perfil/notas-e-faltas",
    "/academico/notas": "/perfil/notas-e-faltas",
    "/academico/horarios": "/horarios",
@@ -68,10 +69,10 @@ export const aliases: Record<string, string> = {
    "/avisos": "/notificacoes",
    "/financeiro/vencimento": "/financeiro/alteracao-vencimento",
    "/financeiro/responsavel": "/financeiro/alteracao-responsavel",
-   "/financeiro/extrato": "/financeiro",
 };
 export const routePath = (path: string) => aliases[path] || path.replace(/^\/aluno-online/, "");
 export const labels: Record<string, string> = {
+   ...studentLabels,
    "/secretaria-virtual": "Secretaria virtual",
    "/preferencias": "Preferências",
    "/ajuda": "Ajuda e orientação",
@@ -160,12 +161,13 @@ export const topItems: NavItem[] = [
 ];
 export function navLink(item: NavItem) {
    const ext = item.href.startsWith("http");
-   return `<li data-slot="sidebar-menu-item" data-sidebar="menu-item" class="group/menu-item relative"><a data-slot="sidebar-menu-button" data-sidebar="menu-button" data-active="false" class="replica-nav-link" href="${escapeHtml(item.href)}"${ext ? ' target="_blank" rel="noopener noreferrer"' : ""}><span class="material-symbols-outlined" aria-hidden="true">${item.icon}</span><span>${escapeHtml(item.label)}</span>${ext ? '<span class="replica-outbound" aria-hidden="true">↗</span>' : ""}</a></li>`;
+   return `<li data-slot="sidebar-menu-item" data-sidebar="menu-item" class="group/menu-item relative"><a data-slot="sidebar-menu-button" data-sidebar="menu-button" data-active="false" class="replica-nav-link" href="${escapeHtml(item.href)}" aria-label="${escapeHtml(item.label)}" title="${escapeHtml(item.label)}"${ext ? ' target="_blank" rel="noopener noreferrer"' : ""}><span class="material-symbols-outlined" aria-hidden="true">${item.icon}</span><span>${escapeHtml(item.label)}</span>${ext ? '<span class="replica-outbound" aria-hidden="true">↗</span>' : ""}</a></li>`;
 }
 export function navigationHtml(connected: boolean) {
    const original = parse(reference.shell).querySelector('nav[aria-label="Navegação principal"]')!;
    if (!connected) return original.innerHTML;
-   return `<div class="replica-nav-top"><ul>${topItems.map(navLink).join("")}</ul></div><div class="replica-nav-groups">${connectedGroups.map((g, i) => `<section class="replica-nav-group"><button type="button" class="replica-group-trigger" data-nav-group="${i}" aria-expanded="true">${g.label}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><ul>${g.items.map(navLink).join("")}</ul></section>`).join("")}</div>`;
+   const assistant = `<button class="student-sidebar-ana" data-ana-assistant aria-label="Abrir chat da Ana" title="Abrir chat da Ana"><img src="/replica/ana.webp" alt=""/><span>Conversar com a Ana<small>Encontre seu próximo passo</small></span></button>`;
+   return `<div class="student-sidebar"><ul aria-label="Destinos principais">${primaryDestinations.map(navLink).join("")}</ul><a class="student-sidebar-ava" href="${external.ava}" aria-label="Entrar no AVA (abre em nova aba)" title="Entrar no AVA" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined" aria-hidden="true">open_in_new</span><span>Entrar no AVA</span></a><div class="student-sidebar-bottom"><a class="student-sidebar-course" href="/perfil/visao-geral" aria-label="Meu curso: Ciências Contábeis, 2º período. Ver meus dados." title="Meu curso e meus dados"><span class="material-symbols-outlined" aria-hidden="true">school</span><span><strong>Ciências Contábeis</strong><small>2º período · 2026/2</small></span></a>${assistant}<a class="student-sidebar-help" href="/ajuda" aria-label="Preciso de ajuda" title="Preciso de ajuda"><span class="material-symbols-outlined" aria-hidden="true">help</span><span>Preciso de ajuda</span><span class="material-symbols-outlined student-help-arrow" aria-hidden="true">arrow_forward</span></a></div></div>`;
 }
 function contextLinks(d: Document, items: { label: string; href: string }[]) {
    const section = d.createElement("nav");
@@ -183,6 +185,18 @@ function contextLinks(d: Document, items: { label: string; href: string }[]) {
 }
 export function preparePage(path: string, html: string, connected: boolean, state: DemoState, period: number) {
    const d = parse(html);
+   if (path === "/financeiro/extrato") {
+      const statement = d.querySelector("#extrato-financeiro-title")?.closest("section");
+      if (statement) {
+         const retained = statement.cloneNode(true);
+         d.body.replaceChildren();
+         const header = d.createElement("header");
+         header.className = "replica-page-head";
+         header.innerHTML =
+            "<h1>Extrato e bolsas</h1><p>Consulte as movimentações e benefícios do seu contrato. Histórico de referência da demonstração.</p>";
+         d.body.append(header, retained);
+      }
+   }
    if (path === "/inicio" && !d.querySelector("h1")) {
       const h = d.createElement("h1");
       h.className = "sr-only";
@@ -320,7 +334,7 @@ export function preparePage(path: string, html: string, connected: boolean, stat
       }
    }
    if (path === "/solicitacao-servicos") {
-      const list = state.requests.filter(r => !["DEMO-1041", "DEMO-1042"].includes(r.id));
+      const list = state.requests.filter(r => connected || !["DEMO-1041", "DEMO-1042"].includes(r.id));
       if (list.length) {
          const section = d.createElement("section");
          section.className = "replica-local-requests";
@@ -463,6 +477,7 @@ export function preparePage(path: string, html: string, connected: boolean, stat
          if (state.scenario === "dp") {
             const section = d.createElement("section");
             section.className = "replica-dp-example";
+            section.id = "disciplinas-regularizar";
             section.innerHTML = `<h2>Disciplinas para regularizar</h2><p>Cenário de demonstração · essas pendências são fictícias.</p>${[
                { name: "Fundamentos da Contabilidade", type: "Dependência (DP)" },
                { name: "Direito Aplicado aos Negócios", type: "Adaptação" },

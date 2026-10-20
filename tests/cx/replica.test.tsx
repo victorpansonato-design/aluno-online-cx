@@ -7,6 +7,7 @@ import { prepareMonth } from "../../src/replica/calendar";
 
 beforeEach(() => {
    localStorage.clear();
+   localStorage.setItem("anchieta-navigation-v3", "original");
    window.history.replaceState({}, "", "/inicio");
    vi.stubGlobal(
       "matchMedia",

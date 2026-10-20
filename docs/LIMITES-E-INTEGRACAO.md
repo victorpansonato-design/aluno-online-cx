@@ -1,4 +1,4 @@
-# Fidelidade, limites e integração · revisão 2
+# Fidelidade, limites e integração · revisão 3
 
 ## O que foi observado
 
@@ -27,3 +27,9 @@ Autenticação/múltiplos vínculos; matrícula, notas e frequência; matriz e e
 ## Validação de experiência
 
 Testes técnicos não comprovam conformidade integral WCAG nem melhoria de satisfação/retenção. Faltam pesquisa com ingressantes, leitores de tela, zoom, aparelhos reais, rede lenta e variações de curso/vínculo. A estratégia e as referências de pesquisa estão em DIAGNOSTICO-E-ESTRATEGIA.md; suas hipóteses continuam hipóteses.
+
+## Dados adicionais da revisão 3
+
+A home e o financeiro incluem mensalidade fictícia de R$ 890,00, com vencimento derivado da preferência local. O Pix é uma prévia inválida: não contém payload bancário nem destinatário real; copiar o código não permite transferir valores. Confirmar a simulação atualiza somente os IDs selecionados e os protocolos de serviço vinculados. Recibos são documentos de exemplo sem validade.
+
+O calendário acadêmico é separado da agenda de aulas preservada. Usa o esboço/captura do usuário e lembretes de exemplo, não consulta a agenda institucional. O endereço fornecido pediu login Microsoft e não foi acessado com outra conta. Mês, filtro, favoritos e evento funcionam localmente. Horas de extensão 40/240h e atividades correspondentes são exemplos; não se apresentam como obrigação oficial do curso. Assuntos de comunicação escolhidos no protótipo não alteram assinaturas, e-mails ou notificações reais.

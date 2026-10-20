@@ -1,44 +1,45 @@
-# Validação técnica · revisão 2
+# Validação técnica · revisão 3
 
-Verificações em 20/10/2026 no frontend local. O portal real foi fonte de consulta, sem envios ou alterações de registros.
+Verificações em 20/10/2026 somente no frontend local, com dados fictícios. A base clonada aprovada está registrada separadamente nos relatórios clone-* e nas capturas v2.
 
-| Verificação              | Resultado                       | Escopo                                                                                                                                                                                                                      |
-| ------------------------ | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| TypeScript e ESLint      | Passaram                        | Código ativo src/replica, compartilhado src/cx, entrada e testes                                                                                                                                                            |
-| Vitest / Testing Library | 24 testes passaram              | 13 do clone ativo e 11 do histórico/dados compartilhados; oito períodos, 40 formulários, sanitização, documentos, protocolo/financeiro, laboratórios, múltiplas disciplinas, calendário, retorno de formulário e instruções |
-| Produção Vite            | Passou                          | Páginas e formulários em chunks por demanda, fontes e ativos locais                                                                                                                                                         |
-| Cobertura de rotas       | 344 visitas sem falha detectada | 152 destinos em 1280/390px; 20 áreas principais em 320/768px                                                                                                                                                                |
-| Smoke por navegador      | 6 verificações passaram         | Menu móvel, Ctrl K, seleção de dia, mês anterior/seguinte e destino ativo único                                                                                                                                             |
-| axe automatizado         | 0 violations em 12 amostras     | Seis superfícies em 1280/390px; há verificações manuais incomplete                                                                                                                                                          |
-| axe após correções       | 0 violations em 6 amostras      | Documentos, histórico e formulário de reopção em 1280/390px                                                                                                                                                                 |
-| Preview compilado        | 4 rotas passaram                | Início, documentos, serviço e aviso em 390px; sem overflow ou recursos de API institucional                                                                                                                                 |
-| Capturas de revisão      | 30 capturas válidas             | 1280×720, 390×844 e largura real 981×884; dados fictícios                                                                                                                                                                   |
-| Correções da revisão     | 3 verificações passaram         | Aba ativa visível sem deslocamento vertical; campos iguais antes/depois da conferência em duas larguras                                                                                                                     |
-| Revisão independente     | ship no verdict pass            | Os três achados da revisão foram classificados resolved; aprovação restrita às correções pontuadas                                                                                                                          |
-| Proveniência             | 35 rasters registrados          | 30 capturas e cinco ativos; payloads de pixels preservados                                                                                                                                                                  |
+| Verificação               | Resultado                              | Escopo                                                                                                                                              |
+| ------------------------- | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| TypeScript e ESLint       | Passaram                               | Aplicação ativa src/replica, código compartilhado src/cx e entrada                                                                                  |
+| Vitest / Testing Library  | 32 testes passaram                     | 13 do clone, 8 da simplificação e 11 do histórico/dados compartilhados                                                                              |
+| Produção Vite             | Passou                                 | Páginas, formulários e novas telas da simplificação carregados sob demanda                                                                          |
+| Renderização no navegador | 24 verificações sem overflow da página | 11 rotas em 1280/390px e home em 981/320px                                                                                                          |
+| axe automatizado          | 0 violations em 18 amostras            | Home, estudos, secretaria, financeiro, Pix, calendário, horas, avisos e documentos em 1280/390px                                                    |
+| Smoke adicional           | 5 verificações passaram                | Nomes dos links recolhidos; seis destinos/curso no menu móvel; recuperação de cobrança inválida; troca de mês; abertura da Ana após fechar a gaveta |
+| axe do menu               | 0 violations em 2 amostras             | Sidebar recolhida e gaveta móvel; há itens inconclusivos                                                                                            |
+| Capturas                  | 31 PNGs locais                         | 1280×900, 390×844, home981×884/320×844, tema escuro, DP, pagamento confirmado e menus                                                               |
+| Detector                  | 0 achados primários                    | Uma execução nos arquivos autorais alterados; 106 avisos consultivos comparavam a especificação visual V1 anterior                                  |
+| Proveniência              | 31 capturas com origem                 | Payloads de pixels preservados ao incorporar metadados; ativos originais mantêm registros v2                                                        |
 
-## Interpretação da cobertura
+## Percursos verificados
 
-O índice contém 109 destinos capturados, incluindo os 89 avisos, e 40 formulários de serviço. A varredura adiciona Secretaria virtual, Preferências e Ajuda: 152 destinos em cada uma das duas larguras completas. As 20 páginas principais repetidas em 320 e 768px completam 344 visitas. Isso verifica renderização, conteúdo, imagens visíveis quebradas e overflow da página; não equivale a testar todas as combinações de estado e interação.
+Os oito testes da simplificação cobrem: seis destinos e associação das áreas; cobrança selecionada na home até confirmação local e atualização da home; pagamento de taxa isolado da mensalidade; filtro/favorito/ação do calendário; assuntos opcionais e acesso a todos os avisos; disciplina indicada pelo aviso de faltas; catálogo filtrado e retorno aos 40 serviços; acesso à Ana na navegação sem camada flutuante sobre o conteúdo.
 
-Os testes de componentes e os percursos no navegador complementam a varredura: campo específico de turno, revisão, protocolo e pagamento local; seleção de documento sem conteúdo persistido; habilitação de laboratório; seleção múltipla de disciplinas; detalhes da jornada; datas do calendário; preservação do rascunho ao voltar. A revisão das imagens confirma composição e hierarquia, sem medir equivalência de cada pixel ou curva de animação.
+Os 13 testes do clone continuam verificando conteúdos e comportamentos preservados, incluindo oito períodos, formulários específicos, metadados de documentos, protocolo/financeiro, laboratórios, múltiplas disciplinas, agenda, rascunho após conferência e instruções sanitizadas. Os 11 testes históricos/dados compartilhados não são apresentados como se percorressem a interface atual.
 
-## Evidências atuais
+Uma primeira execução de Vitest dentro do sandbox falhou antes de coletar testes por EPERM ao renomear um arquivo temporário. A execução local autorizada fora desse diretório temporário foi concluída com êxito. Não foi tratado como defeito da aplicação.
 
-- clone-coverage-report.json: visitas por rota e largura.
-- clone-smoke-report.json: seis percursos e 12 amostras axe.
-- clone-final-checks.json: seis amostras axe após correções e quatro rotas de produção.
-- clone-browser-report.json e screenshots/v2/: capturas atuais.
-- clone-verdict-checks.json: valores antes/depois e posição da aba ativa.
-- REVISAO-INDEPENDENTE-V2.md: revisão completa e verdict pass limitado aos três achados.
-- asset-provenance-v2.json: origem e preservação dos rasters.
+## Evidências
 
-Os relatórios browser-report.json, capture-report.json e smoke-report.json sem o prefixo clone, e capturas fora de v2, pertencem à versão anterior. Seus números não são usados para validar a revisão atual.
+A revisão independente completa identificou duas correções materiais: sobreposição da Ana e documentação visual da proposta anterior. Após uma rodada de correção e 31 recapturas válidas, o revisor classificou ambas como **resolved**, com **disposition: ship** restrito a esses dois achados. A Ana permanece no rodapé da navegação Conectada; Original preserva o widget da cópia. DESIGN.md e o sidecar foram reconciliados por um documentador dedicado. A tentativa documental da revisão anterior havia falhado por limite de uso; foi substituída com êxito nesta revisão, sem apresentar aquele trabalho incompleto como concluído.
 
-## Limites técnicos
+- student-browser-report.json: renderização e 18 amostras axe.
+- student-smoke-report.json: cinco verificações e duas amostras axe dos menus.
+- student-detector-report.json: resultado único do detector anterior à reconciliação documental; não foi repetido para maquiar avisos.
+- screenshots/v3/: capturas da simplificação; estados de notas e DP são links profundos deliberadamente rolados.
+- REVISAO-INDEPENDENTE-V3.md: revisão por imagens e código amostrado, sem navegador do revisor; achados e veredito estão registrados no próprio documento.
+- asset-provenance-v3.json: origem das capturas e integridade dos payloads.
 
-O build emite aviso de chunk principal acima de 500kB: aproximadamente 645kB minificado / 144kB gzip, além de CSS de referência de aproximadamente 235kB / 38kB gzip e chunks de página sob demanda. Não foi feita medição de desempenho em aparelhos ou rede móvel reais. O aviso não foi ocultado alterando o limite da ferramenta.
+A revisão 2 executou 344 visitas a rotas, 18 amostras axe em suas etapas e quatro rotas em preview compilado. Esses resultados permanecem como histórico da base aprovada e não substituem as verificações atuais. A revisão 3 não repetiu todas as combinações de formulários, períodos, avisos e dispositivos.
 
-Axe sem violations não certifica conformidade WCAG. Faltam leitores de tela, zoom, aparelhos reais e estados não capturados. A revisão independente examinou as imagens fornecidas e código amostrado; não executou navegador nem auditou toda a sanitização. O detector rodou uma vez nos arquivos autorais alterados; Inter, símbolos e o marcador original são compromissos da cópia, e avisos do DESIGN anterior foram encaminhados à documentação atualizada.
+## Limites
 
-Nenhuma melhoria de satisfação, tempo ou retenção foi apresentada como medida. Regras acadêmicas e financeiras, autenticação, documentos oficiais e integrações de backend permanecem fora deste frontend demonstrativo.
+O build mantém aviso de chunk principal maior que 500kB, aproximadamente 656kB minificado / 148kB gzip, mais CSS de aproximadamente 272kB / 44kB gzip e chunks sob demanda. O limite de aviso não foi aumentado. Não há medição de desempenho em aparelho ou rede móvel real.
+
+Axe sem violations não certifica WCAG. Há itens inconclusivos, por exemplo contraste em gradiente e foco em guardas de diálogo. Capturas estáticas não comprovam todas as animações, leituras de tela, zoom, impressão e interações. A revisão independente só sustenta o escopo e o veredito declarados no relatório.
+
+Sem APIs institucionais, cobrança bancária, SSO, envio de anexos ou documentos oficiais. Calendário, valor da mensalidade e extensão contêm exemplos identificados. A melhoria de compreensão, satisfação, tempo ou retenção precisa ser medida com alunos; os testes técnicos não a comprovam.

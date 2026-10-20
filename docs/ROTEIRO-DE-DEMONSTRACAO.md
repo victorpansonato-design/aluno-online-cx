@@ -1,13 +1,18 @@
-# Roteiro de demonstração · revisão 2
+# Roteiro da revisão 3
 
-1. Abra /inicio no modo Original. Compare logo, cabeçalho, sidebar, aula, ilustrações, resumos, jornada e avisos com o portal real.
-2. Reduza a largura para 390px. Abra o menu, navegue em Horários e alterne Semana/Mês; selecione dias da agenda e abra as notas pela home.
-3. Explore Meu perfil, Documentos, Notas e faltas, Horas complementares e Certificados. Selecione um arquivo fictício: só nome/status ficam no navegador.
-4. Abra Solicitação de serviços, busque Transferência de Turno, selecione turno, confira e conclua a demonstração. O protocolo aparece no acompanhamento e no financeiro.
-5. Simule o pagamento no financeiro e retorne ao mesmo protocolo. Confira a atualização para Em análise.
-6. Alterne para Conectada pelo botão no topo. Abra a Secretaria virtual e seus grupos; documentos pessoais continuam em Meus dados.
-7. Em Preferências e cenários, escolha DP/adaptação. Na jornada, observe o encaminhamento à inscrição externa junto da disciplina.
-8. Explore compensação, dispensa de várias disciplinas, laboratórios, estágio/TCC/PI, contratos, formatura, mural e avisos. Links externos abrem os sistemas de destino.
-9. Teste Ctrl K, tema escuro, texto maior e movimento reduzido. Reinicie os dados em Preferências para outra apresentação.
+Abra http://127.0.0.1:5173/inicio. A visão Conectada abre por padrão em um navegador sem preferência salva; o seletor no alto permite comparar Original. Todos os dados e alterações são locais.
 
-Nenhuma etapa local cria pedido, cobrança, assinatura ou upload no sistema da instituição. Não use documentos reais para apresentar. O guia Ana oferece orientação local por assuntos, sem atendimento humano ou IA conectada.
+1. Confira as seis entradas e o rodapé com curso, período, semestre e ajuda. No celular, abra a gaveta pelo botão do cabeçalho.
+2. Na home, identifique próxima aula, documentos/frequência, horas, calendário e próximo pagamento.
+3. Use **Conferir e pagar**: a mensalidade de R$ 890,00 já estará selecionada. Continue para o **Pix de demonstração** e simule a confirmação. Consulte o comprovante e volte à home: a mensalidade deixa de aparecer como pendente.
+4. Abra **Secretaria virtual → Nova solicitação**. Pesquise pelo que precisa, examine nome amigável, nome/código original, valor e instruções. Preencha um serviço e confira antes de confirmar localmente. Acompanhe seu protocolo. Se houver taxa, abra a cobrança correspondente.
+5. Na home, siga a pendência de documentos até **Meus dados → Documentos**. Selecione um arquivo de teste e veja o status local; o conteúdo não é enviado nem persistido.
+6. Siga o aviso de faltas até Contabilidade. Abra seus detalhes e os caminhos relacionados. Explore os oito períodos da jornada.
+7. Em **Preferências e cenários**, escolha DP/adaptação. Volte à home e siga até a jornada: as disciplinas do cenário oferecem inscrição externa. Não conclua nenhuma ação no sistema externo.
+8. No **Calendário**, filtre um assunto, busque uma prova, selecione uma data, abra um evento e marque um favorito. Troque o mês. Os dados da prévia são demonstrativos; use o link oficial para consultar regras e datas institucionais.
+9. Em **Meus estudos → Atividades e horas**, compare complementares e extensão, consulte certificados e os caminhos externos de registro. Extensão 40/240h é exemplo.
+10.   Pelo sino, consulte **Avisos e comunicados**. Escolha assuntos opcionais; consulte todos os 89 avisos e o mural. A preferência não altera e-mail ou notificações da instituição.
+
+Use Ctrl K para buscar recursos. Teste claro/escuro, menu recolhido e navegação pelo teclado. O reset em Preferências restaura somente a demonstração neste navegador.
+
+O botão Conversar com a Ana fica no rodapé da navegação. No celular, abra a gaveta para encontrá-lo; ao tocar, a navegação fecha e o guia local abre. A personagem permanece preservada sem cobrir as tarefas.

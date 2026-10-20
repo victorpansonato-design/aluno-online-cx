@@ -4,6 +4,8 @@ Inspeção realizada em 20/10/2026, com a conta de teste autorizada. O trabalho 
 
 Revisão 2: após a avaliação do usuário, a execução passou a clonar o portal real antes de reorganizá-lo. A análise e as referências abaixo continuam como fundamento; a implementação atual e seus limites estão em REANALISE-E-CLONAGEM.md. Mudanças de regra e consolidação de ofertas permanecem hipóteses, não alterações silenciosas na cópia.
 
+A revisão 3 parte do clone aprovado e executa a simplificação descrita em SIMPLIFICACAO-CX.md. Conectada passa a ser a entrada padrão; os seis grupos incluem Calendário como destino próprio. Os números de teste atuais estão em VALIDACAO.md.
+
 ## A decisão central
 
 O aluno não deveria precisar descobrir qual setor da faculdade resolve sua necessidade. A navegação deve aproximar a informação da ação: uma nota leva à revisão, uma falta à orientação adequada, uma dependência à inscrição e um pedido ao seu acompanhamento. A estrutura acadêmica continua existindo nos sistemas, mas deixa de ser a principal exigência cognitiva da interface.

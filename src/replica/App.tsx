@@ -1,16 +1,20 @@
-import { memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type MouseEvent } from "react";
+import { lazy, Suspense, memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type MouseEvent } from "react";
 import { createPortal } from "react-dom";
 import { BrowserRouter, useLocation, useNavigate } from "react-router-dom";
 import { Dialog } from "radix-ui";
 import { ArrowRight, Check, ChevronDown, ExternalLink, HelpCircle, LogOut, Menu, Moon, Settings2, Sun, X } from "lucide-react";
 import { Toaster, toast } from "sonner";
 import { DemoProvider, useDemo } from "../cx/state";
-import { external, normalize } from "../cx/data";
+import { disciplines, external, normalize } from "../cx/data";
 import OverlayView, { type Overlay } from "./Dialogs";
 import { prepareMonth } from "./calendar";
 import { aliases, docNames, escapeHtml, loadScreen, navigationHtml, preparePage, reference, routePath, titleFor } from "./reference";
+import { sectionFor, studentRoutes } from "./student/model";
+import { SectionNavigation } from "./student/Navigation";
 import "./original.css";
 import "./replica.css";
+import "./student/student.css";
+const StudentPage = lazy(() => import("./student/StudentPage"));
 
 export default function App() {
    return (
@@ -29,7 +33,7 @@ function Replica() {
    const location = useLocation();
    const nav = useNavigate();
    const [host, setHost] = useState<HTMLDivElement | null>(null);
-   const [connected, setConnected] = useState(() => localStorage.getItem("anchieta-replica-nav") === "connected");
+   const [connected, setConnected] = useState(() => localStorage.getItem("anchieta-navigation-v3") !== "original");
    const [collapsed, setCollapsed] = useState(false);
    const [menu, setMenu] = useState(false);
    const [account, setAccount] = useState(false);
@@ -49,7 +53,7 @@ function Replica() {
    const routedOverlay: Overlay | null = rawPath.startsWith("/solicitacao-servicos/solicitar/")
       ? { kind: "service", code: rawPath.split("/").pop() }
       : rawPath === "/solicitacao-servicos/solicitar"
-        ? { kind: "catalog" }
+        ? { kind: "catalog", detail: new URLSearchParams(location.search).get("busca") || "" }
         : rawPath === "/financeiro/alteracao-vencimento"
           ? { kind: "due" }
           : rawPath === "/financeiro/alteracao-responsavel"
@@ -65,6 +69,7 @@ function Replica() {
            : "/solicitacao-servicos"
       : rawPath;
    const title = titleFor(page);
+   const customStudentPage = studentRoutes.has(page) || (connected && ["/inicio", "/financeiro"].includes(page));
    const bindHost = useCallback((node: HTMLDivElement | null) => {
       if (node && !node.dataset.replicaMounted) {
          node.innerHTML = reference.shell;
@@ -97,7 +102,9 @@ function Replica() {
                    : page === "/meu-estagio" && stage.includes("TCC")
                      ? "estagio-tcc"
                      : undefined;
-   const screenName = (variant && reference.variants[variant]?.name) || reference.pages[page]?.name;
+   const screenName = customStudentPage
+      ? undefined
+      : (variant && reference.variants[variant]?.name) || reference.pages[page === "/financeiro/extrato" ? "/financeiro" : page]?.name;
    const source = loaded.name === screenName ? loaded.html : undefined;
    const pageHTML = useMemo(() => {
       if (!source) return "";
@@ -106,6 +113,10 @@ function Replica() {
    }, [page, source, connected, state, period, calendarMonth, monthOffset, monthDay]);
    const go = useCallback(
       (path: string) => {
+         if (/^https?:/.test(path)) {
+            window.open(path, "_blank", "noopener,noreferrer");
+            return;
+         }
          setOverlay(null);
          setMenu(false);
          setAccount(false);
@@ -152,7 +163,7 @@ function Replica() {
       };
    }, [screenName]);
    useEffect(() => {
-      localStorage.setItem("anchieta-replica-nav", connected ? "connected" : "original");
+      localStorage.setItem("anchieta-navigation-v3", connected ? "connected" : "original");
    }, [connected]);
    useLayoutEffect(() => {
       if (!host) return;
@@ -186,12 +197,13 @@ function Replica() {
                sep.textContent = "›";
                sep.setAttribute("aria-hidden", "true");
                crumbs.append(sep);
-               const group =
-                  page.startsWith("/perfil/") && !page.includes("notas") && !page.includes("horas") && !page.includes("colacao")
-                     ? { label: "Meus dados", href: "/perfil/visao-geral" }
-                     : page.includes("solicitacao") || page === "/contratos" || page.includes("colacao")
-                       ? { label: "Secretaria virtual", href: "/secretaria-virtual" }
-                       : null;
+               const group = connected
+                  ? sectionFor(page)
+                  : page.startsWith("/perfil/") && !page.includes("notas") && !page.includes("horas") && !page.includes("colacao")
+                    ? { label: "Meus dados", href: "/perfil/visao-geral" }
+                    : page.includes("solicitacao") || page === "/contratos" || page.includes("colacao")
+                      ? { label: "Secretaria virtual", href: "/secretaria-virtual" }
+                      : null;
                if (group && group.href !== page) {
                   const li = document.createElement("li");
                   const a = document.createElement("a");
@@ -214,7 +226,9 @@ function Replica() {
       }
       host.querySelectorAll('nav[aria-label="Navegação principal"] a').forEach(a => {
          const href = a.getAttribute("href");
-         const active = href === page || (page.startsWith("/notificacoes/") && href === "/notificacoes");
+         const active =
+            href === (connected ? sectionFor(page)?.href : page) ||
+            (!connected && page.startsWith("/notificacoes/") && href === "/notificacoes");
          a.classList.remove("bg-canvas!", "text-primary!", "shadow-xs", "hover:bg-canvas!", "hover:text-primary!");
          a.querySelectorAll(":scope > span.absolute").forEach(el => el.remove());
          if (href === "/inicio")
@@ -225,6 +239,8 @@ function Replica() {
          else a.removeAttribute("aria-current");
       });
       const profile = Array.from(host.querySelectorAll("header button")).find(b => b.textContent?.includes("RA:"));
+      const notices = host.querySelector<HTMLAnchorElement>('header a[aria-label="Avisos"]');
+      if (notices) notices.href = connected ? "/comunicados" : "/notificacoes";
       if (profile) {
          profile.setAttribute("aria-label", "Abrir menu da conta e opções da demonstração");
          profile.setAttribute("data-account", "true");
@@ -277,6 +293,26 @@ function Replica() {
       observer?.observe(tabs);
       return () => observer?.disconnect();
    }, [pageHTML]);
+   useLayoutEffect(() => {
+      const id = new URLSearchParams(location.search).get("disciplina");
+      if (!id || !connected) return;
+      const unit = disciplines.find(d => d.id === id);
+      if (!unit) return;
+      const heading = Array.from(contentRef.current?.querySelectorAll("h3,h4") || []).find(
+         h => normalize(h.textContent || "") === normalize(unit.name),
+      );
+      const row = heading?.closest("li,article");
+      if (row) {
+         row.classList.add("student-highlighted-unit");
+         const scroller = host?.querySelector<HTMLElement>("[data-replica-scroll]");
+         if (scroller) {
+            scroller.scrollTop +=
+               row.getBoundingClientRect().top -
+               scroller.getBoundingClientRect().top -
+               Math.max(24, (scroller.clientHeight - row.getBoundingClientRect().height) / 2);
+         }
+      }
+   }, [loaded.name, location.search, connected, host]);
    useEffect(() => {
       const onKey = (e: KeyboardEvent) => {
          if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
@@ -290,6 +326,7 @@ function Replica() {
    const activeOverlay = overlay || routedOverlay;
    const currentContentHost = host?.querySelector("#conteudo-principal");
    function handleClick(event: MouseEvent<HTMLElement>) {
+      if ((event.target as HTMLElement).closest("[data-student-ui]")) return;
       const target = (event.target as HTMLElement).closest<HTMLElement>("a,button,[role=radio],[role=tab]");
       if (!target) return;
       const text = target.textContent?.trim() || "";
@@ -310,6 +347,11 @@ function Replica() {
          return;
       }
       if (target.hasAttribute("disabled")) return;
+      if (target.hasAttribute("data-ana-assistant")) {
+         setMenu(false);
+         setOverlay({ kind: "chat" });
+         return;
+      }
       if (target.getAttribute("role") === "switch") {
          const checked = target.getAttribute("aria-checked") !== "true";
          target.setAttribute("aria-checked", String(checked));
@@ -490,7 +532,7 @@ function Replica() {
          toast.info("Todos os itens da demonstração já estão disponíveis. Use a busca para localizar.");
          return;
       }
-      if (page === "/financeiro" && text.includes("CSV")) {
+      if (page.startsWith("/financeiro") && text.includes("CSV")) {
          exportStatement();
          return;
       }
@@ -502,7 +544,7 @@ function Replica() {
          exportCalendar();
          return;
       }
-      if (page === "/financeiro" && (text === "Meses anteriores" || text === "Próximos meses" || label === "Meses anteriores")) {
+      if (page.startsWith("/financeiro") && (text === "Meses anteriores" || text === "Próximos meses" || label === "Meses anteriores")) {
          const h = contentRef.current?.querySelector("h2");
          const heading = Array.from(contentRef.current?.querySelectorAll("h2") || []).find(h => h.textContent?.startsWith("Meses de"));
          if (heading) heading.textContent = text.includes("anteriores") ? "Meses de 2025" : "Meses de 2026";
@@ -673,13 +715,14 @@ function Replica() {
       }
    }
    function filterLocalRows(text: string) {
-      if (page !== "/financeiro") return;
+      if (!page.startsWith("/financeiro")) return;
       const cutoff = text === "30 dias" ? "OUTUBRO" : text === "90 dias" ? "AGOSTO" : "";
       contentRef.current?.querySelectorAll<HTMLElement>("[aria-labelledby^=extrato-]").forEach((el, i) => {
          el.hidden = !!cutoff && (text === "30 dias" ? i > 2 : i > 4);
       });
    }
    function onInput(e: React.FormEvent<HTMLDivElement>) {
+      if ((e.target as HTMLElement).closest("[data-student-ui]")) return;
       const input = e.target as HTMLInputElement;
       if (!input.matches("input[type=search],[data-page-search]")) return;
       const q = normalize(input.value);
@@ -731,8 +774,22 @@ function Replica() {
    }, [host, onChange]);
    const content = (
       <div ref={contentRef} className="replica-page" onClick={handleClick} onInput={onInput} onSubmit={e => e.preventDefault()}>
-         {source ? (
-            <ReferenceContent html={pageHTML} />
+         {customStudentPage ? (
+            <Suspense
+               fallback={
+                  <div className="replica-loading" role="status">
+                     <span>Carregando sua área…</span>
+                     <div />
+                  </div>
+               }
+            >
+               <StudentPage path={page} showOverlay={setOverlay} />
+            </Suspense>
+         ) : source ? (
+            <>
+               {connected && <SectionNavigation path={page} />}
+               <ReferenceContent html={pageHTML} />
+            </>
          ) : screenName ? (
             <div className="replica-loading" aria-live="polite">
                {loadError ? (
@@ -809,9 +866,11 @@ function Replica() {
                <ChevronDown size={12} />
             </button>
          )}
-         <button className="replica-ana-launcher" aria-label="Abrir chat da Ana" onClick={() => setOverlay({ kind: "chat" })}>
-            <img src="/replica/ana.webp" alt="" />
-         </button>
+         {!connected && (
+            <button className="replica-ana-launcher" aria-label="Abrir chat da Ana" onClick={() => setOverlay({ kind: "chat" })}>
+               <img src="/replica/ana.webp" alt="" />
+            </button>
+         )}
          {menu && (
             <MobileMenu
                html={sourceNav}
@@ -961,30 +1020,32 @@ function Secretariat({ go }: { go: (p: string) => void }) {
       [
          "Declarações e comprovantes",
          "Atestados, histórico, plano de ensino e outras declarações.",
-         "/solicitacao-servicos/solicitar",
+         "/solicitacao-servicos/solicitar?busca=declara",
          "description",
       ],
       ["Minhas solicitações", "Veja o andamento e o retorno dos seus pedidos.", "/solicitacao-servicos", "assignment"],
       [
-         "Compensação de faltas",
-         "Confira as regras e solicite a análise do seu afastamento.",
+         "Tive um afastamento",
+         "Compensação de faltas: confira as regras e solicite a análise.",
          "/solicitacao-servicos/compensacao-faltas",
          "person_add_disabled",
       ],
       [
-         "Dispensa de disciplinas",
-         "Solicite o aproveitamento do que você já cursou.",
+         "Aproveitar disciplinas que já cursei",
+         "Dispensa de disciplinas: solicite a análise dos seus estudos anteriores.",
          "/solicitacao-servicos/dispensa-disciplinas",
          "library_books",
       ],
       [
-         "Agendamento de laboratórios",
-         "Consulte recursos e organize sua reserva.",
+         "Reservar um laboratório",
+         "Consulte os recursos e faça seu agendamento.",
          "/solicitacao-servicos/agendamento-laboratorios",
          "event_available",
       ],
-      ["Contratos", "Consulte os documentos do seu vínculo acadêmico.", "/contratos", "document_scanner"],
-      ["Colação de grau", "Acompanhe os requisitos para a conclusão do curso.", "/perfil/colacao-de-grau", "school"],
+      ["Meus contratos", "Consulte os documentos do seu vínculo acadêmico.", "/contratos", "document_scanner"],
+      ["Formatura e colação de grau", "Acompanhe os requisitos para a conclusão do curso.", "/perfil/colacao-de-grau", "school"],
+      ["Atendimento e orientação", "Encontre o caminho para resolver sua dúvida.", "/ajuda", "help"],
+      ["Ouvidoria", "Acesse o canal institucional de ouvidoria.", external.ouvidoria, "forum"],
    ];
    return (
       <div className="replica-hub">
@@ -1028,17 +1089,14 @@ function Secretariat({ go }: { go: (p: string) => void }) {
             </section>
             <aside>
                <h2>Acompanhe seus pedidos</h2>
-               {state.requests
-                  .filter(r => !["DEMO-1041", "DEMO-1042"].includes(r.id))
-                  .slice(0, 2)
-                  .map(r => (
-                     <button className="replica-hub-request" key={r.id} onClick={() => go("/solicitacao-servicos")}>
-                        <strong>{r.name}</strong>
-                        <span className="replica-status-pill">{r.status}</span>
-                        <small>{r.id}</small>
-                     </button>
-                  ))}
-               {!state.requests.some(r => !["DEMO-1041", "DEMO-1042"].includes(r.id)) && (
+               {state.requests.slice(0, 2).map(r => (
+                  <button className="replica-hub-request" key={r.id} onClick={() => go("/solicitacao-servicos")}>
+                     <strong>{r.name}</strong>
+                     <span className="replica-status-pill">{r.status}</span>
+                     <small>{r.id}</small>
+                  </button>
+               ))}
+               {!state.requests.length && (
                   <div className="replica-personal-link">
                      <p>Os pedidos que você criar nesta demonstração aparecem aqui para acompanhamento.</p>
                      <button className="replica-text-button" onClick={() => go("/solicitacao-servicos")}>
@@ -1095,7 +1153,7 @@ function Preferences({ connected, setConnected }: { connected: boolean; setConne
                <option value="base">Semestre em curso</option>
                <option value="dp">Dependência e adaptação fictícias</option>
                <option value="financeiro">Cobrança fictícia pendente</option>
-               <option value="vazio">Sem novos pedidos</option>
+               <option value="vazio">Sem mensalidade de exemplo</option>
             </select>
          </label>
          <label className="replica-switch">

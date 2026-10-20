@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { createProtocol, useDemo } from "../cx/state";
 import { curriculum, disciplines, normalize, services } from "../cx/data";
 import { docNames, loadServiceForm, reference, type ReferenceDialog, type ServiceReference } from "./reference";
+import { primaryDestinations, studentLabels, supportLinks } from "./student/model";
 
 export type Overlay = {
    kind:
@@ -73,7 +74,15 @@ export function Layer({
 export default function OverlayView(props: Props) {
    const { overlay: o, close, go, connected } = props;
    const { state, update } = useDemo();
-   if (o.kind === "catalog") return <Catalog close={close} choose={code => go("/solicitacao-servicos/solicitar/" + code)} />;
+   if (o.kind === "catalog")
+      return (
+         <Catalog
+            connected={connected}
+            initialQuery={o.detail || ""}
+            close={close}
+            choose={code => go("/solicitacao-servicos/solicitar/" + code)}
+         />
+      );
    if (o.kind === "service") return <ServiceForm code={o.code || "CSA_150"} close={close} go={go} />;
    if (o.kind === "document") return <DocumentSheet index={o.index || 0} close={close} go={go} connected={connected} />;
    if (o.kind === "search") return <SearchDialog close={close} go={go} />;
@@ -501,14 +510,25 @@ function SubjectPicker({ initial, close, confirm }: { initial: string[]; close: 
       </Layer>
    );
 }
-function Catalog({ close, choose }: { close: () => void; choose: (s: string) => void }) {
-   const [q, setQ] = useState("");
+function Catalog({
+   close,
+   choose,
+   connected,
+   initialQuery,
+}: {
+   close: () => void;
+   choose: (s: string) => void;
+   connected: boolean;
+   initialQuery: string;
+}) {
+   const [q, setQ] = useState(initialQuery);
+   useEffect(() => setQ(initialQuery), [initialQuery]);
    const [cost, setCost] = useState("Todos");
    const [selected, setSelected] = useState("");
    const list = services.filter(
       s =>
          (cost === "Todos" || (cost === "Gratuitos" ? s.price === 0 : s.price > 0)) &&
-         normalize(s.original + " " + s.name + " " + s.code + " " + s.keywords).includes(normalize(q)),
+         normalize(s.original + " " + s.name + " " + s.category + " " + s.code + " " + s.keywords).includes(normalize(q)),
    );
    return (
       <Layer title="Solicitar serviço" close={close} className="replica-catalog">
@@ -536,7 +556,13 @@ function Catalog({ close, choose }: { close: () => void; choose: (s: string) => 
          <div className="replica-catalog-list" role="radiogroup" aria-label="Serviços disponíveis para solicitação">
             {[false, true].map(auto => (
                <section key={String(auto)}>
-                  <h3>Serviços executados {auto ? "eletronicamente" : "pela instituição"}</h3>
+                  <h3>
+                     {connected
+                        ? auto
+                           ? "Documentos emitidos on-line"
+                           : "Pedidos para análise da secretaria"
+                        : "Serviços executados " + (auto ? "eletronicamente" : "pela instituição")}
+                  </h3>
                   {list
                      .filter(s => s.auto === auto)
                      .sort((a, b) => a.original.localeCompare(b.original, "pt-BR"))
@@ -549,8 +575,9 @@ function Catalog({ close, choose }: { close: () => void; choose: (s: string) => 
                            onClick={() => setSelected(s.code)}
                         >
                            <span>
-                              <strong>{s.original}</strong>
+                              <strong>{connected ? s.name : s.original}</strong>
                               <small>
+                                 {connected && s.name !== s.original ? s.original + " · " : ""}
                                  {s.code}
                                  {s.price > 0 ? " · Pré-pago" : ""}
                               </small>
@@ -959,9 +986,18 @@ function Rating({ title, close }: { title: string; close: () => void }) {
 function SearchDialog({ close, go }: { close: () => void; go: (p: string) => void }) {
    const [q, setQ] = useState("");
    const needle = normalize(q);
-   const pages = Object.entries(reference.pages).filter(
-      ([p, v]) => !p.includes("/notificacoes/") && normalize(v.title + " " + p).includes(needle),
-   );
+   const extra = [
+      ...primaryDestinations.map(item => [item.href, { title: item.label }] as const),
+      ...Object.entries(studentLabels).map(([path, title]) => [path, { title }] as const),
+      ...supportLinks.map(item => [item.href, { title: item.label }] as const),
+      ["/financeiro", { title: "Cobranças, boletos e Pix" }] as const,
+   ];
+   const pages = [
+      ...new Map<string, { title: string }>([
+         ...extra,
+         ...Object.entries(reference.pages).filter(([path]) => !extra.some(([href]) => href === path)),
+      ]).entries(),
+   ].filter(([p, v]) => !p.includes("/notificacoes/") && normalize(v.title + " " + p).includes(needle));
    const catalog = services.filter(s => normalize(s.original + " " + s.name + " " + s.keywords).includes(needle));
    return (
       <Layer title="Buscar no Aluno Online" close={close} className="replica-search-dialog">
