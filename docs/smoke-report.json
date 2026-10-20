@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-20T13:08:38.574Z",
+  "checks": [
+    {
+      "name": "Sem overflow em /meus-dados/documentos",
+      "value": true
+    },
+    {
+      "name": "Sem overflow em /academico/notas",
+      "value": true
+    },
+    {
+      "name": "Sem overflow em /academico/horarios",
+      "value": true
+    },
+    {
+      "name": "Agenda abre o mês",
+      "value": true
+    },
+    {
+      "name": "Menu móvel tem navegação",
+      "value": true
+    },
+    {
+      "name": "Busca encontra documentos",
+      "value": true
+    },
+    {
+      "name": "Tema escuro aplicado",
+      "value": true
+    },
+    {
+      "name": "Tema claro restaurado",
+      "value": true
+    }
+  ]
+}

@@ -1,0 +1,451 @@
+{
+   "schemaVersion": 2,
+   "generatedAt": "2026-10-20T13:11:21.929Z",
+   "title": "Design System: Aluno Online CX",
+   "extensions": {
+      "colorMeta": {
+         "primary": {
+            "role": "primary",
+            "displayName": "Azul institucional",
+            "canonical": "#153977",
+            "tonalRamp": [
+               "oklch(15% 0.1142 260.52)",
+               "oklch(26.43% 0.1142 260.52)",
+               "oklch(37.86% 0.1142 260.52)",
+               "oklch(49.29% 0.1142 260.52)",
+               "oklch(60.71% 0.1142 260.52)",
+               "oklch(72.14% 0.1142 260.52)",
+               "oklch(83.57% 0.1142 260.52)",
+               "oklch(95% 0.1142 260.52)"
+            ]
+         },
+         "primary-hover": {
+            "role": "primary",
+            "displayName": "Azul de interação",
+            "canonical": "#0e2c60",
+            "tonalRamp": [
+               "oklch(15% 0.0994 260.61)",
+               "oklch(26.43% 0.0994 260.61)",
+               "oklch(37.86% 0.0994 260.61)",
+               "oklch(49.29% 0.0994 260.61)",
+               "oklch(60.71% 0.0994 260.61)",
+               "oklch(72.14% 0.0994 260.61)",
+               "oklch(83.57% 0.0994 260.61)",
+               "oklch(95% 0.0994 260.61)"
+            ]
+         },
+         "blue-soft": {
+            "role": "primary",
+            "displayName": "Azul de contexto",
+            "canonical": "#eaf0fc",
+            "tonalRamp": [
+               "oklch(15% 0.0174 264.49)",
+               "oklch(26.43% 0.0174 264.49)",
+               "oklch(37.86% 0.0174 264.49)",
+               "oklch(49.29% 0.0174 264.49)",
+               "oklch(60.71% 0.0174 264.49)",
+               "oklch(72.14% 0.0174 264.49)",
+               "oklch(83.57% 0.0174 264.49)",
+               "oklch(95% 0.0174 264.49)"
+            ]
+         },
+         "yellow": {
+            "role": "secondary",
+            "displayName": "Amarelo Anchieta",
+            "canonical": "#ffd45c",
+            "tonalRamp": [
+               "oklch(15% 0.1442 89.31)",
+               "oklch(26.43% 0.1442 89.31)",
+               "oklch(37.86% 0.1442 89.31)",
+               "oklch(49.29% 0.1442 89.31)",
+               "oklch(60.71% 0.1442 89.31)",
+               "oklch(72.14% 0.1442 89.31)",
+               "oklch(83.57% 0.1442 89.31)",
+               "oklch(95% 0.1442 89.31)"
+            ]
+         },
+         "bg": {
+            "role": "neutral",
+            "displayName": "Fundo frio",
+            "canonical": "#f6f8fc",
+            "tonalRamp": [
+               "oklch(15% 0.0057 264.53)",
+               "oklch(26.43% 0.0057 264.53)",
+               "oklch(37.86% 0.0057 264.53)",
+               "oklch(49.29% 0.0057 264.53)",
+               "oklch(60.71% 0.0057 264.53)",
+               "oklch(72.14% 0.0057 264.53)",
+               "oklch(83.57% 0.0057 264.53)",
+               "oklch(95% 0.0057 264.53)"
+            ]
+         },
+         "surface": {
+            "role": "neutral",
+            "displayName": "Superfície clara",
+            "canonical": "#fff",
+            "tonalRamp": [
+               "oklch(15% 0.0000 89.88)",
+               "oklch(26.43% 0.0000 89.88)",
+               "oklch(37.86% 0.0000 89.88)",
+               "oklch(49.29% 0.0000 89.88)",
+               "oklch(60.71% 0.0000 89.88)",
+               "oklch(72.14% 0.0000 89.88)",
+               "oklch(83.57% 0.0000 89.88)",
+               "oklch(95% 0.0000 89.88)"
+            ]
+         },
+         "shell": {
+            "role": "neutral",
+            "displayName": "Casca de navegação",
+            "canonical": "#f1f4f9",
+            "tonalRamp": [
+               "oklch(15% 0.0074 260.73)",
+               "oklch(26.43% 0.0074 260.73)",
+               "oklch(37.86% 0.0074 260.73)",
+               "oklch(49.29% 0.0074 260.73)",
+               "oklch(60.71% 0.0074 260.73)",
+               "oklch(72.14% 0.0074 260.73)",
+               "oklch(83.57% 0.0074 260.73)",
+               "oklch(95% 0.0074 260.73)"
+            ]
+         },
+         "ink": {
+            "role": "neutral",
+            "displayName": "Tinta",
+            "canonical": "#23334d",
+            "tonalRamp": [
+               "oklch(15% 0.0514 259.80)",
+               "oklch(26.43% 0.0514 259.80)",
+               "oklch(37.86% 0.0514 259.80)",
+               "oklch(49.29% 0.0514 259.80)",
+               "oklch(60.71% 0.0514 259.80)",
+               "oklch(72.14% 0.0514 259.80)",
+               "oklch(83.57% 0.0514 259.80)",
+               "oklch(95% 0.0514 259.80)"
+            ]
+         },
+         "muted": {
+            "role": "neutral",
+            "displayName": "Texto secundário",
+            "canonical": "#59687e",
+            "tonalRamp": [
+               "oklch(15% 0.0395 257.86)",
+               "oklch(26.43% 0.0395 257.86)",
+               "oklch(37.86% 0.0395 257.86)",
+               "oklch(49.29% 0.0395 257.86)",
+               "oklch(60.71% 0.0395 257.86)",
+               "oklch(72.14% 0.0395 257.86)",
+               "oklch(83.57% 0.0395 257.86)",
+               "oklch(95% 0.0395 257.86)"
+            ]
+         },
+         "line": {
+            "role": "neutral",
+            "displayName": "Linha",
+            "canonical": "#e4e9f1",
+            "tonalRamp": [
+               "oklch(15% 0.0121 259.82)",
+               "oklch(26.43% 0.0121 259.82)",
+               "oklch(37.86% 0.0121 259.82)",
+               "oklch(49.29% 0.0121 259.82)",
+               "oklch(60.71% 0.0121 259.82)",
+               "oklch(72.14% 0.0121 259.82)",
+               "oklch(83.57% 0.0121 259.82)",
+               "oklch(95% 0.0121 259.82)"
+            ]
+         },
+         "green": {
+            "role": "tertiary",
+            "displayName": "Verde de conclusão",
+            "canonical": "#21664d",
+            "tonalRamp": [
+               "oklch(15% 0.0804 165.42)",
+               "oklch(26.43% 0.0804 165.42)",
+               "oklch(37.86% 0.0804 165.42)",
+               "oklch(49.29% 0.0804 165.42)",
+               "oklch(60.71% 0.0804 165.42)",
+               "oklch(72.14% 0.0804 165.42)",
+               "oklch(83.57% 0.0804 165.42)",
+               "oklch(95% 0.0804 165.42)"
+            ]
+         },
+         "green-soft": {
+            "role": "tertiary",
+            "displayName": "Fundo de conclusão",
+            "canonical": "#eaf5ee",
+            "tonalRamp": [
+               "oklch(15% 0.0149 158.25)",
+               "oklch(26.43% 0.0149 158.25)",
+               "oklch(37.86% 0.0149 158.25)",
+               "oklch(49.29% 0.0149 158.25)",
+               "oklch(60.71% 0.0149 158.25)",
+               "oklch(72.14% 0.0149 158.25)",
+               "oklch(83.57% 0.0149 158.25)",
+               "oklch(95% 0.0149 158.25)"
+            ]
+         },
+         "amber": {
+            "role": "tertiary",
+            "displayName": "Âmbar de atenção",
+            "canonical": "#875b12",
+            "tonalRamp": [
+               "oklch(15% 0.1005 73.80)",
+               "oklch(26.43% 0.1005 73.80)",
+               "oklch(37.86% 0.1005 73.80)",
+               "oklch(49.29% 0.1005 73.80)",
+               "oklch(60.71% 0.1005 73.80)",
+               "oklch(72.14% 0.1005 73.80)",
+               "oklch(83.57% 0.1005 73.80)",
+               "oklch(95% 0.1005 73.80)"
+            ]
+         },
+         "amber-soft": {
+            "role": "tertiary",
+            "displayName": "Fundo de atenção",
+            "canonical": "#fff5db",
+            "tonalRamp": [
+               "oklch(15% 0.0356 89.44)",
+               "oklch(26.43% 0.0356 89.44)",
+               "oklch(37.86% 0.0356 89.44)",
+               "oklch(49.29% 0.0356 89.44)",
+               "oklch(60.71% 0.0356 89.44)",
+               "oklch(72.14% 0.0356 89.44)",
+               "oklch(83.57% 0.0356 89.44)",
+               "oklch(95% 0.0356 89.44)"
+            ]
+         },
+         "danger": {
+            "role": "tertiary",
+            "displayName": "Vermelho de erro",
+            "canonical": "#a73636",
+            "tonalRamp": [
+               "oklch(15% 0.1487 24.28)",
+               "oklch(26.43% 0.1487 24.28)",
+               "oklch(37.86% 0.1487 24.28)",
+               "oklch(49.29% 0.1487 24.28)",
+               "oklch(60.71% 0.1487 24.28)",
+               "oklch(72.14% 0.1487 24.28)",
+               "oklch(83.57% 0.1487 24.28)",
+               "oklch(95% 0.1487 24.28)"
+            ]
+         },
+         "focus": {
+            "role": "tertiary",
+            "displayName": "Azul de foco",
+            "canonical": "#507fd8",
+            "tonalRamp": [
+               "oklch(15% 0.1452 261.99)",
+               "oklch(26.43% 0.1452 261.99)",
+               "oklch(37.86% 0.1452 261.99)",
+               "oklch(49.29% 0.1452 261.99)",
+               "oklch(60.71% 0.1452 261.99)",
+               "oklch(72.14% 0.1452 261.99)",
+               "oklch(83.57% 0.1452 261.99)",
+               "oklch(95% 0.1452 261.99)"
+            ]
+         }
+      },
+      "typographyMeta": {
+         "headline": {
+            "displayName": "Título de página",
+            "purpose": "Título de página; o CSS solicita peso 650, com arquivos estáticos 400/500/600/700."
+         },
+         "title": {
+            "displayName": "Título de seção",
+            "purpose": "Hierarquia geral; cabeçalhos internos de painel usam variante de 16px."
+         },
+         "subsection": {
+            "displayName": "Subseção",
+            "purpose": "Grupos menores e títulos de terceiro nível."
+         },
+         "body": {
+            "displayName": "Corpo",
+            "purpose": "Base de 14px; parágrafos usam entrelinha 1.65 e descrições costumam ter 12px."
+         },
+         "label": {
+            "displayName": "Ação",
+            "purpose": "Texto de botão; não representa todos os pequenos metadados existentes."
+         }
+      },
+      "shadows": [
+         {
+            "name": "floating",
+            "value": "0 16px 50px -16px #20355e36",
+            "purpose": "Popover, diálogo e painel de assistência."
+         },
+         {
+            "name": "assistant-launcher",
+            "value": "0 6px 25px -8px #23344a44",
+            "purpose": "Acionador flutuante de assistência."
+         }
+      ],
+      "motion": [
+         {
+            "name": "ease",
+            "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+            "purpose": "Entrada de diálogo, painel de ajuda e deslocamento da preferência."
+         },
+         {
+            "name": "button",
+            "value": "background 0.18s, color 0.18s, transform 0.18s",
+            "purpose": "Mudança de estado de botões; active desloca 1px."
+         },
+         {
+            "name": "dialog-in",
+            "value": "0.22s cubic-bezier(0.16, 1, 0.3, 1)",
+            "purpose": "De translate(-50%, -48%) scale(0.98) para translate(-50%, -50%) scale(1)."
+         },
+         {
+            "name": "panel-in",
+            "value": "0.22s cubic-bezier(0.16, 1, 0.3, 1)",
+            "purpose": "De translateY(8px) para translateY(0)."
+         },
+         {
+            "name": "overlay-in",
+            "value": "0.16s ease-out",
+            "purpose": "Opacidade de 0.4 para 1."
+         },
+         {
+            "name": "reduced-motion",
+            "value": "0.01ms",
+            "purpose": "Duração de transição/animação sob prefers-reduced-motion ou modo interno; scroll-behavior auto."
+         }
+      ],
+      "breakpoints": [
+         {
+            "name": "wide-min",
+            "value": "1700px"
+         },
+         {
+            "name": "desktop-compact-max",
+            "value": "1250px"
+         },
+         {
+            "name": "bottom-navigation-max",
+            "value": "999px"
+         },
+         {
+            "name": "phone-max",
+            "value": "700px"
+         },
+         {
+            "name": "narrow-phone-max",
+            "value": "360px"
+         }
+      ]
+   },
+   "components": [
+      {
+         "name": "Botão Principal",
+         "kind": "button",
+         "refersTo": "button-primary",
+         "description": "Variante implementada; foco por teclado, hover e pressionamento.",
+         "html": "<button class=\"ds-button\">Continuar</button>",
+         "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 16px;border:1px solid transparent;border-radius:8px;font-family:\"Inter\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;font-size:12.5px;font-weight:600;line-height:1.45;text-align:center;cursor:pointer;max-width:100%;transition:background .18s,color .18s,transform .18s}.ds-button:disabled{opacity:.48;cursor:not-allowed}.ds-button:active:not(:disabled){transform:translateY(1px)}.ds-button:focus-visible{outline:3px solid #507fd8;outline-offset:4px;border-radius:5px}@media(prefers-reduced-motion:reduce){.ds-button{transition-duration:.01ms}}.ds-button{background:var(--primary,#153977);color:var(--surface,#fff)}.ds-button:hover{background:var(--primary-hover,#0e2c60)}"
+      },
+      {
+         "name": "Botão Secundário",
+         "kind": "button",
+         "refersTo": "button-secondary",
+         "description": "Variante implementada; foco por teclado, hover e pressionamento.",
+         "html": "<button class=\"ds-button\">Ver detalhes</button>",
+         "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 16px;border:1px solid transparent;border-radius:8px;font-family:\"Inter\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;font-size:12.5px;font-weight:600;line-height:1.45;text-align:center;cursor:pointer;max-width:100%;transition:background .18s,color .18s,transform .18s}.ds-button:disabled{opacity:.48;cursor:not-allowed}.ds-button:active:not(:disabled){transform:translateY(1px)}.ds-button:focus-visible{outline:3px solid #507fd8;outline-offset:4px;border-radius:5px}@media(prefers-reduced-motion:reduce){.ds-button{transition-duration:.01ms}}.ds-button{background:var(--surface,#fff);color:var(--primary,#153977);border-color:var(--line,#e4e9f1)}.ds-button:hover{background:var(--blue-soft,#eaf0fc)}"
+      },
+      {
+         "name": "Botão Ghost",
+         "kind": "button",
+         "refersTo": "button-ghost",
+         "description": "Variante implementada; foco por teclado, hover e pressionamento.",
+         "html": "<button class=\"ds-button\">Voltar</button>",
+         "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 16px;border:1px solid transparent;border-radius:8px;font-family:\"Inter\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;font-size:12.5px;font-weight:600;line-height:1.45;text-align:center;cursor:pointer;max-width:100%;transition:background .18s,color .18s,transform .18s}.ds-button:disabled{opacity:.48;cursor:not-allowed}.ds-button:active:not(:disabled){transform:translateY(1px)}.ds-button:focus-visible{outline:3px solid #507fd8;outline-offset:4px;border-radius:5px}@media(prefers-reduced-motion:reduce){.ds-button{transition-duration:.01ms}}.ds-button{background:transparent;color:var(--primary,#153977)}.ds-button:hover{background:var(--blue-soft,#eaf0fc)}"
+      },
+      {
+         "name": "Botão Amarelo",
+         "kind": "button",
+         "refersTo": "button-yellow",
+         "description": "Variante implementada; foco por teclado, hover e pressionamento.",
+         "html": "<button class=\"ds-button\">Acessar aula</button>",
+         "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 16px;border:1px solid transparent;border-radius:8px;font-family:\"Inter\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;font-size:12.5px;font-weight:600;line-height:1.45;text-align:center;cursor:pointer;max-width:100%;transition:background .18s,color .18s,transform .18s}.ds-button:disabled{opacity:.48;cursor:not-allowed}.ds-button:active:not(:disabled){transform:translateY(1px)}.ds-button:focus-visible{outline:3px solid #507fd8;outline-offset:4px;border-radius:5px}@media(prefers-reduced-motion:reduce){.ds-button{transition-duration:.01ms}}.ds-button{background:var(--yellow,#ffd45c);color:#16366e}.ds-button:hover{background:#ffe28d}"
+      },
+      {
+         "name": "Campo de formulário",
+         "kind": "input",
+         "refersTo": "input",
+         "description": "Rótulo externo e altura mínima de 46px; tamanho de 16px no celular.",
+         "html": "<label class=\"ds-field\">Observações<input placeholder=\"Conte o que você precisa\" /></label>",
+         "css": ".ds-field{display:flex;flex-direction:column;gap:9px;font-family:\"Inter\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;font-size:12px;font-weight:500;color:var(--ink,#23334d)}.ds-field input{width:100%;border:1px solid var(--line,#e4e9f1);background:var(--surface,#fff);color:var(--ink,#23334d);border-radius:7px;min-height:46px;padding:11px 13px;line-height:1.5;font-family:inherit;font-size:13px}.ds-field input::placeholder{color:var(--muted,#59687e);opacity:1}.ds-field input:focus-visible{outline:3px solid #507fd8;outline-offset:4px;border-radius:5px}@media(max-width:700px){.ds-field input{font-size:16px}}"
+      },
+      {
+         "name": "Busca",
+         "kind": "input",
+         "description": "Busca em wrapper com ícone e foco no conjunto.",
+         "html": "<div class=\"ds-search\"><svg width=\"19\" height=\"19\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><path d=\"m21 21-4.3-4.3\"/></svg><input type=\"search\" aria-label=\"Buscar serviços\" placeholder=\"Buscar serviços\" /></div>",
+         "css": ".ds-search{display:flex;align-items:center;gap:10px;min-height:46px;background:var(--surface,#fff);border:1px solid var(--line,#e4e9f1);border-radius:8px;padding:0 13px;color:var(--muted,#59687e);font-family:\"Inter\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif}.ds-search input{border:0;background:transparent;min-width:0;width:100%;outline:none;min-height:44px;padding:0;color:var(--ink,#23334d);font-family:inherit;font-size:12px}.ds-search input::placeholder{color:var(--muted,#59687e);opacity:1}.ds-search:focus-within{outline:2px solid #7094d3;outline-offset:2px}.ds-search input:focus-visible{outline:none}"
+      },
+      {
+         "name": "Navegação principal",
+         "kind": "nav",
+         "refersTo": "nav-active",
+         "description": "Seleção sólida e hover tonal; o snippet mostra a variante lateral.",
+         "html": "<nav class=\"ds-nav\" aria-label=\"Portal\"><a class=\"ds-nav-link ds-active\" href=\"#inicio\" aria-current=\"page\">Início</a><a class=\"ds-nav-link\" href=\"#secretaria\">Secretaria</a></nav>",
+         "css": ".ds-nav{display:flex;flex-direction:column;gap:5px;font-family:\"Inter\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;background:var(--shell,#f1f4f9);padding:12px}.ds-nav-link{min-height:45px;display:flex;align-items:center;gap:10px;border-radius:8px;padding:10px 12px;font-size:12px;font-weight:500;color:var(--muted,#59687e);text-decoration:none}.ds-nav-link.ds-active{background:var(--primary,#153977);color:var(--surface,#fff)}.ds-nav-link:not(.ds-active):hover{background:var(--line,#e4e9f1);color:var(--ink,#23334d)}.ds-nav-link:focus-visible{outline:3px solid #507fd8;outline-offset:4px;border-radius:5px}"
+      },
+      {
+         "name": "Status de conclusão",
+         "kind": "chip",
+         "refersTo": "status-green",
+         "description": "Badge informativo não interativo; não recebe hover ou foco.",
+         "html": "<span class=\"ds-pill\"><svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"m8 12 3 3 5-6\"/></svg>Concluído</span>",
+         "css": ".ds-pill{display:inline-flex;align-items:center;gap:6px;padding:4px 9px;border-radius:5px;font-family:\"Inter\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;font-size:10.5px;font-weight:600;line-height:1.45;color:var(--green,#21664d);background:var(--green-soft,#eaf5ee);max-width:100%}"
+      },
+      {
+         "name": "Painel de conteúdo",
+         "kind": "card",
+         "refersTo": "panel",
+         "description": "Superfície plana com borda; não ganha sombra ao hover.",
+         "html": "<section class=\"ds-panel\"><h2 class=\"ds-panel-title\">Meus pedidos</h2><p class=\"ds-panel-copy\">Acompanhe o andamento e encontre seu próximo passo.</p></section>",
+         "css": ".ds-panel{border:1px solid var(--line,#e4e9f1);border-radius:var(--radius,14px);background:var(--surface,#fff);padding:24px;font-family:\"Inter\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;color:var(--ink,#23334d)}.ds-panel-title{margin:0;font-size:18px;font-weight:650;line-height:1.35;letter-spacing:-.025em}.ds-panel-copy{margin:12px 0 0;font-size:12px;line-height:1.65;color:var(--muted,#59687e)}"
+      },
+      {
+         "name": "Acompanhamento cancelado",
+         "kind": "custom",
+         "description": "Marco concluído e término neutro; cancelamento não mostra análise em andamento.",
+         "html": "<ol class=\"ds-tracking\"><li class=\"ds-done\"><span><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" aria-hidden=\"true\"><path d=\"m5 12 4 4L19 6\"/></svg></span><div><strong>Pedido recebido</strong><p>Suas informações foram registradas no exemplo local.</p></div></li><li><span><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" aria-hidden=\"true\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/></svg></span><div><strong>Pedido cancelado</strong><p>Este pedido foi encerrado. Não há análise em andamento nem retorno a aguardar.</p></div></li></ol>",
+         "css": ".ds-tracking{list-style:none;padding:0;margin:30px 0;font-family:\"Inter\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;color:var(--ink,#23334d)}.ds-tracking li{display:flex;gap:15px;min-height:90px;position:relative}.ds-tracking li:not(:last-child):before{content:\"\";width:1px;position:absolute;background:var(--line,#e4e9f1);left:16px;top:35px;bottom:2px}.ds-tracking li>span{width:34px;height:34px;display:grid;place-items:center;background:var(--shell,#f1f4f9);color:var(--muted,#59687e);border:1px solid var(--line,#e4e9f1);border-radius:50%;flex-shrink:0}.ds-tracking li.ds-done>span{background:var(--primary,#153977);border-color:var(--primary,#153977);color:var(--surface,#fff)}.ds-tracking strong{font-size:13px;font-weight:600}.ds-tracking p{font-size:11px;color:var(--muted,#59687e);margin:6px 0 0;line-height:1.65}@media(max-width:700px){.ds-tracking li{min-height:105px}}"
+      }
+   ],
+   "narrative": {
+      "northStar": "Central de acompanhamento do aluno",
+      "overview": "A Central de acompanhamento do aluno reúne a identidade Anchieta em uma interface operacional: azul institucional, amarelo pontual, superfícies claras e listas legíveis por hierarquia. A personalidade é direta, calma e orientada ao próximo passo, com densidade suficiente para mostrar informação acadêmica e ação no mesmo contexto.\n\nA implementação usa Inter, bordas finas, cantos moderados e ícones de traço. O espaço distingue navegação, conteúdo e acompanhamento; a versão móvel reorganiza os mesmos elementos e conserva a orientação por rótulos. O tema escuro troca os papéis semânticos de cor; os painéis institucionais azuis de próxima aula e carteirinha mantêm o fundo fixo.",
+      "keyCharacteristics": [
+         "Azul institucional como eixo de ação e seleção.",
+         "Superfícies planas com linhas divisórias e cantos moderados.",
+         "Texto, ícone e cor trabalham juntos nos estados.",
+         "Navegação lateral no desktop e inferior no celular."
+      ],
+      "rules": [
+         {
+            "name": "The Action Blue Rule",
+            "body": "O azul semântico identifica ação, seleção e informação; manter seus pares de fundo e texto quando o tema muda.",
+            "section": "colors"
+         },
+         {
+            "name": "The Flat Surface Rule",
+            "body": "Painéis de conteúdo usam fundo e borda; sombras pertencem a popovers, diálogos e assistência flutuante.",
+            "section": "elevation"
+         }
+      ],
+      "dos": [
+         "Do reutilizar o azul institucional para ação e seleção, o amarelo para destaque contextual e os pares semânticos para estados.",
+         "Do manter texto de estado, ação e acompanhamento visíveis quando as linhas se reorganizam no celular.",
+         "Do usar borda e tom para separar superfícies em repouso, reservando as sombras existentes para elementos flutuantes.",
+         "Do preservar foco visível, redução de movimento e os estilos móveis de formulário nas extensões."
+      ],
+      "donts": [
+         "Don't reduzir status a uma cor ou a um ícone sem o texto correspondente.",
+         "Don't aplicar sombras a todos os cartões; os painéis existentes são planos e delimitados por borda.",
+         "Don't congelar as cores claras nos novos componentes temáticos; usar as propriedades CSS existentes.",
+         "Don't tratar os tamanhos minúsculos de metadados e rótulos auxiliares como escala tipográfica recomendada."
+      ]
+   }
+}

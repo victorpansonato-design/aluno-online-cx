@@ -1,0 +1,345 @@
+{
+   "started": "2026-10-20T13:02:48.539Z",
+   "checks": [
+      {
+         "width": 1440,
+         "target": "/",
+         "title": "Início | Aluno Online · Anchieta CX",
+         "h1": "Olá, Marina .",
+         "overflow": false,
+         "scrollWidth": 1440,
+         "fatal": false,
+         "missing": false,
+         "links": [
+            "https://app.anchieta.br/Aol_Responsivo_Redirect/D2l/Sso2.php?t=/d2l/home/22167",
+            "/academico/horarios",
+            "/meus-dados/documentos",
+            "/financeiro",
+            "/academico/notas",
+            "/secretaria/servicos",
+            "/financeiro",
+            "/meus-dados/carteirinha",
+            "/academico/jornada",
+            "/academico/disciplinas",
+            "/secretaria/solicitacoes",
+            "/secretaria/solicitacoes/DEMO-1042",
+            "/avisos",
+            "/avisos/english",
+            "/avisos/vagas",
+            "/ajuda",
+            "/ajuda?guia=primeiros-passos",
+            "/ajuda"
+         ],
+         "unnamed": []
+      },
+      {
+         "width": 1440,
+         "target": "/secretaria",
+         "title": "Secretaria virtual | Aluno Online · Anchieta CX",
+         "h1": "Secretaria virtual",
+         "overflow": false,
+         "scrollWidth": 1440,
+         "fatal": false,
+         "missing": false,
+         "links": [
+            "/secretaria/servicos/CSA_150",
+            "/secretaria/servicos/CSA_048_A",
+            "/secretaria/servicos/CSA_114",
+            "/secretaria/servicos",
+            "/secretaria/servicos?categoria=Declarações",
+            "/secretaria/servicos?categoria=Provas%20e%20notas",
+            "/secretaria/servicos?categoria=Matrícula%20e%20curso",
+            "/secretaria/servicos?categoria=Acessibilidade",
+            "/secretaria/solicitacoes",
+            "/secretaria/solicitacoes/DEMO-1042",
+            "/secretaria/solicitacoes/DEMO-1041",
+            "/secretaria/servicos",
+            "/secretaria/compensacao",
+            "/secretaria/dispensa",
+            "/secretaria/laboratorios",
+            "/secretaria/contratos",
+            "/secretaria/formatura",
+            "/secretaria/atendimento",
+            "/meus-dados/documentos",
+            "/ajuda"
+         ],
+         "unnamed": []
+      },
+      {
+         "width": 1440,
+         "target": "/meus-dados/documentos",
+         "title": "Meus documentos | Aluno Online · Anchieta CX",
+         "h1": "Meus documentos",
+         "overflow": false,
+         "scrollWidth": 1440,
+         "fatal": false,
+         "missing": false,
+         "links": ["/secretaria/servicos?categoria=Declarações", "/secretaria/atendimento", "/meus-dados", "/ajuda"],
+         "unnamed": []
+      },
+      {
+         "width": 1440,
+         "target": "/academico/notas",
+         "title": "Notas e faltas | Aluno Online · Anchieta CX",
+         "h1": "Notas e faltas",
+         "overflow": false,
+         "scrollWidth": 1440,
+         "fatal": false,
+         "missing": false,
+         "links": ["/secretaria/servicos/CSA_114", "/academico/jornada", "/ajuda"],
+         "unnamed": []
+      },
+      {
+         "width": 1440,
+         "target": "/secretaria/servicos/CSA_150",
+         "title": "Atestado de matrícula | Aluno Online · Anchieta CX",
+         "h1": "Atestado de matrícula",
+         "overflow": false,
+         "scrollWidth": 1440,
+         "fatal": false,
+         "missing": false,
+         "links": ["/secretaria/servicos", "/secretaria", "/secretaria/solicitacoes", "/secretaria/atendimento", "/ajuda"],
+         "unnamed": []
+      },
+      {
+         "width": 390,
+         "target": "/",
+         "title": "Início | Aluno Online · Anchieta CX",
+         "h1": "Olá, Marina .",
+         "overflow": false,
+         "scrollWidth": 390,
+         "fatal": false,
+         "missing": false,
+         "links": [
+            "https://app.anchieta.br/Aol_Responsivo_Redirect/D2l/Sso2.php?t=/d2l/home/22167",
+            "/academico/horarios",
+            "/meus-dados/documentos",
+            "/financeiro",
+            "/academico/notas",
+            "/secretaria/servicos",
+            "/financeiro",
+            "/meus-dados/carteirinha",
+            "/academico/jornada",
+            "/academico/disciplinas",
+            "/secretaria/solicitacoes",
+            "/secretaria/solicitacoes/DEMO-1042",
+            "/avisos",
+            "/avisos/english",
+            "/avisos/vagas",
+            "/ajuda",
+            "/ajuda?guia=primeiros-passos",
+            "/ajuda"
+         ],
+         "unnamed": []
+      },
+      {
+         "width": 390,
+         "target": "/secretaria",
+         "title": "Secretaria virtual | Aluno Online · Anchieta CX",
+         "h1": "Secretaria virtual",
+         "overflow": false,
+         "scrollWidth": 390,
+         "fatal": false,
+         "missing": false,
+         "links": [
+            "/secretaria/servicos/CSA_150",
+            "/secretaria/servicos/CSA_048_A",
+            "/secretaria/servicos/CSA_114",
+            "/secretaria/servicos",
+            "/secretaria/servicos?categoria=Declarações",
+            "/secretaria/servicos?categoria=Provas%20e%20notas",
+            "/secretaria/servicos?categoria=Matrícula%20e%20curso",
+            "/secretaria/servicos?categoria=Acessibilidade",
+            "/secretaria/solicitacoes",
+            "/secretaria/solicitacoes/DEMO-1042",
+            "/secretaria/solicitacoes/DEMO-1041",
+            "/secretaria/servicos",
+            "/secretaria/compensacao",
+            "/secretaria/dispensa",
+            "/secretaria/laboratorios",
+            "/secretaria/contratos",
+            "/secretaria/formatura",
+            "/secretaria/atendimento",
+            "/meus-dados/documentos",
+            "/ajuda"
+         ],
+         "unnamed": []
+      },
+      {
+         "width": 390,
+         "target": "/meus-dados/documentos",
+         "title": "Meus documentos | Aluno Online · Anchieta CX",
+         "h1": "Meus documentos",
+         "overflow": false,
+         "scrollWidth": 390,
+         "fatal": false,
+         "missing": false,
+         "links": ["/secretaria/servicos?categoria=Declarações", "/secretaria/atendimento", "/meus-dados", "/ajuda"],
+         "unnamed": []
+      },
+      {
+         "width": 390,
+         "target": "/academico/notas",
+         "title": "Notas e faltas | Aluno Online · Anchieta CX",
+         "h1": "Notas e faltas",
+         "overflow": false,
+         "scrollWidth": 390,
+         "fatal": false,
+         "missing": false,
+         "links": ["/secretaria/servicos/CSA_114", "/academico/jornada", "/ajuda"],
+         "unnamed": []
+      },
+      {
+         "width": 390,
+         "target": "/secretaria/servicos/CSA_150",
+         "title": "Atestado de matrícula | Aluno Online · Anchieta CX",
+         "h1": "Atestado de matrícula",
+         "overflow": false,
+         "scrollWidth": 390,
+         "fatal": false,
+         "missing": false,
+         "links": ["/secretaria/servicos", "/secretaria", "/secretaria/solicitacoes", "/secretaria/atendimento", "/ajuda"],
+         "unnamed": []
+      }
+   ],
+   "a11y": [
+      {
+         "width": 1440,
+         "target": "/",
+         "counts": {
+            "inapplicable": 51,
+            "incomplete": 0,
+            "passes": 38,
+            "violations": 0
+         },
+         "violations": [],
+         "incomplete": []
+      },
+      {
+         "width": 1440,
+         "target": "/secretaria",
+         "counts": {
+            "inapplicable": 48,
+            "incomplete": 0,
+            "passes": 41,
+            "violations": 0
+         },
+         "violations": [],
+         "incomplete": []
+      },
+      {
+         "width": 1440,
+         "target": "/meus-dados/documentos",
+         "counts": {
+            "inapplicable": 51,
+            "incomplete": 0,
+            "passes": 38,
+            "violations": 0
+         },
+         "violations": [],
+         "incomplete": []
+      },
+      {
+         "width": 1440,
+         "target": "/academico/notas",
+         "counts": {
+            "inapplicable": 48,
+            "incomplete": 0,
+            "passes": 41,
+            "violations": 0
+         },
+         "violations": [],
+         "incomplete": []
+      },
+      {
+         "width": 1440,
+         "target": "/secretaria/servicos/CSA_150",
+         "counts": {
+            "inapplicable": 47,
+            "incomplete": 0,
+            "passes": 42,
+            "violations": 0
+         },
+         "violations": [],
+         "incomplete": []
+      },
+      {
+         "width": 390,
+         "target": "/",
+         "counts": {
+            "inapplicable": 53,
+            "incomplete": 1,
+            "passes": 36,
+            "violations": 0
+         },
+         "violations": [],
+         "incomplete": [
+            {
+               "help": "Elements must meet minimum color contrast ratio thresholds",
+               "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+               "id": "color-contrast",
+               "impact": "serious",
+               "nodeCount": 1,
+               "nodes": [
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it partially overlaps other elements",
+                     "html": "<h2>Bases da Administração<br class=\"desktop-br\"> Moderna</h2>",
+                     "target": [".next-class > h2"]
+                  }
+               ],
+               "tags": ["cat.color", "wcag2aa", "wcag143", "TTv5", "TT13.c", "EN-301-549", "EN-9.1.4.3", "ACT", "RGAAv4", "RGAA-3.2.1"]
+            }
+         ]
+      },
+      {
+         "width": 390,
+         "target": "/secretaria",
+         "counts": {
+            "inapplicable": 51,
+            "incomplete": 0,
+            "passes": 38,
+            "violations": 0
+         },
+         "violations": [],
+         "incomplete": []
+      },
+      {
+         "width": 390,
+         "target": "/meus-dados/documentos",
+         "counts": {
+            "inapplicable": 54,
+            "incomplete": 0,
+            "passes": 35,
+            "violations": 0
+         },
+         "violations": [],
+         "incomplete": []
+      },
+      {
+         "width": 390,
+         "target": "/academico/notas",
+         "counts": {
+            "inapplicable": 51,
+            "incomplete": 0,
+            "passes": 38,
+            "violations": 0
+         },
+         "violations": [],
+         "incomplete": []
+      },
+      {
+         "width": 390,
+         "target": "/secretaria/servicos/CSA_150",
+         "counts": {
+            "inapplicable": 50,
+            "incomplete": 0,
+            "passes": 39,
+            "violations": 0
+         },
+         "violations": [],
+         "incomplete": []
+      }
+   ],
+   "failures": [],
+   "finished": "2026-10-20T13:02:57.318Z"
+}

@@ -1,0 +1,46 @@
+{
+   "name": "aluno-online-cx",
+   "private": true,
+   "version": "1.0.0",
+   "type": "module",
+   "scripts": {
+      "dev": "vite",
+      "preview": "vite preview --host 127.0.0.1",
+      "test:watch": "vitest",
+      "lint": "eslint src/cx src/main.tsx",
+      "format:fix": "prettier --write src/cx src/main.tsx docs",
+      "build": "tsc -p tsconfig.app.json --noEmit && vite build",
+      "test": "vitest run",
+      "format": "prettier --check src/cx src/main.tsx docs",
+      "typecheck": "tsc -p tsconfig.app.json --noEmit"
+   },
+   "dependencies": {
+      "@fontsource/inter": "^5.3.0",
+      "lucide-react": "^1.21.0",
+      "radix-ui": "^1.6.0",
+      "react": "^19.2.7",
+      "react-dom": "^19.2.7",
+      "react-router-dom": "^7.9.4",
+      "sonner": "^2.0.7"
+   },
+   "devDependencies": {
+      "@eslint/js": "^10.0.1",
+      "@testing-library/dom": "^10.4.1",
+      "@testing-library/jest-dom": "^7.0.1",
+      "@testing-library/react": "^16.3.2",
+      "@types/node": "^26.0.0",
+      "@types/react": "^19.2.17",
+      "@types/react-dom": "^19.2.3",
+      "@vitejs/plugin-react": "^6.0.2",
+      "eslint": "^10.5.0",
+      "eslint-plugin-react-hooks": "^7.1.1",
+      "eslint-plugin-react-refresh": "^0.5.3",
+      "globals": "^17.6.0",
+      "jsdom": "^30.0.1",
+      "prettier": "^3.9.4",
+      "typescript": "^6.0.3",
+      "typescript-eslint": "^8.61.1",
+      "vite": "^8.0.16",
+      "vitest": "^4.1.10"
+   }
+}

@@ -1,0 +1,68 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules/
+*.local
+
+# Build output
+build/
+dist/
+dist-ssr/
+coverage/
+
+# Environment variables
+.env*
+!.env.example
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.claude/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Referência original do template preservada localmente, fora da aplicação CX.
+/src/assets/
+/src/components/
+/src/config/
+/src/contexts/
+/src/features/
+/src/hooks/
+/src/layout/
+/src/lib/
+/src/pages/
+/src/providers/
+/src/routes/
+/src/services/
+/src/stores/
+/src/types/
+/src/utils/
+/src/index.css
+/tests/components/
+/tests/unit/
+/scripts/deploy-local.mjs
+/scripts/setup.mjs
+/ARCHITECTURE.md
+/CONTRIBUTING.md
+/DESIGN-SYSTEM.md
+/SHADCN.md
+/TESTING.md
+/components.json
+/public/icone_header.png
+/public/fonts/
+/tsconfig.node.json
+/tsconfig.json
+
+# Capturas aprovadas estão em docs/screenshots; estado transitório de revisão não é entrega.
+/.impeccable/review/
