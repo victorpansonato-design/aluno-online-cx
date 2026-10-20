@@ -52,9 +52,10 @@ describe("Simplificação por intenção do aluno", () => {
       expect(await screen.findByText("Nenhum pagamento pendente")).toBeInTheDocument();
       expect(JSON.parse(localStorage.getItem("anchieta-cx-demo-v1") || "{}").chargesPaid).toContain("DEMO-MENSALIDADE-202611");
    });
-   it("mantém a Ana acessível na navegação sem uma camada flutuante sobre as tarefas", async () => {
+   it("mantém somente a Ana flutuante no canto, sem faixa de assistência", async () => {
       await open();
-      expect(document.querySelector(".replica-ana-launcher")).toBeNull();
+      expect(document.querySelector(".replica-ana-launcher")).not.toBeNull();
+      expect(document.querySelector(".replica-assistance-space")).toBeNull();
       fireEvent.click(screen.getByRole("button", { name: "Abrir chat da Ana" }));
       expect(await screen.findByRole("dialog")).toBeInTheDocument();
       expect(screen.getByRole("dialog")).toHaveTextContent("Ana");

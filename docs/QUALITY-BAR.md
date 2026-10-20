@@ -13,3 +13,11 @@ O clone foi aprovado pelo usuário. A revisão atual deve simplificar a rotina d
 - Original continua como referência comparável. Nenhuma API, credencial, pagamento ou alteração institucional integra a demonstração.
 
 As medições técnicas verificam implementação. Ganhos de compreensão e facilidade precisam de testes com alunos.
+
+## Referências visuais da revisão 4
+
+- Ana sozinha no canto original, sem faixa acoplada; controles de fim de página e foco continuam alcançáveis.
+- Sidebar mantém organização simplificada e medidas/estados da origem, sem ampliar itens nem gaveta.
+- Home conserva degradê na próxima aula; pagamento branco com valor verde.
+- Complementares apresentam percentual e composição cumpridas/restantes verde/vermelha com legenda numérica; extensão usa o verde forte.
+- Preservar o restante dos percursos, exemplos identificados e limites do frontend.

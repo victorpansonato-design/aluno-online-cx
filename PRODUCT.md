@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-React 19, TypeScript e Vite. A base clonada usa CSS, fontes, ilustrações e telas sanitizadas do portal real. A revisão 3 reorganiza a experiência sobre essa base aprovada pelo usuário, com páginas próprias carregadas sob demanda.
+React 19, TypeScript e Vite. A base clonada usa CSS, fontes, ilustrações e telas sanitizadas do portal real. A revisão 4 reorganiza a experiência sobre essa base aprovada pelo usuário, com páginas próprias carregadas sob demanda.
 
 ## Users
 
@@ -24,7 +24,7 @@ Protótipo completo de frontend em localhost. Portal real somente consulta: não
 
 ## Brand Commitments
 
-Preservar marca, azul/amarelo, fontes, ilustrações, moldura, cabeçalho, componentes e fluidez da cópia aprovada. Após aprovar o clone, o usuário pediu SIMPLIFICAR: Conectada é a experiência inicial da revisão 3, com seis destinos principais e home centrada na rotina. Original continua disponível para comparação. A primeira proposta visual rejeitada não orienta o sistema.
+Preservar marca, azul/amarelo, fontes, ilustrações, moldura, cabeçalho, componentes e fluidez da cópia aprovada. Após aprovar o clone, o usuário pediu SIMPLIFICAR: Conectada é a experiência inicial da revisão 4, com seis destinos principais e home centrada na rotina. Original continua disponível para comparação. A primeira proposta visual rejeitada não orienta o sistema.
 
 ## Product Principles
 
@@ -38,4 +38,6 @@ O usuário aprovou o clone e forneceu imagem e endereço de seu esboço de calen
 
 ## Accessibility & Inclusion
 
-Hipótese técnica: WCAG 2.2 AA como alvo, alvos de toque de 44 px, navegação por teclado e movimento reduzido. Validação com alunos ainda necessária.
+WCAG 2.2 AA como alvo técnico, navegação por teclado, foco visível e movimento reduzido. A sidebar preserva a altura visual de 36px solicitada; controles principais mantêm áreas de toque confortáveis. Não se declara conformidade integral ou validação com alunos.
+
+Refinamento autorizado pelo usuário na revisão 4: manter seis grupos com densidade e desenho da sidebar original; Ana somente flutuante no canto inferior direito, sem faixa de assistência; preservar degradê da próxima aula; pagamento branco com valor verde; complementares conforme a referência de percentual e barra cumpridas verde/restantes vermelho; extensão em verde forte. As três imagens enviadas são referências visuais vinculantes nesses elementos. Comparação Original/Conectada segue nas opções de conta e rodapé, sem controle extra na barra lateral.

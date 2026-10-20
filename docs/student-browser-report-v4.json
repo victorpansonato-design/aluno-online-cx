@@ -1,0 +1,832 @@
+{
+   "date": "2026-10-20T20:19:48.906Z",
+   "scope": "Only localhost and fictional data",
+   "checks": [
+      {
+         "width": 1280,
+         "route": "/inicio",
+         "apiResources": [],
+         "badImages": [],
+         "content": 1608,
+         "overflow": false,
+         "title": "Início | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "width": 1280,
+         "route": "/meus-estudos",
+         "apiResources": [],
+         "badImages": [],
+         "content": 1704,
+         "overflow": false,
+         "title": "Meus estudos | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "width": 1280,
+         "route": "/secretaria-virtual",
+         "apiResources": [],
+         "badImages": [],
+         "content": 1427,
+         "overflow": false,
+         "title": "Secretaria virtual | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "width": 1280,
+         "route": "/financeiro?cobranca=DEMO-MENSALIDADE-202611",
+         "apiResources": [],
+         "badImages": [],
+         "content": 1088,
+         "overflow": false,
+         "title": "Financeiro | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "width": 1280,
+         "route": "/financeiro/pix?cobranca=DEMO-MENSALIDADE-202611",
+         "apiResources": [],
+         "badImages": [],
+         "content": 919,
+         "overflow": false,
+         "title": "Pagamento por Pix | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "width": 1280,
+         "route": "/calendario-academico?evento=avaliacoes-outubro",
+         "apiResources": [],
+         "badImages": [],
+         "content": 1328,
+         "overflow": false,
+         "title": "Calendário acadêmico | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "width": 1280,
+         "route": "/meus-estudos/atividades",
+         "apiResources": [],
+         "badImages": [],
+         "content": 1406,
+         "overflow": false,
+         "title": "Atividades e horas | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "width": 1280,
+         "route": "/comunicados",
+         "apiResources": [],
+         "badImages": [],
+         "content": 1107,
+         "overflow": false,
+         "title": "Avisos e comunicados | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "width": 1280,
+         "route": "/perfil/notas-e-faltas?disciplina=contabilidade",
+         "apiResources": [],
+         "badImages": [],
+         "content": 1366,
+         "overflow": false,
+         "title": "Notas e Faltas | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "width": 1280,
+         "route": "/perfil/documentos",
+         "apiResources": [],
+         "badImages": [],
+         "content": 943,
+         "overflow": false,
+         "title": "Documentos | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "width": 1280,
+         "route": "/financeiro/extrato",
+         "apiResources": [],
+         "badImages": [],
+         "content": 1602,
+         "overflow": false,
+         "title": "Extrato e bolsas | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "width": 390,
+         "route": "/inicio",
+         "apiResources": [],
+         "badImages": [],
+         "content": 1608,
+         "overflow": false,
+         "title": "Início | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "width": 390,
+         "route": "/meus-estudos",
+         "apiResources": [],
+         "badImages": [],
+         "content": 1704,
+         "overflow": false,
+         "title": "Meus estudos | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "width": 390,
+         "route": "/secretaria-virtual",
+         "apiResources": [],
+         "badImages": [],
+         "content": 1427,
+         "overflow": false,
+         "title": "Secretaria virtual | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "width": 390,
+         "route": "/financeiro?cobranca=DEMO-MENSALIDADE-202611",
+         "apiResources": [],
+         "badImages": [],
+         "content": 1088,
+         "overflow": false,
+         "title": "Financeiro | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "width": 390,
+         "route": "/financeiro/pix?cobranca=DEMO-MENSALIDADE-202611",
+         "apiResources": [],
+         "badImages": [],
+         "content": 919,
+         "overflow": false,
+         "title": "Pagamento por Pix | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "width": 390,
+         "route": "/calendario-academico?evento=avaliacoes-outubro",
+         "apiResources": [],
+         "badImages": [],
+         "content": 1328,
+         "overflow": false,
+         "title": "Calendário acadêmico | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "width": 390,
+         "route": "/meus-estudos/atividades",
+         "apiResources": [],
+         "badImages": [],
+         "content": 1406,
+         "overflow": false,
+         "title": "Atividades e horas | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "width": 390,
+         "route": "/comunicados",
+         "apiResources": [],
+         "badImages": [],
+         "content": 1107,
+         "overflow": false,
+         "title": "Avisos e comunicados | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "width": 390,
+         "route": "/perfil/notas-e-faltas?disciplina=contabilidade",
+         "apiResources": [],
+         "badImages": [],
+         "content": 1366,
+         "overflow": false,
+         "title": "Notas e Faltas | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "width": 390,
+         "route": "/perfil/documentos",
+         "apiResources": [],
+         "badImages": [],
+         "content": 943,
+         "overflow": false,
+         "title": "Documentos | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "width": 390,
+         "route": "/financeiro/extrato",
+         "apiResources": [],
+         "badImages": [],
+         "content": 1602,
+         "overflow": false,
+         "title": "Extrato e bolsas | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "width": 981,
+         "route": "/inicio",
+         "overflow": false
+      },
+      {
+         "width": 320,
+         "route": "/inicio",
+         "overflow": false
+      }
+   ],
+   "audits": [
+      {
+         "width": 1280,
+         "route": "/inicio",
+         "axeVersion": "4.12.1",
+         "counts": {
+            "inapplicable": 48,
+            "incomplete": 1,
+            "passes": 41,
+            "violations": 0
+         },
+         "incomplete": [
+            {
+               "help": "Elements must meet minimum color contrast ratio thresholds",
+               "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+               "id": "color-contrast",
+               "impact": "serious",
+               "nodeCount": 5,
+               "nodes": [
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<strong>Hoje, 21h às 22h40</strong>",
+                     "target": [".student-class-time > strong"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<h2 id=\"home-next-class\">Bases da Administração Moderna</h2>",
+                     "target": ["#home-next-class"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<p>",
+                     "target": [".student-next-class > div > p"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                     "html": "<span>·</span>",
+                     "target": [".student-next-class > div > p > span"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<a href=\"/horarios\" data-discover=\"true\">",
+                     "target": ["a[href$=\"horarios\"]"]
+                  }
+               ],
+               "tags": ["cat.color", "wcag2aa", "wcag143", "TTv5", "TT13.c", "EN-301-549", "EN-9.1.4.3", "ACT", "RGAAv4", "RGAA-3.2.1"]
+            }
+         ],
+         "lifecycle": {
+            "effectiveLaunch": {
+               "browserLaunched": true,
+               "engine": "chrome",
+               "launchHash": 11677035664275012000
+            },
+            "launched": false,
+            "relaunchedBrowser": false,
+            "restartedBackground": false,
+            "restoreStatus": "not_configured",
+            "reused": true,
+            "saveStatus": "not_attempted"
+         },
+         "url": "http://127.0.0.1:5173/inicio",
+         "violations": []
+      },
+      {
+         "width": 1280,
+         "route": "/meus-estudos",
+         "axeVersion": "4.12.1",
+         "counts": {
+            "inapplicable": 49,
+            "incomplete": 0,
+            "passes": 40,
+            "violations": 0
+         },
+         "incomplete": [],
+         "lifecycle": {
+            "effectiveLaunch": {
+               "browserLaunched": true,
+               "engine": "chrome",
+               "launchHash": 11677035664275012000
+            },
+            "launched": false,
+            "relaunchedBrowser": false,
+            "restartedBackground": false,
+            "restoreStatus": "not_configured",
+            "reused": true,
+            "saveStatus": "not_attempted"
+         },
+         "url": "http://127.0.0.1:5173/meus-estudos",
+         "violations": []
+      },
+      {
+         "width": 1280,
+         "route": "/secretaria-virtual",
+         "axeVersion": "4.12.1",
+         "counts": {
+            "inapplicable": 50,
+            "incomplete": 1,
+            "passes": 39,
+            "violations": 0
+         },
+         "incomplete": [
+            {
+               "help": "Elements must meet minimum color contrast ratio thresholds",
+               "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+               "id": "color-contrast",
+               "impact": "serious",
+               "nodeCount": 2,
+               "nodes": [
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<h2>Como podemos ajudar?</h2>",
+                     "target": ["div > h2"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<p>Encontre serviços, envie uma solicitação e saiba onde acompanhar o retorno.</p>",
+                     "target": [".replica-hub-hero > div > p"]
+                  }
+               ],
+               "tags": ["cat.color", "wcag2aa", "wcag143", "TTv5", "TT13.c", "EN-301-549", "EN-9.1.4.3", "ACT", "RGAAv4", "RGAA-3.2.1"]
+            }
+         ],
+         "lifecycle": {
+            "effectiveLaunch": {
+               "browserLaunched": true,
+               "engine": "chrome",
+               "launchHash": 11677035664275012000
+            },
+            "launched": false,
+            "relaunchedBrowser": false,
+            "restartedBackground": false,
+            "restoreStatus": "not_configured",
+            "reused": true,
+            "saveStatus": "not_attempted"
+         },
+         "url": "http://127.0.0.1:5173/secretaria-virtual",
+         "violations": []
+      },
+      {
+         "width": 1280,
+         "route": "/financeiro?cobranca=DEMO-MENSALIDADE-202611",
+         "axeVersion": "4.12.1",
+         "counts": {
+            "inapplicable": 46,
+            "incomplete": 0,
+            "passes": 43,
+            "violations": 0
+         },
+         "incomplete": [],
+         "lifecycle": {
+            "effectiveLaunch": {
+               "browserLaunched": true,
+               "engine": "chrome",
+               "launchHash": 11677035664275012000
+            },
+            "launched": false,
+            "relaunchedBrowser": false,
+            "restartedBackground": false,
+            "restoreStatus": "not_configured",
+            "reused": true,
+            "saveStatus": "not_attempted"
+         },
+         "url": "http://127.0.0.1:5173/financeiro?cobranca=DEMO-MENSALIDADE-202611",
+         "violations": []
+      },
+      {
+         "width": 1280,
+         "route": "/financeiro/pix?cobranca=DEMO-MENSALIDADE-202611",
+         "axeVersion": "4.12.1",
+         "counts": {
+            "inapplicable": 44,
+            "incomplete": 1,
+            "passes": 45,
+            "violations": 0
+         },
+         "incomplete": [
+            {
+               "help": "Elements must meet minimum color contrast ratio thresholds",
+               "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+               "id": "color-contrast",
+               "impact": "serious",
+               "nodeCount": 1,
+               "nodes": [
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element",
+                     "html": "<text x=\"15\" y=\"15.2\" text-anchor=\"middle\" font-size=\"2.2\" font-family=\"sans-serif\" font-weight=\"700\" fill=\"#173aa3\">EXEMPLO</text>",
+                     "target": ["text"]
+                  }
+               ],
+               "tags": ["cat.color", "wcag2aa", "wcag143", "TTv5", "TT13.c", "EN-301-549", "EN-9.1.4.3", "ACT", "RGAAv4", "RGAA-3.2.1"]
+            }
+         ],
+         "lifecycle": {
+            "effectiveLaunch": {
+               "browserLaunched": true,
+               "engine": "chrome",
+               "launchHash": 11677035664275012000
+            },
+            "launched": false,
+            "relaunchedBrowser": false,
+            "restartedBackground": false,
+            "restoreStatus": "not_configured",
+            "reused": true,
+            "saveStatus": "not_attempted"
+         },
+         "url": "http://127.0.0.1:5173/financeiro/pix?cobranca=DEMO-MENSALIDADE-202611",
+         "violations": []
+      },
+      {
+         "width": 1280,
+         "route": "/calendario-academico?evento=avaliacoes-outubro",
+         "axeVersion": "4.12.1",
+         "counts": {
+            "inapplicable": 47,
+            "incomplete": 0,
+            "passes": 42,
+            "violations": 0
+         },
+         "incomplete": [],
+         "lifecycle": {
+            "effectiveLaunch": {
+               "browserLaunched": true,
+               "engine": "chrome",
+               "launchHash": 11677035664275012000
+            },
+            "launched": false,
+            "relaunchedBrowser": false,
+            "restartedBackground": false,
+            "restoreStatus": "not_configured",
+            "reused": true,
+            "saveStatus": "not_attempted"
+         },
+         "url": "http://127.0.0.1:5173/calendario-academico?evento=avaliacoes-outubro",
+         "violations": []
+      },
+      {
+         "width": 1280,
+         "route": "/meus-estudos/atividades",
+         "axeVersion": "4.12.1",
+         "counts": {
+            "inapplicable": 48,
+            "incomplete": 0,
+            "passes": 41,
+            "violations": 0
+         },
+         "incomplete": [],
+         "lifecycle": {
+            "effectiveLaunch": {
+               "browserLaunched": true,
+               "engine": "chrome",
+               "launchHash": 11677035664275012000
+            },
+            "launched": false,
+            "relaunchedBrowser": false,
+            "restartedBackground": false,
+            "restoreStatus": "not_configured",
+            "reused": true,
+            "saveStatus": "not_attempted"
+         },
+         "url": "http://127.0.0.1:5173/meus-estudos/atividades",
+         "violations": []
+      },
+      {
+         "width": 1280,
+         "route": "/comunicados",
+         "axeVersion": "4.12.1",
+         "counts": {
+            "inapplicable": 47,
+            "incomplete": 0,
+            "passes": 42,
+            "violations": 0
+         },
+         "incomplete": [],
+         "lifecycle": {
+            "effectiveLaunch": {
+               "browserLaunched": true,
+               "engine": "chrome",
+               "launchHash": 11677035664275012000
+            },
+            "launched": false,
+            "relaunchedBrowser": false,
+            "restartedBackground": false,
+            "restoreStatus": "not_configured",
+            "reused": true,
+            "saveStatus": "not_attempted"
+         },
+         "url": "http://127.0.0.1:5173/comunicados",
+         "violations": []
+      },
+      {
+         "width": 1280,
+         "route": "/perfil/documentos",
+         "axeVersion": "4.12.1",
+         "counts": {
+            "inapplicable": 47,
+            "incomplete": 0,
+            "passes": 42,
+            "violations": 0
+         },
+         "incomplete": [],
+         "lifecycle": {
+            "effectiveLaunch": {
+               "browserLaunched": true,
+               "engine": "chrome",
+               "launchHash": 11677035664275012000
+            },
+            "launched": false,
+            "relaunchedBrowser": false,
+            "restartedBackground": false,
+            "restoreStatus": "not_configured",
+            "reused": true,
+            "saveStatus": "not_attempted"
+         },
+         "url": "http://127.0.0.1:5173/perfil/documentos",
+         "violations": []
+      },
+      {
+         "width": 390,
+         "route": "/inicio",
+         "axeVersion": "4.12.1",
+         "counts": {
+            "inapplicable": 48,
+            "incomplete": 1,
+            "passes": 41,
+            "violations": 0
+         },
+         "incomplete": [
+            {
+               "help": "Elements must meet minimum color contrast ratio thresholds",
+               "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+               "id": "color-contrast",
+               "impact": "serious",
+               "nodeCount": 5,
+               "nodes": [
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<strong>Hoje, 21h às 22h40</strong>",
+                     "target": [".student-class-time > strong"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<h2 id=\"home-next-class\">Bases da Administração Moderna</h2>",
+                     "target": ["#home-next-class"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<p>",
+                     "target": [".student-next-class > div > p"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                     "html": "<span>·</span>",
+                     "target": [".student-next-class > div > p > span"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<a href=\"/horarios\" data-discover=\"true\">",
+                     "target": ["a[href$=\"horarios\"]"]
+                  }
+               ],
+               "tags": ["cat.color", "wcag2aa", "wcag143", "TTv5", "TT13.c", "EN-301-549", "EN-9.1.4.3", "ACT", "RGAAv4", "RGAA-3.2.1"]
+            }
+         ],
+         "lifecycle": {
+            "effectiveLaunch": {
+               "browserLaunched": true,
+               "engine": "chrome",
+               "launchHash": 11677035664275012000
+            },
+            "launched": false,
+            "relaunchedBrowser": false,
+            "restartedBackground": false,
+            "restoreStatus": "not_configured",
+            "reused": true,
+            "saveStatus": "not_attempted"
+         },
+         "url": "http://127.0.0.1:5173/inicio",
+         "violations": []
+      },
+      {
+         "width": 390,
+         "route": "/meus-estudos",
+         "axeVersion": "4.12.1",
+         "counts": {
+            "inapplicable": 49,
+            "incomplete": 0,
+            "passes": 40,
+            "violations": 0
+         },
+         "incomplete": [],
+         "lifecycle": {
+            "effectiveLaunch": {
+               "browserLaunched": true,
+               "engine": "chrome",
+               "launchHash": 11677035664275012000
+            },
+            "launched": false,
+            "relaunchedBrowser": false,
+            "restartedBackground": false,
+            "restoreStatus": "not_configured",
+            "reused": true,
+            "saveStatus": "not_attempted"
+         },
+         "url": "http://127.0.0.1:5173/meus-estudos",
+         "violations": []
+      },
+      {
+         "width": 390,
+         "route": "/secretaria-virtual",
+         "axeVersion": "4.12.1",
+         "counts": {
+            "inapplicable": 50,
+            "incomplete": 1,
+            "passes": 39,
+            "violations": 0
+         },
+         "incomplete": [
+            {
+               "help": "Elements must meet minimum color contrast ratio thresholds",
+               "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+               "id": "color-contrast",
+               "impact": "serious",
+               "nodeCount": 2,
+               "nodes": [
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<h2>Como podemos ajudar?</h2>",
+                     "target": ["div > h2"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<p>Encontre serviços, envie uma solicitação e saiba onde acompanhar o retorno.</p>",
+                     "target": [".replica-hub-hero > div > p"]
+                  }
+               ],
+               "tags": ["cat.color", "wcag2aa", "wcag143", "TTv5", "TT13.c", "EN-301-549", "EN-9.1.4.3", "ACT", "RGAAv4", "RGAA-3.2.1"]
+            }
+         ],
+         "lifecycle": {
+            "effectiveLaunch": {
+               "browserLaunched": true,
+               "engine": "chrome",
+               "launchHash": 11677035664275012000
+            },
+            "launched": false,
+            "relaunchedBrowser": false,
+            "restartedBackground": false,
+            "restoreStatus": "not_configured",
+            "reused": true,
+            "saveStatus": "not_attempted"
+         },
+         "url": "http://127.0.0.1:5173/secretaria-virtual",
+         "violations": []
+      },
+      {
+         "width": 390,
+         "route": "/financeiro?cobranca=DEMO-MENSALIDADE-202611",
+         "axeVersion": "4.12.1",
+         "counts": {
+            "inapplicable": 46,
+            "incomplete": 0,
+            "passes": 43,
+            "violations": 0
+         },
+         "incomplete": [],
+         "lifecycle": {
+            "effectiveLaunch": {
+               "browserLaunched": true,
+               "engine": "chrome",
+               "launchHash": 11677035664275012000
+            },
+            "launched": false,
+            "relaunchedBrowser": false,
+            "restartedBackground": false,
+            "restoreStatus": "not_configured",
+            "reused": true,
+            "saveStatus": "not_attempted"
+         },
+         "url": "http://127.0.0.1:5173/financeiro?cobranca=DEMO-MENSALIDADE-202611",
+         "violations": []
+      },
+      {
+         "width": 390,
+         "route": "/financeiro/pix?cobranca=DEMO-MENSALIDADE-202611",
+         "axeVersion": "4.12.1",
+         "counts": {
+            "inapplicable": 44,
+            "incomplete": 0,
+            "passes": 45,
+            "violations": 0
+         },
+         "incomplete": [],
+         "lifecycle": {
+            "effectiveLaunch": {
+               "browserLaunched": true,
+               "engine": "chrome",
+               "launchHash": 11677035664275012000
+            },
+            "launched": false,
+            "relaunchedBrowser": false,
+            "restartedBackground": false,
+            "restoreStatus": "not_configured",
+            "reused": true,
+            "saveStatus": "not_attempted"
+         },
+         "url": "http://127.0.0.1:5173/financeiro/pix?cobranca=DEMO-MENSALIDADE-202611",
+         "violations": []
+      },
+      {
+         "width": 390,
+         "route": "/calendario-academico?evento=avaliacoes-outubro",
+         "axeVersion": "4.12.1",
+         "counts": {
+            "inapplicable": 47,
+            "incomplete": 0,
+            "passes": 42,
+            "violations": 0
+         },
+         "incomplete": [],
+         "lifecycle": {
+            "effectiveLaunch": {
+               "browserLaunched": true,
+               "engine": "chrome",
+               "launchHash": 11677035664275012000
+            },
+            "launched": false,
+            "relaunchedBrowser": false,
+            "restartedBackground": false,
+            "restoreStatus": "not_configured",
+            "reused": true,
+            "saveStatus": "not_attempted"
+         },
+         "url": "http://127.0.0.1:5173/calendario-academico?evento=avaliacoes-outubro",
+         "violations": []
+      },
+      {
+         "width": 390,
+         "route": "/meus-estudos/atividades",
+         "axeVersion": "4.12.1",
+         "counts": {
+            "inapplicable": 48,
+            "incomplete": 0,
+            "passes": 41,
+            "violations": 0
+         },
+         "incomplete": [],
+         "lifecycle": {
+            "effectiveLaunch": {
+               "browserLaunched": true,
+               "engine": "chrome",
+               "launchHash": 11677035664275012000
+            },
+            "launched": false,
+            "relaunchedBrowser": false,
+            "restartedBackground": false,
+            "restoreStatus": "not_configured",
+            "reused": true,
+            "saveStatus": "not_attempted"
+         },
+         "url": "http://127.0.0.1:5173/meus-estudos/atividades",
+         "violations": []
+      },
+      {
+         "width": 390,
+         "route": "/comunicados",
+         "axeVersion": "4.12.1",
+         "counts": {
+            "inapplicable": 47,
+            "incomplete": 0,
+            "passes": 42,
+            "violations": 0
+         },
+         "incomplete": [],
+         "lifecycle": {
+            "effectiveLaunch": {
+               "browserLaunched": true,
+               "engine": "chrome",
+               "launchHash": 11677035664275012000
+            },
+            "launched": false,
+            "relaunchedBrowser": false,
+            "restartedBackground": false,
+            "restoreStatus": "not_configured",
+            "reused": true,
+            "saveStatus": "not_attempted"
+         },
+         "url": "http://127.0.0.1:5173/comunicados",
+         "violations": []
+      },
+      {
+         "width": 390,
+         "route": "/perfil/documentos",
+         "axeVersion": "4.12.1",
+         "counts": {
+            "inapplicable": 47,
+            "incomplete": 0,
+            "passes": 42,
+            "violations": 0
+         },
+         "incomplete": [],
+         "lifecycle": {
+            "effectiveLaunch": {
+               "browserLaunched": true,
+               "engine": "chrome",
+               "launchHash": 11677035664275012000
+            },
+            "launched": false,
+            "relaunchedBrowser": false,
+            "restartedBackground": false,
+            "restoreStatus": "not_configured",
+            "reused": true,
+            "saveStatus": "not_attempted"
+         },
+         "url": "http://127.0.0.1:5173/perfil/documentos",
+         "violations": []
+      }
+   ]
+}

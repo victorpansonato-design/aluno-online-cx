@@ -43,4 +43,4 @@ Esses fundamentos justificam decisões de projeto; não comprovam ganho no Anchi
 
 O esboço do calendário fornecido abriu autenticação Microsoft. Nenhuma autenticação adicional foi realizada: a captura enviada orientou a composição e os eventos locais estão identificados como demonstração. O link oficial permanece disponível. Mensalidade, extensão e lembretes novos são exemplos explícitos. Não há pagamentos, conciliação, solicitações, assinatura ou envio de dados ao portal real.
 
-Na visão Conectada, a Ana fica junto do contexto de curso no rodapé da navegação. O acesso abre o guia local e fecha a gaveta no celular. A personagem não flutua sobre calendário, textos ou botões. Original mantém a disposição observada para comparação.
+Na revisão 4, a Ana permanece apenas flutuante no canto inferior direito. Não há faixa ou bloco fixo de assistência. O contexto de curso/período/semestre e a orientação continuam no rodapé da sidebar, com densidade da origem. Comparação de modos fica na conta e no rodapé da página. Há espaço no fim da rolagem e ajuste de foco para alcançar controles no canto.

@@ -1,6 +1,6 @@
-# Roteiro da revisão 3
+# Roteiro da revisão 4
 
-Abra http://127.0.0.1:5173/inicio. A visão Conectada abre por padrão em um navegador sem preferência salva; o seletor no alto permite comparar Original. Todos os dados e alterações são locais.
+Abra http://127.0.0.1:5173/inicio. A visão Conectada abre por padrão em um navegador sem preferência salva; as opções da conta permitem comparar Original. Todos os dados e alterações são locais.
 
 1. Confira as seis entradas e o rodapé com curso, período, semestre e ajuda. No celular, abra a gaveta pelo botão do cabeçalho.
 2. Na home, identifique próxima aula, documentos/frequência, horas, calendário e próximo pagamento.
@@ -15,4 +15,4 @@ Abra http://127.0.0.1:5173/inicio. A visão Conectada abre por padrão em um nav
 
 Use Ctrl K para buscar recursos. Teste claro/escuro, menu recolhido e navegação pelo teclado. O reset em Preferências restaura somente a demonstração neste navegador.
 
-O botão Conversar com a Ana fica no rodapé da navegação. No celular, abra a gaveta para encontrá-lo; ao tocar, a navegação fecha e o guia local abre. A personagem permanece preservada sem cobrir as tarefas.
+A Ana abre pelo botão circular no canto inferior direito, sem bloco fixo de ajuda. O resumo de complementares mostra verde/vermelho e valores de cumpridas/exigidas/restantes; extensão usa verde forte. A cobrança da home permanece branca com valor verde.

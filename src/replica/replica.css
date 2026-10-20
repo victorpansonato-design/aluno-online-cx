@@ -402,6 +402,12 @@
    height: 100%;
    object-fit: contain;
 }
+.replica-student-mode [data-replica-scroll] {
+   scroll-padding-bottom: 112px;
+}
+.replica-student-mode .replica-page {
+   padding-bottom: 112px;
+}
 body:has([role="dialog"][data-state="open"]) .replica-ana-launcher {
    visibility: hidden;
 }
@@ -1600,7 +1606,7 @@ body:has([role="dialog"][data-state="open"]) .replica-ana-launcher {
    bottom: 0;
    left: 0;
    z-index: 71;
-   width: min(86vw, 320px);
+   width: min(18rem, calc(100vw - 32px));
    display: flex;
    flex-direction: column;
    background: var(--sidebar);
@@ -1615,6 +1621,11 @@ body:has([role="dialog"][data-state="open"]) .replica-ana-launcher {
 }
 .replica-mobile-brand > img {
    width: 88px;
+}
+.replica-mobile-brand-actions {
+   display: flex;
+   align-items: center;
+   gap: 4px;
 }
 .replica-mobile-menu > nav {
    display: flex;

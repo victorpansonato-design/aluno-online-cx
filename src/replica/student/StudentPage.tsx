@@ -44,20 +44,54 @@ function FormationSummary() {
             { label: "Horas complementares", ...formation.complementary, href: "/perfil/horas-complementares", example: false },
             { label: "Horas de extensão", ...formation.extension, href: "/meus-estudos/extensao", example: true },
          ].map(item => (
-            <Link className="student-hours-row" to={item.href} key={item.label}>
+            <Link
+               className={"student-hours-row " + (item.example ? "student-hours-extension" : "student-hours-complementary")}
+               to={item.href}
+               key={item.label}
+            >
                <span>
                   <strong>{item.label}</strong>
                   <ArrowRight size={15} />
                </span>
                <div>
-                  <b>{item.done}h</b>
-                  <small>
-                     {" "}
-                     de {item.total}h{item.example ? " · exemplo" : ""}
-                  </small>
+                  <b>{Math.round((item.done / item.total) * 100)}%</b>
+                  <small> das {item.example ? "horas de extensão · exemplo" : "horas complementares"}</small>
                </div>
-               <progress value={item.done} max={item.total} aria-label={`${item.label}: ${item.done} de ${item.total} horas`} />
-               <small>Faltam {item.total - item.done}h</small>
+               <div className="student-hours-legend">
+                  <span>
+                     <small>
+                        <i className="student-dot-done" />
+                        Cumpridas
+                     </small>
+                     <strong>{item.done}h</strong>
+                  </span>
+                  <span>
+                     <small>
+                        <i className="student-dot-required" />
+                        Exigidas{item.example ? "*" : ""}
+                     </small>
+                     <strong>{item.total}h</strong>
+                  </span>
+                  <span>
+                     <small>
+                        <i className="student-dot-remaining" />
+                        Restantes
+                     </small>
+                     <strong>{item.total - item.done}h</strong>
+                  </span>
+               </div>
+               <div
+                  className="student-hours-track"
+                  role="progressbar"
+                  aria-valuenow={item.done}
+                  aria-valuemin={0}
+                  aria-valuemax={item.total}
+                  aria-label={`${item.label}: ${item.done} de ${item.total} horas; faltam ${item.total - item.done} horas`}
+               >
+                  <span style={{ width: `${(item.done / item.total) * 100}%` }} />
+                  <span style={{ width: `${((item.total - item.done) / item.total) * 100}%` }} />
+               </div>
+               {item.example && <small className="student-hours-example">* Meta de extensão ilustrativa.</small>}
             </Link>
          ))}
          <Link className="student-text-link" to="/meus-estudos/atividades">
@@ -117,7 +151,7 @@ function StudentHome({ showOverlay }: { showOverlay: Props["showOverlay"] }) {
          </header>
          <div className="student-home-priorities">
             <NextClass />
-            <section className="student-next-payment" aria-labelledby="next-payment-title">
+            <section className="student-next-payment" data-clear={!charge} aria-labelledby="next-payment-title">
                <div className="student-section-heading">
                   <h2 id="next-payment-title">Próximo pagamento</h2>
                   <ReceiptText size={19} />
@@ -161,7 +195,7 @@ function StudentHome({ showOverlay }: { showOverlay: Props["showOverlay"] }) {
                   </div>
                   <div className="student-attention-list">
                      {missing ? (
-                        <Link to="/perfil/documentos#documentos-matricula">
+                        <Link className="student-attention-document" to="/perfil/documentos#documentos-matricula">
                            <FileCheck2 size={20} />
                            <span>
                               <strong>{missing === 1 ? "Falta enviar 1 documento" : `Faltam enviar ${missing} documentos`}</strong>
@@ -170,7 +204,7 @@ function StudentHome({ showOverlay }: { showOverlay: Props["showOverlay"] }) {
                            <ArrowRight size={17} />
                         </Link>
                      ) : (
-                        <Link to="/perfil/documentos">
+                        <Link className="student-attention-complete" to="/perfil/documentos">
                            <CheckCircle2 size={20} />
                            <span>
                               <strong>Documentos enviados</strong>
@@ -180,7 +214,7 @@ function StudentHome({ showOverlay }: { showOverlay: Props["showOverlay"] }) {
                         </Link>
                      )}
                      {notice && (
-                        <Link to={"/perfil/notas-e-faltas?disciplina=" + notice.id}>
+                        <Link className="student-attention-frequency" to={"/perfil/notas-e-faltas?disciplina=" + notice.id}>
                            <TriangleAlert size={20} />
                            <span>
                               <strong>Confira suas faltas em Contabilidade</strong>

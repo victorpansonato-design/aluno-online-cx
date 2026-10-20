@@ -1,12 +1,12 @@
 # Aluno Online · clone e experiência conectada
 
-Revisão 3: o clone aprovado do Aluno Online foi reorganizado para **simplificar a rotina do aluno**, mantendo a identidade, os conteúdos e os fluxos reconstruídos do portal real. A barra reúne seis destinos; cada área apresenta os assuntos relacionados e os próximos passos.
+Revisão 4: o clone aprovado do Aluno Online foi reorganizado para **simplificar a rotina do aluno**, mantendo a identidade, os conteúdos e os fluxos reconstruídos do portal real. A barra reúne seis destinos; cada área apresenta os assuntos relacionados e os próximos passos.
 
 ## Abrir
 
 **http://127.0.0.1:5173/**
 
-Sem RA ou senha. A visão **Conectada** abre por padrão. Use o botão **Original/Conectada** no topo ou as opções do perfil para comparar com o clone. A escolha fica salva no navegador. Em **Preferências e cenários**, explore DP/adaptação e outras situações fictícias.
+Sem RA ou senha. A visão **Conectada** abre por padrão. Use as opções do perfil ou o rodapé da página para comparar **Original/Conectada** com o clone. A escolha fica salva no navegador. Em **Preferências e cenários**, explore DP/adaptação e outras situações fictícias.
 
 No Windows, execute **Iniciar-Aluno-Online.cmd** para iniciar novamente. Com Node.js 24 e npm:
 
@@ -50,7 +50,7 @@ O calendário usa o esboço enviado e eventos ilustrativos identificados; o ende
 - [Validação técnica](docs/VALIDACAO.md)
 - [Pesquisa e estratégia de CX](docs/DIAGNOSTICO-E-ESTRATEGIA.md)
 - [Sistema visual](DESIGN.md)
-- [Capturas atuais](docs/screenshots/v3)
+- [Capturas atuais](docs/screenshots/v4)
 
 ## Arquitetura
 
@@ -59,3 +59,9 @@ Entrada em src/main.tsx; aplicação ativa em src/replica. original.css contém 
 Nenhum JavaScript executável, autenticação, cookies, credenciais ou documentos privados do portal foram incorporados. HTML de referência é sanitizado e interações são implementadas localmente. Capturas privadas e ferramentas de coleta ficam fora do Git.
 
 Este frontend não envia pedidos à instituição, não faz pagamentos ou uploads e não assina contratos reais. Anexos guardam somente nome/status. Documentos gerados não têm validade. A inspeção representa a conta e os estados visíveis em 20/10/2026; regras do backend e situações de outros cursos exigem integração e validação institucional.
+
+## Refinamento visual solicitado
+
+Ana volta como esfera flutuante no canto inferior direito, sem faixa fixa ou cartão acoplado. A navegação conserva os seis grupos com o desenho compacto de origem: itens de 36px, fonte de 14px, ícones de 20px, recuos, seleção azul/amarela e gaveta de 18rem. A comparação de modos fica nas opções da conta e no rodapé, sem aumentar a barra.
+
+A próxima aula mantém degradê claro/azul e ilustração em cor. Próximo pagamento fica branco, com valor verde. Horas complementares mostram percentual, cumpridas/exigidas/restantes e barra verde/vermelha; extensão usa verde forte, com meta ilustrativa identificada. A verificação das medidas está em docs/student-geometry-report-v4.json; o histórico visual v3 permanece disponível.

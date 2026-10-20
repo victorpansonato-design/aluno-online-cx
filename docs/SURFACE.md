@@ -1,4 +1,4 @@
-# Contrato da superfície · revisão 3
+# Contrato da superfície · revisão 4
 
 Modo: Operate. Público: aluno ingressante com baixa familiaridade com a organização da instituição, majoritariamente no celular. O usuário aprovou o clone e pediu explicitamente SIMPLIFICAR a navegação e a home, mantendo informações e antecipando próximos passos. Decisões de execução delegadas.
 
@@ -13,3 +13,11 @@ CONTINUITY: home → cobrança selecionada → Pix demonstrativo → confirmaç�
 MOTION: transições de painéis preservadas, rolagem física e busca rápida; conteúdo visível por padrão, respeito a movimento reduzido. Não se promete equivalência de todas as curvas do original.
 TRUTH: tudo local. Mensalidade de R$890 e horas de extensão 40/240h são exemplos. QR e código de Pix não são válidos. Prévia acadêmica usa o esboço e eventos ilustrativos; não acessa autenticação Microsoft nem calendário protegido. Horas complementares de referência: 26/160h. Nenhuma informação é tratada como regra oficial ausente.
 FINISH: testes de percursos, cobertura das funções antigas, inspeção visual desktop/mobile/981px em lote, correções limitadas, revisão e documentação. Critérios em QUALITY-BAR.md. Não declarar melhoria de CX sem validação com alunos.
+
+## Refinamento visual · revisão 4
+
+A instrução e as imagens mais recentes do usuário prevalecem sobre a primeira correção de revisão que havia acoplado a Ana à barra. A Ana permanece uma esfera flutuante no canto inferior direito, sem bloco, trilho, faixa azul ou reserva fixa de viewport. Espaço no fim da rolagem e ajuste de foco permitem alcançar controles junto ao canto. Não adicionar uma área permanente de ajuda.
+
+Preservar seis grupos, com medidas do original: sidebar 272px, item 36px, fonte 14px, ícone 20px, intervalo 4px, gap interno 8px, padding 8px, borda arredondada 6px e recuo que produz x=24px no viewport desktop. Gaveta móvel de 18rem; cabeçalho com marca, busca e fechar, sem caixa de comparação. O menu da conta continua permitindo comparar Original/Conectada.
+
+Na home, manter degradê branco/azul da próxima aula, ilustração em cor, pagamento branco com valor verde e formação branca. Complementares exibem 16%, 26/160/134h e barra verde/vermelha, conforme a referência. Extensão exibe 17%, 40/240/200h e preenchimento em verde forte; requisitos continuam ilustrativos. As cores dos estados têm legenda e números, sem depender só da cor.

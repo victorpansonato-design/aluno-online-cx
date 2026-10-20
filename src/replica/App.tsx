@@ -2,7 +2,7 @@ import { lazy, Suspense, memo, useCallback, useEffect, useLayoutEffect, useMemo,
 import { createPortal } from "react-dom";
 import { BrowserRouter, useLocation, useNavigate } from "react-router-dom";
 import { Dialog } from "radix-ui";
-import { ArrowRight, Check, ChevronDown, ExternalLink, HelpCircle, LogOut, Menu, Moon, Settings2, Sun, X } from "lucide-react";
+import { ArrowRight, Check, ChevronDown, ExternalLink, HelpCircle, LogOut, Menu, Moon, Search, Settings2, Sun, X } from "lucide-react";
 import { Toaster, toast } from "sonner";
 import { DemoProvider, useDemo } from "../cx/state";
 import { disciplines, external, normalize } from "../cx/data";
@@ -169,7 +169,8 @@ function Replica() {
       if (!host) return;
       const navEl = host.querySelector('nav[aria-label="Navegação principal"]');
       if (navEl) navEl.innerHTML = sourceNav;
-   }, [host, sourceNav]);
+      host.classList.toggle("replica-student-mode", connected);
+   }, [host, sourceNav, connected]);
    useLayoutEffect(() => {
       if (!host) return;
       host.classList.toggle("replica-collapsed", collapsed);
@@ -323,6 +324,31 @@ function Replica() {
       window.addEventListener("keydown", onKey);
       return () => window.removeEventListener("keydown", onKey);
    }, []);
+   useEffect(() => {
+      if (!connected || !host) return;
+      let frame = 0;
+      const revealFocus = (event: FocusEvent) => {
+         const target = event.target;
+         if (!(target instanceof HTMLElement)) return;
+         const scroller = target.closest<HTMLElement>("[data-replica-scroll]");
+         if (!scroller) return;
+         cancelAnimationFrame(frame);
+         frame = requestAnimationFrame(() => {
+            const avatar = document.querySelector<HTMLElement>(".replica-ana-launcher");
+            if (!avatar || getComputedStyle(avatar).visibility === "hidden") return;
+            const a = avatar.getBoundingClientRect(),
+               t = target.getBoundingClientRect();
+            if (t.right > a.left - 12 && t.left < a.right && t.bottom > a.top - 12 && t.top < a.bottom) {
+               scroller.scrollTop += t.bottom - a.top + 12;
+            }
+         });
+      };
+      host.addEventListener("focusin", revealFocus);
+      return () => {
+         host.removeEventListener("focusin", revealFocus);
+         cancelAnimationFrame(frame);
+      };
+   }, [connected, host]);
    const activeOverlay = overlay || routedOverlay;
    const currentContentHost = host?.querySelector("#conteudo-principal");
    function handleClick(event: MouseEvent<HTMLElement>) {
@@ -347,11 +373,6 @@ function Replica() {
          return;
       }
       if (target.hasAttribute("disabled")) return;
-      if (target.hasAttribute("data-ana-assistant")) {
-         setMenu(false);
-         setOverlay({ kind: "chat" });
-         return;
-      }
       if (target.getAttribute("role") === "switch") {
          const checked = target.getAttribute("aria-checked") !== "true";
          target.setAttribute("aria-checked", String(checked));
@@ -369,6 +390,7 @@ function Replica() {
          return;
       }
       if (label === "Buscar menus" || text.includes("Buscar menus, páginas")) {
+         setMenu(false);
          setOverlay({ kind: "search" });
          return;
       }
@@ -860,26 +882,10 @@ function Replica() {
             }}
          />
          {currentContentHost && createPortal(content, currentContentHost)}
-         {!collapsed && (
-            <button className="replica-mode" aria-label="Comparar navegação original e conectada" onClick={() => setAccount(true)}>
-               {connected ? "Conectada" : "Original"}
-               <ChevronDown size={12} />
-            </button>
-         )}
-         {!connected && (
-            <button className="replica-ana-launcher" aria-label="Abrir chat da Ana" onClick={() => setOverlay({ kind: "chat" })}>
-               <img src="/replica/ana.webp" alt="" />
-            </button>
-         )}
-         {menu && (
-            <MobileMenu
-               html={sourceNav}
-               close={() => setMenu(false)}
-               onClick={handleClick}
-               connected={connected}
-               toggle={() => setConnected(v => !v)}
-            />
-         )}
+         <button className="replica-ana-launcher" aria-label="Abrir chat da Ana" onClick={() => setOverlay({ kind: "chat" })}>
+            <img src="/replica/ana.webp" alt="" />
+         </button>
+         {menu && <MobileMenu html={sourceNav} close={() => setMenu(false)} onClick={handleClick} />}
          {account && <Account close={() => setAccount(false)} connected={connected} setConnected={setConnected} go={go} />}
          {activeOverlay && (
             <OverlayView
@@ -894,19 +900,7 @@ function Replica() {
       </>
    );
 }
-function MobileMenu({
-   html,
-   close,
-   onClick,
-   connected,
-   toggle,
-}: {
-   html: string;
-   close: () => void;
-   onClick: (e: MouseEvent<HTMLElement>) => void;
-   connected: boolean;
-   toggle: () => void;
-}) {
+function MobileMenu({ html, close, onClick }: { html: string; close: () => void; onClick: (e: MouseEvent<HTMLElement>) => void }) {
    return (
       <Dialog.Root
          open
@@ -920,14 +914,15 @@ function MobileMenu({
                <Dialog.Title className="sr-only">Menu de navegação</Dialog.Title>
                <div className="replica-mobile-brand">
                   <img src="/replica/logo-grupo-anchieta-3x-BOFhQ5AB.webp" alt="Grupo Anchieta" />
-                  <Dialog.Close aria-label="Fechar menu" className="replica-icon-button">
-                     <X size={20} />
-                  </Dialog.Close>
+                  <div className="replica-mobile-brand-actions">
+                     <button aria-label="Buscar menus" className="replica-icon-button" onClick={onClick}>
+                        <Search size={16} />
+                     </button>
+                     <Dialog.Close aria-label="Fechar menu" className="replica-icon-button">
+                        <X size={20} />
+                     </Dialog.Close>
+                  </div>
                </div>
-               <button className="replica-mode-mobile" onClick={toggle}>
-                  {connected ? "Navegação conectada" : "Navegação original"}
-                  <span>Alternar comparação</span>
-               </button>
                <nav aria-label="Navegação principal" onClick={onClick} dangerouslySetInnerHTML={{ __html: html }} />
             </Dialog.Content>
          </Dialog.Portal>
