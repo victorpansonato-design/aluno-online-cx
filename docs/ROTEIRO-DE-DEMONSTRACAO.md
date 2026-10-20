@@ -1,16 +1,13 @@
-# Roteiro para explorar o novo Aluno Online
+# Roteiro de demonstração · revisão 2
 
-Abra http://127.0.0.1:5173/. Não é necessário RA ou senha.
+1. Abra /inicio no modo Original. Compare logo, cabeçalho, sidebar, aula, ilustrações, resumos, jornada e avisos com o portal real.
+2. Reduza a largura para 390px. Abra o menu, navegue em Horários e alterne Semana/Mês; selecione dias da agenda e abra as notas pela home.
+3. Explore Meu perfil, Documentos, Notas e faltas, Horas complementares e Certificados. Selecione um arquivo fictício: só nome/status ficam no navegador.
+4. Abra Solicitação de serviços, busque Transferência de Turno, selecione turno, confira e conclua a demonstração. O protocolo aparece no acompanhamento e no financeiro.
+5. Simule o pagamento no financeiro e retorne ao mesmo protocolo. Confira a atualização para Em análise.
+6. Alterne para Conectada pelo botão no topo. Abra a Secretaria virtual e seus grupos; documentos pessoais continuam em Meus dados.
+7. Em Preferências e cenários, escolha DP/adaptação. Na jornada, observe o encaminhamento à inscrição externa junto da disciplina.
+8. Explore compensação, dispensa de várias disciplinas, laboratórios, estágio/TCC/PI, contratos, formatura, mural e avisos. Links externos abrem os sistemas de destino.
+9. Teste Ctrl K, tema escuro, texto maior e movimento reduzido. Reinicie os dados em Preferências para outra apresentação.
 
-1. **Comece pela home.** Veja a próxima aula, os documentos pendentes e o pedido em análise.
-2. **Entre na Secretaria virtual.** Busque “matrícula”, abra o atestado, percorra as etapas e confirme um pedido de demonstração. O protocolo leva ao resultado local.
-3. **Teste um serviço com custo.** “Mudar de turno” mostra o valor do catálogo e gera um pedido aguardando etapa financeira. Nenhum pagamento é realizado.
-4. **Envie um documento de teste.** Em Meus dados → Meus documentos, escolha um PDF ou imagem sem dados pessoais. Confira a atualização da pendência na home. No detalhe, as ferramentas de demonstração permitem simular conferência e reenvio.
-5. **Conecte notas e serviço.** Abra uma disciplina em Notas e faltas e toque em revisão de nota ou orientação de faltas. A disciplina já vai selecionada no pedido.
-6. **Explore a jornada inteira.** Expanda os oito períodos e abra os detalhes das disciplinas. São 44 componentes da matriz observada.
-7. **Mude para o cenário de DP.** Use “Explorar cenários”, no topo, ou Preferências. A jornada passa a mostrar uma dependência fictícia com o botão de inscrição e o edital. O botão externo abre o sistema real e pode pedir autenticação; não registra inscrição sozinho.
-8. **Teste o financeiro pendente.** O cenário de cobrança demonstra detalhes e confirmação simulada. Não há código bancário pagável.
-9. **Confira o celular.** Reduza a largura: cinco áreas permanecem na navegação inferior, o menu completo abre pelo topo e o boletim vira resumo por disciplina.
-10.   **Experimente a ajuda e os estados.** Use a Ana por assuntos, a busca global, tema escuro, texto maior, erro simulado e preferências. Recomece a demonstração quando quiser.
-
-Os arquivos baixados e todos os registros locais são exemplos sem validade. Os sistemas externos mantêm seus próprios controles de acesso e regras.
+Nenhuma etapa local cria pedido, cobrança, assinatura ou upload no sistema da instituição. Não use documentos reais para apresentar. O guia Ana oferece orientação local por assuntos, sem atendimento humano ou IA conectada.

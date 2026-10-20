@@ -1,0 +1,134 @@
+{
+   "date": "2026-10-20T19:00:58.186Z",
+   "source": "Only localhost and fictional data",
+   "visits": [
+      {
+         "page": "/inicio",
+         "width": 1280,
+         "content": 2586,
+         "images": [],
+         "overflow": false,
+         "title": "Início | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "page": "/perfil/documentos",
+         "width": 1280,
+         "content": 895,
+         "images": [],
+         "overflow": false,
+         "title": "Documentos | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "page": "/perfil/notas-e-faltas",
+         "width": 1280,
+         "content": 1351,
+         "images": [],
+         "overflow": false,
+         "title": "Notas e Faltas | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "page": "/jornada-academica",
+         "width": 1280,
+         "content": 1736,
+         "images": [],
+         "overflow": false,
+         "title": "Jornada Acadêmica | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "page": "/solicitacao-servicos",
+         "width": 1280,
+         "content": 3853,
+         "images": [],
+         "overflow": false,
+         "title": "Solicitação de serviços | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "page": "/financeiro",
+         "width": 1280,
+         "content": 2444,
+         "images": [],
+         "overflow": false,
+         "title": "Financeiro | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "page": "/horarios",
+         "width": 1280,
+         "content": 2246,
+         "images": [],
+         "overflow": false,
+         "title": "Horários | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "page": "/mural",
+         "width": 1280,
+         "content": 1402,
+         "images": [],
+         "overflow": false,
+         "title": "Mural | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "page": "/inicio",
+         "width": 390,
+         "content": 2586,
+         "images": [],
+         "overflow": false,
+         "title": "Início | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "page": "/perfil/documentos",
+         "width": 390,
+         "content": 895,
+         "images": [],
+         "overflow": false,
+         "title": "Documentos | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "page": "/perfil/notas-e-faltas",
+         "width": 390,
+         "content": 1351,
+         "images": [],
+         "overflow": false,
+         "title": "Notas e Faltas | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "page": "/jornada-academica",
+         "width": 390,
+         "content": 1736,
+         "images": [],
+         "overflow": false,
+         "title": "Jornada Acadêmica | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "page": "/solicitacao-servicos",
+         "width": 390,
+         "content": 3853,
+         "images": [],
+         "overflow": false,
+         "title": "Solicitação de serviços | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "page": "/financeiro",
+         "width": 390,
+         "content": 2444,
+         "images": [],
+         "overflow": false,
+         "title": "Financeiro | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "page": "/horarios",
+         "width": 390,
+         "content": 2246,
+         "images": [],
+         "overflow": false,
+         "title": "Horários | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "page": "/mural",
+         "width": 390,
+         "content": 1402,
+         "images": [],
+         "overflow": false,
+         "title": "Mural | Aluno Online Anchieta · Demonstração"
+      }
+   ]
+}

@@ -1,43 +1,44 @@
-# Validação técnica da entrega
+# Validação técnica · revisão 2
 
-Verificações realizadas em 20/10/2026 no protótipo local. O portal real permaneceu apenas como fonte de consulta.
+Verificações em 20/10/2026 no frontend local. O portal real foi fonte de consulta, sem envios ou alterações de registros.
 
-| Verificação              | Resultado                                              | Escopo                                                                             |
-| ------------------------ | ------------------------------------------------------ | ---------------------------------------------------------------------------------- |
-| TypeScript               | Passou                                                 | src/cx, entrada e testes CX                                                        |
-| ESLint                   | Passou                                                 | Código executado pelo protótipo                                                    |
-| Vitest + Testing Library | 11 testes passaram                                     | Inventário, serviços, revisão, estado local, anexos, cancelamento e mês            |
-| Compilação de produção   | Passou                                                 | Vite, módulos por área, fonte local                                                |
-| npm audit                | 0 vulnerabilidades reportadas                          | Árvore instalada no momento da entrega                                             |
-| Varredura de rotas       | 293 visitas sem falha detectada                        | Desktop 1440 px e áreas principais em 390, 320 e 768 px                            |
-| Capturas após correções  | 10 checagens sem overflow ou controle visível sem nome | Home, secretaria, documentos, notas e serviço em desktop/celular                   |
-| axe-core 4.12.1          | 0 violations nas 10 verificações finais                | Cinco superfícies × 1440/390 px                                                    |
-| Smoke no navegador       | 8 verificações passaram                                | 320 px, menu, busca por teclado, mês e tema                                        |
-| Revisão independente     | Quatro achados classificados resolved                  | Ação de documentos, rótulo de faltas, cancelamento terminal e posição de metadados |
-| Proveniência de imagens  | 12 arquivos com origem registrada                      | Marca fornecida e capturas fictícias; pixels preservados                           |
+| Verificação              | Resultado                       | Escopo                                                                                                                                                                                                                      |
+| ------------------------ | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| TypeScript e ESLint      | Passaram                        | Código ativo src/replica, compartilhado src/cx, entrada e testes                                                                                                                                                            |
+| Vitest / Testing Library | 24 testes passaram              | 13 do clone ativo e 11 do histórico/dados compartilhados; oito períodos, 40 formulários, sanitização, documentos, protocolo/financeiro, laboratórios, múltiplas disciplinas, calendário, retorno de formulário e instruções |
+| Produção Vite            | Passou                          | Páginas e formulários em chunks por demanda, fontes e ativos locais                                                                                                                                                         |
+| Cobertura de rotas       | 344 visitas sem falha detectada | 152 destinos em 1280/390px; 20 áreas principais em 320/768px                                                                                                                                                                |
+| Smoke por navegador      | 6 verificações passaram         | Menu móvel, Ctrl K, seleção de dia, mês anterior/seguinte e destino ativo único                                                                                                                                             |
+| axe automatizado         | 0 violations em 12 amostras     | Seis superfícies em 1280/390px; há verificações manuais incomplete                                                                                                                                                          |
+| axe após correções       | 0 violations em 6 amostras      | Documentos, histórico e formulário de reopção em 1280/390px                                                                                                                                                                 |
+| Preview compilado        | 4 rotas passaram                | Início, documentos, serviço e aviso em 390px; sem overflow ou recursos de API institucional                                                                                                                                 |
+| Capturas de revisão      | 30 capturas válidas             | 1280×720, 390×844 e largura real 981×884; dados fictícios                                                                                                                                                                   |
+| Correções da revisão     | 3 verificações passaram         | Aba ativa visível sem deslocamento vertical; campos iguais antes/depois da conferência em duas larguras                                                                                                                     |
+| Revisão independente     | ship no verdict pass            | Os três achados da revisão foram classificados resolved; aprovação restrita às correções pontuadas                                                                                                                          |
+| Proveniência             | 35 rasters registrados          | 30 capturas e cinco ativos; payloads de pixels preservados                                                                                                                                                                  |
 
-## Como interpretar a contagem de rotas
+## Interpretação da cobertura
 
-O inventário tem 39 entradas principais. Os detalhes dinâmicos de disciplinas, matriz, serviços, pedidos e avisos completam 132 caminhos distintos no conjunto de QA. A execução registrada fez 293 visitas porque repetiu 44 caminhos da matriz no desktop; o script foi posteriormente deduplicado. Esses números representam visitas verificadas, não centenas de funcionalidades diferentes nem um teste de cada possível interação.
+O índice contém 109 destinos capturados, incluindo os 89 avisos, e 40 formulários de serviço. A varredura adiciona Secretaria virtual, Preferências e Ajuda: 152 destinos em cada uma das duas larguras completas. As 20 páginas principais repetidas em 320 e 768px completam 344 visitas. Isso verifica renderização, conteúdo, imagens visíveis quebradas e overflow da página; não equivale a testar todas as combinações de estado e interação.
 
-A checagem procura título, erro fatal, destino dinâmico ausente, overflow horizontal e controles visíveis sem nome. O primeiro filtro do teste foi corrigido para desconsiderar controles dentro de detalhes fechados. A varredura técnica foi complementada por testes de componentes e interações reais no navegador.
+Os testes de componentes e os percursos no navegador complementam a varredura: campo específico de turno, revisão, protocolo e pagamento local; seleção de documento sem conteúdo persistido; habilitação de laboratório; seleção múltipla de disciplinas; detalhes da jornada; datas do calendário; preservação do rascunho ao voltar. A revisão das imagens confirma composição e hierarquia, sem medir equivalência de cada pixel ou curva de animação.
 
-## Evidências versionadas
+## Evidências atuais
 
-- browser-report.json: execução de navegação com quatro larguras e inspeções de acessibilidade.
-- capture-report.json: checagens e axe das dez telas recapturadas após os ajustes.
-- smoke-report.json: verificações finais no navegador a 320 px.
-- screenshots/: capturas das telas com dados fictícios, incluindo cancelamento terminal.
-- tests/cx/flows.test.tsx: regressões automatizadas de fluxos e estado.
+- clone-coverage-report.json: visitas por rota e largura.
+- clone-smoke-report.json: seis percursos e 12 amostras axe.
+- clone-final-checks.json: seis amostras axe após correções e quatro rotas de produção.
+- clone-browser-report.json e screenshots/v2/: capturas atuais.
+- clone-verdict-checks.json: valores antes/depois e posição da aba ativa.
+- REVISAO-INDEPENDENTE-V2.md: revisão completa e verdict pass limitado aos três achados.
+- asset-provenance-v2.json: origem e preservação dos rasters.
 
-## Revisão de acabamento
+Os relatórios browser-report.json, capture-report.json e smoke-report.json sem o prefixo clone, e capturas fora de v2, pertencem à versão anterior. Seus números não são usados para validar a revisão atual.
 
-Uma revisão independente examinou as capturas e uma amostra do código. Encontrou quatro pontos: a ação dos documentos sumia no celular; as frações de faltas perdiam identificação; o cancelamento mantinha etapa ativa; metadados apareciam acima dos títulos. Todos foram corrigidos em um lote. O verdict pass retornou **ship**, com os quatro itens **resolved**, no escopo desses achados. Isso não representa revisão exaustiva de todas as linhas ou certificação global.
+## Limites técnicos
 
-O detector de design registrou Inter e transição de largura como avisos. Inter foi preservada como parte da identidade e do uso operacional. A animação de largura foi removida.
+O build emite aviso de chunk principal acima de 500kB: aproximadamente 645kB minificado / 144kB gzip, além de CSS de referência de aproximadamente 235kB / 38kB gzip e chunks de página sob demanda. Não foi feita medição de desempenho em aparelhos ou rede móvel reais. O aviso não foi ocultado alterando o limite da ferramenta.
 
-## Limites
+Axe sem violations não certifica conformidade WCAG. Faltam leitores de tela, zoom, aparelhos reais e estados não capturados. A revisão independente examinou as imagens fornecidas e código amostrado; não executou navegador nem auditou toda a sanitização. O detector rodou uma vez nos arquivos autorais alterados; Inter, símbolos e o marcador original são compromissos da cópia, e avisos do DESIGN anterior foram encaminhados à documentação atualizada.
 
-Automação sem violations não comprova conformidade integral com WCAG. Ainda são necessários testes com leitores de tela, zoom, aparelhos reais, conexões lentas, diferentes vínculos e cursos, além de pesquisa com estudantes. Nenhuma redução de tempo, esforço, contatos ou evasão foi apresentada como medida.
-
-Os cenários de pagamento, assinatura, DP/adaptação e conferência são fictícios. Sistemas externos não foram submetidos a testes de envio. Capturas autenticadas e dados reais da conta de teste não fazem parte deste repositório.
+Nenhuma melhoria de satisfação, tempo ou retenção foi apresentada como medida. Regras acadêmicas e financeiras, autenticação, documentos oficiais e integrações de backend permanecem fora deste frontend demonstrativo.

@@ -1,68 +1,49 @@
-# Aluno Online · Anchieta CX
+# Aluno Online · clone e experiência conectada
 
-Protótipo navegável de uma experiência orientada pelo aluno, com prioridade para o celular. Desenvolvido a partir do template fornecido e de inspeção autorizada, somente em consulta, do portal do Grupo Anchieta.
+Revisão 2: frontend reconstruído a partir da navegação autorizada no Aluno Online real do Grupo Anchieta. Preserva o CSS, fontes, logo, ilustrações, composição das telas e comportamento responsivo observado. A primeira proposta de layout foi substituída após a avaliação do usuário.
 
-## Abrir agora
+## Abrir
 
 **http://127.0.0.1:5173/**
 
-Não precisa de RA ou senha. O acesso é uma demonstração com dados fictícios e estado salvo somente no navegador.
+Sem RA ou senha. O modo **Original** abre primeiro. Use o botão **Original/Conectada** no topo ou as opções do perfil para comparar a reorganização. Em **Preferências e cenários**, explore DP/adaptação e outras situações fictícias.
 
-Para iniciar novamente no Windows, abra `Iniciar-Aluno-Online.cmd`. A porta 5173 precisa estar livre. Se o servidor já estiver em execução, basta abrir o endereço acima.
-
-## Rodar pelo terminal
-
-Requer Node.js 24 e npm.
+No Windows, execute **Iniciar-Aluno-Online.cmd** para iniciar novamente. Com Node.js 24 e npm:
 
 ```bash
 npm ci
 npm run dev
 ```
 
-```bash
-npm run lint
-npm test
-npm run build
-npm run preview
-```
+Validação: npm run typecheck, npm run lint, npm test e npm run build. O preview de produção usa a porta 4173. Sem backend ou variáveis de ambiente; hospedagens precisam devolver index.html para rotas da SPA.
 
-`npm run preview` serve a compilação de produção em http://127.0.0.1:4173. O projeto não precisa de variáveis de ambiente ou backend. Para hospedar a SPA, configure o servidor para devolver index.html nas rotas locais; há uma referência Apache em public/.htaccess.
+## O que foi reconstruído
 
-## O que explorar
+- 109 destinos de página capturados, incluindo os 89 avisos e as áreas internas acessíveis à conta de teste.
+- 40 formulários próprios de serviço, com instruções, prazos, campos e opções observadas; catálogo pesquisável e conclusão local.
+- Oito períodos da jornada, seis dias da agenda semanal e sete estados de detalhe do calendário mensal.
+- Perfil, documentos, notas/faltas, horas, certificados, formatura, financeiro, contratos, estágio/TCC/PI, avaliações, mural, compensação, dispensa e laboratórios.
+- Painéis de notas e detalhes, busca por Ctrl K, menu móvel, tema claro/escuro, carrosséis, preferências e guia Ana local.
+- Pedidos fictícios com protocolo, acompanhamento, cancelamento e pagamento simulado ligado ao financeiro.
 
-- Cinco áreas principais: Início, Minha vida acadêmica, Secretaria virtual, Meu financeiro e Meus dados.
-- 39 rotas de referência, além de detalhes dinâmicos de disciplinas, matriz, serviços, protocolos e avisos.
-- 40 serviços do catálogo observado, com pesquisa, categorias, custos, pedido guiado, revisão e acompanhamento.
-- 44 disciplinas em oito períodos da matriz consultada, com carga horária e detalhes navegáveis.
-- Documentos pessoais em Meus dados; declarações emitidas pela faculdade na Secretaria virtual.
-- Notas e faltas conectadas a revisão de nota, compensação e prova substitutiva.
-- Cenário de dependência e adaptação com ação de inscrição externa no contexto da jornada.
-- Financeiro com situação, extrato, comprovantes ilustrativos, vencimento, responsável e informes.
-- Agenda, calendário, certificados, estágio, extensão, eletivas, contratos e formatura.
-- Busca global com Ctrl K, guia Ana por assuntos, temas, texto maior e movimento reduzido.
-- Exportação de agenda ICS, extrato CSV e documentos HTML de exemplo imprimíveis em PDF.
-
-Use **Explorar cenários**, no topo, para testar dependência/adaptação, cobrança, estado vazio e indisponibilidade. Em Meus dados → Preferências é possível recomeçar.
+Na visão Conectada, Secretaria virtual reúne serviços e acompanhamento; documentos pessoais ficam em Meus dados; home, notas, faltas, jornada, financeiro e solicitações oferecem próximos passos relacionados. Links institucionais externos preservam o direcionamento observado quando não contêm identificação privada.
 
 ## Documentação
 
-- [Diagnóstico e estratégia de CX](docs/DIAGNOSTICO-E-ESTRATEGIA.md): evidências, decisões, pesquisa e plano de validação com alunos.
-- [Planejamento e prompt mestre](docs/PLANEJAMENTO-E-PROMPT.md): briefing operacional da implementação.
-- [Roteiro de demonstração](docs/ROTEIRO-DE-DEMONSTRACAO.md): caminhos para apresentar e testar.
-- [Cobertura da auditoria](docs/COBERTURA.md): relação entre áreas originais e destinos propostos.
-- [Limites e integração](docs/LIMITES-E-INTEGRACAO.md): o que foi observado, simulado e o que falta para produção.
-- [Validação técnica](docs/VALIDACAO.md): escopo e resultados dos testes.
-- [Design system](DESIGN.md): tokens e padrões da interface construída.
-- [Capturas do protótipo](docs/screenshots): imagens com dados fictícios.
+- [Reanálise e clonagem](docs/REANALISE-E-CLONAGEM.md)
+- [Planejamento e prompt mestre](docs/PLANEJAMENTO-E-PROMPT.md)
+- [Cobertura](docs/COBERTURA.md)
+- [Limites e integração](docs/LIMITES-E-INTEGRACAO.md)
+- [Roteiro de demonstração](docs/ROTEIRO-DE-DEMONSTRACAO.md)
+- [Validação técnica](docs/VALIDACAO.md)
+- [Pesquisa e estratégia de CX](docs/DIAGNOSTICO-E-ESTRATEGIA.md)
+- [Sistema visual](DESIGN.md)
+- [Capturas atuais](docs/screenshots/v2)
 
 ## Arquitetura
 
-React 19, TypeScript, Vite, React Router, Radix Dialog, Lucide e Sonner. Inter hospedada localmente pelo pacote Fontsource. As áreas são carregadas sob demanda; estado compartilhado em `src/cx/state.tsx` e dados de referência em `src/cx/data.ts`.
+Entrada em src/main.tsx; aplicação ativa em src/replica. original.css contém os estilos públicos observados, com fontes locais. reference.json indexa os documentos sanitizados em screens/, carregados sob demanda. App.tsx implementa navegação e comportamentos; Dialogs.tsx contém as interações e etapas locais. Estado e catálogo compartilhados em src/cx/state.tsx e data.ts. As telas anteriores em src/cx são históricas e não são a entrada da aplicação.
 
-O código executado fica em `src/cx` e `src/main.tsx`. Arquivos não usados do template original foram preservados localmente e ignorados na versão CX. O ZIP original não foi alterado. Nenhum código antigo de autenticação ou API do template é utilizado nesta demonstração.
+Nenhum JavaScript executável, autenticação, cookies, credenciais ou documentos privados do portal foram incorporados. HTML de referência é sanitizado e interações são implementadas localmente. Capturas privadas e ferramentas de coleta ficam fora do Git.
 
-## Escopo importante
-
-Este é um frontend de demonstração. Não autentica no sistema acadêmico, não altera registros da faculdade, não realiza pagamentos, não envia arquivos e não assina contratos reais. Os links externos observados mantêm seus próprios controles de acesso. Documentos privados e links individualizados não estão no repositório.
-
-Os preços do catálogo foram observados em 20/10/2026 e precisam de confirmação institucional antes de produção. Outros valores e estados são exemplos identificados. As hipóteses de melhoria de CX ainda precisam de teste com alunos.
+Este frontend não envia pedidos à instituição, não faz pagamentos ou uploads e não assina contratos reais. Anexos guardam somente nome/status. Documentos gerados não têm validade. A inspeção representa a conta e os estados visíveis em 20/10/2026; regras do backend e situações de outros cursos exigem integração e validação institucional.

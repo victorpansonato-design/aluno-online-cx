@@ -23,5 +23,5 @@
       "noFallthroughCasesInSwitch": true,
       "noUncheckedSideEffectImports": true
    },
-   "include": ["src/cx", "src/main.tsx", "src/vite-env.d.ts", "tests/cx"]
+   "include": ["src/cx", "src/replica", "src/main.tsx", "src/vite-env.d.ts", "tests/cx"]
 }

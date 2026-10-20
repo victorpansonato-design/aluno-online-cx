@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Delegada pelo usuário: React 19, TypeScript e Vite, preservando a base e ativos do template fornecido.
+React 19, TypeScript e Vite. A revisão 2 usa o portal real como autoridade visual, com seu CSS, fontes, ilustrações e estruturas de tela sanitizadas. O template fornecido permanece como referência histórica.
 
 ## Users
 
@@ -24,7 +24,7 @@ Protótipo completo de frontend em localhost. Portal real somente consulta: não
 
 ## Brand Commitments
 
-Identidade Anchieta preservada: marca fornecida, azul institucional e amarelo, componentes e fluidez.
+Clonar primeiro a identidade e composição reais: marca, azul/amarelo, fontes, ilustrações, sidebar, cabeçalho, telas, painéis e comportamento responsivo. Original abre por padrão; Conectada demonstra a reorganização sobre a mesma base visual. A primeira proposta visual foi rejeitada pelo usuário e não deve orientar novas telas.
 
 ## Product Principles
 
@@ -32,7 +32,7 @@ Organizar por intenção do aluno; secretaria reúne serviços; documentos pesso
 
 ## Evidence on Hand
 
-Template fornecido pelo usuário; inspeção autenticada autorizada no portal. Pesquisas e limites de cobertura serão registrados em docs.
+Inspeção autenticada somente leitura das áreas visíveis, oito períodos, seis dias da semana, agenda mensal, 89 avisos e 40 formulários de serviço com suas opções. Capturas privadas fora do repositório. Pesquisa em docs/DIAGNOSTICO-E-ESTRATEGIA.md; revisão de fidelidade em docs/REANALISE-E-CLONAGEM.md.
 
 ## Accessibility & Inclusion
 

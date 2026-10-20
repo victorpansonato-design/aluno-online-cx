@@ -1,0 +1,50 @@
+{
+   "date": "2026-10-20T19:01:00.436Z",
+   "checks": [
+      {
+         "width": 1280,
+         "test": "Multiple fields restored after review/back",
+         "passed": true,
+         "fields": [
+            {
+               "name": "field-0",
+               "value": "D - Diurno"
+            },
+            {
+               "name": "field-1",
+               "value": "Opção de demonstração"
+            },
+            {
+               "name": "field-2",
+               "value": "Pedido fictício para avaliar o retorno da conferência."
+            }
+         ]
+      },
+      {
+         "width": 390,
+         "test": "Multiple fields restored after review/back",
+         "passed": true,
+         "fields": [
+            {
+               "name": "field-0",
+               "value": "D - Diurno"
+            },
+            {
+               "name": "field-1",
+               "value": "Opção de demonstração"
+            },
+            {
+               "name": "field-2",
+               "value": "Pedido fictício para avaliar o retorno da conferência."
+            }
+         ]
+      },
+      {
+         "test": "Active mobile Documentos tab visible at vertical top",
+         "passed": true,
+         "label": "Documentos",
+         "scrollTop": 0,
+         "visible": true
+      }
+   ]
+}

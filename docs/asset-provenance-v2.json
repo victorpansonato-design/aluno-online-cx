@@ -1,0 +1,177 @@
+[
+   {
+      "file": "public/replica/3OUT-1.png",
+      "origin": "Origin: public institutional asset https://anchieta.br/wp-content/uploads/2026/09/3OUT-1.png, observed 2026-10-20; reused in the authorized frontend clone, not generated or repainted in this project.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "public/replica/ana.webp",
+      "origin": "Origin: pre-existing WebP asset embedded in the public institutional chat widget at https://app.anchieta.br/chat-aws/chat-widget.js, observed 2026-10-20. Decoded without repainting; reused in the authorized frontend clone.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "public/replica/carteirinha-faculdade-Bmkzfnrg.png",
+      "origin": "Origin: public institutional asset https://app.anchieta.br/aluno-online/assets/carteirinha-faculdade-Bmkzfnrg.png, observed 2026-10-20; reused in the authorized frontend clone, not generated or repainted in this project.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "public/replica/DSC_0050-scaled-1.jpg",
+      "origin": "Origin: public institutional asset https://anchieta.br/wp-content/uploads/2026/07/DSC_0050-scaled-1.jpg, observed 2026-10-20; reused in the authorized frontend clone, not generated or repainted in this project.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "public/replica/logo-grupo-anchieta-3x-BOFhQ5AB.webp",
+      "origin": "Origin: public institutional asset https://app.anchieta.br/aluno-online/assets/logo-grupo-anchieta-3x-BOFhQ5AB.webp, observed 2026-10-20; reused in the authorized frontend clone, not generated or repainted in this project.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/documentos-1280.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, documentos-1280.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/documentos-390.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, documentos-390.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/documentos-981.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, documentos-981.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/financeiro-1280.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, financeiro-1280.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/financeiro-390.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, financeiro-390.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/historico-formulario-1280.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, historico-formulario-1280.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/historico-formulario-390.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, historico-formulario-390.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/home-1280.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, home-1280.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/home-390.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, home-390.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/home-981.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, home-981.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/horarios-1280.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, horarios-1280.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/horarios-390.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, horarios-390.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/horarios-mes-1280.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, horarios-mes-1280.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/horarios-mes-390.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, horarios-mes-390.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/jornada-1280.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, jornada-1280.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/jornada-390.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, jornada-390.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/mural-1280.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, mural-1280.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/mural-390.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, mural-390.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/notas-1280.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, notas-1280.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/notas-390.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, notas-390.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/notas-painel-1280.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, notas-painel-1280.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/notas-painel-390.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, notas-painel-390.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/secretaria-conectada-1280.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, secretaria-conectada-1280.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/secretaria-conectada-390.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, secretaria-conectada-390.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/servico-retorno-1280.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, servico-retorno-1280.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/servico-retorno-390.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, servico-retorno-390.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/servicos-1280.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, servicos-1280.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/servicos-390.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, servicos-390.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/substitutiva-formulario-1280.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, substitutiva-formulario-1280.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   },
+   {
+      "file": "docs/screenshots/v2/substitutiva-formulario-390.png",
+      "origin": "Origin: screenshot of the local Aluno Online fictional frontend at http://127.0.0.1:5173 on 2026-10-20, substitutiva-formulario-390.png. Contains demonstration data only. Browser capture, not image generation.",
+      "pixelPayloadUnchanged": true
+   }
+]

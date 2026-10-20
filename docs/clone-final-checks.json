@@ -1,0 +1,649 @@
+{
+   "date": "2026-10-20T19:03:46.475Z",
+   "audits": [
+      {
+         "width": 1280,
+         "route": "/perfil/documentos",
+         "axeVersion": "4.12.1",
+         "counts": {
+            "inapplicable": 45,
+            "incomplete": 0,
+            "passes": 44,
+            "violations": 0
+         },
+         "incomplete": [],
+         "lifecycle": {
+            "effectiveLaunch": {
+               "browserLaunched": true,
+               "engine": "chrome",
+               "launchHash": 11677035664275012000
+            },
+            "launched": false,
+            "relaunchedBrowser": false,
+            "restartedBackground": false,
+            "restoreStatus": "not_configured",
+            "reused": true,
+            "saveStatus": "not_attempted"
+         },
+         "url": "http://127.0.0.1:5173/perfil/documentos",
+         "violations": []
+      },
+      {
+         "width": 1280,
+         "route": "/solicitacao-servicos/solicitar/CSA_048_A",
+         "axeVersion": "4.12.1",
+         "counts": {
+            "inapplicable": 52,
+            "incomplete": 2,
+            "passes": 37,
+            "violations": 0
+         },
+         "incomplete": [
+            {
+               "help": "ARIA hidden element must not be focusable or contain focusable elements",
+               "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/aria-hidden-focus?application=axeAPI",
+               "id": "aria-hidden-focus",
+               "impact": "serious",
+               "nodeCount": 10,
+               "nodes": [
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+                     "target": ["span[data-radix-focus-guard=\"\"][data-aria-hidden=\"true\"][aria-hidden=\"true\"]:nth-child(1)"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<a href=\"#conteudo-principal\" class=\"sr-only fixed top-2 left-2 z-50 rounded-md bg-background px-4 py-3 text-foreground shadow-elevated focus:not-sr-only focus:outline-2 focus:outline-ring\" data-aria-hidden=\"true\" aria-hidden=\"true\">Pular para o conteúdo principal</a>",
+                     "target": [".top-2"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<div class=\"group peer text-sidebar-foreground hidden md:block\" data-state=\"expanded\" data-collapsible=\"\" data-variant=\"inset\" data-side=\"left\" data-slot=\"sidebar\" role=\"complementary\" aria-label=\"Menu do Aluno Online\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+                     "target": [".peer"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<header class=\"flex h-17 shrink-0 items-center justify-between gap-2 border-b px-4 md:grid md:grid-cols-[1fr_minmax(0,27.5rem)_1fr] print:hidden\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+                     "target": [".h-17"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<section aria-labelledby=\"nova-solicitacao\" class=\"flex flex-col gap-4\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+                     "target": ["section[aria-labelledby=\"nova-solicitacao\"]"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<div class=\"flex flex-wrap items-center gap-2\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+                     "target": [".flex-wrap.gap-2[data-aria-hidden=\"true\"]"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<div class=\"min-h-32\" style=\"opacity: 1; transform: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+                     "target": [".min-h-32"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<footer class=\"replica-footer\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+                     "target": ["footer"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<button class=\"replica-mode\" aria-label=\"Comparar navegação original e conectada\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+                     "target": [".replica-mode"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+                     "target": ["span[data-radix-focus-guard=\"\"][data-aria-hidden=\"true\"][aria-hidden=\"true\"]:nth-child(6)"]
+                  }
+               ],
+               "tags": ["cat.name-role-value", "wcag2a", "wcag412", "TTv5", "TT6.a", "EN-301-549", "EN-9.4.1.2", "RGAAv4", "RGAA-10.8.1"]
+            },
+            {
+               "help": "Elements must meet minimum color contrast ratio thresholds",
+               "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+               "id": "color-contrast",
+               "impact": "serious",
+               "nodeCount": 16,
+               "nodes": [
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<span class=\"tabular text-3xl leading-none font-bold text-foreground\">19</span>",
+                     "target": [".text-3xl"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<span class=\"text-sm text-muted-foreground\">solicitações realizadas</span>",
+                     "target": ["p > .text-sm.text-muted-foreground"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                     "html": "<span class=\"tabular font-semibold text-foreground\">0</span>",
+                     "target": ["li:nth-child(1) > .font-semibold.text-foreground.tabular"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<span class=\"text-muted-foreground\">em andamento</span>",
+                     "target": ["li:nth-child(1) > .text-muted-foreground"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                     "html": "<span class=\"tabular font-semibold text-foreground\">4</span>",
+                     "target": ["li:nth-child(2) > .font-semibold.text-foreground.tabular"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<span class=\"text-muted-foreground\">concluídas</span>",
+                     "target": ["li:nth-child(2) > .text-muted-foreground"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                     "html": "<span class=\"tabular font-semibold text-foreground\">3</span>",
+                     "target": ["li:nth-child(3) > .font-semibold.text-foreground.tabular"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<span class=\"text-muted-foreground\">recusadas</span>",
+                     "target": ["li:nth-child(3) > .text-muted-foreground"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element",
+                     "html": "<h3 class=\"min-w-0 basis-full truncate leading-snug font-semibold text-foreground sm:basis-auto\">Transferência de Turno</h3>",
+                     "target": [
+                        ".gap-2\\.5.flex-col:nth-child(1) > ul > li:nth-child(1) > .hover\\:border-border-strong[data-slot=\"collapsible\"] > .p-3.sm\\:gap-3.sm\\:p-4 > .gap-1.flex-1.flex-col > .gap-x-2\\.5.gap-y-1.items-baseline > .basis-full.sm\\:basis-auto.leading-snug"
+                     ]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element",
+                     "html": "<span class=\"tabular shrink-0 font-mono text-[11px] tracking-tight text-muted-foreground\">CSA_030</span>",
+                     "target": [
+                        ".gap-2\\.5.flex-col:nth-child(1) > ul > li:nth-child(1) > .hover\\:border-border-strong[data-slot=\"collapsible\"] > .p-3.sm\\:gap-3.sm\\:p-4 > .gap-1.flex-1.flex-col > .gap-x-2\\.5.gap-y-1.items-baseline > .tracking-tight.font-mono.text-\\[11px\\]"
+                     ]
+                  }
+               ],
+               "tags": ["cat.color", "wcag2aa", "wcag143", "TTv5", "TT13.c", "EN-301-549", "EN-9.1.4.3", "ACT", "RGAAv4", "RGAA-3.2.1"]
+            }
+         ],
+         "lifecycle": {
+            "effectiveLaunch": {
+               "browserLaunched": true,
+               "engine": "chrome",
+               "launchHash": 11677035664275012000
+            },
+            "launched": false,
+            "relaunchedBrowser": false,
+            "restartedBackground": false,
+            "restoreStatus": "not_configured",
+            "reused": true,
+            "saveStatus": "not_attempted"
+         },
+         "url": "http://127.0.0.1:5173/solicitacao-servicos/solicitar/CSA_048_A",
+         "violations": []
+      },
+      {
+         "width": 1280,
+         "route": "/solicitacao-servicos/solicitar/CSA_009",
+         "axeVersion": "4.12.1",
+         "counts": {
+            "inapplicable": 51,
+            "incomplete": 2,
+            "passes": 38,
+            "violations": 0
+         },
+         "incomplete": [
+            {
+               "help": "ARIA hidden element must not be focusable or contain focusable elements",
+               "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/aria-hidden-focus?application=axeAPI",
+               "id": "aria-hidden-focus",
+               "impact": "serious",
+               "nodeCount": 10,
+               "nodes": [
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+                     "target": ["span[data-radix-focus-guard=\"\"][data-aria-hidden=\"true\"][aria-hidden=\"true\"]:nth-child(1)"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<a href=\"#conteudo-principal\" class=\"sr-only fixed top-2 left-2 z-50 rounded-md bg-background px-4 py-3 text-foreground shadow-elevated focus:not-sr-only focus:outline-2 focus:outline-ring\" data-aria-hidden=\"true\" aria-hidden=\"true\">Pular para o conteúdo principal</a>",
+                     "target": [".top-2"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<div class=\"group peer text-sidebar-foreground hidden md:block\" data-state=\"expanded\" data-collapsible=\"\" data-variant=\"inset\" data-side=\"left\" data-slot=\"sidebar\" role=\"complementary\" aria-label=\"Menu do Aluno Online\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+                     "target": [".peer"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<header class=\"flex h-17 shrink-0 items-center justify-between gap-2 border-b px-4 md:grid md:grid-cols-[1fr_minmax(0,27.5rem)_1fr] print:hidden\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+                     "target": [".h-17"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<section aria-labelledby=\"nova-solicitacao\" class=\"flex flex-col gap-4\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+                     "target": ["section[aria-labelledby=\"nova-solicitacao\"]"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<div class=\"flex flex-wrap items-center gap-2\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+                     "target": [".flex-wrap.gap-2[data-aria-hidden=\"true\"]"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<div class=\"min-h-32\" style=\"opacity: 1; transform: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+                     "target": [".min-h-32"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<footer class=\"replica-footer\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+                     "target": ["footer"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<button class=\"replica-mode\" aria-label=\"Comparar navegação original e conectada\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+                     "target": [".replica-mode"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+                     "target": ["span[data-radix-focus-guard=\"\"][data-aria-hidden=\"true\"][aria-hidden=\"true\"]:nth-child(6)"]
+                  }
+               ],
+               "tags": ["cat.name-role-value", "wcag2a", "wcag412", "TTv5", "TT6.a", "EN-301-549", "EN-9.4.1.2", "RGAAv4", "RGAA-10.8.1"]
+            },
+            {
+               "help": "Elements must meet minimum color contrast ratio thresholds",
+               "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+               "id": "color-contrast",
+               "impact": "serious",
+               "nodeCount": 16,
+               "nodes": [
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<span class=\"tabular text-3xl leading-none font-bold text-foreground\">19</span>",
+                     "target": [".text-3xl"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<span class=\"text-sm text-muted-foreground\">solicitações realizadas</span>",
+                     "target": ["p > .text-sm.text-muted-foreground"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                     "html": "<span class=\"tabular font-semibold text-foreground\">0</span>",
+                     "target": ["li:nth-child(1) > .font-semibold.text-foreground.tabular"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<span class=\"text-muted-foreground\">em andamento</span>",
+                     "target": ["li:nth-child(1) > .text-muted-foreground"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                     "html": "<span class=\"tabular font-semibold text-foreground\">4</span>",
+                     "target": ["li:nth-child(2) > .font-semibold.text-foreground.tabular"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<span class=\"text-muted-foreground\">concluídas</span>",
+                     "target": ["li:nth-child(2) > .text-muted-foreground"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                     "html": "<span class=\"tabular font-semibold text-foreground\">3</span>",
+                     "target": ["li:nth-child(3) > .font-semibold.text-foreground.tabular"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<span class=\"text-muted-foreground\">recusadas</span>",
+                     "target": ["li:nth-child(3) > .text-muted-foreground"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element",
+                     "html": "<h3 class=\"min-w-0 basis-full truncate leading-snug font-semibold text-foreground sm:basis-auto\">Transferência de Turno</h3>",
+                     "target": [
+                        ".gap-2\\.5.flex-col:nth-child(1) > ul > li:nth-child(1) > .hover\\:border-border-strong[data-slot=\"collapsible\"] > .p-3.sm\\:gap-3.sm\\:p-4 > .gap-1.flex-1.flex-col > .gap-x-2\\.5.gap-y-1.items-baseline > .basis-full.sm\\:basis-auto.leading-snug"
+                     ]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element",
+                     "html": "<span class=\"tabular shrink-0 font-mono text-[11px] tracking-tight text-muted-foreground\">CSA_030</span>",
+                     "target": [
+                        ".gap-2\\.5.flex-col:nth-child(1) > ul > li:nth-child(1) > .hover\\:border-border-strong[data-slot=\"collapsible\"] > .p-3.sm\\:gap-3.sm\\:p-4 > .gap-1.flex-1.flex-col > .gap-x-2\\.5.gap-y-1.items-baseline > .tracking-tight.font-mono.text-\\[11px\\]"
+                     ]
+                  }
+               ],
+               "tags": ["cat.color", "wcag2aa", "wcag143", "TTv5", "TT13.c", "EN-301-549", "EN-9.1.4.3", "ACT", "RGAAv4", "RGAA-3.2.1"]
+            }
+         ],
+         "lifecycle": {
+            "effectiveLaunch": {
+               "browserLaunched": true,
+               "engine": "chrome",
+               "launchHash": 11677035664275012000
+            },
+            "launched": false,
+            "relaunchedBrowser": false,
+            "restartedBackground": false,
+            "restoreStatus": "not_configured",
+            "reused": true,
+            "saveStatus": "not_attempted"
+         },
+         "url": "http://127.0.0.1:5173/solicitacao-servicos/solicitar/CSA_009",
+         "violations": []
+      },
+      {
+         "width": 390,
+         "route": "/perfil/documentos",
+         "axeVersion": "4.12.1",
+         "counts": {
+            "inapplicable": 45,
+            "incomplete": 0,
+            "passes": 44,
+            "violations": 0
+         },
+         "incomplete": [],
+         "lifecycle": {
+            "effectiveLaunch": {
+               "browserLaunched": true,
+               "engine": "chrome",
+               "launchHash": 11677035664275012000
+            },
+            "launched": false,
+            "relaunchedBrowser": false,
+            "restartedBackground": false,
+            "restoreStatus": "not_configured",
+            "reused": true,
+            "saveStatus": "not_attempted"
+         },
+         "url": "http://127.0.0.1:5173/perfil/documentos",
+         "violations": []
+      },
+      {
+         "width": 390,
+         "route": "/solicitacao-servicos/solicitar/CSA_048_A",
+         "axeVersion": "4.12.1",
+         "counts": {
+            "inapplicable": 52,
+            "incomplete": 2,
+            "passes": 37,
+            "violations": 0
+         },
+         "incomplete": [
+            {
+               "help": "ARIA hidden element must not be focusable or contain focusable elements",
+               "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/aria-hidden-focus?application=axeAPI",
+               "id": "aria-hidden-focus",
+               "impact": "serious",
+               "nodeCount": 8,
+               "nodes": [
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+                     "target": ["span[data-radix-focus-guard=\"\"][data-aria-hidden=\"true\"][aria-hidden=\"true\"]:nth-child(1)"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<a href=\"#conteudo-principal\" class=\"sr-only fixed top-2 left-2 z-50 rounded-md bg-background px-4 py-3 text-foreground shadow-elevated focus:not-sr-only focus:outline-2 focus:outline-ring\" data-aria-hidden=\"true\" aria-hidden=\"true\">Pular para o conteúdo principal</a>",
+                     "target": [".top-2"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<header class=\"flex h-17 shrink-0 items-center justify-between gap-2 border-b px-4 md:grid md:grid-cols-[1fr_minmax(0,27.5rem)_1fr] print:hidden\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+                     "target": [".h-17"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<section aria-labelledby=\"nova-solicitacao\" class=\"flex flex-col gap-4\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+                     "target": ["section[aria-labelledby=\"nova-solicitacao\"]"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<div class=\"flex flex-wrap items-center gap-2\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+                     "target": [".flex-wrap.gap-2[data-aria-hidden=\"true\"]"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<div class=\"min-h-32\" style=\"opacity: 1; transform: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+                     "target": [".min-h-32"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<footer class=\"replica-footer\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+                     "target": ["footer"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+                     "target": ["span[data-radix-focus-guard=\"\"][data-aria-hidden=\"true\"][aria-hidden=\"true\"]:nth-child(6)"]
+                  }
+               ],
+               "tags": ["cat.name-role-value", "wcag2a", "wcag412", "TTv5", "TT6.a", "EN-301-549", "EN-9.4.1.2", "RGAAv4", "RGAA-10.8.1"]
+            },
+            {
+               "help": "Elements must meet minimum color contrast ratio thresholds",
+               "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+               "id": "color-contrast",
+               "impact": "serious",
+               "nodeCount": 8,
+               "nodes": [
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<span class=\"tabular text-3xl leading-none font-bold text-foreground\">19</span>",
+                     "target": [".text-3xl"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<span class=\"text-sm text-muted-foreground\">solicitações realizadas</span>",
+                     "target": ["p > .text-sm.text-muted-foreground"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                     "html": "<span class=\"tabular font-semibold text-foreground\">0</span>",
+                     "target": ["li:nth-child(1) > .font-semibold.text-foreground.tabular"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<span class=\"text-muted-foreground\">em andamento</span>",
+                     "target": ["li:nth-child(1) > .text-muted-foreground"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                     "html": "<span class=\"tabular font-semibold text-foreground\">4</span>",
+                     "target": ["li:nth-child(2) > .font-semibold.text-foreground.tabular"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<span class=\"text-muted-foreground\">concluídas</span>",
+                     "target": ["li:nth-child(2) > .text-muted-foreground"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                     "html": "<span class=\"tabular font-semibold text-foreground\">3</span>",
+                     "target": ["li:nth-child(3) > .font-semibold.text-foreground.tabular"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<span class=\"text-muted-foreground\">recusadas</span>",
+                     "target": ["li:nth-child(3) > .text-muted-foreground"]
+                  }
+               ],
+               "tags": ["cat.color", "wcag2aa", "wcag143", "TTv5", "TT13.c", "EN-301-549", "EN-9.1.4.3", "ACT", "RGAAv4", "RGAA-3.2.1"]
+            }
+         ],
+         "lifecycle": {
+            "effectiveLaunch": {
+               "browserLaunched": true,
+               "engine": "chrome",
+               "launchHash": 11677035664275012000
+            },
+            "launched": false,
+            "relaunchedBrowser": false,
+            "restartedBackground": false,
+            "restoreStatus": "not_configured",
+            "reused": true,
+            "saveStatus": "not_attempted"
+         },
+         "url": "http://127.0.0.1:5173/solicitacao-servicos/solicitar/CSA_048_A",
+         "violations": []
+      },
+      {
+         "width": 390,
+         "route": "/solicitacao-servicos/solicitar/CSA_009",
+         "axeVersion": "4.12.1",
+         "counts": {
+            "inapplicable": 51,
+            "incomplete": 2,
+            "passes": 38,
+            "violations": 0
+         },
+         "incomplete": [
+            {
+               "help": "ARIA hidden element must not be focusable or contain focusable elements",
+               "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/aria-hidden-focus?application=axeAPI",
+               "id": "aria-hidden-focus",
+               "impact": "serious",
+               "nodeCount": 8,
+               "nodes": [
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+                     "target": ["span[data-radix-focus-guard=\"\"][data-aria-hidden=\"true\"][aria-hidden=\"true\"]:nth-child(1)"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<a href=\"#conteudo-principal\" class=\"sr-only fixed top-2 left-2 z-50 rounded-md bg-background px-4 py-3 text-foreground shadow-elevated focus:not-sr-only focus:outline-2 focus:outline-ring\" data-aria-hidden=\"true\" aria-hidden=\"true\">Pular para o conteúdo principal</a>",
+                     "target": [".top-2"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<header class=\"flex h-17 shrink-0 items-center justify-between gap-2 border-b px-4 md:grid md:grid-cols-[1fr_minmax(0,27.5rem)_1fr] print:hidden\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+                     "target": [".h-17"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<section aria-labelledby=\"nova-solicitacao\" class=\"flex flex-col gap-4\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+                     "target": ["section[aria-labelledby=\"nova-solicitacao\"]"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<div class=\"flex flex-wrap items-center gap-2\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+                     "target": [".flex-wrap.gap-2[data-aria-hidden=\"true\"]"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<div class=\"min-h-32\" style=\"opacity: 1; transform: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+                     "target": [".min-h-32"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<footer class=\"replica-footer\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+                     "target": ["footer"]
+                  },
+                  {
+                     "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+                     "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+                     "target": ["span[data-radix-focus-guard=\"\"][data-aria-hidden=\"true\"][aria-hidden=\"true\"]:nth-child(6)"]
+                  }
+               ],
+               "tags": ["cat.name-role-value", "wcag2a", "wcag412", "TTv5", "TT6.a", "EN-301-549", "EN-9.4.1.2", "RGAAv4", "RGAA-10.8.1"]
+            },
+            {
+               "help": "Elements must meet minimum color contrast ratio thresholds",
+               "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+               "id": "color-contrast",
+               "impact": "serious",
+               "nodeCount": 8,
+               "nodes": [
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<span class=\"tabular text-3xl leading-none font-bold text-foreground\">19</span>",
+                     "target": [".text-3xl"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<span class=\"text-sm text-muted-foreground\">solicitações realizadas</span>",
+                     "target": ["p > .text-sm.text-muted-foreground"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                     "html": "<span class=\"tabular font-semibold text-foreground\">0</span>",
+                     "target": ["li:nth-child(1) > .font-semibold.text-foreground.tabular"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<span class=\"text-muted-foreground\">em andamento</span>",
+                     "target": ["li:nth-child(1) > .text-muted-foreground"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                     "html": "<span class=\"tabular font-semibold text-foreground\">4</span>",
+                     "target": ["li:nth-child(2) > .font-semibold.text-foreground.tabular"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<span class=\"text-muted-foreground\">concluídas</span>",
+                     "target": ["li:nth-child(2) > .text-muted-foreground"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                     "html": "<span class=\"tabular font-semibold text-foreground\">3</span>",
+                     "target": ["li:nth-child(3) > .font-semibold.text-foreground.tabular"]
+                  },
+                  {
+                     "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                     "html": "<span class=\"text-muted-foreground\">recusadas</span>",
+                     "target": ["li:nth-child(3) > .text-muted-foreground"]
+                  }
+               ],
+               "tags": ["cat.color", "wcag2aa", "wcag143", "TTv5", "TT13.c", "EN-301-549", "EN-9.1.4.3", "ACT", "RGAAv4", "RGAA-3.2.1"]
+            }
+         ],
+         "lifecycle": {
+            "effectiveLaunch": {
+               "browserLaunched": true,
+               "engine": "chrome",
+               "launchHash": 11677035664275012000
+            },
+            "launched": false,
+            "relaunchedBrowser": false,
+            "restartedBackground": false,
+            "restoreStatus": "not_configured",
+            "reused": true,
+            "saveStatus": "not_attempted"
+         },
+         "url": "http://127.0.0.1:5173/solicitacao-servicos/solicitar/CSA_009",
+         "violations": []
+      }
+   ],
+   "production": [
+      {
+         "route": "/inicio",
+         "apiResources": [],
+         "content": 2586,
+         "overflow": false,
+         "title": "Início | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "route": "/perfil/documentos",
+         "apiResources": [],
+         "content": 895,
+         "overflow": false,
+         "title": "Documentos | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "route": "/solicitacao-servicos/solicitar/CSA_030",
+         "apiResources": [],
+         "content": 3853,
+         "overflow": false,
+         "title": "Solicitação de serviços | Aluno Online Anchieta · Demonstração"
+      },
+      {
+         "route": "/notificacoes/76149709",
+         "apiResources": [],
+         "content": 12775,
+         "overflow": false,
+         "title": "Notificações | Aluno Online Anchieta · Demonstração"
+      }
+   ]
+}
