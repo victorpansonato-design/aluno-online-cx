@@ -1,4 +1,6 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { revealTheme } from "./theme";
+import { initialFinancialPlan, validFinancialPlan, type FinancialPlan } from "./financialResponsibility";
 export type RequestItem = {
    id: string;
    code: string;
@@ -21,6 +23,7 @@ export type DemoState = {
    scenario: "base" | "dp" | "financeiro" | "vazio";
    dueDay: string;
    responsible: string;
+   financialPlan: FinancialPlan;
    ratings: Record<string, number>;
    savedRating: number;
    notifications: boolean;
@@ -40,7 +43,7 @@ export const initialState: DemoState = {
          name: "Histórico escolar",
          status: "Em análise",
          date: "2026-10-19T15:00:00",
-         detail: "Preciso do histórico para uma inscrição. Exemplo de acompanhamento.",
+         detail: "Preciso do histórico para uma inscrição.",
          price: 0,
       },
       {
@@ -49,7 +52,7 @@ export const initialState: DemoState = {
          name: "Atestado de matrícula",
          status: "Concluído",
          date: "2026-10-16T10:00:00",
-         detail: "Emissão automática de demonstração.",
+         detail: "Emissão automática.",
          price: 0,
       },
    ],
@@ -60,6 +63,7 @@ export const initialState: DemoState = {
    scenario: "base",
    dueDay: "12",
    responsible: "Marina Costa (aluna)",
+   financialPlan: initialFinancialPlan(),
    ratings: {},
    savedRating: 0,
    notifications: true,
@@ -74,6 +78,9 @@ function load(): DemoState {
          return {
             ...initialState,
             ...v,
+            financialPlan: validFinancialPlan(v.financialPlan)
+               ? v.financialPlan
+               : initialFinancialPlan(typeof v.responsible === "string" ? v.responsible : undefined),
             chargesPaid: Array.isArray(v.chargesPaid) ? v.chargesPaid : [],
             favoriteDates: Array.isArray(v.favoriteDates) ? v.favoriteDates : [],
             notificationTopics: Array.isArray(v.notificationTopics) ? v.notificationTopics : initialState.notificationTopics,
@@ -86,6 +93,7 @@ function load(): DemoState {
 const DemoContext = createContext<{
    state: DemoState;
    update: (fn: (s: DemoState) => DemoState) => void;
+   changeTheme: (theme: "light" | "dark", origin?: { x: number; y: number }) => void;
    reset: () => void;
    storageError: boolean;
 } | null>(null);
@@ -103,7 +111,15 @@ export function DemoProvider({ children }: { children: ReactNode }) {
       document.documentElement.classList.toggle("reduce-motion", state.reducedMotion);
    }, [state]);
    return (
-      <DemoContext.Provider value={{ state, update: setState, reset: () => setState(structuredClone(initialState)), storageError }}>
+      <DemoContext.Provider
+         value={{
+            state,
+            update: setState,
+            changeTheme: (theme, origin) => revealTheme(theme, () => setState(s => ({ ...s, theme })), state.reducedMotion, origin),
+            reset: () => setState(structuredClone(initialState)),
+            storageError,
+         }}
+      >
          {children}
       </DemoContext.Provider>
    );

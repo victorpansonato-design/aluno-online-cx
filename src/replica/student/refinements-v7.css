@@ -1,0 +1,164 @@
+/* Institution's measured circular theme reveal. */
+::view-transition-old(root),
+::view-transition-new(root) {
+   mix-blend-mode: normal;
+   animation: none;
+}
+::view-transition-new(root) {
+   z-index: 1;
+}
+
+/* Accent only the two routine priorities; retain the six-destination hierarchy. */
+.student-sidebar a[href="/meus-estudos"]:not([data-active="true"]) > .material-symbols-outlined {
+   color: var(--cx-violet);
+}
+.student-sidebar a[href="/financeiro"]:not([data-active="true"]) > .material-symbols-outlined {
+   color: var(--success);
+}
+.student-financial-mobile-actions {
+   display: none;
+}
+.student-financial-nav {
+   flex-wrap: wrap;
+   overflow: visible;
+}
+.student-financial-aside {
+   align-self: start;
+}
+.student-page .cx-ambient.student-guidance > img,
+.student-page .cx-ambient.student-guidance > video {
+   object-position: 34% 38%;
+}
+.cx-journey-pending-note {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 16px;
+   padding: 15px 18px;
+   border-radius: 12px;
+   background: var(--warning-soft);
+   color: var(--warning-foreground);
+}
+.cx-journey-pending-note > span {
+   display: grid;
+   gap: 4px;
+}
+.cx-journey-pending-note strong {
+   font-size: 14px;
+}
+.cx-journey-pending-note small {
+   font-size: 12px;
+}
+.cx-journey-row-actions {
+   display: flex;
+   align-items: center;
+   gap: 12px;
+   flex-wrap: wrap;
+   justify-content: flex-end;
+}
+.cx-journey-pending-row {
+   gap: 12px;
+}
+.cx-journey-pending-row > .cx-journey-row-actions {
+   grid-column: 3;
+}
+.cx-journey-pending-row .replica-button {
+   min-height: 38px;
+   font-size: 12px;
+}
+.cx-journey-status {
+   font-size: 12px;
+   font-weight: 600;
+}
+.cx-journey-status.failed {
+   color: var(--destructive);
+}
+.cx-journey-status.adaptation {
+   color: var(--warning-foreground);
+}
+.cx-journey-enrollment {
+   display: flex;
+   align-items: center;
+   flex-wrap: wrap;
+   gap: 12px 20px;
+   font-size: 13px;
+   color: var(--primary);
+   margin-top: 14px;
+}
+.replica-carousel [data-slot="carousel-content"] > div {
+   transform: none !important;
+}
+.cx-period-pending .cx-period-bubble {
+   background-color: var(--warning-soft) !important;
+   color: var(--warning-foreground) !important;
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+   .cx-journey-pending-row > .cx-journey-row-actions {
+      grid-column: 2 / -1;
+      justify-content: flex-start;
+   }
+}
+@media (max-width: 767px) {
+   .student-financial-mobile-actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin: -6px 0 20px;
+   }
+   .student-financial-mobile-actions > a {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      padding: 12px;
+      min-height: 70px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      color: var(--primary);
+      background: var(--cx-blue-wash);
+      font-size: 11px;
+      font-weight: 550;
+   }
+   .student-financial-mobile-actions .material-symbols-outlined {
+      font-size: 20px;
+   }
+   .student-financial-mobile-actions > a > span:nth-child(2) {
+      width: 100%;
+      order: 1;
+   }
+   .student-financial-mobile-actions > a > svg {
+      margin-left: auto;
+   }
+   .student-financial-aside a[href="/financeiro/alteracao-vencimento"],
+   .student-financial-aside a[href="/financeiro/alteracao-responsavel"] {
+      display: none;
+   }
+   .student-financial-nav > a {
+      white-space: normal;
+      text-align: center;
+      flex: 1;
+      font-size: 11px;
+      padding-inline: 8px;
+   }
+   .student-page .cx-context-banner .cx-ambient,
+   .student-page .cx-secretariat-banner .cx-ambient {
+      aspect-ratio: 16 / 9;
+      min-height: 0;
+      width: 100%;
+   }
+   .student-page .cx-ambient > img,
+   .student-page .cx-ambient > video {
+      object-position: center;
+   }
+   .cx-journey-pending-note {
+      flex-wrap: wrap;
+      padding: 14px;
+   }
+   .cx-journey-pending-row > .cx-journey-row-actions {
+      grid-column: 2;
+      justify-content: flex-start;
+   }
+   .cx-journey-row-actions .replica-button {
+      white-space: normal;
+   }
+}

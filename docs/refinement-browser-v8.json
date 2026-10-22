@@ -1,0 +1,514 @@
+{
+  "surfaces": [
+    {
+      "width": 1440,
+      "route": "/inicio",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 1440,
+      "route": "/financeiro",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 768,
+      "route": "/inicio",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 768,
+      "route": "/financeiro",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 390,
+      "route": "/inicio",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 390,
+      "route": "/financeiro",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 320,
+      "route": "/inicio",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 320,
+      "route": "/financeiro",
+      "overflow": false,
+      "top": 0
+    }
+  ],
+  "checks": [
+    {
+      "name": "home clock and stage shortcut",
+      "passed": true
+    },
+    {
+      "name": "AVA yellow bulb",
+      "passed": true
+    },
+    {
+      "name": "stage destination opens",
+      "passed": true
+    },
+    {
+      "name": "DP opens pending first period",
+      "passed": true
+    },
+    {
+      "name": "filter shows four invoices and retains hidden selection",
+      "passed": true
+    },
+    {
+      "name": "shared invoice displays 60/40",
+      "passed": true
+    },
+    {
+      "name": "two full invoices forwarded to Pix",
+      "passed": true
+    },
+    {
+      "name": "native effective date is valid",
+      "passed": true
+    },
+    {
+      "name": "change scheduled; charge owners retain identities",
+      "passed": true
+    }
+  ],
+  "audits": [
+    {
+      "surface": "responsible-dialog-desktop",
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 51,
+        "incomplete": 2,
+        "passes": 38,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "help": "ARIA hidden element must not be focusable or contain focusable elements",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/aria-hidden-focus?application=axeAPI",
+          "id": "aria-hidden-focus",
+          "impact": "serious",
+          "nodeCount": 3,
+          "nodes": [
+            {
+              "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+              "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+              "target": [
+                "span[data-radix-focus-guard=\"\"][data-aria-hidden=\"true\"][aria-hidden=\"true\"]:nth-child(1)"
+              ]
+            },
+            {
+              "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+              "html": "<div class=\"replica-shell replica-student-mode\" data-replica-mounted=\"true\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+              "target": [
+                ".replica-shell"
+              ]
+            },
+            {
+              "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+              "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+              "target": [
+                "span[data-radix-focus-guard=\"\"][data-aria-hidden=\"true\"][aria-hidden=\"true\"]:nth-child(6)"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.name-role-value",
+            "wcag2a",
+            "wcag412",
+            "TTv5",
+            "TT6.a",
+            "EN-301-549",
+            "EN-9.4.1.2",
+            "RGAAv4",
+            "RGAA-10.8.1"
+          ]
+        },
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 14,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node",
+              "html": "<strong data-card-name=\"\">Marina Costa</strong>",
+              "target": [
+                "strong[data-card-name=\"\"]"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node",
+              "html": "<small>Ciências Contábeis</small>",
+              "target": [
+                ".cx-credential-details > small:nth-child(2)"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node",
+              "html": "<small>RA 20260001</small>",
+              "target": [
+                ".cx-credential-details > small:nth-child(3)"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node",
+              "html": "<small>Validade: 31/03/2030</small>",
+              "target": [
+                "small:nth-child(4)"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<strong>Carteirinha digital</strong>",
+              "target": [
+                ".cx-card-caption > strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<span>Total em aberto</span>",
+              "target": [
+                ".cx-financial-overview > div:nth-child(1) > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<strong>R$&nbsp;5.340,00</strong>",
+              "target": [
+                ".cx-financial-overview > div:nth-child(1) > strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<small>6 cobranças para acompanhar</small>",
+              "target": [
+                "div:nth-child(1) > small"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<span>Próximo vencimento</span>",
+              "target": [
+                ".cx-financial-overview > div:nth-child(2) > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<strong>12 de nov.</strong>",
+              "target": [
+                ".cx-financial-overview > div:nth-child(2) > strong"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "effectiveLaunch": {
+          "browserLaunched": true,
+          "engine": "chrome",
+          "launchHash": 11677035664275012000
+        },
+        "launched": false,
+        "relaunchedBrowser": false,
+        "restartedBackground": false,
+        "restoreStatus": "not_configured",
+        "reused": true,
+        "saveStatus": "not_attempted"
+      },
+      "url": "http://127.0.0.1:5173/financeiro/alteracao-responsavel",
+      "violations": []
+    },
+    {
+      "surface": "responsible-dialog-mobile",
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 51,
+        "incomplete": 2,
+        "passes": 38,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "help": "ARIA hidden element must not be focusable or contain focusable elements",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/aria-hidden-focus?application=axeAPI",
+          "id": "aria-hidden-focus",
+          "impact": "serious",
+          "nodeCount": 3,
+          "nodes": [
+            {
+              "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+              "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+              "target": [
+                "span[data-radix-focus-guard=\"\"][data-aria-hidden=\"true\"][aria-hidden=\"true\"]:nth-child(1)"
+              ]
+            },
+            {
+              "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+              "html": "<div class=\"replica-shell replica-student-mode\" data-replica-mounted=\"true\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+              "target": [
+                ".replica-shell"
+              ]
+            },
+            {
+              "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+              "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+              "target": [
+                "span[data-radix-focus-guard=\"\"][data-aria-hidden=\"true\"][aria-hidden=\"true\"]:nth-child(6)"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.name-role-value",
+            "wcag2a",
+            "wcag412",
+            "TTv5",
+            "TT6.a",
+            "EN-301-549",
+            "EN-9.4.1.2",
+            "RGAAv4",
+            "RGAA-10.8.1"
+          ]
+        },
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 9,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<span>Total em aberto</span>",
+              "target": [
+                ".cx-financial-overview > div:nth-child(1) > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<strong>R$&nbsp;5.340,00</strong>",
+              "target": [
+                ".cx-financial-overview > div:nth-child(1) > strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<small>6 cobranças para acompanhar</small>",
+              "target": [
+                "div:nth-child(1) > small"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<span>Próximo vencimento</span>",
+              "target": [
+                ".cx-financial-overview > div:nth-child(2) > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<strong>12 de nov.</strong>",
+              "target": [
+                ".cx-financial-overview > div:nth-child(2) > strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<small>Mensalidade · novembro/2026</small>",
+              "target": [
+                ".cx-financial-overview > div:nth-child(2) > small"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<span>Pagamentos registrados</span>",
+              "target": [
+                ".cx-financial-overview > div:nth-child(3) > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+              "html": "<strong>4</strong>",
+              "target": [
+                "div:nth-child(3) > strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<small>Consulte os resumos abaixo</small>",
+              "target": [
+                "div:nth-child(3) > small"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "effectiveLaunch": {
+          "browserLaunched": true,
+          "engine": "chrome",
+          "launchHash": 11677035664275012000
+        },
+        "launched": false,
+        "relaunchedBrowser": false,
+        "restartedBackground": false,
+        "restoreStatus": "not_configured",
+        "reused": true,
+        "saveStatus": "not_attempted"
+      },
+      "url": "http://127.0.0.1:5173/financeiro/alteracao-responsavel",
+      "violations": []
+    },
+    {
+      "surface": "finance-mobile",
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 47,
+        "incomplete": 1,
+        "passes": 42,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 9,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<span>Total em aberto</span>",
+              "target": [
+                ".cx-financial-overview > div:nth-child(1) > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<strong>R$&nbsp;5.340,00</strong>",
+              "target": [
+                ".cx-financial-overview > div:nth-child(1) > strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<small>6 cobranças para acompanhar</small>",
+              "target": [
+                "div:nth-child(1) > small"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<span>Próximo vencimento</span>",
+              "target": [
+                ".cx-financial-overview > div:nth-child(2) > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<strong>12 de nov.</strong>",
+              "target": [
+                "div:nth-child(2) > strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<small>Mensalidade · novembro/2026</small>",
+              "target": [
+                "div:nth-child(2) > small"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<span>Pagamentos registrados</span>",
+              "target": [
+                ".cx-financial-overview > div:nth-child(3) > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+              "html": "<strong>4</strong>",
+              "target": [
+                "div:nth-child(3) > strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<small>Consulte os resumos abaixo</small>",
+              "target": [
+                "div:nth-child(3) > small"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "effectiveLaunch": {
+          "browserLaunched": true,
+          "engine": "chrome",
+          "launchHash": 11677035664275012000
+        },
+        "launched": false,
+        "relaunchedBrowser": false,
+        "restartedBackground": false,
+        "restoreStatus": "not_configured",
+        "reused": true,
+        "saveStatus": "not_attempted"
+      },
+      "url": "http://127.0.0.1:5173/financeiro",
+      "violations": []
+    }
+  ]
+}

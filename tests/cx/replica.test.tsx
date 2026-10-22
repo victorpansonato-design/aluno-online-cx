@@ -40,7 +40,7 @@ describe("Clone de referência", () => {
       expect(february.querySelectorAll("[data-month-day]")).toHaveLength(28);
       expect(february.querySelector("[aria-pressed=true][data-month-day]")?.getAttribute("data-month-day")).toBe("28");
       expect(february.body.textContent).toContain("fevereiro de 2026");
-      expect(february.body.textContent).toContain("Não há aulas de demonstração cadastradas neste mês");
+      expect(february.body.textContent).toContain("Não há aulas cadastradas neste mês");
    });
    it("preserva os 40 formulários próprios e seus campos, sem executar o sistema original", async () => {
       expect(Object.keys(reference.serviceForms)).toHaveLength(40);
@@ -92,7 +92,7 @@ describe("Percursos do clone ativo", () => {
          target: { value: "Conferir opção fictícia sem perder o preenchimento." },
       });
       fireEvent.click(screen.getByRole("button", { name: "Continuar" }));
-      await screen.findByRole("button", { name: "Concluir demonstração" });
+      await screen.findByRole("button", { name: "Concluir solicitação" });
       fireEvent.click(screen.getByRole("button", { name: "Voltar" }));
       expect(await screen.findByRole("combobox", { name: /Turno/ })).toHaveValue("D - Diurno");
       expect(screen.getByRole("combobox", { name: /Curso/ })).toHaveValue(courseValue);
@@ -126,7 +126,7 @@ describe("Percursos do clone ativo", () => {
       const dialog = await screen.findByRole("dialog");
       const file = new File(["conteudo-privado-nao-deve-ser-guardado"], "cpf-ficticio.pdf", { type: "application/pdf" });
       fireEvent.change(within(dialog).getByLabelText("Escolher arquivo"), { target: { files: [file] } });
-      fireEvent.click(within(dialog).getByRole("button", { name: "Enviar documento na demonstração" }));
+      fireEvent.click(within(dialog).getByRole("button", { name: "Enviar documento" }));
       await waitFor(() => expect(JSON.parse(localStorage.getItem("anchieta-cx-demo-v1") || "{}").docs["0"].status).toBe("Em conferência"));
       expect(localStorage.getItem("anchieta-cx-demo-v1")).not.toContain("conteudo-privado-nao-deve-ser-guardado");
    });
@@ -136,9 +136,9 @@ describe("Percursos do clone ativo", () => {
       const turno = await within(dialog).findByRole("combobox", { name: /Turno/ });
       fireEvent.change(turno, { target: { value: "D - Diurno" } });
       fireEvent.click(within(dialog).getByRole("button", { name: /Continuar/ }));
-      fireEvent.click(await screen.findByRole("button", { name: "Concluir demonstração" }));
+      fireEvent.click(await screen.findByRole("button", { name: "Concluir solicitação" }));
       fireEvent.click(await screen.findByRole("button", { name: "Ir para o financeiro" }));
-      await waitFor(() => expect(main()?.textContent).toContain("Cobranças de demonstração"));
+      await waitFor(() => expect(main()?.textContent).toContain("Cobranças"));
       expect(main().querySelector("[data-local-request]")).not.toBeNull();
       fireEvent.click(main().querySelector("[data-pay-demo]")!);
       await waitFor(() => expect(JSON.parse(localStorage.getItem("anchieta-cx-demo-v1") || "{}").requests[0].status).toBe("Em análise"));

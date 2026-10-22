@@ -406,7 +406,7 @@
    scroll-padding-bottom: 112px;
 }
 .replica-student-mode .replica-page {
-   padding-bottom: 112px;
+   padding-bottom: 0;
 }
 body:has([role="dialog"][data-state="open"]) .replica-ana-launcher {
    visibility: hidden;

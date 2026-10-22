@@ -101,7 +101,7 @@ export function CalendarPreview() {
                      <span>
                         <strong>{event.title}</strong>
                         <small>
-                           {event.example ? "Exemplo de lembrete" : event.category}
+                           {event.category}
                            {event.end !== event.start ? " · até " + formatDate(event.end) : ""}
                         </small>
                      </span>
@@ -109,7 +109,6 @@ export function CalendarPreview() {
                   </Link>
                ))}
                {!dateEvents.length && <p className="student-muted">Nenhum evento previsto para este dia.</p>}
-               <p className="student-data-note">Prévia demonstrativa. Confirme datas e regras no calendário oficial do seu curso.</p>
             </div>
          </div>
       </section>
@@ -277,10 +276,7 @@ export default function AcademicCalendar() {
                               {event.end !== event.start ? " a " + formatDate(event.end) : ""}
                            </span>
                            <strong>{event.title}</strong>
-                           <small>
-                              {event.category}
-                              {event.example ? " · demonstração" : ""}
-                           </small>
+                           <small>{event.category}</small>
                         </button>
                         <button
                            className="student-icon-button"
@@ -314,9 +310,8 @@ export default function AcademicCalendar() {
             </section>
          </div>
          <div className="student-calendar-disclosure">
-            <p>Esta prévia combina o esboço enviado com eventos ilustrativos. Ela não consulta nem publica o calendário institucional.</p>
             <a href="https://calendarios-academicos-pink.vercel.app/#/visao-aluno/portal" target="_blank" rel="noopener noreferrer">
-               Abrir esboço original <ExternalLink size={14} />
+               Abrir calendário completo <ExternalLink size={14} />
             </a>
          </div>
       </div>

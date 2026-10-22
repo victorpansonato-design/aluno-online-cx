@@ -1,0 +1,1924 @@
+/* Revision 5: the original shell stays compact; task surfaces gain hierarchy. */
+:root {
+   --cx-blue-wash: color-mix(in oklab, var(--primary) 7%, var(--card));
+   --cx-teal: #087568;
+   --cx-violet: #6852ad;
+   --cx-rose: #b64258;
+}
+.dark {
+   --cx-teal: #73d7bc;
+   --cx-violet: #c1adff;
+   --cx-rose: #ff9eaf;
+}
+.student-page {
+   text-wrap: pretty;
+}
+.student-page h1,
+.student-page h2 {
+   text-wrap: balance;
+}
+.student-page button,
+.student-page a {
+   -webkit-tap-highlight-color: transparent;
+}
+.student-page input {
+   caret-color: var(--primary);
+}
+.student-page ::selection {
+   color: var(--primary-foreground);
+   background: var(--primary);
+}
+.cx-greeting-dot {
+   color: var(--primary);
+}
+.student-page-heading {
+   margin-bottom: 22px;
+}
+.student-page-heading p,
+.student-home-heading p {
+   margin-top: 6px;
+}
+.student-page .replica-button {
+   gap: 8px;
+}
+.cx-icon-tile {
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   width: 42px;
+   height: 42px;
+   border-radius: 12px;
+   flex-shrink: 0;
+}
+.cx-icon-tile .material-symbols-outlined {
+   font-size: 23px;
+}
+.cx-icon-tile.blue {
+   color: var(--primary);
+   background: var(--cx-blue-wash);
+}
+.cx-icon-tile.amber {
+   color: var(--warning-foreground);
+   background: var(--warning-soft);
+}
+.cx-icon-tile.teal {
+   color: var(--cx-teal);
+   background: color-mix(in oklab, var(--cx-teal) 9%, var(--card));
+}
+.cx-icon-tile.violet {
+   color: var(--cx-violet);
+   background: color-mix(in oklab, var(--cx-violet) 10%, var(--card));
+}
+.cx-icon-tile.rose {
+   color: var(--cx-rose);
+   background: color-mix(in oklab, var(--cx-rose) 9%, var(--card));
+}
+
+.cx-home .student-home-heading {
+   margin-bottom: 22px;
+   align-items: center;
+}
+.cx-home .student-home-priorities {
+   grid-template-columns: minmax(0, 1.8fr) minmax(260px, 1fr);
+   gap: 18px;
+}
+.cx-home .cx-next-class {
+   min-height: 206px;
+   padding: 23px 26px;
+   background: linear-gradient(112deg, var(--card) 10%, var(--primary-soft));
+}
+.cx-next-class h2 {
+   font-size: 23px;
+   max-width: 29ch;
+   padding-right: 0;
+}
+.cx-next-class > div {
+   max-width: 78%;
+}
+.cx-next-class img {
+   display: block;
+   width: 175px;
+   height: 144px;
+   right: 6px;
+   opacity: 1;
+   object-fit: contain;
+   object-position: right bottom;
+}
+.cx-next-class .student-class-time {
+   margin-bottom: 8px;
+   font-size: 12px;
+}
+.cx-next-class p {
+   color: var(--muted-foreground);
+   margin-top: 9px;
+}
+.cx-next-class .student-class-actions {
+   margin-top: 15px;
+   gap: 14px;
+}
+.cx-home .cx-next-payment {
+   padding: 19px 20px;
+   border-radius: 16px;
+}
+.cx-next-payment .student-section-heading {
+   margin-bottom: 6px;
+}
+.cx-payment-info p {
+   font-size: 11px;
+   color: var(--muted-foreground);
+}
+.cx-next-payment .student-payment-amount {
+   font-size: 27px;
+   line-height: 1.35;
+}
+.cx-next-payment .student-payment-due {
+   margin: 9px 0 12px;
+   font-size: 11px;
+   gap: 6px;
+}
+.cx-next-payment > .replica-button {
+   min-height: 40px;
+}
+.cx-home-quick-links {
+   display: grid;
+   grid-template-columns: repeat(4, minmax(0, 1fr));
+   margin: 20px 0 28px;
+   gap: 12px;
+}
+.cx-home-quick-links > a {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   min-height: 60px;
+   padding: 8px 10px;
+   background: var(--muted);
+   border-radius: 12px;
+   font-weight: 550;
+   font-size: 12px;
+   transition: background-color 150ms;
+}
+.cx-home-quick-links > a > svg {
+   margin-left: auto;
+   color: var(--muted-foreground);
+   flex-shrink: 0;
+}
+.cx-home-quick-links .cx-icon-tile {
+   width: 34px;
+   height: 34px;
+   border-radius: 9px;
+}
+.cx-home-quick-links .material-symbols-outlined {
+   font-size: 21px;
+}
+.cx-home-quick-links > a:hover {
+   background: var(--accent);
+}
+.cx-home-dashboard {
+   display: grid;
+   grid-template-columns: minmax(0, 1.65fr) minmax(285px, 1fr);
+   gap: 28px;
+   align-items: start;
+}
+.cx-home-main,
+.cx-home-side {
+   display: flex;
+   flex-direction: column;
+   min-width: 0;
+   gap: 28px;
+}
+.cx-home .student-section-heading {
+   margin-bottom: 12px;
+}
+.cx-home .student-section-heading h2 {
+   font-size: 16px;
+}
+.cx-home .student-section-heading > a {
+   font-size: 12px;
+   min-height: 32px;
+}
+.cx-attention .student-section-heading {
+   justify-content: flex-start;
+   gap: 9px;
+}
+.cx-attention-items {
+   display: grid;
+   gap: 9px;
+}
+.cx-attention-items > a {
+   display: flex;
+   align-items: center;
+   gap: 12px;
+   min-height: 70px;
+   border-radius: 12px;
+   padding: 11px 14px;
+   background: var(--warning-soft);
+   color: var(--warning-foreground);
+   transition: background-color 150ms;
+}
+.cx-attention-items > a.rose {
+   background: color-mix(in oklab, var(--cx-rose) 7%, var(--card));
+   color: var(--cx-rose);
+}
+.cx-attention-items > a.blue {
+   background: var(--primary-soft);
+   color: var(--primary);
+}
+.cx-attention-items > a.green {
+   background: var(--success-soft);
+   color: var(--success);
+}
+.cx-attention-items > a:hover {
+   background: var(--accent);
+   color: var(--foreground);
+}
+.cx-attention-items > a > span:nth-child(2) {
+   display: grid;
+   gap: 3px;
+   min-width: 0;
+   flex: 1;
+}
+.cx-attention-items strong {
+   font-size: 12px;
+   font-weight: 600;
+}
+.cx-attention-items small {
+   font-size: 11px;
+   color: color-mix(in oklab, currentColor 85%, var(--foreground));
+}
+.cx-attention-icon {
+   display: flex;
+   align-items: center;
+   flex-shrink: 0;
+}
+.cx-attention-items > a > svg {
+   flex-shrink: 0;
+}
+.cx-formation.student-formation-summary {
+   padding: 0;
+   border: 0;
+   background: none;
+   border-radius: 0;
+}
+.cx-hours-grid {
+   display: grid;
+   grid-template-columns: repeat(2, minmax(0, 1fr));
+   gap: 12px;
+}
+.cx-formation .student-hours-row {
+   padding: 14px;
+   border: 1px solid var(--border);
+   border-radius: 12px;
+   min-width: 0;
+   background: var(--card);
+   transition: background-color 150ms;
+}
+.cx-formation .student-hours-row:hover {
+   background: var(--muted);
+}
+.cx-formation .student-hours-row > span {
+   font-size: 12px;
+}
+.cx-formation .student-hours-row > span > svg {
+   color: var(--muted-foreground);
+}
+.cx-formation .cx-hours-value {
+   display: flex;
+   align-items: baseline;
+   justify-content: space-between;
+   gap: 8px;
+   margin: 10px 0 0;
+}
+.cx-formation .cx-hours-value b {
+   font-size: 25px;
+   line-height: 1.2;
+}
+.cx-formation .cx-hours-value b > small {
+   font-size: 15px;
+   color: var(--foreground);
+   margin-left: 1px;
+}
+.cx-formation .cx-hours-value > span {
+   font-size: 10px;
+   color: var(--muted-foreground);
+   white-space: nowrap;
+}
+.cx-formation .cx-hours-value > span strong {
+   font-size: 12px;
+   color: var(--success);
+}
+.cx-formation .student-hours-track {
+   height: 6px;
+   margin-top: 11px !important;
+}
+.cx-formation .cx-hours-remaining {
+   display: block;
+   font-size: 10px;
+   margin-top: 7px;
+}
+.cx-hours-remaining > span {
+   display: none;
+}
+.cx-home-side .cx-hours-grid {
+   gap: 10px;
+}
+.cx-home-side .cx-formation .student-hours-row {
+   padding: 12px;
+}
+.cx-home-side .cx-hours-value {
+   flex-wrap: wrap;
+   gap: 4px;
+}
+.cx-course-journey {
+   background: linear-gradient(125deg, var(--primary-soft), var(--card));
+   padding: 18px;
+   border-radius: 14px;
+}
+.cx-course-journey .student-section-heading {
+   margin-bottom: 10px;
+}
+.cx-course-journey .student-section-heading svg {
+   color: var(--primary);
+}
+.cx-course-journey p {
+   display: flex;
+   align-items: baseline;
+   gap: 7px;
+   font-size: 12px;
+}
+.cx-course-journey p > strong {
+   font-size: 20px;
+   font-weight: 650;
+}
+.cx-course-journey p > span {
+   color: var(--muted-foreground);
+}
+.cx-period-track {
+   display: flex;
+   gap: 7px;
+   margin: 15px 0 9px;
+}
+.cx-period-track > span {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 23px;
+   flex: 1;
+   border-radius: 6px;
+   background: color-mix(in oklab, var(--primary) 7%, var(--card));
+   color: var(--muted-foreground);
+   font-size: 10px;
+}
+.cx-period-track .done {
+   color: var(--success);
+   background: var(--success-soft);
+}
+.cx-period-track .pending {
+   color: var(--warning-foreground);
+   background: var(--warning-soft);
+}
+.cx-period-track .current {
+   color: var(--primary-foreground);
+   background: var(--primary);
+   font-weight: 650;
+}
+.cx-course-journey > .student-text-link {
+   font-size: 11px;
+}
+.cx-request-preview {
+   padding: 0 2px;
+}
+.cx-request-preview h2 {
+   font-size: 16px;
+}
+.cx-request-preview > button {
+   display: flex;
+   align-items: center;
+   gap: 12px;
+   width: 100%;
+   text-align: left;
+   padding: 12px 0;
+   border-bottom: 1px solid var(--border);
+}
+.cx-request-preview > button > span {
+   display: grid;
+   gap: 4px;
+   flex: 1;
+}
+.cx-request-preview strong {
+   font-size: 12px;
+   font-weight: 550;
+}
+.cx-request-preview small {
+   font-size: 11px;
+   color: var(--muted-foreground);
+}
+.cx-request-preview .student-muted {
+   font-size: 12px;
+}
+.cx-request-preview .replica-button {
+   margin-top: 15px;
+   width: 100%;
+}
+.cx-communications-link {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   font-size: 12px;
+   color: var(--primary);
+   min-height: 44px;
+}
+.cx-communications-link > span {
+   flex: 1;
+}
+.cx-semester-agenda ol {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+}
+.cx-semester-agenda li + li {
+   border-top: 1px solid var(--border);
+}
+.cx-semester-agenda li > a {
+   display: flex;
+   align-items: center;
+   gap: 15px;
+   min-height: 88px;
+   padding: 10px 4px;
+}
+.cx-semester-agenda li > a:hover {
+   background: var(--muted);
+   border-radius: 9px;
+}
+.cx-semester-agenda time {
+   display: grid;
+   justify-items: center;
+   align-content: center;
+   width: 48px;
+   height: 52px;
+   flex-shrink: 0;
+   border-radius: 10px;
+   background: var(--cx-blue-wash);
+   color: var(--primary);
+}
+.cx-semester-agenda time > strong {
+   font-size: 21px;
+   line-height: 1.2;
+   font-variant-numeric: tabular-nums;
+}
+.cx-semester-agenda time > span {
+   font-size: 10px;
+   text-transform: uppercase;
+}
+.cx-semester-agenda a > span {
+   flex: 1;
+   display: grid;
+   gap: 3px;
+}
+.cx-semester-agenda a > span > strong {
+   font-size: 13px;
+   font-weight: 600;
+}
+.cx-semester-agenda a > span > small {
+   font-size: 11px;
+   color: var(--muted-foreground);
+}
+.cx-semester-agenda a > svg {
+   color: var(--muted-foreground);
+   flex-shrink: 0;
+}
+.cx-semester-agenda .student-muted,
+.cx-academic-pulse .student-muted {
+   font-size: 12px;
+   margin-top: 4px;
+}
+.cx-academic-pulse {
+   min-width: 0;
+}
+.cx-segmented {
+   display: inline-flex;
+   padding: 3px;
+   background: var(--muted);
+   border-radius: 9px;
+   gap: 3px;
+}
+.cx-segmented button {
+   min-height: 34px;
+   padding: 6px 22px;
+   border-radius: 7px;
+   font-size: 12px;
+   color: var(--muted-foreground);
+}
+.cx-segmented [aria-pressed="true"] {
+   background: var(--card);
+   color: var(--primary);
+   box-shadow: 0 2px 5px #16244b12;
+   font-weight: 600;
+}
+.cx-chart-description {
+   font-size: 11px;
+   color: var(--muted-foreground);
+   margin: 12px 0 !important;
+}
+.cx-discipline-bars {
+   display: grid;
+   gap: 15px;
+}
+.cx-discipline-bars > a {
+   display: grid;
+   grid-template-columns: minmax(0, 1fr) auto;
+   gap: 6px 12px;
+   font-size: 12px;
+   min-height: 44px;
+   align-content: center;
+   padding: 3px 0;
+}
+.cx-discipline-bars > a > span:first-child {
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+.cx-discipline-bars > a > strong {
+   font-size: 12px;
+   font-variant-numeric: tabular-nums;
+   font-weight: 650;
+}
+.cx-discipline-bars > a:hover > span:first-child {
+   color: var(--primary);
+   text-decoration: underline;
+   text-underline-offset: 3px;
+}
+.cx-subject-track {
+   grid-column: 1 / -1;
+   height: 5px;
+   background: var(--muted);
+   border-radius: 5px;
+   overflow: hidden;
+}
+.cx-subject-track > i {
+   display: block;
+   height: 100%;
+   border-radius: inherit;
+   background: color-mix(in oklab, var(--primary) 73%, var(--card));
+}
+.cx-discipline-bars .attention .cx-subject-track > i {
+   background: var(--warning);
+}
+.cx-discipline-bars .attention > strong {
+   color: var(--warning-foreground);
+}
+.cx-academic-pulse > .student-text-link {
+   margin-top: 12px;
+   font-size: 11px;
+}
+
+.cx-sidebar-card {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   padding: 13px 12px;
+   margin-bottom: 12px;
+   border-radius: 12px;
+   background: linear-gradient(130deg, var(--primary), color-mix(in oklab, var(--primary) 82%, #487fe3));
+   color: var(--primary-foreground);
+   min-height: 82px;
+}
+.cx-sidebar-card > .material-symbols-outlined {
+   font-size: 25px;
+   flex-shrink: 0;
+}
+.cx-sidebar-card > .material-symbols-outlined:last-child {
+   font-size: 17px;
+}
+.cx-sidebar-card > span:nth-child(2) {
+   display: grid;
+   gap: 4px;
+   min-width: 0;
+   flex: 1;
+}
+.cx-sidebar-card strong {
+   font-size: 12px;
+   font-weight: 550;
+   line-height: 1.45;
+}
+.cx-sidebar-card small {
+   color: color-mix(in oklab, var(--primary-foreground) 85%, transparent);
+   font-size: 10px;
+}
+.cx-sidebar-card:hover {
+   background: var(--primary);
+}
+.replica-collapsed .cx-sidebar-card {
+   min-height: 40px;
+   padding: 8px 0;
+   justify-content: center;
+}
+.replica-collapsed .cx-sidebar-card > span:nth-child(2),
+.replica-collapsed .cx-sidebar-card > span:last-child {
+   display: none;
+}
+.replica-collapsed .cx-sidebar-card > .material-symbols-outlined:first-child {
+   display: block;
+   font-size: 21px;
+}
+.student-sidebar-bottom {
+   padding-top: 14px;
+}
+.student-sidebar-course {
+   padding: 8px;
+}
+
+.cx-context-banner,
+.cx-secretariat-banner,
+.cx-help-welcome {
+   display: grid;
+   grid-template-columns: 1.35fr 1fr;
+   align-items: stretch;
+   overflow: hidden;
+   border-radius: 16px;
+   background: linear-gradient(115deg, var(--primary-soft), var(--card));
+   margin-bottom: 28px;
+}
+.cx-context-banner > div:first-child,
+.cx-secretariat-banner > div:first-child,
+.cx-help-welcome > div:first-child {
+   padding: 26px 28px;
+   align-self: center;
+}
+.cx-context-banner h2,
+.cx-secretariat-banner h2,
+.cx-help-welcome h2 {
+   font-size: 24px;
+   line-height: 1.3;
+   max-width: 26ch;
+}
+.cx-context-banner p,
+.cx-secretariat-banner p,
+.cx-help-welcome p {
+   color: var(--muted-foreground);
+   font-size: 13px;
+   margin: 9px 0 16px;
+   max-width: 49ch;
+}
+.cx-ambient {
+   position: relative;
+   min-height: 200px;
+   overflow: hidden;
+   background: var(--primary-soft);
+   isolation: isolate;
+}
+.cx-ambient > img,
+.cx-ambient > video {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   inset: 0;
+   object-fit: cover;
+   object-position: 54% 54%;
+}
+.cx-ambient.study-desk > img,
+.cx-ambient.study-desk > video {
+   object-position: 55% 55%;
+}
+.cx-ambient::after {
+   content: "";
+   position: absolute;
+   inset: 0;
+   background: linear-gradient(90deg, var(--card), transparent 24%);
+   pointer-events: none;
+   opacity: 0.4;
+}
+.cx-video-control {
+   position: absolute;
+   z-index: 1;
+   bottom: 12px;
+   right: 12px;
+   display: flex;
+   align-items: center;
+   gap: 6px;
+   min-height: 34px;
+   padding: 7px 10px;
+   border-radius: 8px;
+   background: #102858e8;
+   color: white;
+   font-size: 11px;
+}
+.cx-video-control:hover {
+   background: #102858;
+}
+.cx-study-overview {
+   display: grid;
+   grid-template-columns: 1.15fr 1fr;
+   gap: 36px;
+   align-items: start;
+   padding-block: 2px 28px;
+   margin-bottom: 28px;
+   border-bottom: 1px solid var(--border);
+}
+.cx-study-shortcuts {
+   padding: 20px;
+   border-radius: 14px;
+   background: var(--muted);
+}
+.cx-study-shortcuts h2 {
+   font-size: 16px;
+   margin-bottom: 8px;
+}
+.student-page .student-destinations {
+   border-top: 0;
+   gap: 8px;
+   display: grid;
+}
+.student-page .student-destinations > a {
+   border: 0;
+   padding: 12px;
+   border-radius: 12px;
+   background: var(--muted);
+   min-height: 80px;
+}
+.student-page .student-destinations > a:hover {
+   background: var(--accent);
+}
+.student-page .student-destinations > a > .material-symbols-outlined {
+   width: 38px;
+   height: 38px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 10px;
+   background: var(--cx-blue-wash);
+   color: var(--primary);
+   font-size: 22px;
+}
+.student-page .student-destinations > a:nth-child(3n + 2) > .material-symbols-outlined {
+   color: var(--cx-teal);
+   background: color-mix(in oklab, var(--cx-teal) 9%, var(--card));
+}
+.student-page .student-destinations > a:nth-child(3n) > .material-symbols-outlined {
+   color: var(--cx-violet);
+   background: color-mix(in oklab, var(--cx-violet) 10%, var(--card));
+}
+.student-page .student-destinations small {
+   font-size: 12px;
+}
+.cx-study-shortcuts .student-destinations > a {
+   background: var(--card);
+}
+.student-studies-columns {
+   gap: 30px;
+}
+.student-studies-columns h2 {
+   margin-bottom: 14px;
+}
+.student-studies-columns > div,
+.student-studies-columns > aside {
+   gap: 30px;
+}
+.student-related-guide {
+   background: linear-gradient(125deg, var(--primary-soft), var(--card));
+}
+.student-formation-overview {
+   margin-top: 28px;
+}
+.student-formation-overview > .cx-formation .cx-hours-grid {
+   grid-template-columns: 1fr;
+}
+.student-formation-overview .cx-formation .cx-hours-value {
+   justify-content: space-between;
+}
+.student-formation-overview .cx-formation .cx-hours-remaining > span {
+   display: inline;
+}
+.student-formation-overview .cx-formation .student-hours-row {
+   padding: 20px;
+}
+.student-formation-overview .cx-formation .cx-hours-value b {
+   font-size: 32px;
+}
+.student-formation-overview .cx-formation .cx-hours-value > span {
+   font-size: 12px;
+}
+
+.cx-secretariat-banner {
+   grid-template-columns: 1.6fr 1fr;
+}
+.cx-secretariat-banner > img,
+.cx-help-welcome > img {
+   align-self: end;
+   justify-self: center;
+   object-fit: contain;
+   width: min(100%, 270px);
+   height: 170px;
+}
+.cx-service-progress {
+   display: flex;
+   gap: 24px;
+   align-items: center;
+   margin: -6px 0 30px;
+   padding: 16px 20px;
+   background: linear-gradient(110deg, var(--card), var(--primary-soft));
+   border-radius: 12px;
+   box-shadow: 0 4px 8px #18346a0a;
+}
+.cx-service-progress > a {
+   display: flex;
+   align-items: center;
+   gap: 9px;
+   color: var(--primary);
+   font-size: 12px;
+}
+.cx-service-progress > a > strong {
+   font-size: 25px;
+   font-variant-numeric: tabular-nums;
+}
+.cx-service-progress > ol {
+   display: flex;
+   gap: 23px;
+   padding-left: 24px;
+   border-left: 1px solid var(--border);
+   list-style: none;
+}
+.cx-service-progress li {
+   display: flex;
+   align-items: center;
+   gap: 6px;
+   font-size: 11px;
+   color: var(--muted-foreground);
+}
+.cx-service-progress li:first-child svg {
+   color: var(--success);
+}
+.cx-hub-columns {
+   display: grid;
+   grid-template-columns: minmax(0, 2fr) minmax(230px, 0.85fr);
+   gap: 32px;
+   align-items: start;
+}
+.cx-hub-columns > section,
+.cx-hub-columns > aside {
+   min-width: 0;
+}
+.cx-hub-columns > aside {
+   display: flex;
+   flex-direction: column;
+   gap: 25px;
+}
+.cx-search {
+   display: flex;
+   align-items: center;
+   gap: 9px;
+   min-height: 46px;
+   border: 1px solid var(--border-strong);
+   border-radius: 10px;
+   padding: 0 13px;
+   background: var(--card);
+   color: var(--muted-foreground);
+}
+.cx-search input {
+   min-width: 0;
+   width: 100%;
+   background: none;
+   border: none;
+   outline: none;
+   font: inherit;
+   font-size: 14px;
+   color: var(--foreground);
+   min-height: 44px;
+}
+.cx-search input:focus-visible {
+   outline: none;
+}
+.cx-search:focus-within {
+   outline: 3px solid var(--ring);
+   outline-offset: 3px;
+}
+.cx-search input::placeholder {
+   color: var(--muted-foreground);
+   opacity: 1;
+}
+.cx-topic-filters {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 7px;
+   margin: 14px 0 20px;
+}
+.cx-topic-filters button {
+   min-height: 36px;
+   padding: 6px 11px;
+   border-radius: 8px;
+   font-size: 12px;
+   color: var(--muted-foreground);
+   background: var(--muted);
+}
+.cx-topic-filters [aria-pressed="true"] {
+   background: var(--primary);
+   color: var(--primary-foreground);
+}
+.cx-service-grid {
+   display: grid;
+   grid-template-columns: repeat(2, minmax(0, 1fr));
+   gap: 12px;
+}
+.cx-service-card {
+   display: flex;
+   flex-wrap: wrap;
+   align-content: flex-start;
+   align-items: center;
+   text-align: left;
+   padding: 18px;
+   gap: 12px;
+   border: 1px solid var(--border);
+   border-radius: 14px;
+   background: var(--card);
+   min-height: 174px;
+   transition:
+      background-color 150ms,
+      border-color 150ms;
+}
+.cx-service-card > span:nth-child(2) {
+   display: grid;
+   gap: 6px;
+   width: 100%;
+   order: 2;
+}
+.cx-service-card > span > strong {
+   font-size: 13px;
+   font-weight: 650;
+   line-height: 1.45;
+}
+.cx-service-card > span > small {
+   font-size: 12px;
+   color: var(--muted-foreground);
+}
+.cx-service-card > svg {
+   margin-left: auto;
+   color: var(--muted-foreground);
+}
+.cx-service-card:hover {
+   background: var(--cx-blue-wash);
+   border-color: color-mix(in oklab, var(--primary) 30%, var(--border));
+}
+.cx-personal-documents {
+   background: var(--warning-soft);
+   border-radius: 14px;
+   padding: 20px;
+}
+.cx-personal-documents h2 {
+   font-size: 17px;
+   margin-top: 15px;
+   color: var(--warning-foreground);
+}
+.cx-personal-documents p {
+   font-size: 12px;
+   margin: 9px 0;
+   color: var(--warning-foreground);
+}
+.cx-personal-documents .student-text-link {
+   color: var(--warning-foreground);
+   font-size: 12px;
+}
+.cx-personal-documents .cx-icon-tile {
+   background: color-mix(in oklab, var(--warning-foreground) 10%, transparent);
+}
+.cx-help-welcome {
+   grid-template-columns: 1.7fr 1fr;
+   margin-bottom: 30px;
+}
+.cx-help-welcome h2 {
+   max-width: 30ch;
+}
+.cx-help-welcome .cx-search {
+   max-width: 500px;
+}
+.cx-faq-list {
+   display: grid;
+   gap: 10px;
+}
+.cx-faq {
+   border: 1px solid var(--border);
+   border-radius: 12px;
+   overflow: clip;
+}
+.cx-faq summary {
+   display: flex;
+   align-items: center;
+   gap: 12px;
+   min-height: 70px;
+   padding: 14px 17px;
+   font-size: 13px;
+   font-weight: 550;
+   cursor: pointer;
+   list-style: none;
+}
+.cx-faq summary::-webkit-details-marker {
+   display: none;
+}
+.cx-faq summary > .material-symbols-outlined {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 34px;
+   height: 34px;
+   flex-shrink: 0;
+   background: var(--cx-blue-wash);
+   color: var(--primary);
+   border-radius: 9px;
+   font-size: 21px;
+}
+.cx-faq summary > span:nth-child(2) {
+   flex: 1;
+}
+.cx-faq summary > svg {
+   flex-shrink: 0;
+   color: var(--muted-foreground);
+   transition: transform 180ms;
+}
+.cx-faq[open] {
+   background: var(--cx-blue-wash);
+   border-color: color-mix(in oklab, var(--primary) 25%, var(--border));
+}
+.cx-faq[open] summary > svg {
+   transform: rotate(180deg);
+}
+.cx-faq > div {
+   padding: 0 18px 16px 63px;
+   font-size: 13px;
+   color: var(--muted-foreground);
+}
+.cx-faq .student-text-link {
+   margin-top: 8px;
+}
+.cx-start-guide {
+   padding: 21px;
+   border-radius: 14px;
+   background: linear-gradient(135deg, var(--primary-soft), var(--card));
+}
+.cx-start-guide h2 {
+   font-size: 18px;
+   margin-top: 15px;
+}
+.cx-start-guide p {
+   font-size: 12px;
+   color: var(--muted-foreground);
+   margin-top: 7px;
+}
+.cx-start-guide ol {
+   list-style: none;
+   padding: 0;
+   margin: 13px 0 0;
+}
+.cx-start-guide li > a {
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   min-height: 53px;
+   font-size: 12px;
+   color: var(--primary);
+}
+.cx-start-guide li a > span {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 22px;
+   height: 22px;
+   border-radius: 50%;
+   background: var(--card);
+   font-size: 10px;
+   flex-shrink: 0;
+}
+.cx-start-guide li a > svg {
+   margin-left: auto;
+   flex-shrink: 0;
+}
+.cx-help-contact h2 {
+   font-size: 16px;
+}
+.cx-help-contact p {
+   font-size: 12px;
+   color: var(--muted-foreground);
+   margin-top: 8px;
+}
+.cx-help-contact .replica-button {
+   margin-top: 14px;
+   width: 100%;
+}
+.cx-help-contact .student-text-link {
+   font-size: 12px;
+   margin-top: 7px;
+}
+.cx-help-resources {
+   display: grid;
+   font-size: 12px;
+   gap: 3px;
+}
+.cx-help-resources > a {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   min-height: 44px;
+   color: var(--primary);
+}
+.cx-faq summary:focus-visible {
+   outline: 3px solid var(--ring);
+   outline-offset: -3px;
+   border-radius: 10px;
+}
+.cx-financial-overview {
+   display: grid;
+   grid-template-columns: 1.3fr 1fr 1fr;
+   margin-bottom: 28px;
+   padding: 20px 23px;
+   gap: 25px;
+   background: linear-gradient(110deg, var(--primary-soft), var(--card));
+   border-radius: 14px;
+}
+.cx-financial-overview > div {
+   display: grid;
+   gap: 5px;
+   align-content: center;
+}
+.cx-financial-overview span {
+   font-size: 12px;
+   color: var(--muted-foreground);
+}
+.cx-financial-overview strong {
+   font-size: 23px;
+   font-weight: 650;
+   font-variant-numeric: tabular-nums;
+}
+.cx-financial-overview > div:first-child strong {
+   color: var(--success);
+   font-family: var(--font-mono);
+}
+.cx-financial-overview small {
+   font-size: 11px;
+   color: var(--muted-foreground);
+}
+.student-financial-aside {
+   padding: 20px;
+   border-radius: 14px;
+   background: var(--muted);
+}
+.student-page .student-financial-aside .student-destinations > a {
+   background: var(--card);
+}
+.student-charge {
+   border-radius: 12px;
+}
+.student-charge.selected {
+   background: var(--primary-soft);
+}
+.student-financial-layout {
+   gap: 30px;
+}
+.student-payment-selection {
+   background: linear-gradient(125deg, var(--primary-soft), var(--card));
+}
+.student-communications-layout > section > h2 {
+   margin-bottom: 15px;
+}
+
+@media (max-width: 1199px) {
+   .cx-home-dashboard {
+      grid-template-columns: minmax(0, 1.4fr) minmax(250px, 1fr);
+      gap: 22px;
+   }
+   .cx-home .student-home-priorities {
+      grid-template-columns: minmax(0, 1.45fr) minmax(245px, 1fr);
+   }
+   .cx-next-class > div {
+      max-width: 100%;
+   }
+   .cx-next-class h2 {
+      font-size: 21px;
+      max-width: 23ch;
+   }
+   .cx-next-class img {
+      display: none;
+   }
+   .cx-hub-columns {
+      grid-template-columns: minmax(0, 1.6fr) minmax(215px, 1fr);
+      gap: 24px;
+   }
+   .cx-service-progress {
+      gap: 15px;
+   }
+   .cx-service-progress > ol {
+      gap: 12px;
+      padding-left: 15px;
+   }
+   .cx-service-progress li {
+      font-size: 10px;
+   }
+   .cx-service-card {
+      padding: 15px;
+   }
+   .cx-context-banner h2,
+   .cx-secretariat-banner h2,
+   .cx-help-welcome h2 {
+      font-size: 21px;
+   }
+   .cx-context-banner > div:first-child,
+   .cx-secretariat-banner > div:first-child,
+   .cx-help-welcome > div:first-child {
+      padding: 23px;
+   }
+   .cx-home-quick-links {
+      gap: 8px;
+   }
+   .cx-home-quick-links > a {
+      gap: 7px;
+      font-size: 11px;
+   }
+   .cx-home-quick-links > a > svg {
+      display: none;
+   }
+}
+@media (max-width: 1023px) and (min-width: 768px) {
+   .student-formation-overview,
+   .cx-study-overview,
+   .student-financial-layout {
+      grid-template-columns: minmax(0, 1fr);
+   }
+   .student-formation-overview .cx-formation .cx-hours-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+   }
+   .student-formation-overview > section {
+      min-width: 0;
+   }
+   .cx-home .student-home-priorities {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 14px;
+   }
+   .cx-home .cx-next-class {
+      padding: 20px;
+   }
+   .cx-next-class h2 {
+      font-size: 20px;
+   }
+   .cx-next-class .student-class-actions {
+      gap: 8px;
+   }
+   .cx-home .cx-next-payment {
+      padding: 17px;
+   }
+   .cx-home .cx-next-class {
+      min-height: 190px;
+   }
+   .cx-home .cx-next-payment {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 3px 12px;
+   }
+   .cx-next-payment .student-section-heading {
+      grid-column: 1;
+      margin: 0;
+   }
+   .cx-next-payment .student-section-heading svg {
+      display: none;
+   }
+   .cx-next-payment .cx-payment-info {
+      grid-column: 1;
+   }
+   .cx-next-payment .student-payment-due {
+      grid-column: 1 / -1;
+      grid-row: 3;
+      margin: 7px 0 0;
+   }
+   .cx-next-payment > .replica-button {
+      grid-column: 2;
+      grid-row: 1 / 3;
+      width: auto;
+      margin: 0;
+      align-self: center;
+   }
+   .cx-home {
+      display: flex;
+      flex-direction: column;
+   }
+   .cx-home .student-home-heading {
+      order: 0;
+   }
+   .cx-home .student-home-priorities {
+      order: 1;
+   }
+   .cx-home-dashboard,
+   .cx-home-main,
+   .cx-home-side {
+      display: contents !important;
+   }
+   .cx-home-side > .cx-formation {
+      order: 2;
+      margin-top: 22px;
+   }
+   .cx-home-quick-links {
+      order: 3;
+   }
+   .cx-attention {
+      order: 4;
+      margin-bottom: 25px;
+   }
+   .cx-semester-agenda {
+      order: 5;
+      margin-bottom: 28px;
+   }
+   .cx-home .cx-academic-pulse {
+      order: 6;
+      margin-bottom: 28px;
+   }
+   .cx-course-journey {
+      order: 7;
+      margin-bottom: 25px;
+   }
+   .cx-request-preview {
+      order: 8;
+      margin-bottom: 20px;
+   }
+   .cx-communications-link {
+      order: 9;
+   }
+   .cx-home-dashboard {
+      grid-template-columns: 1fr;
+   }
+   .cx-home-side {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+   }
+   .cx-home-side .cx-formation {
+      grid-column: 1 / -1;
+   }
+   .cx-home-side .cx-hours-value {
+      flex-wrap: nowrap;
+   }
+   .cx-hub-columns {
+      grid-template-columns: 1fr;
+   }
+   .cx-hub-columns > aside {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+   }
+   .cx-service-progress > ol {
+      flex: 1;
+      justify-content: space-between;
+   }
+   .cx-service-progress li {
+      gap: 4px;
+   }
+   .cx-context-banner {
+      grid-template-columns: 1.5fr 1fr;
+   }
+}
+@media (max-width: 767px) {
+   .student-page h1 {
+      font-size: 25px;
+   }
+   .student-page-heading,
+   .cx-home .student-home-heading {
+      margin-bottom: 17px;
+      gap: 8px;
+   }
+   .cx-home .student-home-heading {
+      align-items: flex-start;
+   }
+   .student-page-heading p,
+   .student-home-heading p {
+      font-size: 12px;
+      margin-top: 5px;
+   }
+   .cx-home .student-today {
+      display: none;
+   }
+   .cx-home .student-home-priorities {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
+   }
+   .cx-home .cx-next-class {
+      min-height: 176px;
+      padding: 18px;
+   }
+   .cx-next-class > div {
+      max-width: 100%;
+   }
+   .cx-next-class h2 {
+      font-size: 20px;
+      max-width: 24ch;
+   }
+   .cx-next-class .student-class-time {
+      font-size: 11px;
+   }
+   .cx-next-class p {
+      font-size: 11px;
+      gap: 4px;
+   }
+   .cx-next-class .cx-class-end {
+      display: none;
+   }
+   .cx-next-class .student-class-actions {
+      margin-top: 12px;
+      gap: 13px;
+   }
+   .cx-next-class .student-class-actions > a:not(.replica-button) {
+      min-height: 44px;
+      font-size: 11px;
+   }
+   .cx-home .cx-next-payment {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      padding: 14px 16px;
+      gap: 2px 12px;
+      align-items: center;
+      border-radius: 12px;
+   }
+   .cx-next-payment .student-section-heading {
+      grid-column: 1;
+      margin: 0;
+   }
+   .cx-home .cx-next-payment .student-section-heading h2 {
+      font-size: 11px;
+      color: var(--muted-foreground);
+      font-weight: 500;
+   }
+   .cx-next-payment .student-section-heading svg {
+      display: none;
+   }
+   .cx-next-payment .cx-payment-info {
+      grid-column: 1;
+   }
+   .cx-next-payment .student-payment-amount {
+      font-size: 23px;
+   }
+   .cx-next-payment .cx-payment-info p {
+      font-size: 10px;
+   }
+   .cx-next-payment .student-payment-due {
+      grid-column: 1 / -1;
+      grid-row: 3;
+      margin: 6px 0 0;
+      font-size: 11px;
+   }
+   .cx-next-payment > .replica-button {
+      grid-column: 2;
+      grid-row: 1 / 3;
+      padding: 9px 11px;
+      font-size: 11px;
+      width: auto;
+      min-height: 44px;
+      margin: 0;
+   }
+   .cx-next-payment > .replica-button > svg:first-child {
+      display: none;
+   }
+   .cx-next-payment .student-payment-clear {
+      grid-column: 1 / -1;
+      font-size: 12px;
+      gap: 5px;
+   }
+   .cx-home {
+      display: flex;
+      flex-direction: column;
+   }
+   .cx-home .student-home-heading {
+      order: 0;
+   }
+   .cx-home .student-home-priorities {
+      order: 1;
+   }
+   .cx-home-dashboard,
+   .cx-home-main,
+   .cx-home-side {
+      display: contents;
+   }
+   .cx-home-side > .cx-formation {
+      order: 2;
+      margin-top: 16px;
+   }
+   .cx-home .cx-formation > .student-section-heading {
+      display: none;
+   }
+   .cx-home .cx-hours-grid {
+      gap: 10px;
+   }
+   .cx-home .cx-formation .student-hours-row {
+      padding: 11px 12px;
+   }
+   .cx-home .cx-formation .student-hours-row > span {
+      font-size: 11px;
+   }
+   .cx-home .cx-formation .cx-hours-value {
+      margin-top: 7px;
+      flex-wrap: nowrap;
+   }
+   .cx-home .cx-formation .cx-hours-value b {
+      font-size: 23px;
+   }
+   .cx-home .cx-formation .cx-hours-value > span {
+      font-size: 11px;
+   }
+   .cx-home .cx-formation .cx-hours-value > span strong {
+      font-size: 11px;
+   }
+   .cx-home .cx-formation .student-hours-track {
+      margin-top: 7px !important;
+   }
+   .cx-home .cx-hours-remaining {
+      font-size: 11px;
+      margin-top: 6px;
+   }
+   .cx-home-quick-links {
+      order: 3;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 6px;
+      margin: 14px 0 24px;
+   }
+   .cx-home-quick-links > a {
+      min-height: 74px;
+      padding: 8px 3px;
+      gap: 5px;
+      flex-direction: column;
+      justify-content: center;
+      background: none;
+      font-size: 10px;
+      text-align: center;
+      line-height: 1.3;
+   }
+   .cx-home-quick-links .cx-icon-tile {
+      width: 38px;
+      height: 38px;
+   }
+   .cx-attention {
+      order: 4;
+      margin-bottom: 24px;
+   }
+   .cx-home .student-section-heading h2 {
+      font-size: 16px;
+   }
+   .cx-attention-items > a {
+      min-height: 65px;
+      padding: 10px 12px;
+      gap: 10px;
+   }
+   .cx-attention-items strong {
+      font-size: 12px;
+   }
+   .cx-attention-items small {
+      font-size: 10px;
+   }
+   .cx-semester-agenda {
+      order: 5;
+      margin-bottom: 26px;
+   }
+   .cx-home .cx-academic-pulse {
+      order: 6;
+      margin-bottom: 26px;
+   }
+   .cx-course-journey {
+      order: 7;
+      margin-bottom: 25px;
+   }
+   .cx-request-preview {
+      order: 8;
+      margin-bottom: 15px;
+   }
+   .cx-communications-link {
+      order: 9;
+   }
+   .cx-semester-agenda .student-section-heading {
+      align-items: flex-start;
+   }
+   .cx-semester-agenda .student-section-heading > a {
+      font-size: 11px;
+   }
+   .cx-semester-agenda .student-muted {
+      font-size: 11px;
+   }
+   .cx-semester-agenda li > a {
+      min-height: 82px;
+      gap: 12px;
+   }
+   .cx-semester-agenda a > span > strong {
+      font-size: 12px;
+   }
+   .cx-semester-agenda time {
+      width: 43px;
+      height: 49px;
+   }
+   .cx-segmented button {
+      min-height: 44px;
+      padding-inline: 23px;
+   }
+   .cx-chart-description {
+      font-size: 11px;
+   }
+   .cx-discipline-bars {
+      gap: 11px;
+   }
+   .cx-context-banner,
+   .cx-secretariat-banner,
+   .cx-help-welcome {
+      grid-template-columns: 1fr;
+      margin-bottom: 23px;
+   }
+   .cx-context-banner {
+      position: relative;
+   }
+   .cx-context-banner > div:first-child {
+      padding: 20px 17px;
+      padding-right: 104px;
+   }
+   .cx-context-banner h2 {
+      font-size: 20px;
+   }
+   .cx-context-banner p {
+      font-size: 12px;
+   }
+   .cx-context-banner .replica-button {
+      font-size: 11px;
+      padding: 9px 10px;
+   }
+   .cx-context-banner .cx-ambient {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 84px;
+      min-height: 0;
+      border-radius: 0;
+   }
+   .cx-ambient > img {
+      object-position: 54% 50%;
+   }
+   .cx-ambient::after {
+      opacity: 0.2;
+   }
+   .cx-context-banner .cx-video-control {
+      display: none;
+   }
+   .cx-study-overview {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+   }
+   .cx-study-shortcuts {
+      padding: 17px;
+   }
+   .student-page .student-destinations > a {
+      min-height: 82px;
+      padding: 12px;
+   }
+   .student-page .student-destinations > a > .material-symbols-outlined {
+      width: 35px;
+      height: 35px;
+      font-size: 21px;
+   }
+   .student-page .student-destinations strong {
+      font-size: 13px;
+   }
+   .student-page .student-destinations small {
+      font-size: 11px;
+   }
+   .student-studies-columns {
+      gap: 27px;
+   }
+   .cx-secretariat-banner,
+   .cx-help-welcome {
+      position: relative;
+   }
+   .cx-secretariat-banner > div:first-child {
+      padding: 21px 18px;
+      padding-right: 18px;
+      position: relative;
+      z-index: 1;
+   }
+   .cx-secretariat-banner h2 {
+      font-size: 22px;
+   }
+   .cx-secretariat-banner > img {
+      position: absolute;
+      width: 90px;
+      height: 110px;
+      right: -6px;
+      bottom: 4px;
+      opacity: 0.6;
+   }
+   .cx-service-progress {
+      display: grid;
+      padding: 13px 16px;
+      gap: 12px;
+      margin-bottom: 26px;
+   }
+   .cx-service-progress > a {
+      font-size: 12px;
+   }
+   .cx-service-progress > a > svg {
+      margin-left: auto;
+   }
+   .cx-service-progress > ol {
+      border: 0;
+      padding: 0;
+      gap: 10px;
+      margin: 0;
+      justify-content: space-between;
+   }
+   .cx-service-progress li {
+      font-size: 11px;
+      gap: 4px;
+   }
+   .cx-service-progress li svg {
+      width: 12px;
+      flex-shrink: 0;
+   }
+   .cx-hub-columns {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 30px;
+   }
+   .cx-hub-columns .student-section-heading {
+      flex-wrap: wrap;
+      gap: 3px;
+   }
+   .cx-hub-columns .student-section-heading h2 {
+      font-size: 17px;
+   }
+   .cx-hub-columns .student-section-heading > a {
+      font-size: 12px;
+   }
+   .cx-search input {
+      font-size: 16px;
+   }
+   .cx-topic-filters {
+      gap: 6px;
+      margin-bottom: 16px;
+   }
+   .cx-topic-filters button {
+      min-height: 44px;
+      font-size: 11px;
+      padding-inline: 10px;
+   }
+   .cx-service-grid {
+      gap: 10px;
+   }
+   .cx-service-card {
+      min-height: 178px;
+      padding: 13px;
+      gap: 11px;
+   }
+   .cx-service-card .cx-icon-tile {
+      width: 35px;
+      height: 35px;
+      border-radius: 10px;
+   }
+   .cx-service-card .material-symbols-outlined {
+      font-size: 21px;
+   }
+   .cx-service-card > span > strong {
+      font-size: 12px;
+   }
+   .cx-service-card > span > small {
+      font-size: 11px;
+   }
+   .cx-help-welcome > div:first-child {
+      padding: 21px 18px;
+   }
+   .cx-help-welcome h2 {
+      font-size: 22px;
+   }
+   .cx-help-welcome > img {
+      display: none;
+   }
+   .cx-help-welcome p {
+      font-size: 12px;
+   }
+   .cx-help-welcome .cx-search {
+      margin-top: 20px;
+   }
+   .cx-faq summary {
+      min-height: 72px;
+      padding: 12px;
+      gap: 10px;
+      font-size: 12px;
+   }
+   .cx-faq > div {
+      padding: 0 15px 15px;
+      font-size: 12px;
+   }
+   .cx-faq .student-text-link {
+      min-height: 44px;
+      font-size: 12px;
+   }
+   .cx-faq summary > .material-symbols-outlined {
+      width: 30px;
+      height: 30px;
+      font-size: 19px;
+   }
+   .cx-financial-overview {
+      grid-template-columns: 1fr 1fr;
+      padding: 16px;
+      gap: 15px;
+      margin-bottom: 23px;
+   }
+   .cx-financial-overview > div:first-child {
+      grid-column: auto;
+      border-bottom: 0;
+      padding-bottom: 0;
+   }
+   .cx-financial-overview > div:first-child strong {
+      font-size: 26px;
+   }
+   .cx-financial-overview strong {
+      font-size: 19px;
+   }
+   .cx-financial-overview span {
+      font-size: 11px;
+   }
+   .cx-financial-overview small {
+      font-size: 11px;
+   }
+   .cx-financial-overview > div:last-child {
+      grid-column: 1 / -1;
+   }
+   .cx-financial-overview[data-empty-history="true"] > div:last-child {
+      display: none;
+   }
+   .student-financial-aside {
+      padding: 18px;
+   }
+   .student-financial-layout {
+      gap: 25px;
+   }
+}
+@media (max-width: 359px) {
+   .cx-next-class h2 {
+      font-size: 18px;
+   }
+   .cx-next-class .student-class-actions {
+      gap: 10px;
+   }
+   .cx-next-class .student-class-actions .replica-button {
+      font-size: 11px;
+      padding: 9px 10px;
+   }
+   .cx-home .cx-next-payment {
+      padding: 12px;
+      gap: 2px 8px;
+   }
+   .cx-next-payment .student-payment-amount {
+      font-size: 21px;
+   }
+   .cx-next-payment > .replica-button {
+      font-size: 10px;
+      padding-inline: 8px;
+      gap: 4px;
+   }
+   .cx-home .cx-formation .student-hours-row {
+      padding: 10px;
+   }
+   .cx-home .cx-formation .cx-hours-value {
+      flex-wrap: wrap;
+      gap: 2px;
+   }
+   .cx-home .cx-formation .student-hours-row > span {
+      font-size: 10px;
+   }
+   .cx-service-grid {
+      grid-template-columns: minmax(0, 1fr);
+   }
+   .cx-service-card {
+      min-height: 104px;
+      flex-wrap: nowrap;
+   }
+   .cx-service-card > span:nth-child(2) {
+      width: auto;
+      flex: 1;
+      order: 0;
+   }
+   .cx-service-card > svg {
+      flex-shrink: 0;
+   }
+   .cx-context-banner > div:first-child {
+      padding-right: 88px;
+   }
+   .cx-context-banner .cx-ambient {
+      width: 70px;
+   }
+}
+@media (prefers-reduced-motion: reduce) {
+   .cx-faq summary > svg {
+      transition: none;
+   }
+}
+.reduce-motion .cx-faq summary > svg {
+   transition: none;
+}
+.large-text .cx-hours-remaining,
+.large-text .cx-chart-description,
+.large-text .cx-discipline-bars > a,
+.large-text .cx-attention-items small {
+   font-size: 14px;
+}
+@media print {
+   .cx-ambient video,
+   .cx-video-control {
+      display: none;
+   }
+}

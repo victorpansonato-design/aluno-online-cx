@@ -2,6 +2,7 @@ import raw from "./reference.json";
 import type { DemoState } from "../cx/state";
 import { curriculum, external } from "../cx/data";
 import { primaryDestinations, studentLabels } from "./student/model";
+import { prepareJourney } from "./student/journey";
 
 export type ReferenceDialog = { title: string; className: string; slot: string | null; html: string };
 export type ServiceField = { name: string; label: string; type: string; required: boolean; options?: string[] };
@@ -76,7 +77,7 @@ export const labels: Record<string, string> = {
    "/secretaria-virtual": "Secretaria virtual",
    "/preferencias": "Preferências",
    "/ajuda": "Ajuda e orientação",
-   "/entrar": "Acessar demonstração",
+   "/entrar": "Acessar Aluno Online",
 };
 export function titleFor(path: string) {
    return (
@@ -167,7 +168,7 @@ export function navigationHtml(connected: boolean) {
    const original = parse(reference.shell).querySelector('nav[aria-label="Navegação principal"]')!;
    if (!connected) return original.innerHTML;
 
-   return `<div class="student-sidebar"><ul aria-label="Destinos principais">${primaryDestinations.map(navLink).join("")}</ul><a class="student-sidebar-ava" href="${external.ava}" aria-label="Entrar no AVA (abre em nova aba)" title="Entrar no AVA" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined" aria-hidden="true">lightbulb</span><span>Entrar no AVA</span></a><div class="student-sidebar-bottom"><a class="student-sidebar-course" href="/perfil/visao-geral" aria-label="Meu curso: Ciências Contábeis, 2º período. Ver meus dados." title="Meu curso e meus dados"><span class="material-symbols-outlined" aria-hidden="true">school</span><span><strong>Ciências Contábeis</strong><small>2º período · 2026/2</small></span></a><a class="student-sidebar-help" href="/ajuda" aria-label="Preciso de ajuda" title="Preciso de ajuda"><span class="material-symbols-outlined" aria-hidden="true">help</span><span>Preciso de ajuda</span><span class="material-symbols-outlined student-help-arrow" aria-hidden="true">arrow_forward</span></a></div></div>`;
+   return `<div class="student-sidebar"><ul aria-label="Destinos principais">${primaryDestinations.map(navLink).join("")}</ul><a class="student-sidebar-ava" href="${external.ava}" aria-label="Entrar no AVA (abre em nova aba)" title="Entrar no AVA" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined" aria-hidden="true">lightbulb</span><span>Entrar no AVA</span></a><div class="student-sidebar-bottom"><a class="cx-sidebar-card" href="/perfil/visao-geral/carteirinha" title="Abrir minha carteirinha" aria-label="Abrir minha carteirinha de estudante"><span class="cx-sidebar-credential"><img src="/replica/carteirinha-faculdade-Bmkzfnrg.png" alt="" width="180" height="113" /><span class="cx-credential-details"><strong data-card-name>Marina Costa</strong><small>Ciências Contábeis</small><small>RA 20260001</small><small>Validade: 31/03/2030</small></span><img class="cx-credential-avatar" src="/replica/avatar.svg" alt="" width="38" height="44" /></span><span class="cx-card-caption"><strong>Carteirinha digital</strong><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></span></a><a class="student-sidebar-help" href="/ajuda" aria-label="Preciso de ajuda" title="Preciso de ajuda"><span class="material-symbols-outlined" aria-hidden="true">help</span><span>Preciso de ajuda</span><span class="material-symbols-outlined student-help-arrow" aria-hidden="true">arrow_forward</span></a></div></div>`;
 }
 function contextLinks(d: Document, items: { label: string; href: string }[]) {
    const section = d.createElement("nav");
@@ -212,6 +213,7 @@ export function preparePage(path: string, html: string, connected: boolean, stat
       if (track) {
          track.classList.add("replica-carousel");
          (e as HTMLElement).style.transform = "none";
+         (e.firstElementChild as HTMLElement | null)?.style.removeProperty("transform");
       }
    });
    d.querySelectorAll('button[aria-label^="Copiar protocolo"]').forEach(e =>
@@ -334,19 +336,38 @@ export function preparePage(path: string, html: string, connected: boolean, stat
       }
    }
    if (path === "/solicitacao-servicos") {
+      Array.from(d.querySelectorAll("button"))
+         .find(button => button.textContent?.includes("Mais pedidos"))
+         ?.parentElement?.classList.add("cx-request-actions");
       const list = state.requests.filter(r => connected || !["DEMO-1041", "DEMO-1042"].includes(r.id));
+      if (connected) {
+         const summary = d.querySelector('[aria-label="Resumo das suas solicitações"]');
+         const total = summary?.querySelector("p .tabular");
+         if (total) total.textContent = String(Number(total.textContent) + list.length);
+         const counts = summary?.querySelectorAll("li .tabular");
+         const additions = [
+            list.filter(r => ["Em análise", "Aguardando pagamento"].includes(r.status)).length,
+            list.filter(r => r.status === "Concluído").length,
+            0,
+         ];
+         counts?.forEach((el, i) => {
+            el.textContent = String(Number(el.textContent) + additions[i]);
+         });
+      }
       if (list.length) {
          const section = d.createElement("section");
          section.className = "replica-local-requests";
          section.innerHTML =
-            "<h2>Solicitações criadas nesta demonstração</h2>" +
+            "<h2>Pedidos recentes</h2>" +
             list
                .map(
                   r =>
                      `<button class="replica-local-request" data-local-request="${escapeHtml(r.id)}"><span><strong>${escapeHtml(r.name)}</strong><small>${escapeHtml(r.id)}</small></span><span class="replica-status-pill">${escapeHtml(r.status)}</span><span aria-hidden="true">›</span></button>`,
                )
                .join("");
-         d.querySelector("h1")?.parentElement?.after(section);
+         const heading = d.querySelector("h1");
+         const group = heading?.parentElement?.parentElement;
+         group?.after(section);
       }
    }
    if (path === "/financeiro") {
@@ -395,12 +416,13 @@ export function preparePage(path: string, html: string, connected: boolean, stat
          if (n === period) {
             const variant = parse(html);
             const heading = Array.from(variant.querySelectorAll("h3")).find(e => e.textContent?.includes("Período"));
-            const list = heading?.parentElement?.parentElement?.querySelector("ul") || heading?.parentElement?.nextElementSibling;
+            const periodHeader = heading?.closest("header");
+            const list = periodHeader?.nextElementSibling;
             const div = d.createElement("div");
             div.className = "replica-period-content col-span-2";
             div.innerHTML =
                list?.tagName === "UL"
-                  ? list.outerHTML
+                  ? (periodHeader?.outerHTML || "") + list.outerHTML
                   : `<ul class="replica-unit-list">${(curriculum[n - 1] || []).map(x => `<li><strong>${escapeHtml(x.name)}</strong><span>${x.hours} horas · ${n === 1 ? "Aprovado" : n === 2 ? "Cursando" : "A cursar"}</span></li>`).join("")}</ul>`;
             li.append(div);
          }
@@ -474,23 +496,7 @@ export function preparePage(path: string, html: string, connected: boolean, stat
             { label: "Aproveitar disciplinas", href: "/solicitacao-servicos/dispensa-disciplinas" },
             { label: "Meus certificados", href: "/perfil/certificados" },
          ]);
-         if (state.scenario === "dp") {
-            const section = d.createElement("section");
-            section.className = "replica-dp-example";
-            section.id = "disciplinas-regularizar";
-            section.innerHTML = `<h2>Disciplinas para regularizar</h2><p>Cenário de demonstração · essas pendências são fictícias.</p>${[
-               { name: "Fundamentos da Contabilidade", type: "Dependência (DP)" },
-               { name: "Direito Aplicado aos Negócios", type: "Adaptação" },
-            ]
-               .map(
-                  x =>
-                     `<div><span><strong>${x.name}</strong><small>${x.type}</small></span><a class="replica-button" href="${external.dp}" target="_blank" rel="noopener noreferrer">Inscrever em ${x.type.startsWith("Depend") ? "DP" : "adaptação"} ↗</a></div>`,
-               )
-               .join(
-                  "",
-               )}<a href="${external.dpEdital}" target="_blank" rel="noopener noreferrer">Consultar disciplinas ofertadas e edital ↗</a>`;
-            d.querySelector("section")?.append(section);
-         }
+         prepareJourney(d, period);
       }
    }
    // No data from input is interpreted as HTML.
@@ -500,5 +506,65 @@ export function preparePage(path: string, html: string, connected: boolean, stat
          walker.currentNode.textContent = walker.currentNode.textContent?.replaceAll("Marina Costa", state.profile.name) || "";
       }
    }
+   cleanPresentation(d);
+   if (connected) unifyPageHeading(d, path);
    return d.body.innerHTML;
+}
+
+function unifyPageHeading(d: Document, path: string) {
+   const heading = d.querySelector("h1");
+   if (!heading) return;
+   const parent = heading.parentElement!;
+   const description = parent.querySelector(":scope > p");
+   const header = d.createElement("header");
+   header.setAttribute("data-unified-heading", "");
+   const text = d.createElement("div");
+   header.append(text);
+   text.append(heading);
+   heading.removeAttribute("class");
+   if (description) {
+      description.removeAttribute("class");
+      text.append(description);
+   }
+   // The source's title/underline frame is no longer a second page header.
+   let empty: Element | null = parent;
+   while (empty && empty !== d.body && !empty.textContent?.trim() && !empty.querySelector("button,a,input,img,table,video")) {
+      const next: Element | null = empty.parentElement;
+      empty.remove();
+      empty = next;
+   }
+   if (empty && empty !== d.body) empty.classList.add("cx-legacy-intro-rest");
+   if (path === "/solicitacao-servicos") {
+      d.querySelectorAll(".replica-local-request small").forEach(el => {
+         el.textContent = el.textContent?.replace("DEMO-", "2026-") || "";
+      });
+      d.querySelector(".replica-local-requests")?.classList.add("cx-inline-requests");
+   }
+   d.body.prepend(header);
+}
+
+/** Presentation wording; source fixtures and integration limits stay documented. */
+export function cleanPresentation(d: Document) {
+   d.querySelectorAll(".replica-note,.replica-data-note,.student-data-note,.replica-callout,p").forEach(el => {
+      const text = el.textContent || "";
+      if (
+         /^(?:Dados fictícios|Valores fictícios|Cenário de demonstração|Notas ilustrativas|Documento de demonstração|Documento não oficial\. Apenas verificação\.|Conteúdo fictício|Esta demonstração|Este protótipo)/i.test(
+            text.trim(),
+         )
+      )
+         el.remove();
+   });
+   const walker = d.createTreeWalker(d.body, NodeFilter.SHOW_TEXT);
+   while (walker.nextNode()) {
+      const node = walker.currentNode;
+      node.textContent = (node.textContent || "")
+         .replace(/Histórico de referência da demonstração\./g, "")
+         .replace(/ nesta demonstração| na demonstração| de demonstração| da demonstração/g, "")
+         .replace(/ · demonstração/g, "")
+         .replace(/ · exemplo| \(exemplo\)| fictícias| fictícios| fictícia| fictício/g, "")
+         .replace(/ de exemplo/g, "")
+         .replace(/ demonstrativo/g, "")
+         .replace(/Simular pagamento/g, "Informar pagamento")
+         .replace(/Solicitações criadas/g, "Minhas solicitações");
+   }
 }

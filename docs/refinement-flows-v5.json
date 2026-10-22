@@ -1,0 +1,506 @@
+{
+  "date": "2026-10-22T14:08:43.203Z",
+  "scope": "Local UI interaction; simulated device constraints explicitly recorded",
+  "checks": [
+    {
+      "name": "primary navigation Meus estudos",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "primary navigation Secretaria virtual",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "primary navigation Financeiro",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "primary navigation Calendário",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "primary navigation Meus dados",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "primary navigation Início",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "collapsed links keep accessible names",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "desktop video decodes and plays",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "pause control stops video",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "offscreen video stops",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "simulated Save-Data prevents MP4 source",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "secretariat empty search has recovery",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "help answer opens with contextual next step",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "home selects its charge in financial",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "payment updates related home state",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "mobile menu retains six groups and card",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "Ana remains only a floating sphere",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "DP and adaptation keep enrollment links",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "large text keeps document inside viewport",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "invalid charge offers recovery",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "calendar month changes",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "mobile requests no MP4",
+      "passed": true,
+      "detail": true
+    }
+  ],
+  "audits": [
+    {
+      "name": "collapsed",
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 47,
+        "incomplete": 1,
+        "passes": 42,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 10,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<strong>Sua próxima aula · hoje, 21h</strong>",
+              "target": [
+                ".student-class-time > strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<h2 id=\"home-next-class\">Bases da Administração Moderna</h2>",
+              "target": [
+                "#home-next-class"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<p>",
+              "target": [
+                ".student-next-class > div > p"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+              "html": "<span>·</span>",
+              "target": [
+                "div > p > span:nth-child(2)"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<span class=\"cx-class-end\">· até 22h40</span>",
+              "target": [
+                ".cx-class-end"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<a href=\"/horarios\" data-discover=\"true\">",
+              "target": [
+                ".student-class-actions > a[href$=\"horarios\"][data-discover=\"true\"]"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<h2>Minha jornada no curso</h2>",
+              "target": [
+                ".cx-course-journey > .student-section-heading > h2"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<strong>2º período</strong>",
+              "target": [
+                "p > strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<span>de 8 períodos</span>",
+              "target": [
+                ".cx-course-journey > p > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<a class=\"student-text-link\" href=\"/jornada-academica\" data-discover=\"true\">",
+              "target": [
+                "a[href$=\"jornada-academica\"]"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "effectiveLaunch": {
+          "browserLaunched": true,
+          "engine": "chrome",
+          "launchHash": 11677035664275012000
+        },
+        "launched": false,
+        "relaunchedBrowser": false,
+        "restartedBackground": false,
+        "restoreStatus": "not_configured",
+        "reused": true,
+        "saveStatus": "not_attempted"
+      },
+      "url": "http://127.0.0.1:5173/inicio",
+      "violations": []
+    },
+    {
+      "name": "mobile-menu",
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 51,
+        "incomplete": 2,
+        "passes": 38,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "help": "ARIA hidden element must not be focusable or contain focusable elements",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/aria-hidden-focus?application=axeAPI",
+          "id": "aria-hidden-focus",
+          "impact": "serious",
+          "nodeCount": 14,
+          "nodes": [
+            {
+              "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+              "html": "<span data-radix-focus-guard=\"\" tabindex=\"0\" style=\"outline: none; opacity: 0; position: fixed; pointer-events: none;\" data-aria-hidden=\"true\" aria-hidden=\"true\"></span>",
+              "target": [
+                "span[data-radix-focus-guard=\"\"][data-aria-hidden=\"true\"][aria-hidden=\"true\"]:nth-child(1)"
+              ]
+            },
+            {
+              "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+              "html": "<a href=\"#conteudo-principal\" class=\"sr-only fixed top-2 left-2 z-50 rounded-md bg-background px-4 py-3 text-foreground shadow-elevated focus:not-sr-only focus:outline-2 focus:outline-ring\" data-aria-hidden=\"true\" aria-hidden=\"true\">Pular para o conteúdo principal</a>",
+              "target": [
+                ".top-2"
+              ]
+            },
+            {
+              "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+              "html": "<header class=\"flex h-17 shrink-0 items-center justify-between gap-2 border-b px-4 md:grid md:grid-cols-[1fr_minmax(0,27.5rem)_1fr] print:hidden\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+              "target": [
+                ".h-17"
+              ]
+            },
+            {
+              "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+              "html": "<div class=\"student-home-priorities\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+              "target": [
+                ".student-home-priorities"
+              ]
+            },
+            {
+              "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+              "html": "<div class=\"cx-home-quick-links\" role=\"navigation\" aria-label=\"Atalhos da sua rotina\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+              "target": [
+                ".cx-home-quick-links"
+              ]
+            },
+            {
+              "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+              "html": "<section class=\"cx-attention\" aria-labelledby=\"attention-title\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+              "target": [
+                ".cx-attention"
+              ]
+            },
+            {
+              "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+              "html": "<section class=\"cx-semester-agenda\" aria-labelledby=\"semester-agenda-title\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+              "target": [
+                ".cx-semester-agenda"
+              ]
+            },
+            {
+              "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+              "html": "<div class=\"student-section-heading\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+              "target": [
+                ".student-section-heading[data-aria-hidden=\"true\"]"
+              ]
+            },
+            {
+              "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+              "html": "<div class=\"cx-segmented\" role=\"group\" aria-label=\"Indicador das disciplinas\" data-aria-hidden=\"true\" aria-hidden=\"true\"><button aria-pressed=\"true\">Notas</button><button aria-pressed=\"false\">Faltas</button></div>",
+              "target": [
+                ".cx-segmented"
+              ]
+            },
+            {
+              "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state",
+              "html": "<div class=\"cx-discipline-bars\" data-aria-hidden=\"true\" aria-hidden=\"true\">",
+              "target": [
+                ".cx-discipline-bars"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.name-role-value",
+            "wcag2a",
+            "wcag412",
+            "TTv5",
+            "TT6.a",
+            "EN-301-549",
+            "EN-9.4.1.2",
+            "RGAAv4",
+            "RGAA-10.8.1"
+          ]
+        },
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 7,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<strong>Sua próxima aula · hoje, 21h</strong>",
+              "target": [
+                ".student-class-time > strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<h2 id=\"home-next-class\">Bases da Administração Moderna</h2>",
+              "target": [
+                "#home-next-class"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<p>",
+              "target": [
+                ".student-next-class > div > p"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+              "html": "<span>·</span>",
+              "target": [
+                "div > p > span:nth-child(2)"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<a href=\"/horarios\" data-discover=\"true\">",
+              "target": [
+                ".student-class-actions > a[href$=\"horarios\"][data-discover=\"true\"]"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<strong>Sua carteirinha, sempre à mão.</strong>",
+              "target": [
+                "#radix-_r_0_ > nav[aria-label=\"Navegação principal\"] > .student-sidebar > .student-sidebar-bottom > .cx-sidebar-card[title=\"Abrir minha carteirinha\"] > span:nth-child(2) > strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<small>Abra para se identificar</small>",
+              "target": [
+                "#radix-_r_0_ > nav[aria-label=\"Navegação principal\"] > .student-sidebar > .student-sidebar-bottom > .cx-sidebar-card[title=\"Abrir minha carteirinha\"] > span:nth-child(2) > small"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "effectiveLaunch": {
+          "browserLaunched": true,
+          "engine": "chrome",
+          "launchHash": 11677035664275012000
+        },
+        "launched": false,
+        "relaunchedBrowser": false,
+        "restartedBackground": false,
+        "restoreStatus": "not_configured",
+        "reused": true,
+        "saveStatus": "not_attempted"
+      },
+      "url": "http://127.0.0.1:5173/inicio",
+      "violations": []
+    },
+    {
+      "name": "home-dark",
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 47,
+        "incomplete": 1,
+        "passes": 42,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 5,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<strong>Sua próxima aula · hoje, 21h</strong>",
+              "target": [
+                ".student-class-time > strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<h2 id=\"home-next-class\">Bases da Administração Moderna</h2>",
+              "target": [
+                "#home-next-class"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<p>",
+              "target": [
+                ".student-next-class > div > p"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+              "html": "<span>·</span>",
+              "target": [
+                "div > p > span:nth-child(2)"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<a href=\"/horarios\" data-discover=\"true\">",
+              "target": [
+                ".student-class-actions > a[href$=\"horarios\"][data-discover=\"true\"]"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "effectiveLaunch": {
+          "browserLaunched": true,
+          "engine": "chrome",
+          "launchHash": 11677035664275012000
+        },
+        "launched": false,
+        "relaunchedBrowser": false,
+        "restartedBackground": false,
+        "restoreStatus": "not_configured",
+        "reused": true,
+        "saveStatus": "not_attempted"
+      },
+      "url": "http://127.0.0.1:5173/inicio",
+      "violations": []
+    }
+  ]
+}

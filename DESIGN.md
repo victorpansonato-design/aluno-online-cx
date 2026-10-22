@@ -1,5 +1,5 @@
 ---
-name: Aluno Online CX — clone aprovado, revisão 4
+name: Aluno Online CX — clone aprovado, revisão 5
 description: Identidade Anchieta preservada em uma rotina acadêmica conectada.
 colors:
    "primary": "oklch(39.341% .16812 263.91)"
@@ -43,6 +43,12 @@ colors:
    "dark-sidebar-border": "oklch(21% .026 264)"
    "dark-success": "oklch(68% .14 152)"
    "dark-destructive": "oklch(62% .22 27)"
+   "cx-teal": "#087568"
+   "cx-violet": "#6852ad"
+   "cx-rose": "#b64258"
+   "dark-cx-teal": "#73d7bc"
+   "dark-cx-violet": "#c1adff"
+   "dark-cx-rose": "#ff9eaf"
 typography:
    headline:
       fontFamily: '"Inter", system-ui, sans-serif'
@@ -52,7 +58,7 @@ typography:
       letterSpacing: "-0.025em"
    headline-mobile:
       fontFamily: '"Inter", system-ui, sans-serif'
-      fontSize: "27px"
+      fontSize: "25px"
       fontWeight: 700
       lineHeight: 1.25
       letterSpacing: "-0.025em"
@@ -89,9 +95,9 @@ typography:
       letterSpacing: "normal"
    financial-number:
       fontFamily: '"JetBrains Mono", ui-monospace, monospace'
-      fontSize: "29px"
+      fontSize: "27px"
       fontWeight: 650
-      lineHeight: 1.4
+      lineHeight: 1.35
       letterSpacing: "-0.035em"
 rounded:
    "navigation": "6px"
@@ -174,17 +180,25 @@ components:
       height: "92px"
    formation-card:
       backgroundColor: "{colors.card}"
-      rounded: "{rounded.priority-card}"
-      padding: "20px"
+      rounded: "{rounded.container}"
+      padding: "14px"
    hours-done:
       backgroundColor: "{colors.success}"
-      height: "8px"
+      height: "6px"
    hours-complementary-remaining:
       backgroundColor: "{colors.destructive}"
-      height: "8px"
+      height: "6px"
    hours-extension-remaining:
       backgroundColor: "{colors.muted}"
-      height: "8px"
+      height: "6px"
+   sidebar-card:
+      backgroundColor: "{colors.primary}"
+      textColor: "{colors.primary-foreground}"
+      rounded: "{rounded.container}"
+      padding: "13px 12px"
+   context-panel:
+      rounded: "{rounded.priority-card}"
+      padding: "26px 28px"
 ---
 
 # Design System: Aluno Online CX
@@ -197,14 +211,15 @@ A identidade vem do portal Anchieta clonado e aprovado: moldura clara, azul inst
 
 A interface é operacional e familiar, de densidade moderada, com listas divididas por linhas, superfícies claras, cartões suaves e a esfera flutuante da Ana no canto inferior direito. O modo Original continua disponível para comparação. Este registro reconcilia o DESIGN anterior com a mudança autorizada; a proposta v1 rejeitada e o CSS inativo de src/cx não orientam novas superfícies.
 
-Autoridade de implementação: src/replica/original.css, replica.css, student/student.css, App.tsx e reference.ts. PRODUCT.md sustenta a continuidade de marca; docs/SURFACE.md contém a composição específica e as referências visuais fixadas pelo usuário na revisão 4. O frontmatter registra os valores reutilizados, com aliases de cor resolvidos; dark-* descreve os overrides reais de .dark, não novas variáveis CSS. A mudança de tema continua pelas variáveis semânticas existentes.
+Autoridade de implementação: src/replica/original.css, replica.css, student/student.css, student/refinements.css, student/Experience.tsx, App.tsx e reference.ts. PRODUCT.md sustenta a continuidade de marca; docs/SURFACE.md e docs/REFINAMENTO-V5.md contêm a composição e as referências da revisão 5. Este registro mescla o refinamento autorizado ao sistema existente. O frontmatter registra os valores reutilizados, com aliases de cor resolvidos; dark-* descreve os overrides reais de .dark, não novas variáveis CSS. A mudança de tema continua pelas variáveis semânticas existentes.
 
 **Key Characteristics:**
 
 - Azul institucional e amarelo de seleção preservados.
 - Moldura e cabeçalho do clone, com superfícies tonais e cantos suaves.
 - Uma família de leitura e números acadêmicos em mono.
-- Seis destinos, navegação interna por contexto, orientação no rodapé lateral e Ana flutuante.
+- Seis destinos, navegação interna por contexto, carteirinha no rodapé lateral e Ana flutuante.
+- Módulos compactos, indicadores com números e mídia contextual separada do texto.
 
 ## Colors
 
@@ -224,6 +239,7 @@ A paleta conserva o azul profundo e o amarelo quente do portal, apoiados por neu
 - **Conclusão** (success / success-soft): sucesso acompanhado de texto; o verde forte também colore o valor do próximo pagamento e as horas cumpridas de complementares e extensão, conforme as imagens fixadas pelo usuário.
 - **Erro** (destructive / destructive-soft): falha, atenção crítica e segmento restante das horas complementares. Extensão conserva restante muted e marcador muted-foreground, conforme sua referência própria.
 - **Atenção** (warning / warning-foreground): alerta e marcador de horas exigidas. Ícones âmbar e coral conservam significado de pendência documental e faltas; warning-soft no CSS remete ao amarelo suave no tema claro. O cartão de pagamento permanece card, sem fundo amarelo arbitrário.
+- **Assuntos** (cx-teal / cx-violet / cx-rose): cores auxiliares reutilizadas nos ícones de atalhos e pendências. Seus pares dark-* acompanham o tema escuro. O azul lavado de contexto é uma mistura CSS de primary (7%) com card, não uma segunda cor primária.
 
 ### Neutral
 
@@ -254,7 +270,7 @@ Os tokens dark-* do frontmatter são pares do tema escuro. O CSS também mantém
 - **Section:** subtítulo interno.
 - **Body:** texto e orientação. A introdução tem limite de 70ch; texto secundário costuma usar 13px.
 - **Label:** ação comum; links contextuais usam context-link.
-- **Financial Number:** quantia principal em success, com números tabulares; no celular, o valor da próxima cobrança passa a 26px.
+- **Financial Number:** quantia principal em success, com números tabulares; na home móvel passa a 23px e abaixo de 359px a 21px. O resumo financeiro tem sua própria hierarquia contextual.
 - **Icon:** símbolos originais da navegação, com ligaturas e sem substituir o rótulo do destino.
 
 As configurações cv11 e ss01 pertencem ao corpo original; mono usa tnum e zero. Metadados pequenos são observações do legado, não uma escala a herdar. Material Symbols é a biblioteca de ícones real herdada e preservada na interface. Os snippets do sidecar usam SVG inline apenas para serem autossuficientes no painel, sem exigir a fonte de ícones. Inter e a faixa ativa amarela são decisões originais explicitamente fixadas pelo usuário; os avisos genéricos sobre família frequente e faixa de seleção não autorizam trocar a identidade.
@@ -265,17 +281,18 @@ As configurações cv11 e ss01 pertencem ao corpo original; mono usa tnum e zero
 
 O desktop preserva a moldura externa de 8px e a sidebar de 272px, recolhida para 48px. O conteúdo ocupa a folha principal arredondada, com cabeçalho e rolagem próprios do clone. O controle lateral permite redimensionamento entre 224px e 400px; esses extremos são comportamento, não larguras padrão adicionais.
 
-A navegação principal Conectada tem seis destinos: Início, Meus estudos, Secretaria virtual, Financeiro, Calendário e Meus dados. Assuntos relacionados usam hubs, listas e navegação contextual rolável; não se replica toda a árvore no menu. O rodapé lateral reúne curso, período/semestre e Preciso de ajuda, com AVA acima desse conjunto. A região pode rolar em alturas pequenas. Os links têm a densidade original: posição desktop x=24px, largura interna de 224px, altura de 36px, padding de 8px, gap interno de 8px e intervalo de 4px na lista. A comparação Original/Conectada fica no menu da conta e no rodapé da página, fora do cabeçalho da sidebar e do drawer.
+A navegação principal Conectada tem seis destinos: Início, Meus estudos, Secretaria virtual, Financeiro, Calendário e Meus dados. Assuntos relacionados usam hubs, listas e navegação contextual rolável; não se replica toda a árvore no menu. O rodapé lateral reúne carteirinha visual e Preciso de ajuda; curso, período/semestre ficam na home, com AVA acima desse conjunto. A região pode rolar em alturas pequenas. Os links têm a densidade original: posição desktop x=24px, largura interna de 224px, altura de 36px, padding de 8px, gap interno de 8px e intervalo de 4px na lista. A comparação Original/Conectada fica somente no menu da conta, fora do cabeçalho da sidebar e do drawer.
 
-A grade usa minmax para proteger conteúdo: no desktop, prioridades usam proporção 1.5:1 e intervalo de 20px. As distâncias reutilizadas estão no frontmatter; 16–24px sustentam componentes e 28–32px separam regiões. São regras de ritmo, não uma grade rígida universal.
+A grade usa minmax para proteger conteúdo: prioridades da home usam 1.8:1, segunda coluna mínima de 260px e intervalo de 18px; a região de acompanhamento usa 1.65:1, coluna de apoio mínima de 285px e intervalo de 28px. Os dois módulos de horas ficam lado a lado. As distâncias reutilizadas estão no frontmatter; 16–24px sustentam componentes e 28–32px separam regiões. São regras de ritmo, não uma grade rígida universal.
 
-- **A partir de 1440px:** ajustes de ilustração e prévia mensal em duas colunas.
+- **A partir de 1440px:** preservar a composição larga; os overrides V5 da home prevalecem sobre as medidas antigas da aula.
 - **Abaixo de 1200px:** grades tornam-se mais compactas e ilustrações contextuais podem desaparecer; o calendário completo passa para uma coluna.
+- **768–1023px:** prioridades, estudos e operação financeira usam uma coluna; horas são antecipadas na ordem de leitura e permanecem em dois módulos. Vídeo usa somente pôster.
 - **Abaixo de 768px:** sidebar vira drawer à esquerda com largura min(18rem, calc(100vw - 32px)), equivalente a 288px quando há espaço. O cabeçalho reúne logo, busca e fechar. O menu preserva contexto e orientação; a Ana permanece o widget flutuante fora do menu. Prioridades e grades se empilham, a navegação interna pode rolar e as ações principais da página têm altura mínima de 44px.
 
 ## Elevation & Depth
 
-A profundidade combina superfícies tonais, bordas finas e sombras suaves. A próxima aula recebe gradiente branco/azul (110deg, card → primary-soft) e a ilustração workspace.svg original em suas cores; o pagamento mantém superfície card e quantia success. A moldura e os cartões herdados conservam sombras discretas. Diálogos e sheets têm elevação maior e overlay escuro.
+A profundidade combina superfícies tonais, bordas finas e sombras suaves. A próxima aula recebe gradiente branco/azul (112deg, card a 10% → primary-soft) e a ilustração workspace.svg original em suas cores; o pagamento mantém superfície card e quantia success. Aberturas contextuais usam gradiente suave; carteirinha usa o azul institucional. A moldura e os cartões herdados conservam sombras discretas. Diálogos e sheets têm elevação maior e overlay escuro.
 
 ### Shadow Vocabulary
 
@@ -305,7 +322,7 @@ Status é uma pílula azul suave com texto; não é controle. Filtros acionávei
 
 ### Cards / Containers
 
-Cartões de prioridade têm raio mais amplo; pagamento usa card e borda, com quantia verde success. Próxima aula usa gradiente branco/azul, sombra discreta e a ilustração workspace.svg em cor, sem redesenhar ou recolorir o ativo. Sua imagem tem 170px, right de 8px e opacidade 1 na configuração base; o breakpoint largo mantém o ajuste existente de 210px e opacidade 0.65, e abaixo de 1200px a imagem é ocultada. Listas de destinos usam divisórias em vez de um cartão para cada linha, com ícone, nome, explicação e seta. Hover recebe muted. Informações críticas, valor, prazo e ação permanecem juntos quando a grade se empilha.
+Cartões de prioridade têm raio mais amplo; pagamento usa card e borda, com quantia verde success e padding de 19px 20px no desktop. Próxima aula usa gradiente branco/azul, sombra discreta e a ilustração workspace.svg em cor, sem redesenhar ou recolorir o ativo. Na revisão 5, a imagem mede 175×144px, right 6px e opacidade 1; abaixo de 1200px é ocultada. A aula tem mínimo de 206px e padding de 23px 26px; no telefone, mínimo de 176px e padding de 18px. Listas de destinos nos hubs usam superfícies muted separadas, com raio de 12px, padding de 12px e hover accent; os atalhos sobre painéis muted usam card. Informações críticas, valor, prazo e ação permanecem juntos quando a grade se empilha.
 
 ### Inputs / Fields
 
@@ -313,11 +330,29 @@ Campos com rótulo externo, card, linha input, raio control e padding registrado
 
 ### Navigation
 
-Links principais Conectados mantêm a altura original de 36px, texto de 14px, ícone de 20px, padding e gap de 8px, raio de 6px e lista com intervalo de 4px. Seleção usa peso 500, canvas, texto primary e a mesma sombra do Original. A faixa amarela mede 3px de largura e 16px de altura, centralizada, com raio 0 2px 2px 0. Itens inativos usam sidebar-foreground a 80% e ícones muted-foreground; hover recebe sidebar-accent. Cabeçalho e drawer conservam a identidade aprovada; a comparação fica na conta e no rodapé da página.
+Links principais Conectados mantêm a altura original de 36px, texto de 14px, ícone de 20px, padding e gap de 8px, raio de 6px e lista com intervalo de 4px. Seleção usa peso 500, canvas, texto primary e a mesma sombra do Original. A faixa amarela mede 3px de largura e 16px de altura, centralizada, com raio 0 2px 2px 0. Itens inativos usam sidebar-foreground a 80% e ícones muted-foreground; hover recebe sidebar-accent. Cabeçalho e drawer conservam a identidade aprovada; a comparação fica somente na conta.
 
 ### Formação e horas
 
-Cartão branco card com borda, raio de prioridade e padding de 20px. Complementares mostra 16%, 26h cumpridas, 160h exigidas e 134h restantes. A barra segmentada de 8px usa success no trecho cumprido (26/160) e destructive no restante; a legenda mantém verde, warning e vermelho com números e rótulos. Extensão mostra 17%, 40h/240h/200h e usa o mesmo success forte no trecho cumprido, muted no restante e marcador restante muted-foreground. A meta de extensão é identificada como ilustrativa. Percentuais são arredondados; a proporção da barra usa os valores exatos. O amarelo/âmbar da legenda não substitui o verde de preenchimento.
+Dois módulos card com borda e raio container substituem o grande cartão externo. Padding base de 14px, 12px na coluna da home, 11px 12px no celular e 10px abaixo de 359px. Complementares mostra 16%, 26/160h e 134h restantes; extensão mostra 17%, 40/240h e 200h restantes. A barra de 6px usa success no trecho cumprido; complementares usa destructive no restante e extensão usa muted. Os detalhes de Atividades ampliam padding e valores. Percentuais são arredondados; a proporção usa os valores exatos. Números, rótulos e nomes acessíveis sustentam a leitura além da cor. A meta de extensão continua sintética e registrada na documentação; não há aviso repetido de demonstração na UI.
+
+### Cartão lateral e painéis de contexto
+
+Carteirinha é um link azul com gradiente de 130deg, raio container, mínimo de 82px e padding de 13px 12px; hover usa primary. Na barra recolhida, mínimo de 40px, ícone com nome acessível e contexto por dica. Curso e ajuda continuam próximos. Esse cartão não muda a geometria dos seis itens principais.
+
+Painéis de Estudos e Atividades separam texto da região de mídia à direita, com raio priority-card, grade 1.35:1 e padding textual de 26px 28px. No celular, a faixa visual mede 84px (70px abaixo de 359px) e o texto conserva sua região. Ícones de assunto têm superfícies tonais, sem transformar cada auxílio em uma nova cor de marca.
+
+### Mídia contextual
+
+Os clipes Mixkit 50109/50111 têm origem Full HD e entrega 1280×720, H.264 Main, yuv420p, level 3.1, 7,5s, sem áudio, faststart e crossfade de 0,5s no ciclo. Pôsteres WebP 960×540 permanecem disponíveis. O recorte usa cover e foco de 54%/54% para study-notes e 55%/55% para study-desk; no celular o pôster usa 54%/50%. O texto fica fora do vídeo.
+
+O MP4 só é anexado a partir de 1024px, em região visível e elegível. Reprodução requer documento ativo, sem preferência por movimento reduzido do sistema/aplicação, Save-Data, effectiveType slow-2g/2g/3g, downlink conhecido abaixo de 1,5Mbps ou memória conhecida abaixo de 4GB. IntersectionObserver usa threshold 0,2. Pausa explícita, saída da região visível e aba inativa interrompem a reprodução; falha mantém pôster. Ausência de sinais de hardware/rede não comprova capacidade do aparelho. Abaixo de 1024px usa-se somente pôster, sem baixar MP4. Não chamar os clipes de 4K ou prometer a mesma fluidez em todos os celulares.
+
+### Indicadores e descoberta
+
+Barras de notas e faltas mostram valor e escala junto à disciplina: notas de 0 a 10; faltas em relação ao limite daquela disciplina. A seleção usa botões com aria-pressed e leva ao detalhe relacionado. Não há curva de evolução sem dados temporais. Agenda ordena compromissos por data. Jornada usa oito segmentos; o segundo é atual e, no cenário DP, o primeiro fica pendente com ação de regularização, sem afirmar conclusão inexistente.
+
+Secretaria usa busca, filtros Documentos/Vida acadêmica/Atendimento, oito serviços/atalhos e catálogo completo de 40. Ajuda reúne oito perguntas em detalhes expansíveis, busca, filtros e ação contextual; estado aberto usa azul lavado e foco explícito. O pagamento local termina em “Pagamento informado”, sem apresentar a ação do usuário como confirmação bancária.
 
 ### Assistência da Ana
 
@@ -335,9 +370,10 @@ Diálogo central com largura fluida, máximo de 620px, altura máxima de calc(10
 
 - **Do** preservar logo, avatar da Ana, ilustrações e SVGs institucionais existentes.
 - **Do** herdar as propriedades CSS semânticas do clone para que claro e escuro continuem coerentes.
-- **Do** manter curso, período, semestre e orientação no rodapé lateral; conservar a Ana somente como esfera flutuante no canto original.
+- **Do** manter a carteirinha visual e orientação no rodapé lateral, com curso, período e semestre na home; conservar a Ana somente como esfera flutuante no canto original.
 - **Do** combinar estado com texto, foco visível e próxima ação; manter os mesmos destinos no drawer móvel.
-- **Do** preservar as três referências fixadas: aula em branco/azul com ilustração, pagamento branco com valor verde e horas com segmentos e legendas próprios.
+- **Do** preservar as três referências fixadas: aula em branco/azul com ilustração, pagamento branco com valor verde e horas compactas com números e segmentos próprios.
+- **Do** manter texto e próxima ação fora da mídia e oferecer pôster e respeitar movimento reduzido conforme a política de reprodução.
 
 ### Don't:
 
@@ -345,5 +381,10 @@ Diálogo central com largura fluida, máximo de 620px, altura máxima de calc(10
 - **Don't** substituir a esfera da Ana por barra, trilho, cartão lateral ou bloco azul; não reservar uma faixa fixa de viewport.
 - **Don't** trocar Inter, Material Symbols ou a faixa amarela para satisfazer avisos genéricos que contradigam a identidade aprovada.
 - **Don't** promover metadados muito pequenos, rótulos em caixa alta ou alvos compactos do legado a padrões para novas telas.
+- **Don't** reintroduzir avisos repetidos de fictício/demonstração na interface; preservar os limites nos documentos e arquivos exportados conforme a decisão do usuário.
 
 Não canonizado nem reparado neste registro: cada tamanho, raio e cor pontual encontrados na varredura ampla; metadados pequenos e rótulos auxiliares não se tornam uma escala universal. As medidas compactas do menu, Inter, a faixa amarela e Material Symbols são preservados por decisão explícita de identidade do usuário, sem generalizar essas exceções para outros componentes. Os avisos de detector não são apagados por alargar artificialmente os tokens. O documento não afirma conformidade WCAG de toda a aplicação nem validação de CX com alunos.
+
+Atualização V6: [REFINAMENTO-V6.md](docs/REFINAMENTO-V6.md) registra a nova autoridade: títulos e início de rota uniformes, carteirinha na lateral, megafone no header, retirada do rodapé genérico, prévia de dois avisos e painéis contextuais por disciplina. Os números V5 acima são históricos.
+
+Autoridade vigente V7: docs/REFINAMENTO-V7.md. Vídeos podem reproduzir no mobile com autoplay silenciado, loop e playsinline; mobile usa recorte 16:9. A regra antiga de pôster obrigatório abaixo de 1024px está substituída. Respeitar redução de movimento e Save-Data. Tema usa a revelação circular institucional de 650ms. O primeiro período permanece acessível; reprovação e adaptação têm ação na linha. Novas evidências V7 são separadas dos históricos V5/V6.

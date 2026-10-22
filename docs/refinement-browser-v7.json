@@ -1,0 +1,683 @@
+{
+  "date": "2026-10-22T20:14:57.591Z",
+  "surfaces": [
+    {
+      "width": 1440,
+      "route": "/inicio",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 1440,
+      "route": "/financeiro",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 1440,
+      "route": "/secretaria-virtual",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 1440,
+      "route": "/meus-estudos",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 1440,
+      "route": "/meus-estudos/atividades",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 1440,
+      "route": "/jornada-academica",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 768,
+      "route": "/inicio",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 768,
+      "route": "/financeiro",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 768,
+      "route": "/secretaria-virtual",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 768,
+      "route": "/meus-estudos",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 768,
+      "route": "/meus-estudos/atividades",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 768,
+      "route": "/jornada-academica",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 390,
+      "route": "/inicio",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 390,
+      "route": "/financeiro",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 390,
+      "route": "/secretaria-virtual",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 390,
+      "route": "/meus-estudos",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 390,
+      "route": "/meus-estudos/atividades",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 390,
+      "route": "/jornada-academica",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 320,
+      "route": "/inicio",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 320,
+      "route": "/financeiro",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 320,
+      "route": "/secretaria-virtual",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 320,
+      "route": "/meus-estudos",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 320,
+      "route": "/meus-estudos/atividades",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 320,
+      "route": "/jornada-academica",
+      "overflow": false,
+      "top": 0
+    }
+  ],
+  "checks": [
+    {
+      "name": "finance has six open charges and four history rows",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "finance top nav has only main two sections",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "charge selection carries through to Pix",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "service catalog selects service tab",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "first period is inside visible viewport",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "failed and adaptation actions live in subject rows",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "journey aggregate statuses agree with subject rows",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "eighth period remains reachable",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "extension is direct external link",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "theme matches measured original reveal",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "mobile financial management is visible without swiping",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "new full HD secretary video plays inline on mobile",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "mobile video completed an actual loop",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "offscreen playback stops",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "studies video also plays on mobile",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "hours video differs from secretary and plays on mobile",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "mobile subject actions fit the viewport",
+      "passed": true,
+      "detail": true
+    }
+  ],
+  "audits": [
+    {
+      "width": 1440,
+      "route": "/financeiro",
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 47,
+        "incomplete": 1,
+        "passes": 42,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 14,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node",
+              "html": "<strong data-card-name=\"\">Marina Costa</strong>",
+              "target": [
+                "strong[data-card-name=\"\"]"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node",
+              "html": "<small>Ciências Contábeis</small>",
+              "target": [
+                ".cx-credential-details > small:nth-child(2)"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node",
+              "html": "<small>RA 20260001</small>",
+              "target": [
+                ".cx-credential-details > small:nth-child(3)"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node",
+              "html": "<small>Validade: 31/03/2030</small>",
+              "target": [
+                "small:nth-child(4)"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<strong>Carteirinha digital</strong>",
+              "target": [
+                ".cx-card-caption > strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<span>Total em aberto</span>",
+              "target": [
+                ".cx-financial-overview > div:nth-child(1) > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<strong>R$&nbsp;5.340,00</strong>",
+              "target": [
+                ".cx-financial-overview > div:nth-child(1) > strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<small>6 cobranças para acompanhar</small>",
+              "target": [
+                "div:nth-child(1) > small"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<span>Próximo vencimento</span>",
+              "target": [
+                ".cx-financial-overview > div:nth-child(2) > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<strong>12 de nov.</strong>",
+              "target": [
+                "div:nth-child(2) > strong"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "effectiveLaunch": {
+          "browserLaunched": true,
+          "engine": "chrome",
+          "launchHash": 11677035664275012000
+        },
+        "launched": false,
+        "relaunchedBrowser": false,
+        "restartedBackground": false,
+        "restoreStatus": "not_configured",
+        "reused": true,
+        "saveStatus": "not_attempted"
+      },
+      "url": "http://127.0.0.1:5173/financeiro",
+      "violations": []
+    },
+    {
+      "width": 390,
+      "route": "/financeiro",
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 47,
+        "incomplete": 1,
+        "passes": 42,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 9,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<span>Total em aberto</span>",
+              "target": [
+                ".cx-financial-overview > div:nth-child(1) > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<strong>R$&nbsp;5.340,00</strong>",
+              "target": [
+                ".cx-financial-overview > div:nth-child(1) > strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<small>6 cobranças para acompanhar</small>",
+              "target": [
+                "div:nth-child(1) > small"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<span>Próximo vencimento</span>",
+              "target": [
+                ".cx-financial-overview > div:nth-child(2) > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<strong>12 de nov.</strong>",
+              "target": [
+                "div:nth-child(2) > strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<small>Mensalidade · novembro/2026</small>",
+              "target": [
+                "div:nth-child(2) > small"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<span>Pagamentos registrados</span>",
+              "target": [
+                ".cx-financial-overview > div:nth-child(3) > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+              "html": "<strong>4</strong>",
+              "target": [
+                "div:nth-child(3) > strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<small>Consulte os resumos abaixo</small>",
+              "target": [
+                "div:nth-child(3) > small"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "effectiveLaunch": {
+          "browserLaunched": true,
+          "engine": "chrome",
+          "launchHash": 11677035664275012000
+        },
+        "launched": false,
+        "relaunchedBrowser": false,
+        "restartedBackground": false,
+        "restoreStatus": "not_configured",
+        "reused": true,
+        "saveStatus": "not_attempted"
+      },
+      "url": "http://127.0.0.1:5173/financeiro",
+      "violations": []
+    },
+    {
+      "width": 390,
+      "route": "/jornada-academica",
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 48,
+        "incomplete": 2,
+        "passes": 41,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "help": "Elements must only use permitted ARIA attributes",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/aria-prohibited-attr?application=axeAPI",
+          "id": "aria-prohibited-attr",
+          "impact": "serious",
+          "nodeCount": 1,
+          "nodes": [
+            {
+              "failureSummary": "Fix all of the following:\n  aria-label attribute is not well supported on a div with no valid role attribute.",
+              "html": "<div aria-label=\"Trilha de períodos do curso\">",
+              "target": [
+                "div[aria-label=\"Trilha de períodos do curso\"]"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.aria",
+            "wcag2a",
+            "wcag412",
+            "EN-301-549",
+            "EN-9.4.1.2",
+            "RGAAv4",
+            "RGAA-7.1.1"
+          ]
+        },
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 2,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element",
+              "html": "<span class=\"tabular text-[1.375rem] leading-none font-bold text-foreground\">8%</span>",
+              "target": [
+                ".text-\\[1\\.375rem\\]"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element",
+              "html": "<span class=\"text-[0.5625rem] font-semibold tracking-[0.09em] text-muted-foreground uppercase\">do curso</span>",
+              "target": [
+                ".text-\\[0\\.5625rem\\]"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "effectiveLaunch": {
+          "browserLaunched": true,
+          "engine": "chrome",
+          "launchHash": 11677035664275012000
+        },
+        "launched": false,
+        "relaunchedBrowser": false,
+        "restartedBackground": false,
+        "restoreStatus": "not_configured",
+        "reused": true,
+        "saveStatus": "not_attempted"
+      },
+      "url": "http://127.0.0.1:5173/jornada-academica",
+      "violations": []
+    },
+    {
+      "width": 390,
+      "route": "/secretaria-virtual",
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 46,
+        "incomplete": 2,
+        "passes": 42,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 7,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<h2>O que você precisa resolver?</h2>",
+              "target": [
+                ".cx-secretariat-banner > div:nth-child(1) > h2"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<p>Dos documentos à formatura, a secretaria está por aqui.</p>",
+              "target": [
+                ".cx-secretariat-banner > div:nth-child(1) > p"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+              "html": "<strong>1</strong>",
+              "target": [
+                "a[href$=\"solicitacao-servicos\"][data-discover=\"true\"] > strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<span>pedido em andamento</span>",
+              "target": [
+                "a[href$=\"solicitacao-servicos\"][data-discover=\"true\"] > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<li>",
+              "target": [
+                "ol[aria-label=\"Etapas de uma solicitação\"] > li:nth-child(1)"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<li>",
+              "target": [
+                "ol[aria-label=\"Etapas de uma solicitação\"] > li:nth-child(2)"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<li>",
+              "target": [
+                "ol[aria-label=\"Etapas de uma solicitação\"] > li:nth-child(3)"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        },
+        {
+          "help": "<video> or <audio> elements must not play automatically",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/no-autoplay-audio?application=axeAPI",
+          "id": "no-autoplay-audio",
+          "impact": "moderate",
+          "nodeCount": 1,
+          "nodes": [
+            {
+              "failureSummary": "Fix all of the following:\n  <video> or <audio> outputs audio for more than allowed duration and does not have a controls mechanism",
+              "html": "<video src=\"/media/student-guidance.mp4\" loop=\"\" playsinline=\"\" autoplay=\"\" preload=\"metadata\" aria-hidden=\"true\"></video>",
+              "target": [
+                "video"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.time-and-media",
+            "wcag2a",
+            "wcag142",
+            "TTv5",
+            "TT2.a",
+            "EN-301-549",
+            "EN-9.1.4.2",
+            "ACT",
+            "RGAAv4",
+            "RGAA-4.10.1"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "effectiveLaunch": {
+          "browserLaunched": true,
+          "engine": "chrome",
+          "launchHash": 11677035664275012000
+        },
+        "launched": false,
+        "relaunchedBrowser": false,
+        "restartedBackground": false,
+        "restoreStatus": "not_configured",
+        "reused": true,
+        "saveStatus": "not_attempted"
+      },
+      "url": "http://127.0.0.1:5173/secretaria-virtual",
+      "violations": []
+    }
+  ]
+}

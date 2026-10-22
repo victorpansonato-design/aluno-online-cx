@@ -1,299 +1,44 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import {
-   ArrowRight,
-   Bell,
-   CalendarDays,
-   CheckCircle2,
-   Clock3,
-   ExternalLink,
-   FileCheck2,
-   GraduationCap,
-   MapPin,
-   QrCode,
-   ReceiptText,
-   TriangleAlert,
-} from "lucide-react";
+import { ArrowRight, Bell, CheckCircle2, ExternalLink } from "lucide-react";
 import { useDemo } from "../../cx/state";
-import { disciplines, external } from "../../cx/data";
+import { external } from "../../cx/data";
 import type { Overlay } from "../Dialogs";
 import Financial, { PixPayment } from "./Financial";
-import AcademicCalendar, { CalendarPreview } from "./AcademicCalendar";
+import AcademicCalendar from "./AcademicCalendar";
 import { DestinationList, SectionNavigation } from "./Navigation";
-import { academicEvents, chargesFor, currency, formation, formatDate, supportLinks, today } from "./model";
+import { academicEvents, formatDate, supportLinks, today } from "./model";
+
+import { AcademicPulse, ContextBanner, FormationSummary, HelpCenter, HomeDashboard, SecretariatHub } from "./Experience";
 
 type Props = { path: string; showOverlay: (overlay: Overlay) => void };
 export default function StudentPage({ path, showOverlay }: Props) {
-   if (path === "/inicio") return <StudentHome showOverlay={showOverlay} />;
+   if (path === "/inicio") return <HomeDashboard showOverlay={showOverlay} />;
+   if (path === "/secretaria-virtual") return <SecretariatHub />;
+   if (path === "/ajuda") return <HelpCenter showOverlay={showOverlay} />;
    if (path === "/financeiro") return <Financial />;
    if (path === "/financeiro/pix") return <PixPayment />;
    if (path === "/calendario-academico") return <AcademicCalendar />;
-   if (path === "/meus-estudos/atividades" || path === "/meus-estudos/extensao")
-      return <Formation extensionOnly={path.endsWith("/extensao")} />;
+   if (path === "/meus-estudos/extensao") return <ExtensionRedirect />;
+   if (path === "/meus-estudos/atividades") return <Formation extensionOnly={false} />;
    if (path === "/comunicados") return <Communications />;
    return <Studies />;
 }
-function FormationSummary() {
+function ExtensionRedirect() {
+   useEffect(() => {
+      window.location.replace(external.extensao);
+   }, []);
    return (
-      <section className="student-formation-summary" aria-labelledby="formation-summary-title">
-         <div className="student-section-heading">
-            <h2 id="formation-summary-title">Minha formação</h2>
-            <GraduationCap size={19} />
-         </div>
-         <p className="student-muted">Suas horas, sempre por perto.</p>
-         {[
-            { label: "Horas complementares", ...formation.complementary, href: "/perfil/horas-complementares", example: false },
-            { label: "Horas de extensão", ...formation.extension, href: "/meus-estudos/extensao", example: true },
-         ].map(item => (
-            <Link
-               className={"student-hours-row " + (item.example ? "student-hours-extension" : "student-hours-complementary")}
-               to={item.href}
-               key={item.label}
-            >
-               <span>
-                  <strong>{item.label}</strong>
-                  <ArrowRight size={15} />
-               </span>
-               <div>
-                  <b>{Math.round((item.done / item.total) * 100)}%</b>
-                  <small> das {item.example ? "horas de extensão · exemplo" : "horas complementares"}</small>
-               </div>
-               <div className="student-hours-legend">
-                  <span>
-                     <small>
-                        <i className="student-dot-done" />
-                        Cumpridas
-                     </small>
-                     <strong>{item.done}h</strong>
-                  </span>
-                  <span>
-                     <small>
-                        <i className="student-dot-required" />
-                        Exigidas{item.example ? "*" : ""}
-                     </small>
-                     <strong>{item.total}h</strong>
-                  </span>
-                  <span>
-                     <small>
-                        <i className="student-dot-remaining" />
-                        Restantes
-                     </small>
-                     <strong>{item.total - item.done}h</strong>
-                  </span>
-               </div>
-               <div
-                  className="student-hours-track"
-                  role="progressbar"
-                  aria-valuenow={item.done}
-                  aria-valuemin={0}
-                  aria-valuemax={item.total}
-                  aria-label={`${item.label}: ${item.done} de ${item.total} horas; faltam ${item.total - item.done} horas`}
-               >
-                  <span style={{ width: `${(item.done / item.total) * 100}%` }} />
-                  <span style={{ width: `${((item.total - item.done) / item.total) * 100}%` }} />
-               </div>
-               {item.example && <small className="student-hours-example">* Meta de extensão ilustrativa.</small>}
-            </Link>
-         ))}
-         <Link className="student-text-link" to="/meus-estudos/atividades">
-            Entender e registrar minhas horas <ArrowRight size={14} />
-         </Link>
-      </section>
-   );
-}
-function NextClass({ compact = false }: { compact?: boolean }) {
-   return (
-      <section
-         className={"student-next-class" + (compact ? " compact" : "")}
-         aria-labelledby={compact ? "study-next-class" : "home-next-class"}
-      >
-         <div>
-            <div className="student-class-time">
-               <Clock3 size={16} />
-               <strong>Hoje, 21h às 22h40</strong>
-            </div>
-            <h2 id={compact ? "study-next-class" : "home-next-class"}>Bases da Administração Moderna</h2>
-            <p>
-               <MapPin size={15} />
-               Aula on-line <span>·</span> Rômulo Prezotto
-            </p>
-            <div className="student-class-actions">
-               <a className="replica-button" href={disciplines[0].ava} target="_blank" rel="noopener noreferrer">
-                  Entrar na aula <ExternalLink size={15} />
-               </a>
-               <Link to="/horarios">
-                  Ver meus horários <ArrowRight size={14} />
-               </Link>
-            </div>
-         </div>
-         {!compact && <img src="/replica/workspace.svg" alt="" />}
-      </section>
-   );
-}
-function StudentHome({ showOverlay }: { showOverlay: Props["showOverlay"] }) {
-   const { state } = useDemo();
-   const charge = chargesFor(state).find(item => !item.paid);
-   const missing = Math.max(0, 6 - Object.keys(state.docs).length);
-   const requests = state.requests.filter(item => ["Em análise", "Aguardando pagamento"].includes(item.status));
-   const notice = disciplines.find(item => item.misses >= item.limit * 0.6);
-   return (
-      <div className="student-page student-home" data-student-ui>
-         <header className="student-home-heading">
-            <div>
-               <h1>Olá, {state.profile.name.split(" ")[0]}.</h1>
-               <p>
-                  Ciências Contábeis <span>·</span> 2º período <span>·</span> Semestre em andamento
-               </p>
-            </div>
-            <span className="student-today">
-               <CalendarDays size={16} />
-               Terça, 20 de outubro
-            </span>
-         </header>
-         <div className="student-home-priorities">
-            <NextClass />
-            <section className="student-next-payment" data-clear={!charge} aria-labelledby="next-payment-title">
-               <div className="student-section-heading">
-                  <h2 id="next-payment-title">Próximo pagamento</h2>
-                  <ReceiptText size={19} />
-               </div>
-               {charge ? (
-                  <>
-                     <strong className="student-payment-amount">{currency(charge.amount)}</strong>
-                     <p>{charge.name}</p>
-                     <div className="student-payment-due">
-                        <CalendarDays size={16} />
-                        <span>
-                           {charge.due < today ? "Venceu em " : "Vence em "}
-                           <strong>{formatDate(charge.due, { day: "2-digit", month: "long" })}</strong>
-                        </span>
-                        {charge.due < today && <span className="student-overdue">Vencida</span>}
-                     </div>
-                     <Link className="replica-button" to={"/financeiro?cobranca=" + encodeURIComponent(charge.id)}>
-                        <QrCode size={17} />
-                        Conferir e pagar <ArrowRight size={15} />
-                     </Link>
-                     <small className="student-data-note">Valor de exemplo · pagamento simulado</small>
-                  </>
-               ) : (
-                  <div className="student-payment-clear">
-                     <CheckCircle2 size={28} />
-                     <strong>Nenhum pagamento pendente</strong>
-                     <p>Você pode consultar o extrato e seus comprovantes.</p>
-                     <Link className="student-text-link" to="/financeiro">
-                        Abrir financeiro <ArrowRight size={15} />
-                     </Link>
-                  </div>
-               )}
-            </section>
-         </div>
-         <div className="student-home-body">
-            <div className="student-home-main">
-               <section className="student-attention" aria-labelledby="home-attention-title">
-                  <div className="student-section-heading">
-                     <h2 id="home-attention-title">O que precisa da sua atenção</h2>
-                     <span className="student-count">{(missing ? 1 : 0) + (notice ? 1 : 0) + (state.scenario === "dp" ? 1 : 0)}</span>
-                  </div>
-                  <div className="student-attention-list">
-                     {missing ? (
-                        <Link className="student-attention-document" to="/perfil/documentos#documentos-matricula">
-                           <FileCheck2 size={20} />
-                           <span>
-                              <strong>{missing === 1 ? "Falta enviar 1 documento" : `Faltam enviar ${missing} documentos`}</strong>
-                              <small>Complete seus documentos de matrícula e acompanhe a conferência.</small>
-                           </span>
-                           <ArrowRight size={17} />
-                        </Link>
-                     ) : (
-                        <Link className="student-attention-complete" to="/perfil/documentos">
-                           <CheckCircle2 size={20} />
-                           <span>
-                              <strong>Documentos enviados</strong>
-                              <small>Acompanhe a conferência da secretaria.</small>
-                           </span>
-                           <ArrowRight size={17} />
-                        </Link>
-                     )}
-                     {notice && (
-                        <Link className="student-attention-frequency" to={"/perfil/notas-e-faltas?disciplina=" + notice.id}>
-                           <TriangleAlert size={20} />
-                           <span>
-                              <strong>Confira suas faltas em Contabilidade</strong>
-                              <small>
-                                 {notice.misses} de {notice.limit} faltas toleradas em {notice.name}.
-                              </small>
-                           </span>
-                           <ArrowRight size={17} />
-                        </Link>
-                     )}
-                     {state.scenario === "dp" && (
-                        <Link to="/jornada-academica#disciplinas-regularizar">
-                           <GraduationCap size={20} />
-                           <span>
-                              <strong>Há disciplinas para regularizar</strong>
-                              <small>Veja suas opções de DP e adaptação na jornada.</small>
-                           </span>
-                           <ArrowRight size={17} />
-                        </Link>
-                     )}
-                  </div>
-               </section>
-
-               <CalendarPreview />
-               <section className="student-home-requests">
-                  <div className="student-section-heading">
-                     <h2>Acompanhe seus pedidos</h2>
-                     <Link to="/solicitacao-servicos">
-                        Ver todos <ArrowRight size={14} />
-                     </Link>
-                  </div>
-                  {requests.length ? (
-                     requests.slice(0, 2).map(request => (
-                        <button
-                           className="student-request-row"
-                           key={request.id}
-                           onClick={() => showOverlay({ kind: "request", id: request.id })}
-                        >
-                           <span>
-                              <strong>{request.name}</strong>
-                              <small>{request.id}</small>
-                           </span>
-                           <span className="student-status">{request.status}</span>
-                           <ArrowRight size={15} />
-                        </button>
-                     ))
-                  ) : (
-                     <p className="student-muted">
-                        Você não tem pedidos em andamento. <Link to="/secretaria-virtual">Acessar secretaria virtual</Link>
-                     </p>
-                  )}
-               </section>
-            </div>
-            <aside className="student-home-aside">
-               <FormationSummary />
-               <section className="student-course-summary">
-                  <h2>Minha jornada no curso</h2>
-                  <p>
-                     <strong>2º de 8 períodos</strong>
-                     <span>12% do curso concluído</span>
-                  </p>
-                  <progress value={12} max={100} aria-label="12% do curso concluído" />
-                  <Link className="student-text-link" to="/jornada-academica">
-                     Ver disciplinas e próximos passos <ArrowRight size={14} />
-                  </Link>
-               </section>
-               <section className="student-home-communications">
-                  <Bell size={21} />
-                  <h2>Avisos e comunicados</h2>
-                  <p>Retornos dos seus pedidos, informações acadêmicas e assuntos que você escolheu acompanhar.</p>
-                  <Link className="student-text-link" to="/comunicados">
-                     Ver meus avisos <ArrowRight size={14} />
-                  </Link>
-               </section>
-            </aside>
-         </div>
+      <div className="student-page" data-student-ui>
+         <h1>Prática extensionista</h1>
+         <p>Abrindo seu sistema de extensão…</p>
+         <a className="replica-button" href={external.extensao}>
+            Acessar prática extensionista <ExternalLink size={16} />
+         </a>
       </div>
    );
 }
+
 function Studies() {
    return (
       <div className="student-page" data-student-ui>
@@ -307,7 +52,44 @@ function Studies() {
             </a>
          </header>
          <SectionNavigation path="/meus-estudos" />
-         <NextClass compact />
+         <ContextBanner
+            title="Seu aprendizado tem um caminho."
+            action={
+               <Link className="replica-button" to="/jornada-academica">
+                  Explorar minha jornada <ArrowRight size={16} />
+               </Link>
+            }
+         >
+            Acompanhe suas disciplinas, encontre apoio e veja seu próximo passo no curso.
+         </ContextBanner>
+         <div className="cx-study-overview">
+            <AcademicPulse />
+            <section className="cx-study-shortcuts">
+               <h2>Sua rotina de estudos</h2>
+               <DestinationList
+                  items={[
+                     {
+                        label: "Entrar na minha aula",
+                        href: external.ava,
+                        icon: "laptop_mac",
+                        description: "Conteúdos e atividades no AVA.",
+                     },
+                     {
+                        label: "Ver meus horários",
+                        href: "/horarios",
+                        icon: "calendar_month",
+                        description: "Dias, horários e local das aulas.",
+                     },
+                     {
+                        label: "Acompanhar minha formação",
+                        href: "/meus-estudos/atividades",
+                        icon: "school",
+                        description: "Horas complementares e extensão.",
+                     },
+                  ]}
+               />
+            </section>
+         </div>
          <div className="student-studies-columns">
             <div>
                <section>
@@ -409,6 +191,23 @@ function Formation({ extensionOnly }: { extensionOnly: boolean }) {
             </div>
          </header>
          <SectionNavigation path={extensionOnly ? "/meus-estudos/extensao" : "/meus-estudos/atividades"} />
+         <ContextBanner
+            title={extensionOnly ? "Aprender também é transformar." : "Sua formação vai além da sala de aula."}
+            media="study-desk"
+            action={
+               <a
+                  className="replica-button"
+                  href={extensionOnly ? external.extensao : external.horas}
+                  target="_blank"
+                  rel="noopener noreferrer"
+               >
+                  {extensionOnly ? "Acompanhar extensão" : "Registrar uma atividade"}
+                  <ExternalLink size={16} />
+               </a>
+            }
+         >
+            Cada atividade acrescenta uma experiência. Acompanhe suas horas e encontre oportunidades para continuar.
+         </ContextBanner>
          <div className="student-formation-overview">
             <FormationSummary />
             <section>
@@ -423,7 +222,7 @@ function Formation({ extensionOnly }: { extensionOnly: boolean }) {
                      },
                      {
                         label: "Atividades de extensão",
-                        href: "/meus-estudos/extensao",
+                        href: external.extensao,
                         icon: "diversity_3",
                         description: "Projetos e atividades que aproximam sua formação da comunidade.",
                      },
@@ -435,37 +234,8 @@ function Formation({ extensionOnly }: { extensionOnly: boolean }) {
                      },
                   ]}
                />
-               <p className="student-data-note">
-                  Confira em qual atividade suas horas foram registradas. Os requisitos da extensão abaixo são ilustrativos.
-               </p>
             </section>
          </div>
-         {extensionOnly && (
-            <section className="student-extension-records">
-               <div className="student-section-heading">
-                  <h2>Registros de extensão</h2>
-                  <a className="replica-button" href={external.extensao} target="_blank" rel="noopener noreferrer">
-                     Acessar sistema de extensão <ExternalLink size={16} />
-                  </a>
-               </div>
-               <p className="student-muted">
-                  Exemplos de atividades para avaliar a navegação. Consulte os registros oficiais no sistema de extensão.
-               </p>
-               {[
-                  { name: "Educação financeira para a comunidade", hours: 24, date: "2026-09-18" },
-                  { name: "Projeto de orientação financeira", hours: 16, date: "2026-10-09" },
-               ].map(activity => (
-                  <article className="student-extension-record" key={activity.name}>
-                     <div>
-                        <h3>{activity.name}</h3>
-                        <p>{formatDate(activity.date, { dateStyle: "long" })} · registro de exemplo</p>
-                     </div>
-                     <strong>{activity.hours}h</strong>
-                     <span className="student-status">Validado · exemplo</span>
-                  </article>
-               ))}
-            </section>
-         )}
          <section className="student-formation-actions">
             <h2>O que você quer fazer agora?</h2>
             <DestinationList
@@ -524,7 +294,7 @@ function Communications() {
                      .slice(0, 2)
                      .map(event => ({
                         label: event.title,
-                        description: formatDate(event.start) + (event.example ? " · exemplo" : ""),
+                        description: formatDate(event.start),
                         href: "/calendario-academico?evento=" + event.id,
                         icon: "calendar_month",
                      }))}
@@ -557,10 +327,6 @@ function Communications() {
                      ]}
                   />
                )}
-               <p className="student-data-note">
-                  Todos os avisos continuam disponíveis. Esta seleção organiza a demonstração e não altera e-mails ou notificações da
-                  instituição.
-               </p>
             </section>
             <aside className="student-topic-preferences">
                <Bell size={24} />

@@ -38,18 +38,16 @@ describe("Simplificação por intenção do aluno", () => {
    it("abre o financeiro com a cobrança da home selecionada e conclui somente a simulação", async () => {
       await open();
       fireEvent.click(screen.getByRole("link", { name: /Conferir e pagar/ }));
-      const checkbox = await screen.findByRole("checkbox", { name: /Selecionar Mensalidade/ });
+      const checkbox = await screen.findByRole("checkbox", { name: /Selecionar Mensalidade · novembro/ });
       expect(checkbox).toBeChecked();
       expect(window.location.search).toContain("cobranca=DEMO-MENSALIDADE-202611");
       fireEvent.click(screen.getByRole("link", { name: /Continuar para Pix/ }));
       expect(await screen.findByRole("heading", { name: "Pagar por Pix" })).toBeInTheDocument();
-      expect(
-         screen.getByText("O QR Code e o código abaixo são ilustrativos e não podem ser usados para pagar.", { exact: false }),
-      ).toBeInTheDocument();
-      fireEvent.click(screen.getByRole("button", { name: "Simular confirmação do pagamento" }));
-      expect(await screen.findByRole("heading", { name: "Pagamento simulado confirmado" })).toBeInTheDocument();
+      expect(screen.getByRole("textbox")).toHaveAttribute("readonly");
+      fireEvent.click(screen.getByRole("button", { name: "Já realizei o pagamento" }));
+      expect(await screen.findByRole("heading", { name: "Pagamento informado" })).toBeInTheDocument();
       fireEvent.click(screen.getByRole("link", { name: "Voltar ao início" }));
-      expect(await screen.findByText("Nenhum pagamento pendente")).toBeInTheDocument();
+      expect(await screen.findByText("Mensalidade · dezembro/2026")).toBeInTheDocument();
       expect(JSON.parse(localStorage.getItem("anchieta-cx-demo-v1") || "{}").chargesPaid).toContain("DEMO-MENSALIDADE-202611");
    });
    it("mantém somente a Ana flutuante no canto, sem faixa de assistência", async () => {
@@ -73,7 +71,7 @@ describe("Simplificação por intenção do aluno", () => {
       });
       localStorage.setItem("anchieta-cx-demo-v1", JSON.stringify(state));
       await open("/financeiro/pix?cobranca=DEMO-PEDIDO-PAGO");
-      fireEvent.click(screen.getByRole("button", { name: "Simular confirmação do pagamento" }));
+      fireEvent.click(screen.getByRole("button", { name: "Já realizei o pagamento" }));
       await waitFor(() => expect(JSON.parse(localStorage.getItem("anchieta-cx-demo-v1") || "{}").requests[0].status).toBe("Em análise"));
       expect(JSON.parse(localStorage.getItem("anchieta-cx-demo-v1") || "{}").chargesPaid).not.toContain("DEMO-MENSALIDADE-202611");
    });
@@ -97,11 +95,10 @@ describe("Simplificação por intenção do aluno", () => {
       expect(screen.getByRole("link", { name: /Oportunidades de estágio/ })).toBeInTheDocument();
       expect(screen.getByRole("checkbox", { name: /Acadêmico/ })).toBeDisabled();
    });
-   it("mostra a disciplina ligada ao aviso de faltas da home", async () => {
+   it("leva o card de assinatura à tela de contratos", async () => {
       await open();
-      fireEvent.click(screen.getByRole("link", { name: /Confira suas faltas em Contabilidade/ }));
-      await waitFor(() => expect(main().querySelector(".student-highlighted-unit")).not.toBeNull());
-      expect(main().querySelector(".student-highlighted-unit")).toHaveTextContent("Bases da Contabilidade Business");
+      fireEvent.click(screen.getByRole("link", { name: /Assinar contrato/ }));
+      await waitFor(() => expect(window.location.pathname).toBe("/contratos"));
    });
    it("chega ao catálogo da secretaria com o assunto escolhido e oferece todos os serviços na busca limpa", async () => {
       window.history.replaceState({}, "", "/secretaria-virtual");

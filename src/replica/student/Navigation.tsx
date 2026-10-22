@@ -18,7 +18,7 @@ export function SectionNavigation({ path }: { path: string }) {
         : section?.href === "/secretaria-virtual"
           ? secretariatDestinations
           : section?.href === "/financeiro"
-            ? financialDestinations
+            ? financialDestinations.slice(0, 2)
             : [];
    useLayoutEffect(() => {
       const selected = ref.current?.querySelector<HTMLElement>("[aria-current=page]");
@@ -33,7 +33,7 @@ export function SectionNavigation({ path }: { path: string }) {
       <nav
          ref={ref}
          data-student-ui
-         className="student-section-nav"
+         className={"student-section-nav" + (section?.href === "/financeiro" ? " student-financial-nav" : "")}
          aria-label={communications ? "Avisos e comunicados" : `Seções de ${section!.label.toLowerCase()}`}
       >
          {items.map(item => (
@@ -42,6 +42,7 @@ export function SectionNavigation({ path }: { path: string }) {
                to={item.href}
                aria-current={
                   path === item.href ||
+                  (item.href === "/solicitacao-servicos/solicitar" && path.startsWith("/solicitacao-servicos/solicitar/")) ||
                   (item.href === "/notificacoes" && path.startsWith("/notificacoes/")) ||
                   (item.href === "/meus-estudos/atividades" && ["/perfil/horas-complementares", "/meus-estudos/extensao"].includes(path))
                      ? "page"
@@ -59,6 +60,17 @@ export function DestinationList({ items }: { items: Destination[] }) {
       <div className="student-destinations">
          {items.map(item => {
             const external = item.href.startsWith("https:");
+            const intent = (item.href + " " + item.label + " " + item.icon)
+               .normalize("NFD")
+               .replace(/[\u0300-\u036f]/g, "")
+               .toLowerCase();
+            const tone = /estagio|tcc|certific|\bhoras\b|atividad|extens|formacao/.test(intent)
+               ? "formation"
+               : /avali|ouvid/.test(intent)
+                 ? "feedback"
+                 : /bibli|monitor|pesquisa|eletiv|dp|adap/.test(intent)
+                   ? "support"
+                   : "academic";
             const content = (
                <>
                   <span className="material-symbols-outlined" aria-hidden="true">
@@ -74,6 +86,7 @@ export function DestinationList({ items }: { items: Destination[] }) {
             return external ? (
                <a
                   key={item.href}
+                  data-tone={tone}
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -82,7 +95,7 @@ export function DestinationList({ items }: { items: Destination[] }) {
                   {content}
                </a>
             ) : (
-               <Link key={item.href} to={item.href}>
+               <Link key={item.href} to={item.href} data-tone={tone}>
                   {content}
                </Link>
             );

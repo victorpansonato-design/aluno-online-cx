@@ -1,0 +1,287 @@
+.student-sidebar-ava > .material-symbols-outlined {
+   color: #b47a00;
+   font-variation-settings: "FILL" 1;
+}
+.dark .student-sidebar-ava > .material-symbols-outlined {
+   color: #ffd34e;
+}
+.cx-academic-status-grid {
+   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.cx-home .cx-status-card {
+   padding-inline: 16px;
+   gap: 10px;
+}
+.cx-free-courses {
+   display: flex;
+   align-items: flex-start;
+   gap: 14px;
+   padding: 20px;
+   border: 1px solid var(--border);
+   border-radius: 14px;
+   background: linear-gradient(120deg, var(--card), color-mix(in oklab, var(--cx-violet) 9%, var(--card)));
+}
+.cx-free-courses > div {
+   min-width: 0;
+}
+.cx-course-eyebrow {
+   font-size: 11px;
+   color: var(--muted-foreground);
+}
+.cx-free-courses h2 {
+   font-size: 17px;
+   margin: 4px 0 6px;
+}
+.cx-free-courses p {
+   font-size: 12px;
+   color: var(--muted-foreground);
+   margin: 0 0 12px;
+}
+.cx-free-courses a {
+   display: inline-flex;
+   align-items: center;
+   gap: 7px;
+   color: var(--primary);
+   font-size: 12px;
+   font-weight: 600;
+   min-height: 28px;
+}
+.cx-charge-responsibles {
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   gap: 6px 8px;
+   margin: 12px 0 18px;
+   font-size: 12px;
+}
+.cx-charge-responsibles > span {
+   color: var(--muted-foreground);
+   margin-right: 2px;
+}
+.cx-charge-responsibles > button {
+   display: inline-flex;
+   align-items: center;
+   gap: 5px;
+   border: 1px solid transparent;
+   border-radius: 24px;
+   min-height: 32px;
+   padding: 3px 8px;
+   background: var(--muted);
+   color: var(--foreground);
+   cursor: pointer;
+   font: inherit;
+}
+.cx-charge-responsibles > button[aria-pressed="true"] {
+   border-color: var(--primary);
+   background: var(--primary-soft, var(--muted));
+   color: var(--primary);
+}
+.cx-charge-responsibles .cx-person-badge {
+   padding: 0;
+   background: transparent;
+}
+.cx-charge-responsibles > .cx-manage-responsibles {
+   margin-left: auto;
+   color: var(--primary);
+   min-height: 28px;
+   display: inline-flex;
+   align-items: center;
+}
+.cx-person-badge {
+   display: inline-flex;
+   align-items: center;
+   gap: 6px;
+   width: fit-content;
+   max-width: 100%;
+   border-radius: 16px;
+   padding: 3px 8px 3px 3px;
+   background: var(--muted);
+   color: var(--foreground);
+   font-size: 11px;
+   line-height: 1.5;
+}
+.cx-person-badge > span:nth-child(2) {
+   overflow-wrap: anywhere;
+}
+.cx-person-avatar {
+   display: inline-grid;
+   place-items: center;
+   flex-shrink: 0;
+   width: 20px;
+   height: 20px;
+   border-radius: 50%;
+   font-size: 9px;
+   font-weight: 600;
+   background: #173da4;
+   color: #fff;
+}
+.cx-person-share {
+   font-size: 10px;
+   font-weight: 650;
+   color: var(--primary);
+   padding-left: 3px;
+   border-left: 1px solid var(--border);
+}
+.cx-charge-owner-list {
+   display: flex;
+   align-items: center;
+   flex-wrap: wrap;
+   gap: 5px 8px;
+   margin-top: 4px;
+}
+.student-payment-selection > div > small {
+   display: block;
+   font-size: 11px;
+   margin-top: 6px;
+   font-weight: 400;
+}
+.student-payment-selection > div > small button {
+   font-size: inherit;
+   text-decoration: underline;
+}
+.cx-responsibility-manager {
+   display: grid;
+   gap: 18px;
+}
+.cx-responsibility-manager h3 {
+   font-size: 14px;
+   margin: 0 0 10px;
+}
+.cx-responsibility-manager ul {
+   display: grid;
+   gap: 10px;
+   margin: 0;
+   padding: 0;
+   list-style: none;
+}
+.cx-responsibility-manager li,
+.cx-previous-responsible {
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: space-between;
+   gap: 6px 10px;
+}
+.cx-responsibility-manager small {
+   color: var(--muted-foreground);
+   font-size: 11px;
+}
+.cx-responsibility-explanation {
+   margin: 0;
+   padding: 12px;
+   border-radius: 8px;
+   background: var(--muted);
+   color: var(--muted-foreground);
+   font-size: 12px;
+   line-height: 1.6;
+}
+.cx-responsibility-manager form {
+   display: grid;
+   gap: 12px;
+   padding-top: 18px;
+   border-top: 1px solid var(--border);
+}
+.cx-responsibility-manager form h3 {
+   margin-bottom: 0;
+}
+.cx-responsibility-manager form p {
+   margin: 0;
+   font-size: 12px;
+}
+.cx-responsibility-manager form .replica-field {
+   margin: 0;
+   min-width: 0;
+}
+.cx-responsibility-manager input,
+.cx-responsibility-manager select {
+   min-width: 0;
+   max-width: 100%;
+}
+.cx-responsibility-manager [role="alert"] {
+   color: var(--destructive);
+}
+.cx-responsible-scheduled {
+   display: grid;
+   gap: 6px;
+   padding: 12px;
+   border-radius: 10px;
+   background: var(--muted);
+   margin-bottom: 8px;
+}
+.cx-responsible-scheduled strong {
+   font-size: 12px;
+   overflow-wrap: anywhere;
+}
+.cx-responsible-scheduled button {
+   text-align: left;
+   font-size: 11px;
+   min-height: 28px;
+}
+.cx-responsible-saved {
+   color: var(--success);
+}
+.cx-charge-responsibles button:focus-visible,
+.cx-responsibility-manager button:focus-visible,
+.cx-responsibility-manager input:focus-visible,
+.cx-responsibility-manager select:focus-visible {
+   outline: 2px solid var(--primary);
+   outline-offset: 3px;
+}
+@media (max-width: 1199px) {
+   .cx-academic-status-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+   }
+}
+@media (max-width: 1023px) {
+   .cx-home .cx-free-courses {
+      order: 10;
+   }
+}
+@media (max-width: 767px) {
+   .cx-academic-status-grid {
+      gap: 8px;
+   }
+   .cx-home .cx-status-card {
+      min-height: 86px;
+      padding: 10px;
+      gap: 7px;
+   }
+   .cx-status-card-icon {
+      width: 30px;
+      height: 30px;
+      border-width: 1.5px;
+   }
+   .cx-status-card-icon svg {
+      width: 17px;
+      height: 17px;
+   }
+   .cx-status-card-copy > strong {
+      font-size: 11px;
+   }
+   .cx-status-card-copy > small {
+      font-size: 10px;
+   }
+   .cx-status-card > svg {
+      display: none;
+   }
+   .cx-charge-responsibles > span {
+      width: 100%;
+   }
+   .cx-charge-responsibles > .cx-manage-responsibles {
+      margin-left: 0;
+      padding-inline: 4px;
+   }
+   .cx-charge-responsibles > button {
+      min-height: 36px;
+   }
+   .cx-charge-responsibles .cx-person-badge {
+      font-size: 11px;
+   }
+   .cx-free-courses {
+      padding: 16px;
+   }
+}
+
+.cx-responsibility-manager > .replica-description {
+   margin: 0;
+}

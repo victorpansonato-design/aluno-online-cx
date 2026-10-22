@@ -1,0 +1,21 @@
+{
+  "source": "https://mixkit.co/free-stock-video/student-receiving-instructions-and-help-form-his-professor-in-the-50115/",
+  "download": "https://assets.mixkit.co/videos/50115/50115-1080.mp4",
+  "license": "Mixkit Stock Video Free License",
+  "licenseURL": "https://mixkit.co/license/modal/videoFree/",
+  "accessed": "2026-10-22",
+  "sourceResolution": "1920x1080",
+  "delivered": {
+    "file": "public/media/student-guidance.mp4",
+    "resolution": "1920x1080",
+    "fps": 24,
+    "codec": "H.264 Main, yuv420p, level 4.1",
+    "audio": false,
+    "duration": 7.5,
+    "loopCrossfade": 0.5,
+    "bytes": 1939835,
+    "sha256": "75578bf957830473d97f7415419f76bad8b7308c449ae0abde83df2f64fcece7"
+  },
+  "poster": "public/media/student-guidance.webp",
+  "playback": "Muted inline autoplay loops on desktop and mobile when visible and active. Reduced motion, SaveData or 2G receive poster; autoplay rejection keeps poster. Mobile 16:9 full-frame composition."
+}

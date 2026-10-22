@@ -4,8 +4,9 @@ import { ArrowRight, Check, Download, FileText, Search, X } from "lucide-react";
 import { toast } from "sonner";
 import { createProtocol, useDemo } from "../cx/state";
 import { curriculum, disciplines, normalize, services } from "../cx/data";
-import { docNames, loadServiceForm, reference, type ReferenceDialog, type ServiceReference } from "./reference";
+import { cleanPresentation, docNames, loadServiceForm, reference, type ReferenceDialog, type ServiceReference } from "./reference";
 import { primaryDestinations, studentLabels, supportLinks } from "./student/model";
+import { ResponsibilitiesManager } from "./student/Responsibilities";
 
 export type Overlay = {
    kind:
@@ -94,9 +95,8 @@ export default function OverlayView(props: Props) {
       return (
          <NativeLayer id={o.id || "horas-detalhe"} title={o.title} close={close}>
             <div className="replica-native-footer">
-               <p className="replica-note">Conteúdo illustrativo · sem validade documental.</p>
                <button className="replica-button secondary" onClick={() => downloadExample(o.title || "Documento acadêmico")}>
-                  Baixar exemplo <Download size={16} />
+                  Baixar documento <Download size={16} />
                </button>
                {connected && (
                   <button
@@ -121,7 +121,7 @@ export default function OverlayView(props: Props) {
                         <li key={d.id}>
                            <strong>{d.name}</strong>
                            <span>
-                              Faltas {d.misses} de {d.limit} toleradas · exemplo
+                              Faltas {d.misses} de {d.limit} toleradas
                            </span>
                         </li>
                      ))}
@@ -146,29 +146,23 @@ export default function OverlayView(props: Props) {
                   <span>Ciências Contábeis</span>
                   <span>RA 20260001 · 2º período</span>
                   <span>Validade: 31/03/2030</span>
-                  <b>DEMONSTRAÇÃO · SEM VALIDADE</b>
                </div>
             </div>
-            <p className="replica-note">
-               Representação de frontend com dados fictícios. A carteirinha oficial depende da integração acadêmica.
-            </p>
             <button className="replica-button" onClick={() => downloadExample("Carteirinha digital")}>
-               Baixar exemplo <Download size={16} />
+               Baixar documento <Download size={16} />
             </button>
          </Layer>
       );
    if (o.kind === "due")
       return (
          <Layer title="Alteração de Vencimento" close={close}>
-            <p className="replica-description">
-               Escolha o dia de vencimento para o próximo período. Nesta demonstração, a escolha fica apenas neste navegador.
-            </p>
+            <p className="replica-description">Escolha o dia de vencimento para o próximo período.</p>
             <form
                onSubmit={e => {
                   e.preventDefault();
                   const day = String(new FormData(e.currentTarget).get("day"));
                   update(s => ({ ...s, dueDay: day }));
-                  toast.success("Vencimento atualizado na demonstração");
+                  toast.success("Vencimento atualizado");
                   close();
                }}
             >
@@ -185,36 +179,15 @@ export default function OverlayView(props: Props) {
                   <button className="replica-button secondary" type="button" onClick={close}>
                      Cancelar
                   </button>
-                  <button className="replica-button">Salvar na demonstração</button>
+                  <button className="replica-button">Salvar</button>
                </div>
             </form>
          </Layer>
       );
    if (o.kind === "responsible")
       return (
-         <Layer title="Responsável Financeiro" close={close}>
-            <p className="replica-description">Veja quem responde pelas suas mensalidades e altere para o próximo período letivo.</p>
-            <div className="replica-callout">
-               A alteração vale para o próximo semestre. O responsável do semestre atual continua o mesmo.
-            </div>
-            <form
-               onSubmit={e => {
-                  e.preventDefault();
-                  update(s => ({ ...s, responsible: String(new FormData(e.currentTarget).get("name")) }));
-                  toast.success("Responsável salvo somente nesta demonstração");
-                  close();
-               }}
-            >
-               <label className="replica-field">
-                  Nome completo
-                  <input name="name" defaultValue={state.responsible} required />
-               </label>
-               <label className="replica-field">
-                  E-mail de exemplo
-                  <input type="email" placeholder="responsavel@exemplo.invalid" />
-               </label>
-               <button className="replica-button">Salvar na demonstração</button>
-            </form>
+         <Layer title="Responsáveis financeiros" close={close}>
+            <ResponsibilitiesManager />
          </Layer>
       );
    if (o.kind === "rating") return <Rating title={o.title || "Bases da Administração Moderna"} close={close} />;
@@ -223,7 +196,7 @@ export default function OverlayView(props: Props) {
       const status = req?.status || o.detail || "Concluído";
       return (
          <Layer title={req?.name || o.title || "Detalhes da solicitação"} close={close} sheet>
-            <p className="replica-description">Protocolo {o.id || "DEMO-9000001"} · Demonstração</p>
+            <p className="replica-description">Protocolo {(o.id || "2026-9000001").replace(/^DEMO-/, "2026-")}</p>
             <div className={`replica-request-status ${status === "Cancelado" ? "cancelled" : ""}`}>{status}</div>
             <ol className="replica-tracking">
                <li>Solicitação registrada</li>
@@ -231,21 +204,27 @@ export default function OverlayView(props: Props) {
                   <li>Solicitação cancelada · acompanhamento encerrado</li>
                ) : (
                   <>
-                     <li>{status === "Aguardando pagamento" ? "Aguardando pagamento de exemplo" : "Recebida pela instituição"}</li>
+                     <li>{status === "Aguardando pagamento" ? "Aguardando pagamento" : "Recebida pela instituição"}</li>
                      <li>{status === "Concluído" ? "Atendimento concluído" : "Acompanhe o retorno por aqui"}</li>
                   </>
                )}
             </ol>
-            <p>{req?.detail || "Exemplo de acompanhamento do pedido. Nenhuma informação foi enviada para a instituição."}</p>
+            <p>
+               {req?.detail?.replace(/Exemplo de acompanhamento\.| de demonstração/g, "") ||
+                  "Acompanhe as etapas e o retorno do seu pedido por aqui."}
+            </p>
             {req?.price ? <p>Valor: {money(req.price)}</p> : null}
             <div className="replica-stack">
                {status === "Concluído" && (
                   <button className="replica-button" onClick={() => downloadExample(req?.name || o.title || "Documento")}>
-                     Baixar documento de exemplo <Download size={16} />
+                     Baixar documento <Download size={16} />
                   </button>
                )}
                {status === "Aguardando pagamento" && (
-                  <button className="replica-button" onClick={() => go("/financeiro")}>
+                  <button
+                     className="replica-button"
+                     onClick={() => go("/financeiro?cobranca=" + encodeURIComponent(req?.id || o.id || ""))}
+                  >
                      Ver no financeiro <ArrowRight size={16} />
                   </button>
                )}
@@ -254,10 +233,10 @@ export default function OverlayView(props: Props) {
                      className="replica-button secondary"
                      onClick={() => {
                         update(s => ({ ...s, requests: s.requests.map(r => (r.id === req.id ? { ...r, status: "Cancelado" } : r)) }));
-                        toast.success("Pedido de demonstração cancelado");
+                        toast.success("Pedido cancelado");
                      }}
                   >
-                     Cancelar pedido de demonstração
+                     Cancelar pedido
                   </button>
                )}
                <button className="replica-button secondary" onClick={() => go("/solicitacao-servicos")}>
@@ -281,19 +260,17 @@ export default function OverlayView(props: Props) {
    if (o.kind === "chat") return <Ana close={close} go={go} />;
    if (o.kind === "form") return <LocalForm title={o.title || "Nova solicitação"} fields={o.fields} close={close} go={go} />;
    return (
-      <Layer title={o.title || "Documento demonstrativo"} close={close}>
-         <div className="replica-callout">Documento de demonstração · sem validade acadêmica.</div>
-         <p>Esta visualização reproduz a navegação. Documentos oficiais precisam ser obtidos no portal da instituição.</p>
+      <Layer title={o.title || "Documento acadêmico"} close={close}>
+         <p>Consulte os detalhes e os documentos relacionados.</p>
          <div className="replica-document-preview">
             <img src="/replica/logo-grupo-anchieta-3x-BOFhQ5AB.webp" alt="Grupo Anchieta" />
             <h2>{o.title || "Documento acadêmico"}</h2>
             <p>{state.profile.name} · RA 20260001</p>
             <p>Ciências Contábeis · 2026/2</p>
-            <p>Conteúdo fictício para avaliação da experiência de navegação.</p>
-            <strong>SEM VALIDADE · DEMONSTRAÇÃO</strong>
+            <p>Consulte o documento e as informações relacionadas ao seu pedido.</p>
          </div>
          <button className="replica-button" onClick={() => downloadExample(o.title || "Documento acadêmico")}>
-            Baixar exemplo <Download size={16} />
+            Baixar documento <Download size={16} />
          </button>
       </Layer>
    );
@@ -324,12 +301,18 @@ function Grades({ overlay: o, close, go, connected }: Props) {
          circle.setAttribute("stroke-dashoffset", String((1 - frequency / 100) * Number(circle.getAttribute("stroke-dasharray"))));
          if (unit.misses > unit.limit / 2) circle.setAttribute("stroke", "var(--warning)");
       });
+      if (unit.misses > unit.limit / 2)
+         section?.querySelectorAll(".text-success").forEach(el => el.classList.replace("text-success", "text-warning-foreground"));
+      if (unit.misses > unit.limit / 2)
+         section?.querySelectorAll<HTMLElement>("[style]").forEach(el => {
+            el.setAttribute("style", (el.getAttribute("style") || "").replaceAll("var(--success)", "var(--warning-foreground)"));
+         });
+      cleanPresentation(d);
       return d.body.innerHTML;
    }, [o.title, unit]);
    return (
       <NativeLayer id="notas-dialog" title={o.title || unit.name} html={html} close={close}>
          <div className="replica-native-footer">
-            <p className="replica-note">Notas ilustrativas · dados fictícios.</p>
             {connected && (
                <div className="replica-sheet-connections">
                   <a className="replica-button" href={unit.ava} target="_blank" rel="noopener noreferrer">
@@ -655,7 +638,7 @@ function ServiceForm({ code, close, go }: { code: string; close: () => void; go:
                name: service.original,
                status: service.price ? "Aguardando pagamento" : service.auto ? "Concluído" : "Em análise",
                price: service.price,
-               detail: detail || "Solicitação fictícia criada no clone local.",
+               detail: detail || "Solicitação registrada.",
                date: new Date().toISOString(),
             },
             ...s.requests,
@@ -755,33 +738,30 @@ function ServiceForm({ code, close, go }: { code: string; close: () => void; go:
                      </div>
                   ))}
                </dl>
-               <div className="replica-callout">
-                  Esta ação cria um protocolo fictício apenas neste navegador. Não há pedido real nem cobrança.
-               </div>
                <div className="replica-dialog-footer">
                   <button className="replica-button secondary" onClick={() => setStep(0)}>
                      Voltar
                   </button>
                   <button className="replica-button" onClick={submit}>
-                     Concluir demonstração
+                     Concluir solicitação
                   </button>
                </div>
             </>
          ) : (
             <div className="replica-success">
                <Check size={34} />
-               <h3>{service.auto ? "Documento de exemplo disponível" : "Solicitação de demonstração registrada"}</h3>
+               <h3>{service.auto ? "Documento disponível" : "Solicitação registrada"}</h3>
                <p>{protocol}</p>
                <p>
                   {service.price
-                     ? "O pagamento aparece no financeiro da demonstração."
+                     ? "O pagamento aparece no financeiro."
                      : service.auto
-                       ? "Você pode baixar um documento fictício, sem validade acadêmica."
+                       ? "Seu documento está disponível para consulta."
                        : "Acompanhe o pedido na secretaria virtual."}
                </p>
                {service.auto && (
                   <button className="replica-button" onClick={() => downloadExample(service.original)}>
-                     Baixar exemplo <Download size={16} />
+                     Baixar documento <Download size={16} />
                   </button>
                )}
                <button className="replica-button secondary" onClick={() => go("/solicitacao-servicos")}>
@@ -878,11 +858,11 @@ function DocumentSheet({ index, close, go, connected }: { index: number; close: 
             onClick={() => {
                if (!file) return;
                update(s => ({ ...s, docs: { ...s.docs, [index]: { name: file.name, status: "Em conferência" } } }));
-               toast.success("Documento em conferência na demonstração");
+               toast.success("Documento em conferência");
                close();
             }}
          >
-            Enviar documento na demonstração
+            Enviar documento
          </button>
          {connected && (
             <div className="replica-sheet-connections">
@@ -894,7 +874,6 @@ function DocumentSheet({ index, close, go, connected }: { index: number; close: 
                </button>
             </div>
          )}
-         <p className="replica-note">A simulação guarda somente nome e status. O conteúdo do arquivo permanece no seu dispositivo.</p>
       </Layer>
    );
 }
@@ -902,7 +881,6 @@ function ProfileForm({ title, close }: { title: string; close: () => void }) {
    const { state, update } = useDemo();
    return (
       <Layer title={title} close={close} sheet>
-         <p className="replica-description">Dados fictícios para avaliar a experiência.</p>
          <form
             onSubmit={e => {
                e.preventDefault();
@@ -936,8 +914,7 @@ function ProfileForm({ title, close }: { title: string; close: () => void }) {
                Endereço
                <input name="address" defaultValue={state.profile.address} />
             </label>
-            <div className="replica-callout">Use dados fictícios. Esta demonstração não atualiza seu cadastro no Anchieta.</div>
-            <button className="replica-button">Salvar na demonstração</button>
+            <button className="replica-button">Salvar</button>
          </form>
       </Layer>
    );
@@ -953,7 +930,7 @@ function Rating({ title, close }: { title: string; close: () => void }) {
          {sent ? (
             <div className="replica-success">
                <Check />
-               <h3>Avaliação salva na demonstração</h3>
+               <h3>Avaliação salva</h3>
                <p>Nenhuma resposta foi enviada à instituição.</p>
             </div>
          ) : (
@@ -976,7 +953,7 @@ function Rating({ title, close }: { title: string; close: () => void }) {
                   <textarea rows={4} placeholder="O que podemos melhorar?" />
                </label>
                <button className="replica-button" disabled={!rating}>
-                  Salvar avaliação de exemplo
+                  Salvar avaliação
                </button>
             </form>
          )}
@@ -1063,7 +1040,7 @@ function Ana({ close, go }: { close: () => void; go: (p: string) => void }) {
          <div className="replica-ana-greeting">
             <img src="/replica/ana.webp" alt="Ana, assistente virtual" />
             <p>
-               Como posso te ajudar?<small>Guia local de demonstração</small>
+               Como posso te ajudar?<small>Orientação para sua rotina</small>
             </p>
          </div>
          {asked && <p className="replica-chat-question">{asked}</p>}
@@ -1110,7 +1087,7 @@ function LocalForm({
    if (fields?.length && step !== 2)
       return (
          <Layer title={"Revisar " + title.toLowerCase()} close={close} sheet>
-            <p className="replica-description">Confira os dados preenchidos antes de registrar o pedido de demonstração.</p>
+            <p className="replica-description">Confira os dados preenchidos antes de registrar o pedido.</p>
             <dl className="replica-review">
                {fields.map((f, i) => (
                   <div className="contents" key={i}>
@@ -1119,9 +1096,6 @@ function LocalForm({
                   </div>
                ))}
             </dl>
-            <div className="replica-callout">
-               Este pedido é fictício e fica somente neste navegador. Nenhum arquivo ou solicitação será enviado à instituição.
-            </div>
             <div className="replica-dialog-footer">
                <button className="replica-button secondary" onClick={close}>
                   Voltar e editar
@@ -1149,7 +1123,7 @@ function LocalForm({
                      setStep(2);
                   }}
                >
-                  Confirmar demonstração
+                  Confirmar solicitação
                </button>
             </div>
          </Layer>
@@ -1159,7 +1133,7 @@ function LocalForm({
          {step === 2 ? (
             <div className="replica-success">
                <Check />
-               <h3>Pedido de demonstração registrado</h3>
+               <h3>Pedido registrado</h3>
                <p>{id}</p>
                <button className="replica-button" onClick={() => go("/solicitacao-servicos")}>
                   Acompanhar na secretaria
@@ -1183,7 +1157,7 @@ function LocalForm({
                            name: title,
                            status: "Em análise",
                            date: new Date().toISOString(),
-                           detail: "Solicitação fictícia registrada a partir de formulário especializado.",
+                           detail: "Solicitação registrada.",
                            price: 0,
                         },
                         ...s.requests,
@@ -1194,7 +1168,7 @@ function LocalForm({
                }}
             >
                <p className="replica-description">
-                  {step === 0 ? "Confira os dados do pedido." : "Revise as informações antes de registrar o exemplo."}
+                  {step === 0 ? "Confira os dados do pedido." : "Revise as informações antes de registrar o pedido."}
                </p>
                <label className="replica-field">
                   Descrição *<textarea required rows={4} placeholder="Descreva o que precisa…" />
@@ -1203,11 +1177,10 @@ function LocalForm({
                   Data *<input type="date" required defaultValue="2026-10-21" />
                </label>
                <label className="replica-field">
-                  Anexo de demonstração
+                  Anexo
                   <input type="file" accept=".pdf,.jpg,.png" />
                </label>
-               <div className="replica-callout">Somente demonstração local. Nenhum pedido ou arquivo será enviado à instituição.</div>
-               <button className="replica-button">{step === 0 ? "Continuar" : "Confirmar demonstração"}</button>
+               <button className="replica-button">{step === 0 ? "Continuar" : "Confirmar solicitação"}</button>
             </form>
          )}
       </Layer>
@@ -1222,5 +1195,5 @@ export function downloadExample(title: string) {
    a.download = safe.toLowerCase().replace(/\W+/g, "-") + "-demonstracao.html";
    a.click();
    setTimeout(() => URL.revokeObjectURL(url), 1000);
-   toast.success("Exemplo baixado · sem validade acadêmica");
+   toast.success("Documento baixado");
 }

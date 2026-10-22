@@ -63,7 +63,7 @@ export function prepareMonth(html: string, offset: number, day: number) {
       const weekday = detail.querySelector(".capitalize");
       if (weekday) weekday.textContent = new Intl.DateTimeFormat("pt-BR", { weekday: "long" }).format(selected);
       if (offset !== 0) {
-         const message = "Não há aulas de demonstração cadastradas neste mês. Consulte outubro de 2026 para explorar a agenda.";
+         const message = "Não há aulas cadastradas neste mês. Consulte outubro de 2026 para explorar a agenda.";
          const list = detail.querySelector("ul");
          if (list) list.innerHTML = '<li class="p-4 text-sm text-muted-foreground">' + message + "</li>";
          else {

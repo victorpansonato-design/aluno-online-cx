@@ -2,6 +2,10 @@ import type { DemoState } from "../../cx/state";
 import { external } from "../../cx/data";
 
 export const today = "2026-10-20";
+export const recentNotices = [
+   { title: "Tem vaga nova pra você!", category: "Carreira", date: "2026-10-19", href: "/notificacoes/76149709" },
+   { title: "The English Lab · 7h (horário de Brasília)", category: "Idiomas", date: "2026-10-19", href: "/notificacoes/76088111" },
+];
 export const dateValue = (value: string) => new Date(value + "T12:00:00");
 export const formatDate = (value: string, options: Intl.DateTimeFormatOptions = { day: "2-digit", month: "short" }) =>
    new Intl.DateTimeFormat("pt-BR", options).format(dateValue(value));
@@ -107,23 +111,19 @@ export function chargesFor(state: DemoState): Charge[] {
    const monthly: Charge[] =
       state.scenario === "vazio"
          ? []
-         : [
-              {
-                 id: "DEMO-MENSALIDADE-202611",
-                 name: "Mensalidade · novembro/2026",
+         : Array.from({ length: 10 }, (_, i) => {
+              const date = new Date(2026, 6 + i, 12);
+              const month = `${date.getFullYear()}${String(date.getMonth() + 1).padStart(2, "0")}`;
+              const id = `DEMO-MENSALIDADE-${month}`;
+              const historical = i < 4 && !(state.scenario === "financeiro" && month === "202610");
+              return {
+                 id,
+                 name: `Mensalidade · ${new Intl.DateTimeFormat("pt-BR", { month: "long" }).format(date)}/${date.getFullYear()}`,
                  amount: 890,
-                 due: "2026-11-" + String(Math.min(30, Number(state.dueDay) || 12)).padStart(2, "0"),
-                 paid: state.chargesPaid.includes("DEMO-MENSALIDADE-202611"),
-              },
-           ];
-   if (state.scenario === "financeiro")
-      monthly.push({
-         id: "DEMO-MENSALIDADE-202610",
-         name: "Mensalidade · outubro/2026",
-         amount: 890,
-         due: "2026-10-12",
-         paid: state.chargesPaid.includes("DEMO-MENSALIDADE-202610"),
-      });
+                 due: `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(i < 4 ? 12 : Math.min(28, Number(state.dueDay) || 12)).padStart(2, "0")}`,
+                 paid: historical || state.chargesPaid.includes(id),
+              };
+           });
    return [
       ...monthly,
       ...state.requests
@@ -156,7 +156,7 @@ export const academicEvents: AcademicEvent[] = [
       start: "2026-07-01",
       end: "2026-12-07",
       category: "Atividades",
-      description: "Exemplo de período de inscrição. Consulte a oferta e as orientações da sua atividade antes de participar.",
+      description: "Consulte a oferta e as orientações da sua atividade antes de participar.",
       action: { label: "Ver atividades e horas", href: "/meus-estudos/atividades" },
       example: true,
    },
@@ -202,7 +202,7 @@ export const academicEvents: AcademicEvent[] = [
       start: "2026-10-23",
       end: "2026-10-23",
       category: "Prazos",
-      description: "Lembrete demonstrativo para organizar seus comprovantes. Não representa um prazo institucional de entrega.",
+      description: "Organize seus comprovantes e confira o registro de suas atividades.",
       action: { label: "Conferir minhas horas", href: "/meus-estudos/atividades" },
       example: true,
    },
@@ -212,7 +212,7 @@ export const academicEvents: AcademicEvent[] = [
       start: "2026-10-26",
       end: "2026-10-31",
       category: "Avaliações",
-      description: "Exemplo de período para demonstrar a prévia na home. Consulte o AVA para as datas oficiais de cada disciplina.",
+      description: "Consulte o AVA para as datas e orientações de cada disciplina.",
       action: { label: "Abrir minhas disciplinas", href: "/perfil/notas-e-faltas" },
       example: true,
    },
@@ -222,7 +222,7 @@ export const academicEvents: AcademicEvent[] = [
       start: "2026-11-05",
       end: "2026-11-05",
       category: "Prazos",
-      description: "Lembrete fictício para demonstrar a navegação entre meses.",
+      description: "Confira as entregas do mês e organize seus próximos passos.",
       action: { label: "Ver meus estudos", href: "/meus-estudos" },
       example: true,
    },

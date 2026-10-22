@@ -1,0 +1,1144 @@
+{
+  "date": "2026-10-22T15:38:07.189Z",
+  "surfaces": [
+    {
+      "width": 1440,
+      "route": "/inicio",
+      "ana": true,
+      "font": "30px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Olá, Marina.",
+      "top": 28
+    },
+    {
+      "width": 1440,
+      "route": "/meus-estudos",
+      "ana": true,
+      "font": "30px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Meus estudos",
+      "top": 28
+    },
+    {
+      "width": 1440,
+      "route": "/horarios",
+      "ana": true,
+      "font": "30px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Horários",
+      "top": 28
+    },
+    {
+      "width": 1440,
+      "route": "/perfil/notas-e-faltas",
+      "ana": true,
+      "font": "30px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Notas e Faltas",
+      "top": 28
+    },
+    {
+      "width": 1440,
+      "route": "/solicitacao-servicos",
+      "ana": true,
+      "font": "30px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Solicitação de serviços",
+      "top": 28
+    },
+    {
+      "width": 1440,
+      "route": "/secretaria-virtual",
+      "ana": true,
+      "font": "30px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Secretaria virtual",
+      "top": 28
+    },
+    {
+      "width": 1440,
+      "route": "/financeiro",
+      "ana": true,
+      "font": "30px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Meu financeiro",
+      "top": 28
+    },
+    {
+      "width": 1440,
+      "route": "/jornada-academica",
+      "ana": true,
+      "font": "30px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Jornada Acadêmica",
+      "top": 28
+    },
+    {
+      "width": 1440,
+      "route": "/perfil/documentos",
+      "ana": true,
+      "font": "30px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Marina Costa",
+      "top": 28
+    },
+    {
+      "width": 1440,
+      "route": "/ajuda",
+      "ana": true,
+      "font": "30px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Como podemos ajudar?",
+      "top": 28
+    },
+    {
+      "width": 1440,
+      "route": "/meus-estudos/atividades",
+      "ana": true,
+      "font": "30px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Atividades e horas",
+      "top": 28
+    },
+    {
+      "width": 1440,
+      "route": "/notificacoes/76149709",
+      "ana": true,
+      "font": "30px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Notificações",
+      "top": 28
+    },
+    {
+      "width": 768,
+      "route": "/inicio",
+      "ana": true,
+      "font": "30px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Olá, Marina.",
+      "top": 28
+    },
+    {
+      "width": 768,
+      "route": "/meus-estudos",
+      "ana": true,
+      "font": "30px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Meus estudos",
+      "top": 28
+    },
+    {
+      "width": 768,
+      "route": "/horarios",
+      "ana": true,
+      "font": "30px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Horários",
+      "top": 28
+    },
+    {
+      "width": 768,
+      "route": "/perfil/notas-e-faltas",
+      "ana": true,
+      "font": "30px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Notas e Faltas",
+      "top": 28
+    },
+    {
+      "width": 768,
+      "route": "/solicitacao-servicos",
+      "ana": true,
+      "font": "30px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Solicitação de serviços",
+      "top": 28
+    },
+    {
+      "width": 768,
+      "route": "/secretaria-virtual",
+      "ana": true,
+      "font": "30px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Secretaria virtual",
+      "top": 28
+    },
+    {
+      "width": 768,
+      "route": "/financeiro",
+      "ana": true,
+      "font": "30px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Meu financeiro",
+      "top": 28
+    },
+    {
+      "width": 768,
+      "route": "/jornada-academica",
+      "ana": true,
+      "font": "30px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Jornada Acadêmica",
+      "top": 28
+    },
+    {
+      "width": 768,
+      "route": "/perfil/documentos",
+      "ana": true,
+      "font": "30px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Marina Costa",
+      "top": 28
+    },
+    {
+      "width": 768,
+      "route": "/ajuda",
+      "ana": true,
+      "font": "30px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Como podemos ajudar?",
+      "top": 28
+    },
+    {
+      "width": 768,
+      "route": "/meus-estudos/atividades",
+      "ana": true,
+      "font": "30px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Atividades e horas",
+      "top": 28
+    },
+    {
+      "width": 768,
+      "route": "/notificacoes/76149709",
+      "ana": true,
+      "font": "30px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Notificações",
+      "top": 28
+    },
+    {
+      "width": 390,
+      "route": "/inicio",
+      "ana": true,
+      "font": "24px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Olá, Marina.",
+      "top": 28
+    },
+    {
+      "width": 390,
+      "route": "/meus-estudos",
+      "ana": true,
+      "font": "24px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Meus estudos",
+      "top": 28
+    },
+    {
+      "width": 390,
+      "route": "/horarios",
+      "ana": true,
+      "font": "24px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Horários",
+      "top": 28
+    },
+    {
+      "width": 390,
+      "route": "/perfil/notas-e-faltas",
+      "ana": true,
+      "font": "24px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Notas e Faltas",
+      "top": 28
+    },
+    {
+      "width": 390,
+      "route": "/solicitacao-servicos",
+      "ana": true,
+      "font": "24px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Solicitação de serviços",
+      "top": 28
+    },
+    {
+      "width": 390,
+      "route": "/secretaria-virtual",
+      "ana": true,
+      "font": "24px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Secretaria virtual",
+      "top": 28
+    },
+    {
+      "width": 390,
+      "route": "/financeiro",
+      "ana": true,
+      "font": "24px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Meu financeiro",
+      "top": 28
+    },
+    {
+      "width": 390,
+      "route": "/jornada-academica",
+      "ana": true,
+      "font": "24px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Jornada Acadêmica",
+      "top": 28
+    },
+    {
+      "width": 390,
+      "route": "/perfil/documentos",
+      "ana": true,
+      "font": "24px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Marina Costa",
+      "top": 28
+    },
+    {
+      "width": 390,
+      "route": "/ajuda",
+      "ana": true,
+      "font": "24px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Como podemos ajudar?",
+      "top": 28
+    },
+    {
+      "width": 390,
+      "route": "/meus-estudos/atividades",
+      "ana": true,
+      "font": "24px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Atividades e horas",
+      "top": 28
+    },
+    {
+      "width": 390,
+      "route": "/notificacoes/76149709",
+      "ana": true,
+      "font": "24px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Notificações",
+      "top": 28
+    },
+    {
+      "width": 320,
+      "route": "/inicio",
+      "ana": true,
+      "font": "24px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Olá, Marina.",
+      "top": 28
+    },
+    {
+      "width": 320,
+      "route": "/meus-estudos",
+      "ana": true,
+      "font": "24px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Meus estudos",
+      "top": 28
+    },
+    {
+      "width": 320,
+      "route": "/horarios",
+      "ana": true,
+      "font": "24px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Horários",
+      "top": 28
+    },
+    {
+      "width": 320,
+      "route": "/perfil/notas-e-faltas",
+      "ana": true,
+      "font": "24px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Notas e Faltas",
+      "top": 28
+    },
+    {
+      "width": 320,
+      "route": "/solicitacao-servicos",
+      "ana": true,
+      "font": "24px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Solicitação de serviços",
+      "top": 28
+    },
+    {
+      "width": 320,
+      "route": "/secretaria-virtual",
+      "ana": true,
+      "font": "24px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Secretaria virtual",
+      "top": 28
+    },
+    {
+      "width": 320,
+      "route": "/financeiro",
+      "ana": true,
+      "font": "24px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Meu financeiro",
+      "top": 28
+    },
+    {
+      "width": 320,
+      "route": "/jornada-academica",
+      "ana": true,
+      "font": "24px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Jornada Acadêmica",
+      "top": 28
+    },
+    {
+      "width": 320,
+      "route": "/perfil/documentos",
+      "ana": true,
+      "font": "24px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Marina Costa",
+      "top": 28
+    },
+    {
+      "width": 320,
+      "route": "/ajuda",
+      "ana": true,
+      "font": "24px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Como podemos ajudar?",
+      "top": 28
+    },
+    {
+      "width": 320,
+      "route": "/meus-estudos/atividades",
+      "ana": true,
+      "font": "24px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Atividades e horas",
+      "top": 28
+    },
+    {
+      "width": 320,
+      "route": "/notificacoes/76149709",
+      "ana": true,
+      "font": "24px",
+      "footer": false,
+      "overflow": false,
+      "scroll": 0,
+      "title": "Notificações",
+      "top": 28
+    }
+  ],
+  "checks": [
+    {
+      "name": "two latest notice links precede formation",
+      "passed": true
+    },
+    {
+      "name": "sidebar card and header ombudsman",
+      "passed": true
+    },
+    {
+      "name": "next class title opens its situation",
+      "passed": true
+    },
+    {
+      "name": "notice preview opens exact publication",
+      "passed": true
+    },
+    {
+      "name": "subject opens the requested side panel",
+      "passed": true
+    },
+    {
+      "name": "closing clears subject query",
+      "passed": true
+    },
+    {
+      "name": "new route always starts at top",
+      "passed": true
+    },
+    {
+      "name": "revisited route starts at top",
+      "passed": true
+    },
+    {
+      "name": "media has no overlay control",
+      "passed": true
+    },
+    {
+      "name": "summary includes recent requests",
+      "passed": true
+    },
+    {
+      "name": "requests are near top",
+      "passed": true
+    },
+    {
+      "name": "request detail remains functional",
+      "passed": true
+    },
+    {
+      "name": "mobile notices visually precede hours",
+      "passed": true
+    },
+    {
+      "name": "mobile stays poster only",
+      "passed": true
+    },
+    {
+      "name": "mobile menu keeps digital card",
+      "passed": true
+    },
+    {
+      "name": "mobile subject panel keeps selected discipline",
+      "passed": true
+    },
+    {
+      "name": "destination groups keep semantic colors",
+      "passed": true
+    }
+  ],
+  "audits": [
+    {
+      "route": "/inicio",
+      "width": 1440,
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 48,
+        "incomplete": 1,
+        "passes": 41,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 11,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node",
+              "html": "<strong data-card-name=\"\">Marina Costa</strong>",
+              "target": [
+                "strong[data-card-name=\"\"]"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node",
+              "html": "<small>Ciências Contábeis</small>",
+              "target": [
+                ".cx-credential-details > small:nth-child(2)"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node",
+              "html": "<small>RA 20260001</small>",
+              "target": [
+                ".cx-credential-details > small:nth-child(3)"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node",
+              "html": "<small>Validade: 31/03/2030</small>",
+              "target": [
+                ".cx-credential-details > small:nth-child(4)"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<strong>Carteirinha digital</strong>",
+              "target": [
+                ".cx-card-caption > strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<strong>Sua próxima aula · hoje, 21h</strong>",
+              "target": [
+                ".student-class-time > strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<a aria-label=\"Ver situação de Bases da Administração Moderna\" href=\"/perfil/notas-e-faltas?disciplina=administracao\" data-discover=\"true\">Bases da Administração Moderna</a>",
+              "target": [
+                "#home-next-class > a[data-discover=\"true\"]"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<p>",
+              "target": [
+                ".student-next-class > div > p"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+              "html": "<span>·</span>",
+              "target": [
+                ".student-next-class > div > p > span:nth-child(2)"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<span class=\"cx-class-end\">· até 22h40</span>",
+              "target": [
+                ".cx-class-end"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "effectiveLaunch": {
+          "browserLaunched": true,
+          "engine": "chrome",
+          "launchHash": 11677035664275012000
+        },
+        "launched": false,
+        "relaunchedBrowser": false,
+        "restartedBackground": false,
+        "restoreStatus": "not_configured",
+        "reused": true,
+        "saveStatus": "not_attempted"
+      },
+      "url": "http://127.0.0.1:5173/inicio",
+      "violations": []
+    },
+    {
+      "route": "/meus-estudos",
+      "width": 1440,
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 50,
+        "incomplete": 1,
+        "passes": 39,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 7,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node",
+              "html": "<strong data-card-name=\"\">Marina Costa</strong>",
+              "target": [
+                "strong[data-card-name=\"\"]"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node",
+              "html": "<small>Ciências Contábeis</small>",
+              "target": [
+                ".cx-credential-details > small:nth-child(2)"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node",
+              "html": "<small>RA 20260001</small>",
+              "target": [
+                "small:nth-child(3)"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node",
+              "html": "<small>Validade: 31/03/2030</small>",
+              "target": [
+                "small:nth-child(4)"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<strong>Carteirinha digital</strong>",
+              "target": [
+                ".cx-card-caption > strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<h2>Seu aprendizado tem um caminho.</h2>",
+              "target": [
+                ".cx-context-banner > div:nth-child(1) > h2"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<p>Acompanhe suas disciplinas, encontre apoio e veja seu próximo passo no curso.</p>",
+              "target": [
+                ".cx-context-banner > div:nth-child(1) > p"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "effectiveLaunch": {
+          "browserLaunched": true,
+          "engine": "chrome",
+          "launchHash": 11677035664275012000
+        },
+        "launched": false,
+        "relaunchedBrowser": false,
+        "restartedBackground": false,
+        "restoreStatus": "not_configured",
+        "reused": true,
+        "saveStatus": "not_attempted"
+      },
+      "url": "http://127.0.0.1:5173/meus-estudos",
+      "violations": []
+    },
+    {
+      "route": "/solicitacao-servicos",
+      "width": 1440,
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 46,
+        "incomplete": 1,
+        "passes": 43,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 14,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node",
+              "html": "<strong data-card-name=\"\">Marina Costa</strong>",
+              "target": [
+                "strong[data-card-name=\"\"]"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node",
+              "html": "<small>Ciências Contábeis</small>",
+              "target": [
+                ".cx-credential-details > small:nth-child(2)"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node",
+              "html": "<small>RA 20260001</small>",
+              "target": [
+                "small:nth-child(3)"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node",
+              "html": "<small>Validade: 31/03/2030</small>",
+              "target": [
+                "small:nth-child(4)"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<strong>Carteirinha digital</strong>",
+              "target": [
+                ".cx-card-caption > strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<h2>Pedidos recentes</h2>",
+              "target": [
+                ".replica-local-requests > h2"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<span class=\"tabular text-3xl leading-none font-bold text-foreground\">21</span>",
+              "target": [
+                ".text-3xl"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<span class=\"text-sm text-muted-foreground\">solicitações realizadas</span>",
+              "target": [
+                "p > .text-sm.text-muted-foreground"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+              "html": "<span class=\"tabular font-semibold text-foreground\">1</span>",
+              "target": [
+                "li:nth-child(1) > .font-semibold.text-foreground.tabular"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<span class=\"text-muted-foreground\">em andamento</span>",
+              "target": [
+                "li:nth-child(1) > .text-muted-foreground"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "effectiveLaunch": {
+          "browserLaunched": true,
+          "engine": "chrome",
+          "launchHash": 11677035664275012000
+        },
+        "launched": false,
+        "relaunchedBrowser": false,
+        "restartedBackground": false,
+        "restoreStatus": "not_configured",
+        "reused": true,
+        "saveStatus": "not_attempted"
+      },
+      "url": "http://127.0.0.1:5173/solicitacao-servicos",
+      "violations": []
+    },
+    {
+      "route": "/secretaria-virtual",
+      "width": 1440,
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 47,
+        "incomplete": 1,
+        "passes": 42,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 12,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node",
+              "html": "<strong data-card-name=\"\">Marina Costa</strong>",
+              "target": [
+                "strong[data-card-name=\"\"]"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node",
+              "html": "<small>Ciências Contábeis</small>",
+              "target": [
+                ".cx-credential-details > small:nth-child(2)"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node",
+              "html": "<small>RA 20260001</small>",
+              "target": [
+                "small:nth-child(3)"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node",
+              "html": "<small>Validade: 31/03/2030</small>",
+              "target": [
+                "small:nth-child(4)"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<strong>Carteirinha digital</strong>",
+              "target": [
+                ".cx-card-caption > strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<h2>O que você precisa resolver?</h2>",
+              "target": [
+                ".cx-secretariat-banner > div:nth-child(1) > h2"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<p>Dos documentos à formatura, a secretaria está por aqui.</p>",
+              "target": [
+                ".cx-secretariat-banner > div:nth-child(1) > p"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+              "html": "<strong>1</strong>",
+              "target": [
+                "a[href$=\"solicitacao-servicos\"][data-discover=\"true\"] > strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<span>pedido em andamento</span>",
+              "target": [
+                "a[href$=\"solicitacao-servicos\"][data-discover=\"true\"] > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<li>",
+              "target": [
+                "ol[aria-label=\"Etapas de uma solicitação\"] > li:nth-child(1)"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "effectiveLaunch": {
+          "browserLaunched": true,
+          "engine": "chrome",
+          "launchHash": 11677035664275012000
+        },
+        "launched": false,
+        "relaunchedBrowser": false,
+        "restartedBackground": false,
+        "restoreStatus": "not_configured",
+        "reused": true,
+        "saveStatus": "not_attempted"
+      },
+      "url": "http://127.0.0.1:5173/secretaria-virtual",
+      "violations": []
+    },
+    {
+      "route": "/inicio",
+      "width": 390,
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 48,
+        "incomplete": 1,
+        "passes": 41,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 5,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<strong>Sua próxima aula · hoje, 21h</strong>",
+              "target": [
+                ".student-class-time > strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<a aria-label=\"Ver situação de Bases da Administração Moderna\" href=\"/perfil/notas-e-faltas?disciplina=administracao\" data-discover=\"true\">Bases da Administração Moderna</a>",
+              "target": [
+                "#home-next-class > a[data-discover=\"true\"]"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<p>",
+              "target": [
+                ".student-next-class > div > p"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+              "html": "<span>·</span>",
+              "target": [
+                ".student-next-class > div > p > span:nth-child(2)"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<a href=\"/horarios\" data-discover=\"true\">",
+              "target": [
+                ".student-class-actions > a[href$=\"horarios\"][data-discover=\"true\"]"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "effectiveLaunch": {
+          "browserLaunched": true,
+          "engine": "chrome",
+          "launchHash": 11677035664275012000
+        },
+        "launched": false,
+        "relaunchedBrowser": false,
+        "restartedBackground": false,
+        "restoreStatus": "not_configured",
+        "reused": true,
+        "saveStatus": "not_attempted"
+      },
+      "url": "http://127.0.0.1:5173/inicio",
+      "violations": []
+    }
+  ]
+}

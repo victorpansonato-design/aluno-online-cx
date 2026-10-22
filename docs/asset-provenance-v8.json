@@ -1,0 +1,60 @@
+{
+   "revision": "v8",
+   "source": "Local synthetic portal, http://127.0.0.1:5173, 2026-10-22",
+   "assets": [
+      {
+         "path": "docs/screenshots/v8/cursos-390.png",
+         "sha256": "f8759b6a72d211997b5dc723d0aad10a039d709a5ac5a88be9abbbe7e84cbde9",
+         "bytes": 91422,
+         "kind": "browser-screenshot"
+      },
+      {
+         "path": "docs/screenshots/v8/financeiro-1440.png",
+         "sha256": "5121e528f27faebad0566aca9c3dbadc410f58705eb55ec9274016b6390240d6",
+         "bytes": 230589,
+         "kind": "browser-screenshot"
+      },
+      {
+         "path": "docs/screenshots/v8/financeiro-390.png",
+         "sha256": "afb640dc827bb073aed1ebcb789326541a504ee0f694bcc50b173034964b7ccb",
+         "bytes": 94904,
+         "kind": "browser-screenshot"
+      },
+      {
+         "path": "docs/screenshots/v8/financeiro-filter-1440.png",
+         "sha256": "610b906852d53c9f5427011e1f9411d60ae28bb7f2dd00bfc8cf359ffb50468e",
+         "bytes": 233121,
+         "kind": "browser-screenshot"
+      },
+      {
+         "path": "docs/screenshots/v8/inicio-1440.png",
+         "sha256": "a7d2d94452b96a099227776cc15581b183cda30c9d7be52637fb6f8ca578adf5",
+         "bytes": 232028,
+         "kind": "browser-screenshot"
+      },
+      {
+         "path": "docs/screenshots/v8/inicio-390.png",
+         "sha256": "f07873533e6e070720befbed278921806c1211b4262a214446cc5e84d160ab99",
+         "bytes": 93384,
+         "kind": "browser-screenshot"
+      },
+      {
+         "path": "docs/screenshots/v8/responsaveis-1440.png",
+         "sha256": "edfb408715aa8701fc1264b1411e6b6ac6e3923c264f2d039e9a0e8deaab9d45",
+         "bytes": 217558,
+         "kind": "browser-screenshot"
+      },
+      {
+         "path": "docs/screenshots/v8/responsaveis-390.png",
+         "sha256": "72259b3247d1daacf91e86d170ccda655f07cbddbd40f398b2b6ab941eb4f653",
+         "bytes": 64824,
+         "kind": "browser-screenshot"
+      },
+      {
+         "path": "docs/screenshots/v8/situacao-390.png",
+         "sha256": "1b4a275c68a1fb5ac72a478377ea0e7e5fa46340633c4767e1a3aae647bd3143",
+         "bytes": 74876,
+         "kind": "browser-screenshot"
+      }
+   ]
+}

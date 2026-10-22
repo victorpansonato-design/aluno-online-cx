@@ -1,0 +1,46 @@
+[
+  {
+    "name": "study-notes",
+    "id": 50109,
+    "source": "https://mixkit.co/free-stock-video/a-student-making-notes-and-mathematical-charts-on-the-notebook-50109/",
+    "license": "Mixkit Stock Video Free License",
+    "licenseURL": "https://mixkit.co/license/#videoFree",
+    "downloadedAt": "2026-10-22",
+    "originalResolution": "1920x1080",
+    "shipped": {
+      "video": "public/media/study-notes.mp4",
+      "poster": "public/media/study-notes.webp",
+      "width": 1280,
+      "height": 720,
+      "duration": 7.5,
+      "codec": "H.264 Main, yuv420p, level 3.1",
+      "audio": false,
+      "bytes": 956060,
+      "sha256": "97e422e0e25bbb000df617260fc1cc237868ef6053cc45e73cea8c06dbcc0891",
+      "loop": "0.5s crossfade at cycle boundary"
+    },
+    "policy": "Desktop >=1024px, visible and active, no reduced motion, Save-Data, slow connection or known low memory; poster otherwise."
+  },
+  {
+    "name": "study-desk",
+    "id": 50111,
+    "source": "https://mixkit.co/free-stock-video/student-makes-a-note-over-wooden-desk-filled-with-mathematical-50111/",
+    "license": "Mixkit Stock Video Free License",
+    "licenseURL": "https://mixkit.co/license/#videoFree",
+    "downloadedAt": "2026-10-22",
+    "originalResolution": "1920x1080",
+    "shipped": {
+      "video": "public/media/study-desk.mp4",
+      "poster": "public/media/study-desk.webp",
+      "width": 1280,
+      "height": 720,
+      "duration": 7.5,
+      "codec": "H.264 Main, yuv420p, level 3.1",
+      "audio": false,
+      "bytes": 739530,
+      "sha256": "a250b30b68acf804c581bdc6171aaefe72844ae70e314abc13c291ea8ad6c31b",
+      "loop": "0.5s crossfade at cycle boundary"
+    },
+    "policy": "Desktop >=1024px, visible and active, no reduced motion, Save-Data, slow connection or known low memory; poster otherwise."
+  }
+]

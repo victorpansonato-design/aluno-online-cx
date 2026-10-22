@@ -14,6 +14,10 @@ import { SectionNavigation } from "./student/Navigation";
 import "./original.css";
 import "./replica.css";
 import "./student/student.css";
+import "./student/refinements.css";
+import "./student/refinements-v6.css";
+import "./student/refinements-v7.css";
+import "./student/refinements-v8.css";
 const StudentPage = lazy(() => import("./student/StudentPage"));
 
 export default function App() {
@@ -28,8 +32,24 @@ export default function App() {
 const ReferenceContent = memo(function ReferenceContent({ html }: { html: string }) {
    return <div className="replica-reference-content" dangerouslySetInnerHTML={{ __html: html }} />;
 });
+const ConnectedReference = memo(function ConnectedReference({ html, path }: { html: string; path: string }) {
+   const { heading, body } = useMemo(() => {
+      const d = new DOMParser().parseFromString(html, "text/html");
+      const h = d.querySelector<HTMLElement>("[data-unified-heading]");
+      const heading = h?.innerHTML || "";
+      h?.remove();
+      return { heading, body: d.body.innerHTML };
+   }, [html]);
+   return (
+      <>
+         <header className="student-page-heading cx-unified-heading" dangerouslySetInnerHTML={{ __html: heading }} />
+         <SectionNavigation path={path} />
+         <ReferenceContent html={body} />
+      </>
+   );
+});
 function Replica() {
-   const { state, update } = useDemo();
+   const { state, update, changeTheme } = useDemo();
    const location = useLocation();
    const nav = useNavigate();
    const [host, setHost] = useState<HTMLDivElement | null>(null);
@@ -47,7 +67,11 @@ function Replica() {
    const [loaded, setLoaded] = useState({ name: "", html: "" });
    const [loadError, setLoadError] = useState(false);
    const contentRef = useRef<HTMLDivElement>(null);
-   const scrollPositions = useRef(new Map<string, number>());
+   const pageAnimation = useRef<Animation | null>(null);
+   const journeyOffset = useRef(0);
+   const journeyVerticalOffset = useRef<number | null>(null);
+   const scrollDestination = useRef("");
+   const initialScrollPending = useRef(true);
    const closeTimer = useRef<number | undefined>(undefined);
    const rawPath = routePath(location.pathname);
    const routedOverlay: Overlay | null = rawPath.startsWith("/solicitacao-servicos/solicitar/")
@@ -69,7 +93,8 @@ function Replica() {
            : "/solicitacao-servicos"
       : rawPath;
    const title = titleFor(page);
-   const customStudentPage = studentRoutes.has(page) || (connected && ["/inicio", "/financeiro"].includes(page));
+   const customStudentPage =
+      studentRoutes.has(page) || (connected && ["/inicio", "/financeiro", "/secretaria-virtual", "/ajuda"].includes(page));
    const bindHost = useCallback((node: HTMLDivElement | null) => {
       if (node && !node.dataset.replicaMounted) {
          node.innerHTML = reference.shell;
@@ -120,11 +145,9 @@ function Replica() {
          setOverlay(null);
          setMenu(false);
          setAccount(false);
-         const scroller = host?.querySelector("[data-replica-scroll]");
-         if (scroller) scrollPositions.current.set(page, scroller.scrollTop);
          nav(routePath(path));
       },
-      [host, page, nav],
+      [nav],
    );
    const close = () => {
       if (closeTimer.current) return;
@@ -134,6 +157,11 @@ function Replica() {
       closeTimer.current = window.setTimeout(() => {
          closeTimer.current = undefined;
          setOverlay(null);
+         if (overlay?.kind === "grades" && new URLSearchParams(location.search).has("disciplina")) {
+            const params = new URLSearchParams(location.search);
+            params.delete("disciplina");
+            nav({ pathname: location.pathname, search: params.toString() }, { replace: true });
+         }
          if (routedOverlay) go(page);
       }, duration);
    };
@@ -142,11 +170,24 @@ function Replica() {
       if (aliases[location.pathname] && location.pathname !== rawPath) nav(rawPath, { replace: true });
    }, [location.pathname, rawPath, nav]);
    useEffect(() => {
-      document.title = title + " | Aluno Online Anchieta · Demonstração";
+      document.title = title + " | Aluno Online Anchieta";
    }, [title]);
    useEffect(() => {
       setStage("Estágio");
-   }, [page]);
+      journeyOffset.current = 0;
+      journeyVerticalOffset.current = null;
+      if (page === "/jornada-academica") setPeriod(Number(new URLSearchParams(location.search).get("periodo")) || 2);
+   }, [page, location.search]);
+   useLayoutEffect(() => {
+      if (page !== "/jornada-academica") return;
+      const viewport = contentRef.current?.querySelector<HTMLElement>(".replica-carousel");
+      if (viewport) viewport.scrollLeft = journeyOffset.current;
+      if (pageHTML && journeyVerticalOffset.current !== null) {
+         const scroller = host?.querySelector("[data-replica-scroll]");
+         if (scroller) scroller.scrollTop = journeyVerticalOffset.current;
+         journeyVerticalOffset.current = null;
+      }
+   }, [page, pageHTML, host]);
    useEffect(() => {
       if (!screenName) return;
       let stale = false;
@@ -171,6 +212,11 @@ function Replica() {
       if (navEl) navEl.innerHTML = sourceNav;
       host.classList.toggle("replica-student-mode", connected);
    }, [host, sourceNav, connected]);
+   useLayoutEffect(() => {
+      host?.querySelectorAll("[data-card-name]").forEach(el => {
+         el.textContent = state.profile.name;
+      });
+   }, [host, sourceNav, state.profile.name]);
    useLayoutEffect(() => {
       if (!host) return;
       host.classList.toggle("replica-collapsed", collapsed);
@@ -242,8 +288,18 @@ function Replica() {
       const profile = Array.from(host.querySelectorAll("header button")).find(b => b.textContent?.includes("RA:"));
       const notices = host.querySelector<HTMLAnchorElement>('header a[aria-label="Avisos"]');
       if (notices) notices.href = connected ? "/comunicados" : "/notificacoes";
+      const ombudsman = host.querySelector<HTMLAnchorElement>('header a[aria-label="Carteirinha"],header a[data-ombudsman]');
+      if (ombudsman) {
+         ombudsman.dataset.ombudsman = "true";
+         ombudsman.href = external.ouvidoria;
+         ombudsman.target = "_blank";
+         ombudsman.rel = "noopener noreferrer";
+         ombudsman.setAttribute("aria-label", "Ouvidoria (abre em nova aba)");
+         ombudsman.title = "Ouvidoria";
+         ombudsman.innerHTML = '<span class="material-symbols-outlined" aria-hidden="true" style="font-size:20px">campaign</span>';
+      }
       if (profile) {
-         profile.setAttribute("aria-label", "Abrir menu da conta e opções da demonstração");
+         profile.setAttribute("aria-label", "Abrir menu da conta e preferências");
          profile.setAttribute("data-account", "true");
       }
       host.querySelectorAll("button").forEach(b => {
@@ -264,17 +320,29 @@ function Replica() {
    useLayoutEffect(() => {
       const scroller = host?.querySelector("[data-replica-scroll]");
       if (!scroller) return;
-      scroller.scrollTop = location.hash ? scroller.scrollTop : scrollPositions.current.get(page) || 0;
-      if (location.hash) requestAnimationFrame(() => host?.querySelector(location.hash)?.scrollIntoView({ block: "start" }));
-      if (!state.reducedMotion && !matchMedia("(prefers-reduced-motion: reduce)").matches && contentRef.current)
-         contentRef.current.animate(
+      const destination = page + location.hash;
+      if (scrollDestination.current !== destination) {
+         scrollDestination.current = destination;
+         initialScrollPending.current = true;
+      }
+      if (initialScrollPending.current) {
+         scroller.scrollTop = 0;
+         if (customStudentPage || source) {
+            initialScrollPending.current = false;
+            if (location.hash) requestAnimationFrame(() => host?.querySelector(location.hash)?.scrollIntoView({ block: "start" }));
+         }
+      }
+      pageAnimation.current?.cancel();
+      if (!state.reducedMotion && !matchMedia("(prefers-reduced-motion: reduce)").matches && contentRef.current && (!screenName || source))
+         pageAnimation.current = contentRef.current.animate(
             [
-               { opacity: 0.65, transform: "translateY(6px)" },
+               { opacity: 0.35, transform: "translateY(5px)" },
                { opacity: 1, transform: "translateY(0)" },
             ],
-            { duration: 200, easing: "cubic-bezier(.23,1,.32,1)" },
+            { duration: 260, easing: "cubic-bezier(.22,1,.36,1)" },
          );
-   }, [page, host, location.hash, state.reducedMotion, loaded.name]);
+      return () => pageAnimation.current?.cancel();
+   }, [page, host, location.hash, state.reducedMotion, loaded.name, screenName, source, customStudentPage]);
    useLayoutEffect(() => {
       const tabs = contentRef.current?.querySelector<HTMLElement>('nav[aria-label="Seções do perfil"]');
       const active = tabs?.querySelector<HTMLElement>("[aria-current=page]");
@@ -296,7 +364,7 @@ function Replica() {
    }, [pageHTML]);
    useLayoutEffect(() => {
       const id = new URLSearchParams(location.search).get("disciplina");
-      if (!id || !connected) return;
+      if (!id || !connected || page !== "/perfil/notas-e-faltas" || !source) return;
       const unit = disciplines.find(d => d.id === id);
       if (!unit) return;
       const heading = Array.from(contentRef.current?.querySelectorAll("h3,h4") || []).find(
@@ -313,7 +381,8 @@ function Replica() {
                Math.max(24, (scroller.clientHeight - row.getBoundingClientRect().height) / 2);
          }
       }
-   }, [loaded.name, location.search, connected, host]);
+      setOverlay(current => (current?.kind === "grades" && current.title === unit.name ? current : { kind: "grades", title: unit.name }));
+   }, [loaded.name, location.search, connected, host, page, source]);
    useEffect(() => {
       const onKey = (e: KeyboardEvent) => {
          if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
@@ -330,9 +399,16 @@ function Replica() {
       const revealFocus = (event: FocusEvent) => {
          const target = event.target;
          if (!(target instanceof HTMLElement)) return;
+         cancelAnimationFrame(frame);
+         // Blank-area clicks focus the main container (tabindex=-1). Only reveal
+         // actual keyboard-focused controls, never the whole page underneath Ana.
+         if (
+            !target.matches('a[href],button,input,select,textarea,summary,[role="button"],[role="link"],[tabindex]:not([tabindex="-1"])') ||
+            !target.matches(":focus-visible")
+         )
+            return;
          const scroller = target.closest<HTMLElement>("[data-replica-scroll]");
          if (!scroller) return;
-         cancelAnimationFrame(frame);
          frame = requestAnimationFrame(() => {
             const avatar = document.querySelector<HTMLElement>(".replica-ana-launcher");
             if (!avatar || getComputedStyle(avatar).visibility === "hidden") return;
@@ -386,7 +462,8 @@ function Replica() {
          return;
       }
       if (label === "Alternar tema") {
-         update(s => ({ ...s, theme: s.theme === "light" ? "dark" : "light" }));
+         const rect = target.getBoundingClientRect();
+         changeTheme(state.theme === "light" ? "dark" : "light", { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 });
          return;
       }
       if (label === "Buscar menus" || text.includes("Buscar menus, páginas")) {
@@ -413,7 +490,7 @@ function Replica() {
          return;
       }
       if (target.hasAttribute("data-copy")) {
-         navigator.clipboard?.writeText(target.dataset.copy || "").then(() => toast.success("Protocolo de demonstração copiado"));
+         navigator.clipboard?.writeText(target.dataset.copy || "").then(() => toast.success("Protocolo copiado"));
          return;
       }
       if (target.hasAttribute("data-select-subjects")) {
@@ -455,7 +532,7 @@ function Replica() {
          const id = target.dataset.payDemo;
          if (id === "DEMO-MENSALIDADE") update(s => ({ ...s, scenario: "base" }));
          else update(s => ({ ...s, requests: s.requests.map(r => (r.id === id ? { ...r, status: "Em análise" } : r)) }));
-         toast.success("Pagamento confirmado somente na demonstração");
+         toast.success("Pagamento informado");
          return;
       }
       if (text === "Notas e faltas") {
@@ -469,8 +546,12 @@ function Replica() {
          setOverlay({ kind: "document", index: doc });
          return;
       }
-      if (page === "/jornada-academica" && /^\dº período/i.test(label)) {
-         setPeriod(Number(label[0]));
+      if (page === "/jornada-academica" && (/^\dº período/i.test(label) || target.dataset.openPeriod)) {
+         const nextPeriod = Number(target.dataset.openPeriod || label[0]);
+         if (nextPeriod === period) return;
+         journeyOffset.current = contentRef.current?.querySelector(".replica-carousel")?.scrollLeft || 0;
+         journeyVerticalOffset.current = host?.querySelector("[data-replica-scroll]")?.scrollTop || 0;
+         setPeriod(nextPeriod);
          return;
       }
       if (page === "/jornada-academica" && label.includes("histórico")) {
@@ -551,7 +632,7 @@ function Replica() {
       }
       if (text.startsWith("Carregar mais")) {
          target.style.display = "none";
-         toast.info("Todos os itens da demonstração já estão disponíveis. Use a busca para localizar.");
+         toast.info("Use a busca para encontrar o que precisa.");
          return;
       }
       if (page.startsWith("/financeiro") && text.includes("CSV")) {
@@ -619,7 +700,7 @@ function Replica() {
          setOverlay({
             kind: "info",
             title: "Disciplinas contempladas",
-            detail: "Confira a frequência das disciplinas do semestre. Os exemplos abaixo não substituem a análise acadêmica.",
+            detail: "Confira a frequência das disciplinas do semestre.",
          });
          return;
       }
@@ -764,7 +845,7 @@ function Replica() {
                const label = button.querySelector("span,p,strong") || button;
                label.textContent = file.name;
             }
-            toast.success("Arquivo selecionado localmente. Nenhum envio foi realizado.");
+            toast.success("Arquivo selecionado");
          }
          return;
       }
@@ -795,7 +876,14 @@ function Replica() {
       return () => element.removeEventListener("change", change);
    }, [host, onChange]);
    const content = (
-      <div ref={contentRef} className="replica-page" onClick={handleClick} onInput={onInput} onSubmit={e => e.preventDefault()}>
+      <div
+         ref={contentRef}
+         className="replica-page"
+         data-route={page}
+         onClick={handleClick}
+         onInput={onInput}
+         onSubmit={e => e.preventDefault()}
+      >
          {customStudentPage ? (
             <Suspense
                fallback={
@@ -808,10 +896,14 @@ function Replica() {
                <StudentPage path={page} showOverlay={setOverlay} />
             </Suspense>
          ) : source ? (
-            <>
-               {connected && <SectionNavigation path={page} />}
+            connected ? (
+               <ConnectedReference
+                  html={pageHTML}
+                  path={overlay?.kind === "catalog" || overlay?.kind === "service" ? "/solicitacao-servicos/solicitar" : rawPath}
+               />
+            ) : (
                <ReferenceContent html={pageHTML} />
-            </>
+            )
          ) : screenName ? (
             <div className="replica-loading" aria-live="polite">
                {loadError ? (
@@ -847,13 +939,6 @@ function Replica() {
                </button>
             </div>
          )}
-         <footer className="replica-footer">
-            <span>Demonstração local · Dados fictícios · Sem conexão com o portal real</span>
-            <button onClick={() => setAccount(true)}>
-               {connected ? "Navegação conectada" : "Navegação original"} <ChevronDown size={13} />
-            </button>
-            <button onClick={() => go("/ajuda")}>Preciso de ajuda</button>
-         </footer>
       </div>
    );
    return (
@@ -940,7 +1025,7 @@ function Account({
    setConnected: (v: boolean) => void;
    go: (p: string) => void;
 }) {
-   const { state, update } = useDemo();
+   const { state, changeTheme } = useDemo();
    return (
       <Dialog.Root
          open
@@ -953,7 +1038,7 @@ function Account({
             <Dialog.Content aria-describedby={undefined} className="replica-account">
                <Dialog.Title>
                   {state.profile.name}
-                  <small>RA 20260001 · Demonstração</small>
+                  <small>RA 20260001</small>
                </Dialog.Title>
                <Dialog.Close aria-label="Fechar opções" className="replica-close">
                   <X size={16} />
@@ -991,9 +1076,9 @@ function Account({
                </button>
                <button onClick={() => go("/preferencias")}>
                   <Settings2 size={16} />
-                  Preferências e cenários
+                  Preferências
                </button>
-               <button onClick={() => update(s => ({ ...s, theme: s.theme === "light" ? "dark" : "light" }))}>
+               <button onClick={() => changeTheme(state.theme === "light" ? "dark" : "light")}>
                   {state.theme === "light" ? <Moon size={16} /> : <Sun size={16} />}Alternar tema
                </button>
                <button onClick={() => go("/ajuda")}>
@@ -1002,7 +1087,7 @@ function Account({
                </button>
                <button onClick={() => go("/entrar")}>
                   <LogOut size={16} />
-                  Sair da demonstração
+                  Sair
                </button>
             </Dialog.Content>
          </Dialog.Portal>
@@ -1093,9 +1178,9 @@ function Secretariat({ go }: { go: (p: string) => void }) {
                ))}
                {!state.requests.length && (
                   <div className="replica-personal-link">
-                     <p>Os pedidos que você criar nesta demonstração aparecem aqui para acompanhamento.</p>
+                     <p>Seus pedidos aparecem aqui para acompanhamento.</p>
                      <button className="replica-text-button" onClick={() => go("/solicitacao-servicos")}>
-                        Consultar histórico ilustrativo <ArrowRight size={16} />
+                        Consultar histórico <ArrowRight size={16} />
                      </button>
                   </div>
                )}
@@ -1122,12 +1207,12 @@ function Secretariat({ go }: { go: (p: string) => void }) {
    );
 }
 function Preferences({ connected, setConnected }: { connected: boolean; setConnected: (v: boolean) => void }) {
-   const { state, update, reset } = useDemo();
+   const { state, update, reset, changeTheme } = useDemo();
    return (
       <section className="replica-preferences">
          <div className="replica-page-head">
             <h1>Preferências e cenários</h1>
-            <p>Ajuste a demonstração para explorar situações da vida do aluno.</p>
+            <p>Personalize a aparência e as opções da sua navegação.</p>
          </div>
          <label className="replica-field">
             Navegação
@@ -1137,7 +1222,7 @@ function Preferences({ connected, setConnected }: { connected: boolean; setConne
             </select>
          </label>
          <label className="replica-field">
-            Cenário de demonstração
+            Situação acadêmica
             <select
                value={state.scenario}
                onChange={e => {
@@ -1146,17 +1231,13 @@ function Preferences({ connected, setConnected }: { connected: boolean; setConne
                }}
             >
                <option value="base">Semestre em curso</option>
-               <option value="dp">Dependência e adaptação fictícias</option>
-               <option value="financeiro">Cobrança fictícia pendente</option>
-               <option value="vazio">Sem mensalidade de exemplo</option>
+               <option value="dp">Dependência e adaptação</option>
+               <option value="financeiro">Cobrança pendente</option>
+               <option value="vazio">Sem mensalidade pendente</option>
             </select>
          </label>
          <label className="replica-switch">
-            <input
-               type="checkbox"
-               checked={state.theme === "dark"}
-               onChange={e => update(s => ({ ...s, theme: e.target.checked ? "dark" : "light" }))}
-            />
+            <input type="checkbox" checked={state.theme === "dark"} onChange={e => changeTheme(e.target.checked ? "dark" : "light")} />
             Tema escuro
          </label>
          <label className="replica-switch">
@@ -1167,17 +1248,14 @@ function Preferences({ connected, setConnected }: { connected: boolean; setConne
             <input type="checkbox" checked={state.reducedMotion} onChange={e => update(s => ({ ...s, reducedMotion: e.target.checked }))} />
             Reduzir movimento
          </label>
-         <div className="replica-callout">
-            Os cenários representam situações fictícias. As informações da conta de teste e o portal real não são alterados.
-         </div>
          <button
             className="replica-button secondary"
             onClick={() => {
                reset();
-               toast.success("Demonstração reiniciada");
+               toast.success("Preferências restauradas");
             }}
          >
-            Reiniciar dados de demonstração
+            Restaurar preferências
          </button>
       </section>
    );
@@ -1247,11 +1325,11 @@ function DemoEntrance({ go }: { go: (p: string) => void }) {
       <div className="replica-entrance">
          <img src="/replica/logo-grupo-anchieta-3x-BOFhQ5AB.webp" alt="Grupo Anchieta" />
          <h1>Aluno Online</h1>
-         <p>Clone de frontend para avaliação da experiência do aluno.</p>
+         <p>Sua vida acadêmica, conectada.</p>
          <button className="replica-button" onClick={() => go("/inicio")}>
-            Entrar na demonstração <ArrowRight size={17} />
+            Entrar no Aluno Online <ArrowRight size={17} />
          </button>
-         <p className="replica-note">Dados fictícios. A demonstração não precisa de RA ou senha.</p>
+         <p className="replica-note">Acesse suas aulas, serviços e informações acadêmicas.</p>
       </div>
    );
 }
@@ -1272,7 +1350,7 @@ function toggleProfileAccordion(target: HTMLElement, profile: { name: string; em
    const fields = title.startsWith("Informações")
       ? [
            ["Nome completo", profile.name],
-           ["Data de nascimento", "01/02/2007 · exemplo"],
+           ["Data de nascimento", "01/02/2007"],
            ["Nacionalidade", "Brasileira"],
            ["E-mail", profile.email],
         ]
@@ -1286,8 +1364,8 @@ function toggleProfileAccordion(target: HTMLElement, profile: { name: string; em
           ]
         : title.includes("comercial")
           ? [
-               ["Empresa", "Empresa de exemplo"],
-               ["Endereço comercial", "Endereço fictício"],
+               ["Empresa", "Empresa cadastrada"],
+               ["Endereço comercial", "Endereço cadastrado"],
                ["Telefone comercial", "(11) 0000-0000"],
             ]
           : [
@@ -1298,7 +1376,7 @@ function toggleProfileAccordion(target: HTMLElement, profile: { name: string; em
    panel.innerHTML =
       '<div class="replica-profile-details"><dl>' +
       fields.map(([label, value]) => `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`).join("") +
-      `</dl><p class="replica-note">Dados fictícios da demonstração.</p><button class="replica-button secondary" data-edit-profile="${escapeHtml(title)}">Editar dados de exemplo</button></div>`;
+      `</dl><button class="replica-button secondary" data-edit-profile="${escapeHtml(title)}">Editar dados</button></div>`;
    panel.hidden = false;
    panel.style.setProperty("--radix-accordion-content-height", panel.scrollHeight + "px");
 }
@@ -1311,7 +1389,7 @@ function exportStatement() {
    a.download = "extrato-demonstracao.csv";
    a.click();
    setTimeout(() => URL.revokeObjectURL(url), 1000);
-   toast.success("Extrato de demonstração exportado");
+   toast.success("Extrato exportado");
 }
 function exportCalendar() {
    const ics =
@@ -1322,5 +1400,5 @@ function exportCalendar() {
    a.download = "aulas-demonstracao.ics";
    a.click();
    setTimeout(() => URL.revokeObjectURL(url), 1000);
-   toast.success("Evento de demonstração exportado");
+   toast.success("Evento exportado");
 }
