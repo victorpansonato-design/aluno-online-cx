@@ -7,7 +7,7 @@ import type { Overlay } from "../Dialogs";
 import Financial, { PixPayment } from "./Financial";
 import AcademicCalendar from "./AcademicCalendar";
 import { DestinationList, SectionNavigation } from "./Navigation";
-import { academicEvents, formatDate, supportLinks, today } from "./model";
+import { academicEvents, electivesHref, formatDate, supportLinks, today } from "./model";
 
 import { AcademicPulse, ContextBanner, FormationSummary, HelpCenter, HomeDashboard, SecretariatHub } from "./Experience";
 
@@ -84,7 +84,7 @@ function Studies() {
                         label: "Acompanhar minha formação",
                         href: "/meus-estudos/atividades",
                         icon: "school",
-                        description: "Horas complementares e extensão.",
+                        description: "Horas complementares, extensão e eletivas.",
                      },
                   ]}
                />
@@ -137,7 +137,13 @@ function Studies() {
                            label: "Atividades e horas",
                            href: "/meus-estudos/atividades",
                            icon: "hourglass_bottom",
-                           description: "Acompanhe horas complementares e de extensão e saiba como registrá-las.",
+                           description: "Acompanhe complementares, extensão e as escolhas da sua formação.",
+                        },
+                        {
+                           label: "Disciplinas eletivas",
+                           href: electivesHref,
+                           icon: "auto_stories",
+                           description: "Escolha disciplinas e acompanhe suas inscrições em Atividades e horas.",
                         },
                         {
                            label: "Estágio, TCC e Projeto Integrador",
@@ -211,7 +217,7 @@ function Formation({ extensionOnly }: { extensionOnly: boolean }) {
          <div className="student-formation-overview">
             <FormationSummary />
             <section>
-               <h2>Qual atividade eu preciso acompanhar?</h2>
+               <h2>O que eu quero acompanhar?</h2>
                <DestinationList
                   items={[
                      {
@@ -225,6 +231,14 @@ function Formation({ extensionOnly }: { extensionOnly: boolean }) {
                         href: external.extensao,
                         icon: "diversity_3",
                         description: "Projetos e atividades que aproximam sua formação da comunidade.",
+                     },
+                     {
+                        id: "eletivas",
+                        label: "Disciplinas eletivas",
+                        href: external.eletivas,
+                        icon: "auto_stories",
+                        description:
+                           "Explore disciplinas e acompanhe suas inscrições no sistema de eletivas. Separado das horas complementares.",
                      },
                      {
                         label: "Meus certificados",

@@ -5,7 +5,7 @@ import { toast } from "sonner";
 import { createProtocol, useDemo } from "../cx/state";
 import { curriculum, disciplines, normalize, services } from "../cx/data";
 import { cleanPresentation, docNames, loadServiceForm, reference, type ReferenceDialog, type ServiceReference } from "./reference";
-import { primaryDestinations, studentLabels, supportLinks } from "./student/model";
+import { electivesHref, primaryDestinations, studentLabels, supportLinks } from "./student/model";
 import { ResponsibilitiesManager } from "./student/Responsibilities";
 
 export type Overlay = {
@@ -967,6 +967,7 @@ function SearchDialog({ close, go }: { close: () => void; go: (p: string) => voi
       ...primaryDestinations.map(item => [item.href, { title: item.label }] as const),
       ...Object.entries(studentLabels).map(([path, title]) => [path, { title }] as const),
       ...supportLinks.map(item => [item.href, { title: item.label }] as const),
+      [electivesHref, { title: "Disciplinas eletivas · oferta e inscrições" }] as const,
       ["/financeiro", { title: "Cobranças, boletos e Pix" }] as const,
    ];
    const pages = [
@@ -1027,6 +1028,7 @@ function Ana({ close, go }: { close: () => void; go: (p: string) => void }) {
       { label: "Inscrever em DP ou adaptação", path: "/jornada-academica", key: "dp dependencia adaptacao disciplina" },
       { label: "Horário e local das aulas", path: "/horarios", key: "horario aula sala local" },
       { label: "Estágio, TCC e PI", path: "/meu-estagio", key: "estagio tcc pi" },
+      { label: "Disciplinas eletivas", path: electivesHref, key: "eletiva eletivas optativa inscricao escolha" },
    ];
    const matches = asked
       ? choices.filter(c =>

@@ -9,7 +9,7 @@ import { disciplines, external, normalize } from "../cx/data";
 import OverlayView, { type Overlay } from "./Dialogs";
 import { prepareMonth } from "./calendar";
 import { aliases, docNames, escapeHtml, loadScreen, navigationHtml, preparePage, reference, routePath, titleFor } from "./reference";
-import { sectionFor, studentRoutes } from "./student/model";
+import { electivesHref, electivesLegacyRoutes, sectionFor, studentRoutes } from "./student/model";
 import { SectionNavigation } from "./student/Navigation";
 import "./original.css";
 import "./replica.css";
@@ -167,7 +167,8 @@ function Replica() {
    };
    useEffect(() => () => window.clearTimeout(closeTimer.current), []);
    useEffect(() => {
-      if (aliases[location.pathname] && location.pathname !== rawPath) nav(rawPath, { replace: true });
+      if (electivesLegacyRoutes.includes(location.pathname.replace(/^\/aluno-online/, ""))) nav(electivesHref, { replace: true });
+      else if (aliases[location.pathname] && location.pathname !== rawPath) nav(rawPath, { replace: true });
    }, [location.pathname, rawPath, nav]);
    useEffect(() => {
       document.title = title + " | Aluno Online Anchieta";

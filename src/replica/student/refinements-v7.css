@@ -25,9 +25,9 @@
 .student-financial-aside {
    align-self: start;
 }
-.student-page .cx-ambient.student-guidance > img,
-.student-page .cx-ambient.student-guidance > video {
-   object-position: 34% 38%;
+.student-page .cx-ambient.secretariat-documents > img,
+.student-page .cx-ambient.secretariat-documents > video {
+   object-position: 50% 68%;
 }
 .cx-journey-pending-note {
    display: flex;
@@ -142,9 +142,14 @@
    }
    .student-page .cx-context-banner .cx-ambient,
    .student-page .cx-secretariat-banner .cx-ambient {
+      position: relative;
+      inset: auto;
       aspect-ratio: 16 / 9;
       min-height: 0;
       width: 100%;
+   }
+   .student-page .cx-context-banner > div:first-child {
+      padding: 20px 17px;
    }
    .student-page .cx-ambient > img,
    .student-page .cx-ambient > video {
@@ -161,4 +166,9 @@
    .cx-journey-row-actions .replica-button {
       white-space: normal;
    }
+}
+
+/* Keep deep links below the fixed header and preserve Eletivas as its own category. */
+#eletivas {
+   scroll-margin-top: 24px;
 }

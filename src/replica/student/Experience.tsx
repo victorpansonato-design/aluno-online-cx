@@ -30,7 +30,7 @@ import { DestinationList, SectionNavigation } from "./Navigation";
 type Connection = EventTarget & { saveData?: boolean; effectiveType?: string; downlink?: number };
 
 /** Decorative, muted inline loops; load only while visible and respect reduced motion/data saving. */
-export function AmbientVideo({ name }: { name: "study-notes" | "study-desk" | "student-guidance" }) {
+export function AmbientVideo({ name }: { name: "study-notes" | "study-desk" | "secretariat-documents" }) {
    const { state } = useDemo();
    const video = useRef<HTMLVideoElement>(null);
    const container = useRef<HTMLDivElement>(null);
@@ -93,7 +93,13 @@ export function AmbientVideo({ name }: { name: "study-notes" | "study-desk" | "s
                onError={() => setFailed(true)}
             />
          )}
-         <span className="sr-only">{playing ? "Vídeo decorativo em reprodução" : "Imagem de uma mesa de estudo"}</span>
+         <span className="sr-only">
+            {playing
+               ? "Vídeo decorativo em reprodução"
+               : name === "secretariat-documents"
+                 ? "Imagem de assinatura de documentos"
+                 : "Imagem de uma mesa de estudo"}
+         </span>
       </div>
    );
 }
@@ -106,7 +112,7 @@ export function ContextBanner({
 }: {
    title: string;
    children: ReactNode;
-   media?: "study-notes" | "study-desk" | "student-guidance";
+   media?: "study-notes" | "study-desk" | "secretariat-documents";
    action: ReactNode;
 }) {
    return (
@@ -629,7 +635,7 @@ export function SecretariatHub() {
                   Nova solicitação <ArrowRight size={16} />
                </Link>
             </div>
-            <AmbientVideo name="student-guidance" />
+            <AmbientVideo name="secretariat-documents" />
          </section>
          <div className="cx-service-progress">
             <Link to="/solicitacao-servicos">

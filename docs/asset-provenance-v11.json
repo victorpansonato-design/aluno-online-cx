@@ -1,0 +1,26 @@
+[
+  {
+    "file": "docs/screenshots/v11/meus-estudos-atividades-1440.png",
+    "origin": "Origin: browser screenshot of the local Aluno Online CX prototype, http://127.0.0.1:5173, 2026-10-23, meus-estudos-atividades-1440.png. Synthetic profile. Not AI-generated. Video provenance is documented separately in media-provenance-v11.json.",
+    "bytes": 375396,
+    "sha256": "4b1ee89c3d5685fc71789e99e07b8ec3ef69a884670a9057407755a2f3055a7f"
+  },
+  {
+    "file": "docs/screenshots/v11/meus-estudos-atividades-390.png",
+    "origin": "Origin: browser screenshot of the local Aluno Online CX prototype, http://127.0.0.1:5173, 2026-10-23, meus-estudos-atividades-390.png. Synthetic profile. Not AI-generated. Video provenance is documented separately in media-provenance-v11.json.",
+    "bytes": 182402,
+    "sha256": "2344e98237a530a9c564adbb49ea422f63906ab6f00844410c796a5997202d33"
+  },
+  {
+    "file": "docs/screenshots/v11/secretaria-virtual-1440.png",
+    "origin": "Origin: browser screenshot of the local Aluno Online CX prototype, http://127.0.0.1:5173, 2026-10-23, secretaria-virtual-1440.png. Synthetic profile. Not AI-generated. Video provenance is documented separately in media-provenance-v11.json.",
+    "bytes": 304890,
+    "sha256": "f347bdae9e75f4f498a5d5baa1eec1db585c252abe4793e966055fbdce06eba0"
+  },
+  {
+    "file": "docs/screenshots/v11/secretaria-virtual-390.png",
+    "origin": "Origin: browser screenshot of the local Aluno Online CX prototype, http://127.0.0.1:5173, 2026-10-23, secretaria-virtual-390.png. Synthetic profile. Not AI-generated. Video provenance is documented separately in media-provenance-v11.json.",
+    "bytes": 156202,
+    "sha256": "d6831359baa988a196232f52e04b059cb99ceb954b5561d2ec52e042b6561b48"
+  }
+]

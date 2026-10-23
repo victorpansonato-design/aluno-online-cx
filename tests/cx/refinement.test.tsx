@@ -25,6 +25,34 @@ async function open(route: string) {
    await waitFor(() => expect(document.querySelector("[data-student-ui].student-page")).not.toBeNull());
 }
 describe("Refinamento da rotina e dos caminhos", () => {
+   it("reúne Eletivas nas atividades, com confirmação no sistema institucional", async () => {
+      await open("/meus-estudos");
+      const link = screen.getByRole("link", { name: /Disciplinas eletivas/ });
+      expect(link).toHaveAttribute("href", "/meus-estudos/atividades#eletivas");
+      fireEvent.click(link);
+      const access = await screen.findByRole("link", { name: "Disciplinas eletivas (abre em nova aba)" });
+      expect(access).toHaveAttribute("id", "eletivas");
+      expect(access).toHaveAttribute("href", "https://app.anchieta.br/Eletivas/");
+      expect(access).toHaveAttribute("target", "_blank");
+      expect(access).toHaveTextContent("Separado das horas complementares");
+      expect(document.querySelector('.student-section-nav [aria-current="page"]')).toHaveTextContent("Atividades e horas");
+   });
+   it.each(["/academico/eletivas", "/meus-estudos/eletivas", "/eletivas", "/aluno-online/academico/eletivas"])(
+      "preserva o acesso antigo %s com destino contextual",
+      async path => {
+         await open(path);
+         await waitFor(() => expect(window.location.pathname + window.location.hash).toBe("/meus-estudos/atividades#eletivas"));
+         expect(screen.getByRole("heading", { name: "Atividades e horas" })).toBeInTheDocument();
+         expect(document.querySelectorAll("#eletivas")).toHaveLength(1);
+      },
+   );
+   it("a busca encontra Eletivas e mantém o aluno na área de atividades", async () => {
+      await open("/inicio");
+      fireEvent.click(screen.getByRole("button", { name: /Buscar menus, páginas e recursos/ }));
+      fireEvent.change(screen.getByRole("textbox", { name: "Buscar menus, páginas e recursos" }), { target: { value: "eletivas" } });
+      fireEvent.click(screen.getByRole("button", { name: /Disciplinas eletivas · oferta e inscrições/ }));
+      await waitFor(() => expect(window.location.pathname + window.location.hash).toBe("/meus-estudos/atividades#eletivas"));
+   });
    it("mantém reprovação e adaptação nas linhas do primeiro período também no acordeão móvel", async () => {
       const html = preparePage("/jornada-academica", await loadScreen("jornada-1"), true, initialState, 1);
       const d = new DOMParser().parseFromString(html, "text/html");

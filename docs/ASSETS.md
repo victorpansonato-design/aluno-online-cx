@@ -34,3 +34,5 @@ A revisão 5 contém 57 capturas locais em docs/screenshots/v5 e dois pôsteres 
 A Secretaria usa o clipe Mixkit 50115, de orientação ao estudante na biblioteca, com licença Stock Video Free License confirmada. Fonte Full HD e entrega local 1920×1080 H.264 sem áudio, loop de aproximadamente 7,5s. Origem, hash e política atual em media-provenance-v7.json e REFINAMENTO-V7.md. Os clipes anteriores continuam em Estudos/Atividades e agora também reproduzem no mobile. Dezesseis screenshots V7 e o novo pôster possuem origem registrada em asset-provenance-v7.json.
 
 V8: nove capturas locais da home, Financeiro e responsáveis em `screenshots/v8/`, com hashes em `asset-provenance-v8.json`. São identidades sintéticas; nenhum novo vídeo ou ativo remoto foi acrescentado nesta revisão.
+
+V11 substitui o vídeo da Secretaria por Pexels 7581281, escolhido pelo usuário: `secretariat-documents.mp4` e pôster WebP. O arquivo recebido é HD nativo 1280×720; os arquivos antigos `student-guidance.*` foram retirados da entrega pública. Origem e hashes atuais em `media-provenance-v11.json`; referências V7 permanecem históricas.

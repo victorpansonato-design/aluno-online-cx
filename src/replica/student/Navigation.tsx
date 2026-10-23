@@ -64,13 +64,15 @@ export function DestinationList({ items }: { items: Destination[] }) {
                .normalize("NFD")
                .replace(/[\u0300-\u036f]/g, "")
                .toLowerCase();
-            const tone = /estagio|tcc|certific|\bhoras\b|atividad|extens|formacao/.test(intent)
-               ? "formation"
-               : /avali|ouvid/.test(intent)
-                 ? "feedback"
-                 : /bibli|monitor|pesquisa|eletiv|dp|adap/.test(intent)
-                   ? "support"
-                   : "academic";
+            const tone = /eletiv/.test(intent)
+               ? "support"
+               : /estagio|tcc|certific|\bhoras\b|atividad|extens|formacao/.test(intent)
+                 ? "formation"
+                 : /avali|ouvid/.test(intent)
+                   ? "feedback"
+                   : /bibli|monitor|pesquisa|eletiv|dp|adap/.test(intent)
+                     ? "support"
+                     : "academic";
             const content = (
                <>
                   <span className="material-symbols-outlined" aria-hidden="true">
@@ -86,6 +88,7 @@ export function DestinationList({ items }: { items: Destination[] }) {
             return external ? (
                <a
                   key={item.href}
+                  id={item.id}
                   data-tone={tone}
                   href={item.href}
                   target="_blank"
@@ -95,7 +98,7 @@ export function DestinationList({ items }: { items: Destination[] }) {
                   {content}
                </a>
             ) : (
-               <Link key={item.href} to={item.href} data-tone={tone}>
+               <Link key={item.href} id={item.id} to={item.href} data-tone={tone}>
                   {content}
                </Link>
             );

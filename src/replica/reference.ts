@@ -1,7 +1,7 @@
 import raw from "./reference.json";
 import type { DemoState } from "../cx/state";
 import { curriculum, external } from "../cx/data";
-import { primaryDestinations, studentLabels } from "./student/model";
+import { electivesHref, electivesLegacyRoutes, primaryDestinations, studentLabels } from "./student/model";
 import { prepareJourney } from "./student/journey";
 
 export type ReferenceDialog = { title: string; className: string; slot: string | null; html: string };
@@ -55,6 +55,7 @@ export const aliases: Record<string, string> = {
    "/academico/estagio": "/meu-estagio",
    "/academico/avaliacoes": "/avaliar-disciplinas",
    "/academico/institucional": "/avaliacao-institucional",
+   ...Object.fromEntries(electivesLegacyRoutes.map(path => [path, "/meus-estudos/atividades"])),
    "/secretaria": "/secretaria-virtual",
    "/secretaria/servicos": "/solicitacao-servicos/solicitar",
    "/secretaria/solicitacoes": "/solicitacao-servicos",
@@ -105,7 +106,7 @@ export const connectedGroups: { label: string; items: NavItem[] }[] = [
          { label: "Meu Estágio/TCC/PI", href: "/meu-estagio", icon: "work" },
          { label: "Prática extensionista", href: external.extensao, icon: "extension" },
          { label: "Inscrição DP/Adap", href: external.dp, icon: "gavel" },
-         { label: "Eletivas", href: external.eletivas, icon: "menu_book" },
+         { label: "Eletivas", href: electivesHref, icon: "menu_book" },
          { label: "Avaliar disciplinas", href: "/avaliar-disciplinas", icon: "insert_chart" },
          { label: "Avaliação institucional", href: "/avaliacao-institucional", icon: "fact_check" },
       ],

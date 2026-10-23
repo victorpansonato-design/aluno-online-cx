@@ -1,0 +1,39 @@
+{
+   "source": {
+      "nominalResolution": "1920x1080 as advertised",
+      "decodedResolution": "1280x720",
+      "fps": 30,
+      "duration": 8.866667,
+      "sha256": "009d21411adb1510fa98e86bef8faea3adc523b5327409c8a886bfc5590f0d8f"
+   },
+   "creator": "RDNE Stock project",
+   "download": "https://www.pexels.com/download/video/7581281/?fps=30.0&h=1080&w=1920",
+   "license": "Pexels License",
+   "licenseURL": "https://www.pexels.com/license/",
+   "accessed": "2026-10-23",
+   "delivered": {
+      "file": "public/media/secretariat-documents.mp4",
+      "width": 1280,
+      "height": 720,
+      "fps": 30,
+      "duration": 7.5,
+      "codec": "H.264 Main, yuv420p, level 3.1",
+      "audio": false,
+      "fastStart": true,
+      "bytes": 1254998,
+      "sha256": "c4fa4895b364942e383ed09b189166e1b5f086d6cb58e3223355ea06cc97a82d",
+      "loop": "Source trimmed 0.3–8.3s; body from 0.5s followed by 0.5s crossfade to first half-second. No upscaling."
+   },
+   "poster": {
+      "file": "public/media/secretariat-documents.webp",
+      "width": 1280,
+      "height": 720,
+      "bytes": 26648,
+      "sha256": "00f028ef8dee8de87944adb86dabd5944eaa38265b7d15d567a78ea1e30bfe4e"
+   },
+   "composition": {
+      "desktop": "object-position 50% 68%, cover",
+      "mobile": "16:9 full frame"
+   },
+   "playback": "Muted inline loop, only while visible and active; poster for reduced motion, Save-Data, 2G or autoplay rejection."
+}

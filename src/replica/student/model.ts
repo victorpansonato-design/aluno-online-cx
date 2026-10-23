@@ -10,7 +10,9 @@ export const dateValue = (value: string) => new Date(value + "T12:00:00");
 export const formatDate = (value: string, options: Intl.DateTimeFormatOptions = { day: "2-digit", month: "short" }) =>
    new Intl.DateTimeFormat("pt-BR", options).format(dateValue(value));
 export const currency = (value: number) => new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(value);
-export type Destination = { label: string; href: string; icon: string; description?: string };
+export type Destination = { label: string; href: string; icon: string; description?: string; id?: string };
+export const electivesHref = "/meus-estudos/atividades#eletivas";
+export const electivesLegacyRoutes = ["/academico/eletivas", "/meus-estudos/eletivas", "/eletivas"];
 export const primaryDestinations: Destination[] = [
    { label: "Início", href: "/inicio", icon: "home" },
    { label: "Meus estudos", href: "/meus-estudos", icon: "menu_book" },
@@ -93,12 +95,6 @@ export const supportLinks: Destination[] = [
    },
    { label: "Monitoria", href: external.monitoria, icon: "groups", description: "Procure apoio para uma disciplina." },
    { label: "Pesquisa e iniciação científica", href: external.cpic, icon: "science", description: "Conheça oportunidades do CPIC." },
-   {
-      label: "Disciplinas eletivas",
-      href: external.eletivas,
-      icon: "auto_stories",
-      description: "Escolha disciplinas que complementam sua formação.",
-   },
    {
       label: "Dependência e adaptação",
       href: external.dp,

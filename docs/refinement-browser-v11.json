@@ -1,0 +1,343 @@
+{
+  "surfaces": [
+    {
+      "width": 1440,
+      "route": "/secretaria-virtual",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 1440,
+      "route": "/meus-estudos/atividades",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 768,
+      "route": "/secretaria-virtual",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 768,
+      "route": "/meus-estudos/atividades",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 390,
+      "route": "/secretaria-virtual",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 390,
+      "route": "/meus-estudos/atividades",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 320,
+      "route": "/secretaria-virtual",
+      "overflow": false,
+      "top": 0
+    },
+    {
+      "width": 320,
+      "route": "/meus-estudos/atividades",
+      "overflow": false,
+      "top": 0
+    }
+  ],
+  "checks": [
+    {
+      "name": "banner content stays above video at 390",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "banner content stays above video at 320",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "new source is muted inline loop at 1440",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "actual loop wraps at 1440",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "offscreen video stops at 1440",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "new source is muted inline loop at 390",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "actual loop wraps at 390",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "offscreen video stops at 390",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "studies lands on Eletivas inside Activities",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "official elective link with active section",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "redirect /academico/eletivas",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "redirect /meus-estudos/eletivas",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "redirect /eletivas",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "redirect /aluno-online/academico/eletivas",
+      "passed": true,
+      "detail": true
+    }
+  ],
+  "audits": [
+    {
+      "width": 1440,
+      "route": "activities",
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 49,
+        "incomplete": 2,
+        "passes": 39,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 7,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node",
+              "html": "<strong data-card-name=\"\">Marina Costa</strong>",
+              "target": [
+                "strong[data-card-name=\"\"]"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node",
+              "html": "<small>Ciências Contábeis</small>",
+              "target": [
+                ".cx-credential-details > small:nth-child(2)"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node",
+              "html": "<small>RA 20260001</small>",
+              "target": [
+                "small:nth-child(3)"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node",
+              "html": "<small>Validade: 31/03/2030</small>",
+              "target": [
+                ".cx-credential-details > small:nth-child(4)"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<strong>Carteirinha digital</strong>",
+              "target": [
+                ".cx-card-caption > strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<h2>Sua formação vai além da sala de aula.</h2>",
+              "target": [
+                ".cx-context-banner > div:nth-child(1) > h2"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<p>Cada atividade acrescenta uma experiência. Acompanhe suas horas e encontre oportunidades para continuar.</p>",
+              "target": [
+                ".cx-context-banner > div:nth-child(1) > p"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        },
+        {
+          "help": "<video> or <audio> elements must not play automatically",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/no-autoplay-audio?application=axeAPI",
+          "id": "no-autoplay-audio",
+          "impact": "moderate",
+          "nodeCount": 1,
+          "nodes": [
+            {
+              "failureSummary": "Fix all of the following:\n  <video> or <audio> outputs audio for more than allowed duration and does not have a controls mechanism",
+              "html": "<video src=\"/media/study-desk.mp4\" loop=\"\" playsinline=\"\" autoplay=\"\" preload=\"metadata\" aria-hidden=\"true\"></video>",
+              "target": [
+                "video"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.time-and-media",
+            "wcag2a",
+            "wcag142",
+            "TTv5",
+            "TT2.a",
+            "EN-301-549",
+            "EN-9.1.4.2",
+            "ACT",
+            "RGAAv4",
+            "RGAA-4.10.1"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "effectiveLaunch": {
+          "browserLaunched": true,
+          "engine": "chrome",
+          "launchHash": 11677035664275012000
+        },
+        "launched": false,
+        "relaunchedBrowser": false,
+        "restartedBackground": false,
+        "restoreStatus": "not_configured",
+        "reused": true,
+        "saveStatus": "not_attempted"
+      },
+      "url": "http://127.0.0.1:5173/meus-estudos/atividades",
+      "violations": []
+    },
+    {
+      "width": 390,
+      "route": "activities",
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 49,
+        "incomplete": 2,
+        "passes": 39,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 2,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<h2>Sua formação vai além da sala de aula.</h2>",
+              "target": [
+                ".cx-context-banner > div:nth-child(1) > h2"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<p>Cada atividade acrescenta uma experiência. Acompanhe suas horas e encontre oportunidades para continuar.</p>",
+              "target": [
+                ".cx-context-banner > div:nth-child(1) > p"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        },
+        {
+          "help": "<video> or <audio> elements must not play automatically",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/no-autoplay-audio?application=axeAPI",
+          "id": "no-autoplay-audio",
+          "impact": "moderate",
+          "nodeCount": 1,
+          "nodes": [
+            {
+              "failureSummary": "Fix all of the following:\n  <video> or <audio> outputs audio for more than allowed duration and does not have a controls mechanism",
+              "html": "<video src=\"/media/study-desk.mp4\" loop=\"\" playsinline=\"\" autoplay=\"\" preload=\"metadata\" aria-hidden=\"true\"></video>",
+              "target": [
+                "video"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.time-and-media",
+            "wcag2a",
+            "wcag142",
+            "TTv5",
+            "TT2.a",
+            "EN-301-549",
+            "EN-9.1.4.2",
+            "ACT",
+            "RGAAv4",
+            "RGAA-4.10.1"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "effectiveLaunch": {
+          "browserLaunched": true,
+          "engine": "chrome",
+          "launchHash": 11677035664275012000
+        },
+        "launched": false,
+        "relaunchedBrowser": false,
+        "restartedBackground": false,
+        "restoreStatus": "not_configured",
+        "reused": true,
+        "saveStatus": "not_attempted"
+      },
+      "url": "http://127.0.0.1:5173/meus-estudos/atividades",
+      "violations": []
+    }
+  ]
+}
