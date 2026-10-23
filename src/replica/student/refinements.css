@@ -1146,8 +1146,11 @@
    font-variant-numeric: tabular-nums;
 }
 .cx-financial-overview > div:first-child strong {
-   color: var(--success);
+   color: var(--foreground);
    font-family: var(--font-mono);
+}
+.cx-financial-overview > div[data-has-overdue="true"] strong {
+   color: var(--destructive);
 }
 .cx-financial-overview small {
    font-size: 11px;

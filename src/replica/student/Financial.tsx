@@ -16,6 +16,7 @@ export default function Financial() {
    const [ownerFilter, setOwnerFilter] = useState<string | null>(null);
    const charges = chargesFor(state),
       pending = charges.filter(charge => !charge.paid),
+      overdue = pending.filter(charge => charge.due < today),
       paid = charges.filter(charge => charge.paid);
    const owners = [...new Map(pending.flatMap(charge => ownersForCharge(charge.id, state)).map(owner => [owner.id, owner])).values()];
    const visiblePending = pending.filter(
@@ -54,11 +55,13 @@ export default function Financial() {
             </Link>
          </nav>
          <section className="cx-financial-overview" aria-label="Resumo financeiro" data-empty-history={!paid.length}>
-            <div>
-               <span>Total em aberto</span>
-               <strong>{currency(pending.reduce((sum, charge) => sum + charge.amount, 0))}</strong>
+            <div data-has-overdue={overdue.length > 0}>
+               <span>Vencidas</span>
+               <strong>{currency(overdue.reduce((sum, charge) => sum + charge.amount, 0))}</strong>
                <small>
-                  {pending.length} {pending.length === 1 ? "cobrança para acompanhar" : "cobranças para acompanhar"}
+                  {overdue.length
+                     ? `${overdue.length} ${overdue.length === 1 ? "cobrança vencida em aberto" : "cobranças vencidas em aberto"}`
+                     : "Nenhuma cobrança vencida em aberto"}
                </small>
             </div>
             <div>

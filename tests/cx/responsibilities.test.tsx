@@ -24,8 +24,26 @@ async function open(path: string) {
    await waitFor(() => expect(document.querySelector(".student-page[data-student-ui]")).not.toBeNull());
 }
 describe("Home e responsabilidades financeiras", () => {
+   it.each([
+      { scenario: "base" as const, paid: false, value: "0,00", hasOverdue: false },
+      { scenario: "financeiro" as const, paid: false, value: "890,00", hasOverdue: true },
+      { scenario: "financeiro" as const, paid: true, value: "0,00", hasOverdue: false },
+   ])("soma só vencidas em aberto: $scenario, outubro pago=$paid", async ({ scenario, paid, value, hasOverdue }) => {
+      const state = { ...structuredClone(initialState), scenario, chargesPaid: paid ? ["DEMO-MENSALIDADE-202610"] : [] };
+      localStorage.setItem("anchieta-cx-demo-v1", JSON.stringify(state));
+      await open("/financeiro");
+      const summary = screen.getByRole("region", { name: "Resumo financeiro" }).firstElementChild!;
+      expect(summary).toHaveTextContent("Vencidas");
+      expect(summary.querySelector("strong")).toHaveTextContent(value);
+      expect(summary).toHaveAttribute("data-has-overdue", String(hasOverdue));
+      expect(summary).toHaveTextContent(hasOverdue ? "1 cobrança vencida em aberto" : "Nenhuma cobrança vencida em aberto");
+      expect(screen.getAllByRole("checkbox").length).toBeGreaterThanOrEqual(6);
+   });
+
    it("leva os atalhos ao estágio e às disciplinas pendentes, com relógio nos horários", async () => {
       await open("/inicio");
+      expect(screen.queryByRole("link", { name: /Realizar pagamento/ })).not.toBeInTheDocument();
+      expect(screen.getByRole("link", { name: /Conferir e pagar/ })).toBeInTheDocument();
       const quick = screen.getByRole("navigation", { name: "Atalhos da sua rotina" });
       expect(within(quick).getByRole("link", { name: "Estágio" })).toHaveAttribute("href", "/meu-estagio");
       expect(within(quick).getByRole("link", { name: "Meus horários" })).toHaveTextContent("schedule");

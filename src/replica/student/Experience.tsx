@@ -346,9 +346,6 @@ export function HomeDashboard({ showOverlay }: { showOverlay: (overlay: Overlay)
    const { state } = useDemo();
    const charge = chargesFor(state).find(item => !item.paid);
    const missing = Math.max(0, 6 - Object.keys(state.docs).length);
-   const paymentsToReview = chargesFor(state).filter(item => !item.paid && (item.due < today || item.request));
-   const pendingPayment = paymentsToReview.length;
-   const paymentTarget = paymentsToReview[0] || charge;
    const requests = state.requests.filter(item => ["Em análise", "Aguardando pagamento"].includes(item.status));
    return (
       <div className="student-page student-home cx-home" data-student-ui>
@@ -433,22 +430,6 @@ export function HomeDashboard({ showOverlay }: { showOverlay: (overlay: Overlay)
                      <strong>Assinar contrato</strong>
                      <small>
                         <CheckCircle2 size={13} /> Nada pendente
-                     </small>
-                  </span>
-                  <ChevronRight size={17} />
-               </Link>
-               <Link
-                  to={paymentTarget ? `/financeiro?cobranca=${encodeURIComponent(paymentTarget.id)}` : "/financeiro"}
-                  className={`cx-status-card ${pendingPayment ? "is-pending" : "is-clear"}`}
-               >
-                  <span className="cx-status-card-icon">
-                     <ReceiptText size={22} strokeWidth={1.7} />
-                  </span>
-                  <span className="cx-status-card-copy">
-                     <strong>Realizar pagamento</strong>
-                     <small>
-                        {!pendingPayment && <CheckCircle2 size={13} />}
-                        {pendingPayment ? `${pendingPayment} pagamento${pendingPayment > 1 ? "s" : ""} para conferir` : "Sem pendências"}
                      </small>
                   </span>
                   <ChevronRight size={17} />

@@ -6,7 +6,7 @@
    color: #ffd34e;
 }
 .cx-academic-status-grid {
-   grid-template-columns: repeat(4, minmax(0, 1fr));
+   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .cx-home .cx-status-card {
    padding-inline: 16px;
@@ -227,11 +227,6 @@
    outline: 2px solid var(--primary);
    outline-offset: 3px;
 }
-@media (max-width: 1199px) {
-   .cx-academic-status-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-   }
-}
 @media (max-width: 1023px) {
    .cx-home .cx-free-courses {
       order: 10;
@@ -239,7 +234,11 @@
 }
 @media (max-width: 767px) {
    .cx-academic-status-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 8px;
+   }
+   .cx-academic-status-grid > :last-child {
+      grid-column: 1 / -1;
    }
    .cx-home .cx-status-card {
       min-height: 86px;
