@@ -38,17 +38,17 @@ describe("Simplificação por intenção do aluno", () => {
    it("abre o financeiro com a cobrança da home selecionada e conclui somente a simulação", async () => {
       await open();
       fireEvent.click(screen.getByRole("link", { name: /Conferir e pagar/ }));
-      const checkbox = await screen.findByRole("checkbox", { name: /Selecionar Mensalidade · novembro/ });
+      const checkbox = await screen.findByRole("checkbox", { name: /Selecionar Mensalidade · outubro/ });
       expect(checkbox).toBeChecked();
-      expect(window.location.search).toContain("cobranca=DEMO-MENSALIDADE-202611");
+      expect(window.location.search).toContain("cobranca=DEMO-MENSALIDADE-202610");
       fireEvent.click(screen.getByRole("link", { name: /Continuar para Pix/ }));
       expect(await screen.findByRole("heading", { name: "Pagar por Pix" })).toBeInTheDocument();
       expect(screen.getByRole("textbox")).toHaveAttribute("readonly");
       fireEvent.click(screen.getByRole("button", { name: "Já realizei o pagamento" }));
       expect(await screen.findByRole("heading", { name: "Pagamento informado" })).toBeInTheDocument();
       fireEvent.click(screen.getByRole("link", { name: "Voltar ao início" }));
-      expect(await screen.findByText("Mensalidade · dezembro/2026")).toBeInTheDocument();
-      expect(JSON.parse(localStorage.getItem("anchieta-cx-demo-v1") || "{}").chargesPaid).toContain("DEMO-MENSALIDADE-202611");
+      expect(await screen.findByText("Mensalidade · novembro/2026")).toBeInTheDocument();
+      expect(JSON.parse(localStorage.getItem("anchieta-cx-demo-v1") || "{}").chargesPaid).toContain("DEMO-MENSALIDADE-202610");
    });
    it("mantém somente a Ana flutuante no canto, sem faixa de assistência", async () => {
       await open();

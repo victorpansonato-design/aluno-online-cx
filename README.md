@@ -1,8 +1,8 @@
 # Aluno Online · clone e experiência conectada
 
-Revisão 9: o clone aprovado do Aluno Online foi refinado para **simplificar a rotina do aluno**, mantendo a identidade, os conteúdos e os fluxos reconstruídos do portal real. A barra conserva seis destinos e suas medidas compactas; a home aproxima aula, pagamento, horas, pendências e agenda. Esta entrega reúne os refinamentos locais V5–V8 em um commit autorizado pelo usuário. O ambiente de teste continua disponível no localhost.
+Revisão 10: o clone aprovado do Aluno Online foi refinado para **simplificar a rotina do aluno**, mantendo a identidade, os conteúdos e os fluxos reconstruídos do portal real. A barra conserva seis destinos e suas medidas compactas; a home aproxima aula, pagamento, horas, pendências e agenda. Esta entrega reúne os refinamentos locais V5–V8 em um commit autorizado pelo usuário. O ambiente de teste continua disponível no localhost.
 
-Atualização mais recente: [resumo de vencidas e cards da home — V9](docs/REFINAMENTO-V9.md). Histórico: [home e responsáveis financeiros — V8](docs/REFINAMENTO-V8.md).
+Atualização mais recente: [parcela vencida de exemplo e opções de vídeo — V10](docs/REFINAMENTO-V10.md). Histórico: [resumo de vencidas e cards da home — V9](docs/REFINAMENTO-V9.md). Histórico: [home e responsáveis financeiros — V8](docs/REFINAMENTO-V8.md).
 
 ## Abrir
 

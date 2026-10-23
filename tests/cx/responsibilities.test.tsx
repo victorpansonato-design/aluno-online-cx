@@ -3,7 +3,7 @@ import { fireEvent, render, screen, waitFor, within } from "@testing-library/rea
 import App from "../../src/replica/App";
 import { initialState } from "../../src/cx/state";
 import { ownersForCharge } from "../../src/cx/financialResponsibility";
-import { chargesFor } from "../../src/replica/student/model";
+import { chargesFor, today } from "../../src/replica/student/model";
 
 beforeEach(() => {
    localStorage.clear();
@@ -24,6 +24,20 @@ async function open(path: string) {
    await waitFor(() => expect(document.querySelector(".student-page[data-student-ui]")).not.toBeNull());
 }
 describe("Home e responsabilidades financeiras", () => {
+   it("abre com uma parcela vencida e migra o exemplo anterior sem apagar pagamentos", async () => {
+      expect(chargesFor(initialState).filter(charge => !charge.paid && charge.due < today)).toHaveLength(1);
+      const old: Record<string, unknown> = { ...structuredClone(initialState), scenario: "base", chargesPaid: ["DEMO-MENSALIDADE-202611"] };
+      delete old.exampleRevision;
+      localStorage.setItem("anchieta-cx-demo-v1", JSON.stringify(old));
+      await open("/financeiro");
+      const summary = screen.getByRole("region", { name: "Resumo financeiro" }).firstElementChild!;
+      expect(summary).toHaveTextContent("890,00");
+      expect(summary).toHaveTextContent("1 cobrança vencida em aberto");
+      const saved = JSON.parse(localStorage.getItem("anchieta-cx-demo-v1")!);
+      expect(saved.chargesPaid).toContain("DEMO-MENSALIDADE-202611");
+      expect(saved.exampleRevision).toBe(10);
+   });
+
    it.each([
       { scenario: "base" as const, paid: false, value: "0,00", hasOverdue: false },
       { scenario: "financeiro" as const, paid: false, value: "890,00", hasOverdue: true },

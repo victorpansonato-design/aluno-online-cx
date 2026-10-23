@@ -13,6 +13,7 @@ export type RequestItem = {
 export type DocItem = { status: "Em conferência" | "Validado" | "Reenviar"; name: string };
 export type DemoState = {
    version: 1;
+   exampleRevision: number;
    profile: { name: string; email: string; phone: string; address: string };
    docs: Record<string, DocItem>;
    requests: RequestItem[];
@@ -34,6 +35,7 @@ export type DemoState = {
 const key = "anchieta-cx-demo-v1";
 export const initialState: DemoState = {
    version: 1,
+   exampleRevision: 10,
    profile: { name: "Marina Costa", email: "marina@example.com", phone: "(11) 90000-0000", address: "Rua Exemplo, 100 · Jundiaí, SP" },
    docs: {},
    requests: [
@@ -60,7 +62,7 @@ export const initialState: DemoState = {
    theme: "light",
    largeText: false,
    reducedMotion: false,
-   scenario: "base",
+   scenario: "financeiro",
    dueDay: "12",
    responsible: "Marina Costa (aluna)",
    financialPlan: initialFinancialPlan(),
@@ -78,6 +80,8 @@ function load(): DemoState {
          return {
             ...initialState,
             ...v,
+            exampleRevision: initialState.exampleRevision,
+            scenario: !v.exampleRevision && v.scenario === "base" ? initialState.scenario : v.scenario || initialState.scenario,
             financialPlan: validFinancialPlan(v.financialPlan)
                ? v.financialPlan
                : initialFinancialPlan(typeof v.responsible === "string" ? v.responsible : undefined),
