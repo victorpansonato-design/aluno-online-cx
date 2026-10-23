@@ -11,6 +11,8 @@ import {
    ChevronRight,
    FilePenLine,
    Files,
+   Download,
+   FileText,
    Clock3,
    ExternalLink,
    FileCheck2,
@@ -428,6 +430,18 @@ export function HomeDashboard({ showOverlay }: { showOverlay: (overlay: Overlay)
                </Link>
             ))}
          </div>
+         <section className="cx-home-enrollment" aria-labelledby="enrollment-title">
+            <span className="cx-icon-tile blue">
+               <FileText size={21} aria-hidden="true" />
+            </span>
+            <div>
+               <h2 id="enrollment-title">Atestado de matrícula</h2>
+               <p>Seu comprovante de estudante · 2026/2</p>
+            </div>
+            <button className="replica-button secondary" onClick={() => showOverlay({ kind: "enrollment" })} aria-haspopup="dialog">
+               <Download size={16} aria-hidden="true" /> Baixar PDF
+            </button>
+         </section>
          <section className="cx-academic-status" aria-labelledby="academic-status-title">
             <h2 id="academic-status-title">Situação acadêmica</h2>
             <div className="cx-academic-status-grid">

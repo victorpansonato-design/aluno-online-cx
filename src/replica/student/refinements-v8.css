@@ -12,6 +12,123 @@
    padding-inline: 16px;
    gap: 10px;
 }
+.cx-home .cx-home-quick-links {
+   margin-bottom: 16px;
+}
+.cx-home-enrollment {
+   display: flex;
+   align-items: center;
+   gap: 12px;
+   padding: 14px 18px;
+   margin-bottom: 24px;
+   border: 1px solid var(--border);
+   border-radius: 14px;
+   background: var(--card);
+}
+.cx-home-enrollment > div {
+   flex: 1;
+   min-width: 0;
+}
+.cx-home .cx-home-enrollment h2 {
+   font-size: 15px;
+}
+.cx-home-enrollment p {
+   color: var(--muted-foreground);
+   font-size: 12px;
+   margin-top: 3px;
+}
+.cx-home-enrollment > button {
+   flex-shrink: 0;
+   min-height: 44px;
+}
+.cx-enrollment-dialog {
+   max-width: 500px;
+   text-wrap: pretty;
+}
+.cx-enrollment-preview {
+   padding: 20px;
+   border: 1px solid var(--border);
+   border-radius: 12px;
+   background: var(--card);
+}
+.cx-enrollment-file {
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   font-size: 12px;
+   font-weight: 600;
+   color: var(--primary);
+}
+.cx-enrollment-file > span {
+   color: var(--muted-foreground);
+   font-weight: 400;
+}
+.cx-enrollment-preview dl {
+   display: grid;
+   gap: 14px;
+   margin: 20px 0 0;
+}
+.cx-enrollment-preview dt {
+   font-size: 11px;
+   color: var(--muted-foreground);
+}
+.cx-enrollment-preview dd {
+   margin: 3px 0 0;
+   font-size: 14px;
+   font-weight: 550;
+   overflow-wrap: anywhere;
+}
+.cx-enrollment-status {
+   font-size: 12px;
+   color: var(--success);
+   margin-top: 12px;
+}
+.cx-enrollment-status:empty {
+   display: none;
+}
+.cx-enrollment-error {
+   font-size: 13px;
+   color: var(--destructive);
+   margin-top: 12px;
+}
+@media (max-width: 1023px) {
+   .cx-home .cx-home-enrollment {
+      order: 1;
+      margin-top: 14px;
+   }
+}
+@media (max-width: 767px) {
+   .cx-home-enrollment {
+      padding: 12px;
+      gap: 10px;
+      margin-bottom: 20px;
+   }
+   .cx-home-enrollment > .cx-icon-tile {
+      width: 32px;
+      height: 32px;
+      border-radius: 9px;
+   }
+   .cx-home .cx-home-enrollment h2 {
+      font-size: 13px;
+   }
+   .cx-home-enrollment p {
+      font-size: 11px;
+   }
+   .cx-home-enrollment > button {
+      font-size: 12px;
+      padding-inline: 10px;
+      gap: 6px;
+   }
+   .cx-home-enrollment > button > svg {
+      display: none;
+   }
+   .cx-enrollment-preview {
+      padding: 16px;
+   }
+   .cx-enrollment-dialog .replica-dialog-footer {
+      gap: 8px;
+   }
+}
 .cx-charge-responsibles {
    display: flex;
    flex-wrap: wrap;

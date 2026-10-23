@@ -7,11 +7,13 @@ import { curriculum, disciplines, normalize, services } from "../cx/data";
 import { cleanPresentation, docNames, loadServiceForm, reference, type ReferenceDialog, type ServiceReference } from "./reference";
 import { electivesHref, learningLinks, primaryDestinations, studentLabels, supportLinks } from "./student/model";
 import { ResponsibilitiesManager } from "./student/Responsibilities";
+import { downloadEnrollmentPdf, enrollment } from "./student/enrollmentDocument";
 
 export type Overlay = {
    kind:
       | "grades"
       | "document"
+      | "enrollment"
       | "catalog"
       | "service"
       | "request"
@@ -45,12 +47,14 @@ export function Layer({
    close,
    sheet = false,
    className = "",
+   onCloseAutoFocus,
 }: {
    title: string;
    children: ReactNode;
    close: () => void;
    sheet?: boolean;
    className?: string;
+   onCloseAutoFocus?: (event: Event) => void;
 }) {
    return (
       <Dialog.Root
@@ -61,7 +65,11 @@ export function Layer({
       >
          <Dialog.Portal>
             <Dialog.Overlay className="replica-overlay" />
-            <Dialog.Content aria-describedby={undefined} className={`${sheet ? "replica-sheet" : "replica-dialog"} ${className}`}>
+            <Dialog.Content
+               aria-describedby={undefined}
+               className={`${sheet ? "replica-sheet" : "replica-dialog"} ${className}`}
+               onCloseAutoFocus={onCloseAutoFocus}
+            >
                <Dialog.Title className="replica-dialog-title">{title}</Dialog.Title>
                <Dialog.Close className="replica-close" aria-label="Fechar">
                   <X size={19} />
@@ -84,6 +92,7 @@ export default function OverlayView(props: Props) {
             choose={code => go("/solicitacao-servicos/solicitar/" + code)}
          />
       );
+   if (o.kind === "enrollment" || (connected && o.kind === "service" && o.code === "CSA_150")) return <EnrollmentDocument close={close} />;
    if (o.kind === "service") return <ServiceForm code={o.code || "CSA_150"} close={close} go={go} />;
    if (o.kind === "document") return <DocumentSheet index={o.index || 0} close={close} go={go} connected={connected} />;
    if (o.kind === "search") return <SearchDialog close={close} go={go} />;
@@ -194,6 +203,7 @@ export default function OverlayView(props: Props) {
    if (o.kind === "request") {
       const req = state.requests.find(r => r.id === o.id);
       const status = req?.status || o.detail || "Concluído";
+      if (connected && req?.code === "CSA_150" && status === "Concluído") return <EnrollmentDocument close={close} />;
       return (
          <Layer title={req?.name || o.title || "Detalhes da solicitação"} close={close} sheet>
             <p className="replica-description">Protocolo {(o.id || "2026-9000001").replace(/^DEMO-/, "2026-")}</p>
@@ -777,6 +787,84 @@ function ServiceForm({ code, close, go }: { code: string; close: () => void; go:
       </Layer>
    );
 }
+function EnrollmentDocument({ close }: { close: () => void }) {
+   const { state } = useDemo();
+   const opener = useRef(document.activeElement instanceof HTMLElement ? document.activeElement : null);
+   const [busy, setBusy] = useState(false);
+   const [downloaded, setDownloaded] = useState(false);
+   const [error, setError] = useState("");
+   const download = async () => {
+      setBusy(true);
+      setError("");
+      setDownloaded(false);
+      try {
+         await downloadEnrollmentPdf(state.profile.name);
+         setDownloaded(true);
+      } catch {
+         setError("Não foi possível preparar o PDF. Tente baixar novamente.");
+      } finally {
+         setBusy(false);
+      }
+   };
+   return (
+      <Layer
+         title="Atestado de matrícula"
+         close={close}
+         className="cx-enrollment-dialog"
+         onCloseAutoFocus={event => {
+            if (opener.current?.isConnected) {
+               event.preventDefault();
+               opener.current.focus({ preventScroll: true });
+            }
+         }}
+      >
+         <p className="replica-description">Confira seus dados e baixe o documento deste semestre.</p>
+         <div className="cx-enrollment-preview">
+            <span className="cx-enrollment-file">
+               <FileText size={22} aria-hidden="true" /> PDF <span>· {enrollment.semester}</span>
+            </span>
+            <dl>
+               <div>
+                  <dt>Aluno(a)</dt>
+                  <dd>{state.profile.name}</dd>
+               </div>
+               <div>
+                  <dt>RA</dt>
+                  <dd>{enrollment.ra}</dd>
+               </div>
+               <div>
+                  <dt>Curso</dt>
+                  <dd>{enrollment.course}</dd>
+               </div>
+               <div>
+                  <dt>Período</dt>
+                  <dd>
+                     {enrollment.period} · {enrollment.semester}
+                  </dd>
+               </div>
+            </dl>
+         </div>
+         {error && (
+            <p className="cx-enrollment-error" role="alert">
+               {error}
+            </p>
+         )}
+         <p className="cx-enrollment-status" role="status">
+            {downloaded ? "PDF baixado. Confira os arquivos do seu dispositivo." : ""}
+         </p>
+         <div className="replica-dialog-footer">
+            <button className="replica-button secondary" onClick={close}>
+               Fechar
+            </button>
+            <button className="replica-button" onClick={download} disabled={busy} aria-busy={busy}>
+               <Download size={16} aria-hidden="true" />
+               {busy ? "Preparando PDF…" : downloaded ? "Baixar novamente" : "Baixar PDF"}
+            </button>
+         </div>
+      </Layer>
+   );
+}
+
 function DocumentSheet({ index, close, go, connected }: { index: number; close: () => void; go: (p: string) => void; connected: boolean }) {
    const { state, update } = useDemo();
    const [file, setFile] = useState<File | null>(null);
