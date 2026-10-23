@@ -691,7 +691,8 @@
 .student-hours-track > span:last-child {
    background: var(--destructive);
 }
-.student-hours-extension .student-hours-track > span:last-child {
+.student-hours-extension .student-hours-track > span:last-child,
+.student-hours-electives .student-hours-track > span:last-child {
    background: var(--muted);
 }
 .student-hours-example {
