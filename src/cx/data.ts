@@ -16,6 +16,7 @@ export const external = {
    informeAnterior: "https://app.anchieta.br/Aol_Responsivo_Redirect/Aol_Resp_Relatorio_Extrato_Financeiro.php",
    cursos: "https://anchieta.br/aperfeicoamento/",
    cursosLivres: "https://www.cursoslivres.anchieta.br/collections",
+   bagagens: "https://ava.anchieta.br/d2l/le/discovery/view/",
    manual: "https://anchieta-ead.s3-sa-east-1.amazonaws.com/2024_71_1_29_manual_do_aluno_presencial/manual_presencial.pdf",
    meet: "https://anchieta-ead.s3-sa-east-1.amazonaws.com/2023_71_1_477_infografico_meet/INFOGRAFICO_GOOGLE%20MEET_aluno_v2.png",
    manualMonitoria: "https://anchieta.br/wp-content/uploads/2025/07/Manual-de-Monitoria-do-Aluno-Presencial-2025-2.pdf",

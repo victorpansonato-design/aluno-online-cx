@@ -62,10 +62,7 @@ describe("Home e responsabilidades financeiras", () => {
       expect(within(quick).getByRole("link", { name: "Estágio" })).toHaveAttribute("href", "/meu-estagio");
       expect(within(quick).getByRole("link", { name: "Meus horários" })).toHaveTextContent("schedule");
       expect(screen.getByRole("link", { name: /DP\/ADAP/ })).toHaveAttribute("href", "/jornada-academica?periodo=1");
-      expect(screen.getByRole("link", { name: "Explorar cursos" })).toHaveAttribute(
-         "href",
-         "https://www.cursoslivres.anchieta.br/collections",
-      );
+      expect(screen.queryByRole("heading", { name: "Cursos Livres" })).not.toBeInTheDocument();
    });
    it("mantém o valor integral da cobrança compartilhada e a seleção ao filtrar", async () => {
       await open("/financeiro");

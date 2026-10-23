@@ -102,6 +102,11 @@ export const supportLinks: Destination[] = [
       description: "Consulte e faça sua inscrição em DP ou adaptação.",
    },
 ];
+export const learningLinks: Destination[] = [
+   { label: "Cursos Livres", href: external.cursosLivres, icon: "auto_stories", description: "Explore novos assuntos no seu ritmo." },
+   { label: "Cursos de Aperfeiçoamento", href: external.cursos, icon: "school", description: "Desenvolva competências para sua carreira." },
+   { label: "Bagagens", href: external.bagagens, icon: "backpack", description: "Descubra conteúdos e cursos no AVA." },
+];
 export type Charge = { id: string; name: string; amount: number; due: string; paid: boolean; request?: string };
 export function chargesFor(state: DemoState): Charge[] {
    const monthly: Charge[] =

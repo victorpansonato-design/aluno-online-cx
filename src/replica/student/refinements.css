@@ -723,6 +723,39 @@
    font-size: 16px;
    margin-bottom: 8px;
 }
+.cx-study-tools {
+   display: grid;
+   gap: 18px;
+   min-width: 0;
+}
+.cx-study-tools .cx-study-shortcuts {
+   padding: 16px;
+}
+.cx-study-learning h2 {
+   font-size: 16px;
+   margin: 0 0 10px;
+}
+.student-page .cx-study-tools .student-destinations > a {
+   min-height: 60px;
+   padding: 10px;
+   gap: 10px;
+}
+.student-page .cx-study-tools .student-destinations > a > .material-symbols-outlined {
+   width: 32px;
+   height: 32px;
+   font-size: 20px;
+}
+.student-page .cx-study-tools .student-destinations strong {
+   font-size: 13px;
+   line-height: 1.35;
+}
+.student-page .cx-study-tools .student-destinations small {
+   font-size: 11px;
+   line-height: 1.5;
+}
+#ampliar-conhecimentos {
+   scroll-margin-top: 24px;
+}
 .student-page .student-destinations {
    border-top: 0;
    gap: 8px;

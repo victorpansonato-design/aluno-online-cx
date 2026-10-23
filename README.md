@@ -1,8 +1,8 @@
 # Aluno Online · clone e experiência conectada
 
-Revisão 13: o clone aprovado do Aluno Online foi refinado para **simplificar a rotina do aluno**, mantendo a identidade, os conteúdos e os fluxos reconstruídos do portal real. A barra conserva seis destinos e suas medidas compactas; a home aproxima aula, pagamento, horas, pendências e agenda. Os refinamentos estão versionados no repositório e publicados pelo fluxo GitHub/Vercel autorizado pelo usuário. O ambiente de teste continua disponível no localhost.
+Revisão 14: o clone aprovado do Aluno Online foi refinado para **simplificar a rotina do aluno**, mantendo a identidade, os conteúdos e os fluxos reconstruídos do portal real. A barra conserva seis destinos e suas medidas compactas; a home aproxima aula, pagamento, horas, pendências e agenda. Os refinamentos estão versionados no repositório e publicados pelo fluxo GitHub/Vercel autorizado pelo usuário. O ambiente de teste continua disponível no localhost.
 
-Atualização mais recente: [indicadores em linha e ações em duas colunas — V13](docs/REFINAMENTO-V13.md). Revisões anteriores em [docs/](docs/).
+Atualização mais recente: [rotina compacta e novos cursos em Meus Estudos — V14](docs/REFINAMENTO-V14.md). Revisões anteriores em [docs/](docs/).
 
 ## Abrir
 

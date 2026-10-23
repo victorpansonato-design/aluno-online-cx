@@ -477,21 +477,6 @@ export function HomeDashboard({ showOverlay }: { showOverlay: (overlay: Overlay)
                <CommunicationsPreview />
                <FormationSummary compact />
                <CourseJourney />
-               <section className="cx-free-courses" aria-labelledby="free-courses-title">
-                  <span className="cx-icon-tile violet">
-                     <span className="material-symbols-outlined" aria-hidden="true">
-                        auto_stories
-                     </span>
-                  </span>
-                  <div>
-                     <span className="cx-course-eyebrow">Amplie seu conhecimento</span>
-                     <h2 id="free-courses-title">Cursos Livres</h2>
-                     <p>Descubra novos assuntos e aprenda no seu ritmo.</p>
-                     <a href={external.cursosLivres} target="_blank" rel="noopener noreferrer">
-                        Explorar cursos <ExternalLink size={14} />
-                     </a>
-                  </div>
-               </section>
                <section className="cx-request-preview">
                   <div className="student-section-heading">
                      <h2>Meus pedidos</h2>

@@ -5,7 +5,7 @@ import { toast } from "sonner";
 import { createProtocol, useDemo } from "../cx/state";
 import { curriculum, disciplines, normalize, services } from "../cx/data";
 import { cleanPresentation, docNames, loadServiceForm, reference, type ReferenceDialog, type ServiceReference } from "./reference";
-import { electivesHref, primaryDestinations, studentLabels, supportLinks } from "./student/model";
+import { electivesHref, learningLinks, primaryDestinations, studentLabels, supportLinks } from "./student/model";
 import { ResponsibilitiesManager } from "./student/Responsibilities";
 
 export type Overlay = {
@@ -967,6 +967,7 @@ function SearchDialog({ close, go }: { close: () => void; go: (p: string) => voi
       ...primaryDestinations.map(item => [item.href, { title: item.label }] as const),
       ...Object.entries(studentLabels).map(([path, title]) => [path, { title }] as const),
       ...supportLinks.map(item => [item.href, { title: item.label }] as const),
+      ...learningLinks.map(item => [item.href, { title: item.label }] as const),
       [electivesHref, { title: "Disciplinas eletivas · oferta e inscrições" }] as const,
       ["/financeiro", { title: "Cobranças, boletos e Pix" }] as const,
    ];

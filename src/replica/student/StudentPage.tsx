@@ -7,7 +7,7 @@ import type { Overlay } from "../Dialogs";
 import Financial, { PixPayment } from "./Financial";
 import AcademicCalendar from "./AcademicCalendar";
 import { DestinationList, SectionNavigation } from "./Navigation";
-import { academicEvents, electivesHref, formatDate, supportLinks, today } from "./model";
+import { academicEvents, electivesHref, formatDate, learningLinks, supportLinks, today } from "./model";
 
 import { AcademicPulse, ContextBanner, FormationSummary, HelpCenter, HomeDashboard, SecretariatHub } from "./Experience";
 
@@ -64,31 +64,37 @@ function Studies() {
          </ContextBanner>
          <div className="cx-study-overview">
             <AcademicPulse />
-            <section className="cx-study-shortcuts">
-               <h2>Sua rotina de estudos</h2>
-               <DestinationList
-                  items={[
-                     {
-                        label: "Entrar na minha aula",
-                        href: external.ava,
-                        icon: "laptop_mac",
-                        description: "Conteúdos e atividades no AVA.",
-                     },
-                     {
-                        label: "Ver meus horários",
-                        href: "/horarios",
-                        icon: "calendar_month",
-                        description: "Dias, horários e local das aulas.",
-                     },
-                     {
-                        label: "Acompanhar minha formação",
-                        href: "/meus-estudos/atividades",
-                        icon: "school",
-                        description: "Horas complementares, extensão e eletivas.",
-                     },
-                  ]}
-               />
-            </section>
+            <div className="cx-study-tools">
+               <section className="cx-study-shortcuts">
+                  <h2>Sua rotina de estudos</h2>
+                  <DestinationList
+                     items={[
+                        {
+                           label: "Entrar na minha aula",
+                           href: external.ava,
+                           icon: "laptop_mac",
+                           description: "Conteúdos e atividades no AVA.",
+                        },
+                        {
+                           label: "Ver meus horários",
+                           href: "/horarios",
+                           icon: "calendar_month",
+                           description: "Dias, horários e local das aulas.",
+                        },
+                        {
+                           label: "Acompanhar minha formação",
+                           href: "/meus-estudos/atividades",
+                           icon: "school",
+                           description: "Horas complementares, extensão e eletivas.",
+                        },
+                     ]}
+                  />
+               </section>
+               <section className="cx-study-learning" id="ampliar-conhecimentos" aria-labelledby="study-learning-title">
+                  <h2 id="study-learning-title">Amplie seus conhecimentos</h2>
+                  <DestinationList items={learningLinks} />
+               </section>
+            </div>
          </div>
          <div className="student-studies-columns">
             <div>
