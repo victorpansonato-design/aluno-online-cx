@@ -778,9 +778,19 @@
 }
 .student-formation-overview {
    margin-top: 28px;
+   grid-template-columns: minmax(0, 1fr);
+   gap: 26px;
 }
 .student-formation-overview > .cx-formation .cx-hours-grid {
-   grid-template-columns: 1fr;
+   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.student-formation-overview > section {
+   min-width: 0;
+}
+.student-formation-overview > section:last-child .student-destinations {
+   display: grid;
+   grid-template-columns: repeat(2, minmax(0, 1fr));
+   gap: 12px;
 }
 .student-formation-overview .cx-formation .cx-hours-value {
    justify-content: space-between;
@@ -1243,7 +1253,7 @@
       grid-template-columns: minmax(0, 1fr);
    }
    .student-formation-overview .cx-formation .cx-hours-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
    }
    .student-formation-overview > section {
       min-width: 0;
@@ -1912,6 +1922,81 @@
 }
 .reduce-motion .cx-faq summary > svg {
    transition: none;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+   .student-formation-overview .cx-formation .student-hours-row {
+      padding: 16px 12px;
+   }
+   .student-formation-overview .student-hours-row > span > svg {
+      display: none;
+   }
+   .student-formation-overview .cx-formation .cx-hours-value {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+   }
+}
+@media (max-width: 767px) {
+   .student-formation-overview > .cx-formation .cx-hours-grid {
+      gap: 7px;
+   }
+   .student-formation-overview .cx-formation .student-hours-row {
+      padding: 12px 7px;
+   }
+   .student-formation-overview .cx-formation .student-hours-row > span {
+      font-size: 10px;
+      letter-spacing: -0.02em;
+   }
+   .student-formation-overview .student-hours-row > span > svg {
+      display: none;
+   }
+   .student-formation-overview .cx-formation .cx-hours-value {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+   }
+   .student-formation-overview .cx-formation .cx-hours-value b {
+      font-size: 26px;
+   }
+   .student-formation-overview .cx-formation .cx-hours-value > span,
+   .student-formation-overview .cx-formation .cx-hours-value > span strong,
+   .student-formation-overview .cx-hours-remaining {
+      font-size: 10px;
+   }
+   .student-formation-overview .cx-formation .cx-hours-remaining > span {
+      display: none;
+   }
+   .student-formation-overview > section:last-child .student-destinations {
+      gap: 10px;
+   }
+   .student-formation-overview > section:last-child .student-destinations > a {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-content: start;
+      align-items: start;
+      gap: 10px;
+      padding: 14px 12px;
+   }
+   .student-formation-overview > section:last-child .student-destinations > a > .material-symbols-outlined {
+      grid-column: 1;
+      grid-row: 1;
+   }
+   .student-formation-overview > section:last-child .student-destinations > a > svg {
+      grid-column: 2;
+      grid-row: 1;
+   }
+   .student-formation-overview > section:last-child .student-destinations > a > span:nth-child(2) {
+      grid-column: 1 / -1;
+      grid-row: 2;
+   }
+}
+@media (max-width: 359px) {
+   .student-formation-overview > .cx-formation .cx-hours-grid {
+      gap: 4px;
+   }
+   .student-formation-overview .cx-formation .student-hours-row {
+      padding-inline: 4px;
+   }
 }
 .large-text .cx-hours-remaining,
 .large-text .cx-chart-description,
