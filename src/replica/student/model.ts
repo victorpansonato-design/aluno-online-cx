@@ -134,7 +134,11 @@ export function chargesFor(state: DemoState): Charge[] {
          })),
    ].sort((a, b) => a.due.localeCompare(b.due));
 }
-export const formation = { complementary: { done: 26, total: 160 }, extension: { done: 40, total: 240 } };
+export const formation = {
+   complementary: { done: 26, total: 160 },
+   extension: { done: 40, total: 240 },
+   electives: { done: 0, total: 40 },
+};
 export type AcademicEvent = {
    id: string;
    title: string;

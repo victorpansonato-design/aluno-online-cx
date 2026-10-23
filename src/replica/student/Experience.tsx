@@ -127,7 +127,7 @@ export function ContextBanner({
    );
 }
 
-export function FormationSummary({ compact = false }: { compact?: boolean }) {
+export function FormationSummary({ compact = false, includeElectives = false }: { compact?: boolean; includeElectives?: boolean }) {
    return (
       <section className={"student-formation-summary cx-formation" + (compact ? " cx-formation-compact" : "")} aria-label="Minha formação">
          <div className="student-section-heading">
@@ -146,14 +146,17 @@ export function FormationSummary({ compact = false }: { compact?: boolean }) {
                   kind: "complementary",
                },
                { label: "Extensão", full: "Horas de extensão", ...formation.extension, href: external.extensao, kind: "extension" },
+               ...(includeElectives
+                  ? [{ label: "Eletivas", full: "Horas de eletivas", ...formation.electives, href: external.eletivas, kind: "electives" }]
+                  : []),
             ].map(item => (
                <a
                   className={`student-hours-row student-hours-${item.kind}`}
                   href={item.href}
-                  target={item.kind === "extension" ? "_blank" : undefined}
-                  rel={item.kind === "extension" ? "noopener noreferrer" : undefined}
+                  target={item.href.startsWith("https:") ? "_blank" : undefined}
+                  rel={item.href.startsWith("https:") ? "noopener noreferrer" : undefined}
                   key={item.kind}
-                  aria-label={`${item.full}: ${item.done} de ${item.total} horas. Ver detalhes`}
+                  aria-label={`${item.full}: ${item.done} de ${item.total} horas. Ver detalhes${item.href.startsWith("https:") ? " (abre em nova aba)" : ""}`}
                >
                   <span>
                      <strong>{item.label}</strong>

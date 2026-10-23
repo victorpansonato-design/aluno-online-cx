@@ -1,8 +1,8 @@
 # Aluno Online · clone e experiência conectada
 
-Revisão 11: o clone aprovado do Aluno Online foi refinado para **simplificar a rotina do aluno**, mantendo a identidade, os conteúdos e os fluxos reconstruídos do portal real. A barra conserva seis destinos e suas medidas compactas; a home aproxima aula, pagamento, horas, pendências e agenda. Os refinamentos estão versionados no repositório e publicados pelo fluxo GitHub/Vercel autorizado pelo usuário. O ambiente de teste continua disponível no localhost.
+Revisão 12: o clone aprovado do Aluno Online foi refinado para **simplificar a rotina do aluno**, mantendo a identidade, os conteúdos e os fluxos reconstruídos do portal real. A barra conserva seis destinos e suas medidas compactas; a home aproxima aula, pagamento, horas, pendências e agenda. Os refinamentos estão versionados no repositório e publicados pelo fluxo GitHub/Vercel autorizado pelo usuário. O ambiente de teste continua disponível no localhost.
 
-Atualização mais recente: [vídeo escolhido e Eletivas em Atividades e horas — V11](docs/REFINAMENTO-V11.md). Histórico: [parcela vencida de exemplo e opções de vídeo — V10](docs/REFINAMENTO-V10.md). Histórico: [resumo de vencidas e cards da home — V9](docs/REFINAMENTO-V9.md). Histórico: [home e responsáveis financeiros — V8](docs/REFINAMENTO-V8.md).
+Atualização mais recente: [card de horas de Eletivas — V12](docs/REFINAMENTO-V12.md). Histórico: [vídeo escolhido e Eletivas em Atividades e horas — V11](docs/REFINAMENTO-V11.md). Histórico: [parcela vencida de exemplo e opções de vídeo — V10](docs/REFINAMENTO-V10.md). Histórico: [resumo de vencidas e cards da home — V9](docs/REFINAMENTO-V9.md). Histórico: [home e responsáveis financeiros — V8](docs/REFINAMENTO-V8.md).
 
 ## Abrir
 

@@ -215,7 +215,7 @@ function Formation({ extensionOnly }: { extensionOnly: boolean }) {
             Cada atividade acrescenta uma experiência. Acompanhe suas horas e encontre oportunidades para continuar.
          </ContextBanner>
          <div className="student-formation-overview">
-            <FormationSummary />
+            <FormationSummary includeElectives />
             <section>
                <h2>O que eu quero acompanhar?</h2>
                <DestinationList
